@@ -15,81 +15,68 @@ format:
 
 # 🌊 Vida Submarina en Baja California
 
-## Row
-
-### 
+## Row {height="20%"}
 
 ::: {.callout-important appearance="minimal" .mb-4}
 # Interacción entre biodiversidad, pesca y cambio climático
 Este dashboard analiza cómo la actividad humana y fenómenos climáticos afectan el equilibrio del ecosistema marino, integrando evidencia histórica y proyecciones futuras.
 :::
 
-::: {.text-center .mb-4}
-#### ¿Qué encontrarás?
+## Row {height="10%"}
+
+::: {.text-center}
+#### ¿Qué encontrarás en este análisis?
 :::
 
-::: {.grid .mb-4}
+## Row {height="50%"}
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 📔
 ::: {.callout-note appearance="simple"}
-##  Introducción
-bla bla bla introduccion
+## Introducción
+Contexto general del proyecto y los objetivos planteados para la protección de la biodiversidad en Baja California.
 <br><br>
 [Introducción](introduccion.qmd){.btn .btn-secondary}
 :::
-:::
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 🔍
 ::: {.callout-note appearance="simple"}
-##  Análisis Exploratorio
+## Análisis Exploratorio
 Visualización de patrones históricos:
-
-- Avistamientos de ballenas  
-- Anidación de pelícanos  
-- Producción pesquera  
-- Eventos de El Niño  
-
-Identifica cambios y momentos críticos del ecosistema.
+- Avistamientos de ballenas
+- Anidación de pelícanos
+- Producción pesquera
+- Eventos de El Niño
 
 [Análisis Exploratorio](analisis.qmd){.btn .btn-primary}
 :::
-:::
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 🔮
 ::: {.callout-note appearance="simple"}
-##  Modelo Predictivo
-Simulación de escenarios futuros:
-
-- Trayectoria sin intervención  
-- Escenarios de conservación  
-- Incertidumbre y variabilidad  
-
-Evalúa el impacto de decisiones actuales.
-
+## Modelo Predictivo
+Simulación de escenarios:
+- Trayectoria sin intervención
+- Escenarios de conservación
+- Incertidumbre y variabilidad
+<br>
 [Modelo Predictivo](modelo.qmd){.btn .btn-success}
 :::
-:::
 
-::: {.g-col-12 .g-col-md-6 .g-col-lg-3}
+### 🚀
 ::: {.callout-note appearance="simple"}
-##  Escenarios a futuro
-Proyecciones a largo plazo:
-
-- Presión sobre el ecosistema  
-- Riesgos a futuro  
-- Recomendaciones  
-
+## Escenarios a futuro
+Proyecciones y riesgos:
+- Presión sobre el ecosistema
+- Riesgos a futuro
+- Recomendaciones estratégicas
 <br>
 [Escenarios a Futuro](escenarios.qmd){.btn .btn-secondary}
 :::
-:::
 
-:::
+## Row {height="20%"}
 
 ::: {.callout-important appearance="minimal"}
 ## 💡 Insight central
-El sistema marino responde simultáneamente a presiones climáticas y humanas.  
-Entender esta interacción es clave para diseñar estrategias sostenibles.
+El sistema marino responde simultáneamente a presiones climáticas y humanas. Entender esta interacción es clave para diseñar estrategias sostenibles.
 :::
 
 ::: {.ods-footer-box}
