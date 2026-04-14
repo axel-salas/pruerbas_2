@@ -70,7 +70,7 @@ h2 {
 
 /* 1. Títulos sueltos (como el #### ¿Qué encontrarás?) */
 h4 {
-  color: var(--ocean-deep) !important;
+  color: var(--deep) !important;
   font-weight: 700;
 }
 
@@ -79,26 +79,26 @@ h4 {
 .callout-body,
 .callout p, 
 .callout ul li {
-  color: var(--text-main) !important;
+  color: var(--light) !important;
 }
 
 /* 3. Color de los títulos dentro de las tarjetas (Callouts) */
 .callout-title,
 .callout-title-container {
-  color: var(--ocean-deep) !important;
+  color: var(--deep) !important;
   font-family: 'Playfair Display', serif !important;
 }
 
 /* 4. Asegurar que las tarjetas de "insight" resalten bien */
 .callout-important {
   background-color: rgba(255, 255, 255, 0.7) !important;
-  border-left: 5px solid var(--ocean-mid) !important;
+  border-left: 5px solid var(--mid) !important;
 }
 
 /* ── Scrollbar temática ───────────────────────── */
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--ocean-mist); }
+::-webkit-scrollbar-track { background: var(--mist); }
 ::-webkit-scrollbar-thumb {
-  background: var(--ocean-mid);
+  background: var(--mid);
   border-radius: 3px;
 }
