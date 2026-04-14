@@ -18,5 +18,5 @@ format:
     scrolling: true
     orientation: columns
     theme:
-      light: cosmo
+      light: custom.css
       dark: darkly
