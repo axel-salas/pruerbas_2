@@ -18,5 +18,5 @@ format:
     scrolling: true
     orientation: columns
     theme:
-      light: custom.css
+      light: custom.scss
       dark: darkly
