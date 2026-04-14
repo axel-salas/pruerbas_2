@@ -1,8 +1,5 @@
 ---
-title: "Análisis Exploratorio"
-format:
-  dashboard:
-    orientation: columns
+title: "Introducción"
 ---
 
 # 🌊 Introducción 
