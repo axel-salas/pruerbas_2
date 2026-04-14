@@ -3,7 +3,7 @@ project:
   output-dir: _site
 
 website:
-  title: "[TÍTULO DE TU DASHBOARD]"
+  title: "DERRE - HackODS  ODS 14 · Vida Submarina"
   navbar:
       left:
         - href: index.qmd
