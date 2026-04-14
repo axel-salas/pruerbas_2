@@ -1,3 +1,64 @@
+/* ===== PALETA ODS 14 ===== */
+:root {
+  --deep: #03045E;
+  --mid: #0077B6;
+  --light: #00B4D8;
+  --foam: #90E0EF;
+  --mist: #CAF0F8;
+}
+
+/* ===== FONDO GLOBAL ===== */
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* ===== TITULOS ===== */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+  color: var(--foam);
+}
+
+/* ===== CALL OUT PRINCIPAL ===== */
+.callout-important {
+  background: linear-gradient(135deg, #03045E, #0077B6);
+  color: white;
+  text-align: center;
+  padding: 50px 25px;
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+/* ===== TARJETAS ===== */
+.callout-note {
+  background: #1e293b;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+
+.callout-note:hover {
+  transform: translateY(-5px);
+}
+
+/* ===== BOTONES ===== */
+.btn {
+  border-radius: 12px;
+  padding: 12px 24px;
+  font-weight: 500;
+  margin: 10px;
+}
+
+/* ===== ESPACIADO ===== */
+.quarto-dashboard-row {
+  margin-bottom: 30px;
+}
+
 /* ===== ANIMACIONES ===== */
 .fade-in {
   animation: fadeIn 1.2s ease-in-out both;
