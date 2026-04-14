@@ -1,0 +1,44 @@
+name: Publish Quarto Dashboard
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: quarto-dev/quarto-actions/setup@main
+        with:
+          version: 1.6.0
+          
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: |
+          uv pip install jupyter nbformat pandas matplotlib plotly
+
+      - name: Render Quarto Project
+        working-directory: ./dashboard
+        run: |
+          uv run quarto render
+
+      - name: Add .nojekyll
+        run: touch dashboard/_site/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dashboard/_site
+          publish_branch: gh-pages
+          keep_files: false

@@ -1,0 +1,4702 @@
+MIME-Version: 1.0
+X-Document-Type: Workbook
+Content-Type: multipart/related; boundary="====Boundary===="
+
+--====Boundary====
+Content-Location: file:///C:/.XHT
+Content-Transfer-Encoding: 8bit
+Content-Type: text/html; charset="windows-1252"
+
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+  
+<HEAD>
+<meta name="Excel Workbook Frameset">
+  
+<xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>Indicador</x:Name>
+    <x:WorksheetSource HRef="./IBIT0001.xht"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>Notas</x:Name>
+    <x:WorksheetSource HRef="./IBIT0002.xht"/>
+   </x:ExcelWorksheet>
+   <x:ExcelWorksheet>
+    <x:Name>Sheet3</x:Name>
+    <x:WorksheetSource HRef="./IBIT0003.xht"/>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+ </x:ExcelWorkbook>
+</xml>
+</HEAD>
+</HTML>
+
+--====Boundary====
+Content-Location: file:///C:/IBIT0001.xht
+Content-Transfer-Encoding: 8bit
+Content-Type: text/html; charset="windows-1252"
+
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+  
+<HEAD>
+<style>
+<!--table
+        {border-collapse:collapse;
+        mso-displayed-decimal-separator:"\.";
+        mso-displayed-thousand-separator:"\,";}
+@page
+        {margin:1.0in .75in 1.0in .75in;
+        mso-header-margin:.5in;
+        mso-footer-margin:.5in;
+        mso-page-orientation:landscape;}
+tr
+        {mso-height-source:auto;}
+col
+        {mso-width-source:auto;}
+br
+        {mso-data-placement:same-cell;}
+.style21
+        {color:blue;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        mso-style-name:Hyperlink;
+        mso-style-id:8;}
+a:link
+        {color:blue;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;}
+a:visited
+        {color:purple;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;}
+.style0
+        {mso-number-format:General;
+        text-align:general;
+        vertical-align:bottom;
+        white-space:nowrap;
+        mso-rotate:0;
+        mso-background-source:auto;
+        mso-pattern:auto;
+        color:windowtext;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        border:none;
+        mso-protection:locked visible;
+        mso-style-name:Normal;
+        mso-style-id:0;}
+td
+        {mso-style-parent:style0;
+        padding:1px;
+        mso-ignore:padding;
+        color:windowtext;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        mso-number-format:General;
+        text-align:general;
+        vertical-align:bottom;
+        border:none;
+        mso-background-source:auto;
+        mso-pattern:auto;
+        mso-protection:locked visible;
+        white-space:nowrap;
+        mso-rotate:0;}
+.xl1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:normal;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl1r
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:normal;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl13_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl13r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl13_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl13r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl14_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl14r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl14_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl14r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl15_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl15r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl15_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl15r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl16_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl16r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl16_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl16r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl17_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl17r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl17_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl17r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl18_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl18r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl18_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl18r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl12_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:center;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl12r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:center;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl12_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:center;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl12r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:center;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl19_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl19r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl19_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl19r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl20_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl20r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl20_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl20r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl3
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl3r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl4
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl4r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl5
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl5r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl6
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl6r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl7
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl7r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl8
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl8r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl9
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl9r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl10
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl10r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl11
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl11r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl2
+        {mso-style-parent:style0;
+        color:#808080;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:normal;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+-->
+</style>
+<xml>
+ <x:WorksheetOptions>
+  <x:Print>
+   <x:ValidPrinterInfo/>
+  </x:Print>
+  <x:ProtectObjects>False</x:ProtectObjects>
+ </x:WorksheetOptions>
+</xml>
+</HEAD>
+  
+<BODY>
+  
+<TABLE X:STR BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<col style='mso-width-source:userset;width:56pt'>
+<col style='mso-width-source:userset;width:29pt'>
+<col style='mso-width-source:userset;width:29pt'>
+<col style='mso-width-source:userset;width:51pt'>
+<col style='mso-width-source:userset;width:51pt'>
+<col style='mso-width-source:userset;width:28pt'>
+<col style='mso-width-source:userset;width:54pt'>
+<col style='mso-width-source:userset;width:29pt'>
+<col style='mso-width-source:userset;width:29pt'>
+<TR>
+<TD COLSPAN=9 class=xl1>
+<FONT class=xl2>Monitoreo de las colonias de reproducci&#x00F3;n del lobo marino de California, Zalophus californianus                                                                                 </FONT>
+</TD>
+</TR>
+<TR>
+<TD COLSPAN=9 class=xl1>
+<FONT class=xl1>(N&#x00FA;mero)                                                              </FONT>
+</TD>
+</TR>
+<TD COLSPAN=9 class=xl1>&nbsp;</TD>
+<TR>
+<TD class=xl3>A&#x00F1;o</TD>
+<TD class=xl4>Colonia de reproducci&#x00F3;n</TD>
+<TD class=xl5>Machos adultos</TD>
+<TD class=xl6>Machos subadultos</TD>
+<TD class=xl7>Hembras</TD>
+<TD class=xl8>Juveniles</TD>
+<TD class=xl9>Cr&#x00ED;as</TD>
+<TD class=xl10>Sin clasificar</TD>
+<TD class=xl11>Total</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2004</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        12</TD>
+<TD class=xl15_0>        26</TD>
+<TD class=xl16_0>       299</TD>
+<TD class=xl17_0>       105</TD>
+<TD class=xl18_0>       118</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       560</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>         5</TD>
+<TD class=xl15_1>        47</TD>
+<TD class=xl16_1>       128</TD>
+<TD class=xl17_1>        69</TD>
+<TD class=xl18_1>        60</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       309</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        74</TD>
+<TD class=xl15_0>        87</TD>
+<TD class=xl16_0>       363</TD>
+<TD class=xl17_0>       154</TD>
+<TD class=xl18_0>       244</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       922</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        38</TD>
+<TD class=xl15_1>        55</TD>
+<TD class=xl16_1>       442</TD>
+<TD class=xl17_1>       111</TD>
+<TD class=xl18_1>       228</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       874</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        53</TD>
+<TD class=xl15_0>        58</TD>
+<TD class=xl16_0>       410</TD>
+<TD class=xl17_0>       143</TD>
+<TD class=xl18_0>       258</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       922</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1>     2,194</TD>
+<TD class=xl20_1>     2,194</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2005</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        23</TD>
+<TD class=xl15_0>        65</TD>
+<TD class=xl16_0>       224</TD>
+<TD class=xl17_0>        98</TD>
+<TD class=xl18_0>        98</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       508</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>         9</TD>
+<TD class=xl15_1>        13</TD>
+<TD class=xl16_1>       213</TD>
+<TD class=xl17_1>        46</TD>
+<TD class=xl18_1>        55</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       336</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        40</TD>
+<TD class=xl15_0>        45</TD>
+<TD class=xl16_0>       245</TD>
+<TD class=xl17_0>       201</TD>
+<TD class=xl18_0>       140</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       671</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        33</TD>
+<TD class=xl15_1>       194</TD>
+<TD class=xl16_1>       257</TD>
+<TD class=xl17_1>       130</TD>
+<TD class=xl18_1>       188</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       802</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        62</TD>
+<TD class=xl15_0>        28</TD>
+<TD class=xl16_0>       235</TD>
+<TD class=xl17_0>       198</TD>
+<TD class=xl18_0>        79</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       602</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Coloradito</TD>
+<TD class=xl14_1>       124</TD>
+<TD class=xl15_1>        31</TD>
+<TD class=xl16_1>       731</TD>
+<TD class=xl17_1>       310</TD>
+<TD class=xl18_1>       200</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>     1,396</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Rocas Consag</TD>
+<TD class=xl14_0>        38</TD>
+<TD class=xl15_0>        16</TD>
+<TD class=xl16_0>       193</TD>
+<TD class=xl17_0>        65</TD>
+<TD class=xl18_0>        86</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       398</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Islotes</TD>
+<TD class=xl14_1>        21</TD>
+<TD class=xl15_1>        34</TD>
+<TD class=xl16_1>       158</TD>
+<TD class=xl17_1>        55</TD>
+<TD class=xl18_1>       115</TD>
+<TD class=xl19_1>         8</TD>
+<TD class=xl20_1>       391</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>     2,078</TD>
+<TD class=xl20_0>     2,078</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Natividad</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1>       297</TD>
+<TD class=xl20_1>       297</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2006</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        24</TD>
+<TD class=xl15_0>        49</TD>
+<TD class=xl16_0>       177</TD>
+<TD class=xl17_0>       147</TD>
+<TD class=xl18_0>        92</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       489</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>        13</TD>
+<TD class=xl15_1>        36</TD>
+<TD class=xl16_1>       122</TD>
+<TD class=xl17_1>       147</TD>
+<TD class=xl18_1>        81</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       399</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        70</TD>
+<TD class=xl15_0>        50</TD>
+<TD class=xl16_0>       213</TD>
+<TD class=xl17_0>       144</TD>
+<TD class=xl18_0>       198</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       675</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        95</TD>
+<TD class=xl15_1>        54</TD>
+<TD class=xl16_1>       214</TD>
+<TD class=xl17_1>       123</TD>
+<TD class=xl18_1>       148</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       634</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>        98</TD>
+<TD class=xl15_0>        18</TD>
+<TD class=xl16_0>       573</TD>
+<TD class=xl17_0>       300</TD>
+<TD class=xl18_0>       415</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     1,404</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Islotes</TD>
+<TD class=xl14_1>        20</TD>
+<TD class=xl15_1>        17</TD>
+<TD class=xl16_1>       116</TD>
+<TD class=xl17_1>        50</TD>
+<TD class=xl18_1>       109</TD>
+<TD class=xl19_1>        25</TD>
+<TD class=xl20_1>       337</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>     2,098</TD>
+<TD class=xl20_0>     2,098</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla San Roque</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1>         2</TD>
+<TD class=xl20_1>         2</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Natividad</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>       544</TD>
+<TD class=xl20_0>       544</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>        38</TD>
+<TD class=xl15_1>        23</TD>
+<TD class=xl16_1>       178</TD>
+<TD class=xl17_1>       123</TD>
+<TD class=xl18_1>        12</TD>
+<TD class=xl19_1>         1</TD>
+<TD class=xl20_1>       375</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>       101</TD>
+<TD class=xl15_0>       116</TD>
+<TD class=xl16_0>       640</TD>
+<TD class=xl17_0>       304</TD>
+<TD class=xl18_0>       414</TD>
+<TD class=xl19_0>        16</TD>
+<TD class=xl20_0>     1,591</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2007</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        26</TD>
+<TD class=xl15_1>        25</TD>
+<TD class=xl16_1>       224</TD>
+<TD class=xl17_1>       301</TD>
+<TD class=xl18_1>       152</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       728</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        14</TD>
+<TD class=xl15_0>        11</TD>
+<TD class=xl16_0>       153</TD>
+<TD class=xl17_0>       116</TD>
+<TD class=xl18_0>        74</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       368</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>       129</TD>
+<TD class=xl15_1>       131</TD>
+<TD class=xl16_1>       181</TD>
+<TD class=xl17_1>        85</TD>
+<TD class=xl18_1>       189</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       715</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        54</TD>
+<TD class=xl15_0>       200</TD>
+<TD class=xl16_0>       301</TD>
+<TD class=xl17_0>        83</TD>
+<TD class=xl18_0>        61</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       699</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        67</TD>
+<TD class=xl15_1>        61</TD>
+<TD class=xl16_1>       100</TD>
+<TD class=xl17_1>        63</TD>
+<TD class=xl18_1>        85</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       376</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>       129</TD>
+<TD class=xl15_0>        28</TD>
+<TD class=xl16_0>       202</TD>
+<TD class=xl17_0>       203</TD>
+<TD class=xl18_0>       148</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       710</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Rocas Consag</TD>
+<TD class=xl14_1>        28</TD>
+<TD class=xl15_1>        38</TD>
+<TD class=xl16_1>       117</TD>
+<TD class=xl17_1>       117</TD>
+<TD class=xl18_1>        42</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       342</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        30</TD>
+<TD class=xl15_0>        22</TD>
+<TD class=xl16_0>       184</TD>
+<TD class=xl17_0>        63</TD>
+<TD class=xl18_0>       130</TD>
+<TD class=xl19_0>        19</TD>
+<TD class=xl20_0>       448</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1>     2,260</TD>
+<TD class=xl20_1>     2,260</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>         1</TD>
+<TD class=xl20_0>         1</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Natividad</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1>       532</TD>
+<TD class=xl20_1>       532</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        40</TD>
+<TD class=xl15_0>        23</TD>
+<TD class=xl16_0>       412</TD>
+<TD class=xl17_0>        77</TD>
+<TD class=xl18_0>        82</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       634</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>       276</TD>
+<TD class=xl15_1>       679</TD>
+<TD class=xl16_1>     3,519</TD>
+<TD class=xl17_1>       738</TD>
+<TD class=xl18_1>     1,989</TD>
+<TD class=xl19_1>         5</TD>
+<TD class=xl20_1>     7,206</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Jorge</TD>
+<TD class=xl14_0>       144</TD>
+<TD class=xl15_0>       160</TD>
+<TD class=xl16_0>     1,931</TD>
+<TD class=xl17_0>       418</TD>
+<TD class=xl18_0>     1,360</TD>
+<TD class=xl19_0>         2</TD>
+<TD class=xl20_0>     4,015</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2008</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        20</TD>
+<TD class=xl15_1>        14</TD>
+<TD class=xl16_1>       158</TD>
+<TD class=xl17_1>        98</TD>
+<TD class=xl18_1>       240</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       530</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        14</TD>
+<TD class=xl15_0>         7</TD>
+<TD class=xl16_0>       112</TD>
+<TD class=xl17_0>        98</TD>
+<TD class=xl18_0>       202</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       433</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>        34</TD>
+<TD class=xl15_1>        61</TD>
+<TD class=xl16_1>       426</TD>
+<TD class=xl17_1>        79</TD>
+<TD class=xl18_1>       198</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       798</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        11</TD>
+<TD class=xl15_0>        30</TD>
+<TD class=xl16_0>       381</TD>
+<TD class=xl17_0>        45</TD>
+<TD class=xl18_0>         0</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       467</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        54</TD>
+<TD class=xl15_1>        39</TD>
+<TD class=xl16_1>       218</TD>
+<TD class=xl17_1>       179</TD>
+<TD class=xl18_1>       131</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       621</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>        99</TD>
+<TD class=xl15_0>        92</TD>
+<TD class=xl16_0>       629</TD>
+<TD class=xl17_0>       460</TD>
+<TD class=xl18_0>       306</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     1,586</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Islotes</TD>
+<TD class=xl14_1>        27</TD>
+<TD class=xl15_1>        35</TD>
+<TD class=xl16_1>       201</TD>
+<TD class=xl17_1>        82</TD>
+<TD class=xl18_1>       137</TD>
+<TD class=xl19_1>         8</TD>
+<TD class=xl20_1>       490</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0>       267</TD>
+<TD class=xl19_0>     1,342</TD>
+<TD class=xl20_0>     1,609</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla San Roque</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1>         4</TD>
+<TD class=xl20_1>         4</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Natividad</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0>        38</TD>
+<TD class=xl19_0>       766</TD>
+<TD class=xl20_0>       804</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>        86</TD>
+<TD class=xl15_1>        46</TD>
+<TD class=xl16_1>       318</TD>
+<TD class=xl17_1>       152</TD>
+<TD class=xl18_1>        72</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       674</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>        73</TD>
+<TD class=xl15_0>        59</TD>
+<TD class=xl16_0>       906</TD>
+<TD class=xl17_0>       208</TD>
+<TD class=xl18_0>       335</TD>
+<TD class=xl19_0>         9</TD>
+<TD class=xl20_0>     1,590</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>        47</TD>
+<TD class=xl15_1>       115</TD>
+<TD class=xl16_1>     1,292</TD>
+<TD class=xl17_1>        32</TD>
+<TD class=xl18_1>       619</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     2,105</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2009</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        29</TD>
+<TD class=xl15_0>        37</TD>
+<TD class=xl16_0>       204</TD>
+<TD class=xl17_0>       180</TD>
+<TD class=xl18_0>       126</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       576</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>        19</TD>
+<TD class=xl15_1>        43</TD>
+<TD class=xl16_1>       155</TD>
+<TD class=xl17_1>       156</TD>
+<TD class=xl18_1>        78</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       451</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        82</TD>
+<TD class=xl15_0>        85</TD>
+<TD class=xl16_0>       183</TD>
+<TD class=xl17_0>       121</TD>
+<TD class=xl18_0>       150</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       621</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        33</TD>
+<TD class=xl15_1>        26</TD>
+<TD class=xl16_1>       292</TD>
+<TD class=xl17_1>       141</TD>
+<TD class=xl18_1>       199</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       691</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        30</TD>
+<TD class=xl15_0>        34</TD>
+<TD class=xl16_0>       240</TD>
+<TD class=xl17_0>       172</TD>
+<TD class=xl18_0>       160</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       636</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Coloradito</TD>
+<TD class=xl14_1>        81</TD>
+<TD class=xl15_1>        51</TD>
+<TD class=xl16_1>       616</TD>
+<TD class=xl17_1>       153</TD>
+<TD class=xl18_1>       345</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>     1,246</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        29</TD>
+<TD class=xl15_0>        33</TD>
+<TD class=xl16_0>       158</TD>
+<TD class=xl17_0>        63</TD>
+<TD class=xl18_0>       135</TD>
+<TD class=xl19_0>        28</TD>
+<TD class=xl20_0>       446</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1>       159</TD>
+<TD class=xl19_1>     1,743</TD>
+<TD class=xl20_1>     1,902</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>        16</TD>
+<TD class=xl20_0>        16</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Natividad</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1>        32</TD>
+<TD class=xl19_1>       492</TD>
+<TD class=xl20_1>       524</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        40</TD>
+<TD class=xl15_0>        37</TD>
+<TD class=xl16_0>       275</TD>
+<TD class=xl17_0>       150</TD>
+<TD class=xl18_0>       158</TD>
+<TD class=xl19_0>         1</TD>
+<TD class=xl20_0>       661</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>        33</TD>
+<TD class=xl15_1>        82</TD>
+<TD class=xl16_1>       595</TD>
+<TD class=xl17_1>       264</TD>
+<TD class=xl18_1>       208</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     1,182</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>        72</TD>
+<TD class=xl15_0>       219</TD>
+<TD class=xl16_0>     1,118</TD>
+<TD class=xl17_0>       201</TD>
+<TD class=xl18_0>     1,242</TD>
+<TD class=xl19_0>         8</TD>
+<TD class=xl20_0>     2,860</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2010</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        13</TD>
+<TD class=xl15_1>        51</TD>
+<TD class=xl16_1>        82</TD>
+<TD class=xl17_1>        32</TD>
+<TD class=xl18_1>        51</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       229</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        12</TD>
+<TD class=xl15_0>         6</TD>
+<TD class=xl16_0>        89</TD>
+<TD class=xl17_0>        15</TD>
+<TD class=xl18_0>        63</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       185</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>        86</TD>
+<TD class=xl15_1>        77</TD>
+<TD class=xl16_1>       257</TD>
+<TD class=xl17_1>       202</TD>
+<TD class=xl18_1>       270</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       892</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        39</TD>
+<TD class=xl15_0>        27</TD>
+<TD class=xl16_0>       155</TD>
+<TD class=xl17_0>       134</TD>
+<TD class=xl18_0>       272</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       627</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        61</TD>
+<TD class=xl15_1>        37</TD>
+<TD class=xl16_1>       179</TD>
+<TD class=xl17_1>       114</TD>
+<TD class=xl18_1>       230</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       621</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        18</TD>
+<TD class=xl15_0>         9</TD>
+<TD class=xl16_0>       266</TD>
+<TD class=xl17_0>        91</TD>
+<TD class=xl18_0>       179</TD>
+<TD class=xl19_0>         4</TD>
+<TD class=xl20_0>       567</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1>       451</TD>
+<TD class=xl19_1>     2,344</TD>
+<TD class=xl20_1>     2,795</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>         5</TD>
+<TD class=xl20_0>         5</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Natividad</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1>       332</TD>
+<TD class=xl19_1>     1,467</TD>
+<TD class=xl20_1>     1,799</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        38</TD>
+<TD class=xl15_0>        59</TD>
+<TD class=xl16_0>       289</TD>
+<TD class=xl17_0>       113</TD>
+<TD class=xl18_0>        61</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       560</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>        94</TD>
+<TD class=xl15_1>       113</TD>
+<TD class=xl16_1>       545</TD>
+<TD class=xl17_1>       287</TD>
+<TD class=xl18_1>       304</TD>
+<TD class=xl19_1>        23</TD>
+<TD class=xl20_1>     1,366</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       199</TD>
+<TD class=xl15_0>        72</TD>
+<TD class=xl16_0>     2,332</TD>
+<TD class=xl17_0>       692</TD>
+<TD class=xl18_0>     1,548</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     4,843</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       111</TD>
+<TD class=xl15_1>       167</TD>
+<TD class=xl16_1>       905</TD>
+<TD class=xl17_1>       213</TD>
+<TD class=xl18_1>       144</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     1,540</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2011</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        20</TD>
+<TD class=xl15_0>         8</TD>
+<TD class=xl16_0>       203</TD>
+<TD class=xl17_0>       115</TD>
+<TD class=xl18_0>        48</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       394</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>        13</TD>
+<TD class=xl15_1>         2</TD>
+<TD class=xl16_1>        85</TD>
+<TD class=xl17_1>       115</TD>
+<TD class=xl18_1>        31</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       246</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        72</TD>
+<TD class=xl15_0>        27</TD>
+<TD class=xl16_0>       383</TD>
+<TD class=xl17_0>       402</TD>
+<TD class=xl18_0>       197</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     1,081</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        79</TD>
+<TD class=xl15_1>        51</TD>
+<TD class=xl16_1>       205</TD>
+<TD class=xl17_1>       313</TD>
+<TD class=xl18_1>       204</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       852</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        58</TD>
+<TD class=xl15_0>        38</TD>
+<TD class=xl16_0>       140</TD>
+<TD class=xl17_0>       289</TD>
+<TD class=xl18_0>       106</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       631</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Rocas Consag</TD>
+<TD class=xl14_1>        48</TD>
+<TD class=xl15_1>        20</TD>
+<TD class=xl16_1>       196</TD>
+<TD class=xl17_1>       158</TD>
+<TD class=xl18_1>        76</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       498</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        23</TD>
+<TD class=xl15_0>        25</TD>
+<TD class=xl16_0>       222</TD>
+<TD class=xl17_0>        71</TD>
+<TD class=xl18_0>       163</TD>
+<TD class=xl19_0>        40</TD>
+<TD class=xl20_0>       544</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       482</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>       696</TD>
+<TD class=xl17_1>       578</TD>
+<TD class=xl18_1>       641</TD>
+<TD class=xl19_1>     2,801</TD>
+<TD class=xl20_1>     5,198</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0>         2</TD>
+<TD class=xl19_0>         3</TD>
+<TD class=xl20_0>         5</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Natividad</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1>       163</TD>
+<TD class=xl18_1>       216</TD>
+<TD class=xl19_1>       968</TD>
+<TD class=xl20_1>     1,347</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        68</TD>
+<TD class=xl15_0>        87</TD>
+<TD class=xl16_0>       216</TD>
+<TD class=xl17_0>       220</TD>
+<TD class=xl18_0>        86</TD>
+<TD class=xl19_0>         2</TD>
+<TD class=xl20_0>       679</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>       169</TD>
+<TD class=xl15_1>       139</TD>
+<TD class=xl16_1>       827</TD>
+<TD class=xl17_1>       197</TD>
+<TD class=xl18_1>       589</TD>
+<TD class=xl19_1>        13</TD>
+<TD class=xl20_1>     1,934</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       464</TD>
+<TD class=xl15_0>       489</TD>
+<TD class=xl16_0>     2,841</TD>
+<TD class=xl17_0>       349</TD>
+<TD class=xl18_0>     1,605</TD>
+<TD class=xl19_0>        21</TD>
+<TD class=xl20_0>     5,769</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       138</TD>
+<TD class=xl15_1>        94</TD>
+<TD class=xl16_1>       533</TD>
+<TD class=xl17_1>       147</TD>
+<TD class=xl18_1>       911</TD>
+<TD class=xl19_1>         3</TD>
+<TD class=xl20_1>     1,826</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_0>        35</TD>
+<TD class=xl15_0>        40</TD>
+<TD class=xl16_0>       274</TD>
+<TD class=xl17_0>        65</TD>
+<TD class=xl18_0>       178</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       592</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2012</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        30</TD>
+<TD class=xl15_1>        45</TD>
+<TD class=xl16_1>       196</TD>
+<TD class=xl17_1>       134</TD>
+<TD class=xl18_1>       134</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       539</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        18</TD>
+<TD class=xl15_0>        56</TD>
+<TD class=xl16_0>        95</TD>
+<TD class=xl17_0>       125</TD>
+<TD class=xl18_0>        60</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       354</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>       184</TD>
+<TD class=xl15_1>       187</TD>
+<TD class=xl16_1>       351</TD>
+<TD class=xl17_1>       266</TD>
+<TD class=xl18_1>       211</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>     1,199</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        43</TD>
+<TD class=xl15_0>        28</TD>
+<TD class=xl16_0>       255</TD>
+<TD class=xl17_0>       229</TD>
+<TD class=xl18_0>       211</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       766</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        40</TD>
+<TD class=xl15_1>        21</TD>
+<TD class=xl16_1>       204</TD>
+<TD class=xl17_1>        70</TD>
+<TD class=xl18_1>       134</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       469</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>        81</TD>
+<TD class=xl15_0>        30</TD>
+<TD class=xl16_0>       843</TD>
+<TD class=xl17_0>       279</TD>
+<TD class=xl18_0>       508</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     1,741</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Rocas Consag</TD>
+<TD class=xl14_1>        38</TD>
+<TD class=xl15_1>        18</TD>
+<TD class=xl16_1>       263</TD>
+<TD class=xl17_1>       125</TD>
+<TD class=xl18_1>       135</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       579</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        23</TD>
+<TD class=xl15_0>        27</TD>
+<TD class=xl16_0>       216</TD>
+<TD class=xl17_0>        76</TD>
+<TD class=xl18_0>       170</TD>
+<TD class=xl19_0>        19</TD>
+<TD class=xl20_0>       531</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       331</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>     1,293</TD>
+<TD class=xl17_1>       361</TD>
+<TD class=xl18_1>       832</TD>
+<TD class=xl19_1>     1,341</TD>
+<TD class=xl20_1>     4,158</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0>         1</TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>         1</TD>
+<TD class=xl20_0>         2</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Natividad</TD>
+<TD class=xl14_1>        25</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>       736</TD>
+<TD class=xl17_1>       830</TD>
+<TD class=xl18_1>        73</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     1,664</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        65</TD>
+<TD class=xl15_0>        50</TD>
+<TD class=xl16_0>       300</TD>
+<TD class=xl17_0>       144</TD>
+<TD class=xl18_0>       191</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       750</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>       140</TD>
+<TD class=xl15_1>       139</TD>
+<TD class=xl16_1>       588</TD>
+<TD class=xl17_1>       257</TD>
+<TD class=xl18_1>       371</TD>
+<TD class=xl19_1>         2</TD>
+<TD class=xl20_1>     1,497</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       450</TD>
+<TD class=xl15_0>       343</TD>
+<TD class=xl16_0>     2,155</TD>
+<TD class=xl17_0>       587</TD>
+<TD class=xl18_0>     1,541</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     5,076</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       299</TD>
+<TD class=xl15_1>       326</TD>
+<TD class=xl16_1>     1,815</TD>
+<TD class=xl17_1>       259</TD>
+<TD class=xl18_1>     1,396</TD>
+<TD class=xl19_1>         2</TD>
+<TD class=xl20_1>     4,097</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_0>        37</TD>
+<TD class=xl15_0>        37</TD>
+<TD class=xl16_0>       215</TD>
+<TD class=xl17_0>        61</TD>
+<TD class=xl18_0>       180</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       530</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2013</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        30</TD>
+<TD class=xl15_1>        53</TD>
+<TD class=xl16_1>       172</TD>
+<TD class=xl17_1>       158</TD>
+<TD class=xl18_1>       138</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       551</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        18</TD>
+<TD class=xl15_0>        56</TD>
+<TD class=xl16_0>       166</TD>
+<TD class=xl17_0>       141</TD>
+<TD class=xl18_0>        65</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       446</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>       120</TD>
+<TD class=xl15_1>        48</TD>
+<TD class=xl16_1>       357</TD>
+<TD class=xl17_1>       233</TD>
+<TD class=xl18_1>       250</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>     1,008</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>       145</TD>
+<TD class=xl15_0>        80</TD>
+<TD class=xl16_0>       348</TD>
+<TD class=xl17_0>       226</TD>
+<TD class=xl18_0>       289</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     1,088</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        79</TD>
+<TD class=xl15_1>        30</TD>
+<TD class=xl16_1>       323</TD>
+<TD class=xl17_1>       188</TD>
+<TD class=xl18_1>       235</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       855</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        31</TD>
+<TD class=xl15_0>        38</TD>
+<TD class=xl16_0>       192</TD>
+<TD class=xl17_0>        73</TD>
+<TD class=xl18_0>       153</TD>
+<TD class=xl19_0>        19</TD>
+<TD class=xl20_0>       506</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       177</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>       623</TD>
+<TD class=xl17_1>       640</TD>
+<TD class=xl18_1>       237</TD>
+<TD class=xl19_1>     1,114</TD>
+<TD class=xl20_1>     2,791</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0>         1</TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>         1</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>       147</TD>
+<TD class=xl15_1>       226</TD>
+<TD class=xl16_1>       224</TD>
+<TD class=xl17_1>       101</TD>
+<TD class=xl18_1>       131</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       829</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>       172</TD>
+<TD class=xl15_0>       238</TD>
+<TD class=xl16_0>       595</TD>
+<TD class=xl17_0>       180</TD>
+<TD class=xl18_0>       380</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     1,565</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>       260</TD>
+<TD class=xl15_1>       237</TD>
+<TD class=xl16_1>     1,383</TD>
+<TD class=xl17_1>       735</TD>
+<TD class=xl18_1>     1,092</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     3,707</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Jorge</TD>
+<TD class=xl14_0>       181</TD>
+<TD class=xl15_0>       212</TD>
+<TD class=xl16_0>     1,334</TD>
+<TD class=xl17_0>       267</TD>
+<TD class=xl18_0>       444</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     2,438</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_1>        21</TD>
+<TD class=xl15_1>         9</TD>
+<TD class=xl16_1>        52</TD>
+<TD class=xl17_1>        45</TD>
+<TD class=xl18_1>        89</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       216</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Guadalupe</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>       324</TD>
+<TD class=xl20_0>       324</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2014</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        17</TD>
+<TD class=xl15_1>        18</TD>
+<TD class=xl16_1>       165</TD>
+<TD class=xl17_1>       144</TD>
+<TD class=xl18_1>        87</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       431</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        11</TD>
+<TD class=xl15_0>        12</TD>
+<TD class=xl16_0>        92</TD>
+<TD class=xl17_0>        57</TD>
+<TD class=xl18_0>        37</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       209</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>        44</TD>
+<TD class=xl15_1>       137</TD>
+<TD class=xl16_1>       270</TD>
+<TD class=xl17_1>       190</TD>
+<TD class=xl18_1>       192</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       833</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        74</TD>
+<TD class=xl15_0>       118</TD>
+<TD class=xl16_0>       609</TD>
+<TD class=xl17_0>       409</TD>
+<TD class=xl18_0>       124</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     1,334</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        35</TD>
+<TD class=xl15_1>        21</TD>
+<TD class=xl16_1>       242</TD>
+<TD class=xl17_1>       158</TD>
+<TD class=xl18_1>       148</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       604</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>       114</TD>
+<TD class=xl15_0>        76</TD>
+<TD class=xl16_0>       528</TD>
+<TD class=xl17_0>       422</TD>
+<TD class=xl18_0>       289</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     1,429</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Rocas Consag</TD>
+<TD class=xl14_1>        46</TD>
+<TD class=xl15_1>        34</TD>
+<TD class=xl16_1>       273</TD>
+<TD class=xl17_1>       124</TD>
+<TD class=xl18_1>       110</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       587</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        30</TD>
+<TD class=xl15_0>        27</TD>
+<TD class=xl16_0>       236</TD>
+<TD class=xl17_0>        56</TD>
+<TD class=xl18_0>       165</TD>
+<TD class=xl19_0>        11</TD>
+<TD class=xl20_0>       525</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       100</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>       988</TD>
+<TD class=xl17_1>       489</TD>
+<TD class=xl18_1>       132</TD>
+<TD class=xl19_1>     2,062</TD>
+<TD class=xl20_1>     3,771</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        49</TD>
+<TD class=xl15_0>        29</TD>
+<TD class=xl16_0>       340</TD>
+<TD class=xl17_0>        83</TD>
+<TD class=xl18_0>        84</TD>
+<TD class=xl19_0>         1</TD>
+<TD class=xl20_0>       586</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>       188</TD>
+<TD class=xl15_1>       199</TD>
+<TD class=xl16_1>       926</TD>
+<TD class=xl17_1>        97</TD>
+<TD class=xl18_1>       154</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     1,564</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       551</TD>
+<TD class=xl15_0>       659</TD>
+<TD class=xl16_0>     1,794</TD>
+<TD class=xl17_0>       242</TD>
+<TD class=xl18_0>       722</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     3,968</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       244</TD>
+<TD class=xl15_1>       219</TD>
+<TD class=xl16_1>     1,129</TD>
+<TD class=xl17_1>       182</TD>
+<TD class=xl18_1>       703</TD>
+<TD class=xl19_1>         2</TD>
+<TD class=xl20_1>     2,479</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_0>        33</TD>
+<TD class=xl15_0>        21</TD>
+<TD class=xl16_0>       237</TD>
+<TD class=xl17_0>        56</TD>
+<TD class=xl18_0>        63</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       410</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Guadalupe</TD>
+<TD class=xl14_1>         8</TD>
+<TD class=xl15_1>        22</TD>
+<TD class=xl16_1>       172</TD>
+<TD class=xl17_1>        18</TD>
+<TD class=xl18_1>        47</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       267</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2015</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        15</TD>
+<TD class=xl15_0>        37</TD>
+<TD class=xl16_0>       179</TD>
+<TD class=xl17_0>        79</TD>
+<TD class=xl18_0>        73</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       383</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>        12</TD>
+<TD class=xl15_1>        25</TD>
+<TD class=xl16_1>       115</TD>
+<TD class=xl17_1>        37</TD>
+<TD class=xl18_1>        23</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       212</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        80</TD>
+<TD class=xl15_0>        68</TD>
+<TD class=xl16_0>       272</TD>
+<TD class=xl17_0>       244</TD>
+<TD class=xl18_0>       117</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       781</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        56</TD>
+<TD class=xl15_1>        51</TD>
+<TD class=xl16_1>       241</TD>
+<TD class=xl17_1>       116</TD>
+<TD class=xl18_1>        92</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       556</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        25</TD>
+<TD class=xl15_0>        27</TD>
+<TD class=xl16_0>       110</TD>
+<TD class=xl17_0>       119</TD>
+<TD class=xl18_0>        64</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       345</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Islotes</TD>
+<TD class=xl14_1>        34</TD>
+<TD class=xl15_1>        14</TD>
+<TD class=xl16_1>       225</TD>
+<TD class=xl17_1>        56</TD>
+<TD class=xl18_1>       190</TD>
+<TD class=xl19_1>        16</TD>
+<TD class=xl20_1>       535</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_0>       124</TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0>     1,053</TD>
+<TD class=xl17_0>       502</TD>
+<TD class=xl18_0>       285</TD>
+<TD class=xl19_0>     1,063</TD>
+<TD class=xl20_0>     3,027</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla San Roque</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1>         1</TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>         1</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        72</TD>
+<TD class=xl15_0>        57</TD>
+<TD class=xl16_0>       195</TD>
+<TD class=xl17_0>       124</TD>
+<TD class=xl18_0>        93</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       541</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>       178</TD>
+<TD class=xl15_1>        78</TD>
+<TD class=xl16_1>       406</TD>
+<TD class=xl17_1>       151</TD>
+<TD class=xl18_1>       366</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     1,179</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       430</TD>
+<TD class=xl15_0>       293</TD>
+<TD class=xl16_0>     1,383</TD>
+<TD class=xl17_0>       459</TD>
+<TD class=xl18_0>       989</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     3,554</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       273</TD>
+<TD class=xl15_1>       200</TD>
+<TD class=xl16_1>       942</TD>
+<TD class=xl17_1>       183</TD>
+<TD class=xl18_1>       921</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     2,519</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_0>        51</TD>
+<TD class=xl15_0>        27</TD>
+<TD class=xl16_0>       184</TD>
+<TD class=xl17_0>        85</TD>
+<TD class=xl18_0>       112</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       459</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Guadalupe</TD>
+<TD class=xl14_1>         4</TD>
+<TD class=xl15_1>        18</TD>
+<TD class=xl16_1>       172</TD>
+<TD class=xl17_1>        48</TD>
+<TD class=xl18_1>        73</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       315</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2016</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        19</TD>
+<TD class=xl15_0>         8</TD>
+<TD class=xl16_0>       268</TD>
+<TD class=xl17_0>       187</TD>
+<TD class=xl18_0>        78</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       560</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>         9</TD>
+<TD class=xl15_1>         8</TD>
+<TD class=xl16_1>        90</TD>
+<TD class=xl17_1>        44</TD>
+<TD class=xl18_1>        17</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       168</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        41</TD>
+<TD class=xl15_0>       110</TD>
+<TD class=xl16_0>       234</TD>
+<TD class=xl17_0>        37</TD>
+<TD class=xl18_0>       163</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       585</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        22</TD>
+<TD class=xl15_1>         1</TD>
+<TD class=xl16_1>       271</TD>
+<TD class=xl17_1>        24</TD>
+<TD class=xl18_1>       102</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       420</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        28</TD>
+<TD class=xl15_0>        28</TD>
+<TD class=xl16_0>       189</TD>
+<TD class=xl17_0>        23</TD>
+<TD class=xl18_0>       137</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>       405</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Coloradito</TD>
+<TD class=xl14_1>        71</TD>
+<TD class=xl15_1>        53</TD>
+<TD class=xl16_1>       486</TD>
+<TD class=xl17_1>        27</TD>
+<TD class=xl18_1>       295</TD>
+<TD class=xl19_1> </TD>
+<TD class=xl20_1>       932</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        29</TD>
+<TD class=xl15_0>        36</TD>
+<TD class=xl16_0>       220</TD>
+<TD class=xl17_0>        35</TD>
+<TD class=xl18_0>       162</TD>
+<TD class=xl19_0>        43</TD>
+<TD class=xl20_0>       525</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       103</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>     1,036</TD>
+<TD class=xl17_1>       408</TD>
+<TD class=xl18_1>       330</TD>
+<TD class=xl19_1>       530</TD>
+<TD class=xl20_1>     2,407</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0>         2</TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>         2</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>       100</TD>
+<TD class=xl15_1>        50</TD>
+<TD class=xl16_1>       290</TD>
+<TD class=xl17_1>        95</TD>
+<TD class=xl18_1>       294</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       829</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>        77</TD>
+<TD class=xl15_0>       175</TD>
+<TD class=xl16_0>       473</TD>
+<TD class=xl17_0>       333</TD>
+<TD class=xl18_0>       122</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     1,180</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>       282</TD>
+<TD class=xl15_1>       497</TD>
+<TD class=xl16_1>     1,622</TD>
+<TD class=xl17_1>     1,102</TD>
+<TD class=xl18_1>       809</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     4,312</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Jorge</TD>
+<TD class=xl14_0>       249</TD>
+<TD class=xl15_0>       100</TD>
+<TD class=xl16_0>     1,324</TD>
+<TD class=xl17_0>       161</TD>
+<TD class=xl18_0>       935</TD>
+<TD class=xl19_0>         5</TD>
+<TD class=xl20_0>     2,774</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_1>        28</TD>
+<TD class=xl15_1>        15</TD>
+<TD class=xl16_1>       143</TD>
+<TD class=xl17_1>        86</TD>
+<TD class=xl18_1>        85</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       357</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Guadalupe</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>        48</TD>
+<TD class=xl20_0>        48</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2017</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        28</TD>
+<TD class=xl15_1>        16</TD>
+<TD class=xl16_1>       234</TD>
+<TD class=xl17_1>       291</TD>
+<TD class=xl18_1>       110</TD>
+<TD class=xl19_1>        98</TD>
+<TD class=xl20_1>       777</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>         8</TD>
+<TD class=xl15_0>         2</TD>
+<TD class=xl16_0>       143</TD>
+<TD class=xl17_0>       165</TD>
+<TD class=xl18_0>        60</TD>
+<TD class=xl19_0>        17</TD>
+<TD class=xl20_0>       395</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>        63</TD>
+<TD class=xl15_1>        63</TD>
+<TD class=xl16_1>       284</TD>
+<TD class=xl17_1>       265</TD>
+<TD class=xl18_1>       199</TD>
+<TD class=xl19_1>        51</TD>
+<TD class=xl20_1>       925</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        38</TD>
+<TD class=xl15_0>        37</TD>
+<TD class=xl16_0>       214</TD>
+<TD class=xl17_0>       148</TD>
+<TD class=xl18_0>       169</TD>
+<TD class=xl19_0>        53</TD>
+<TD class=xl20_0>       659</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        38</TD>
+<TD class=xl15_1>        11</TD>
+<TD class=xl16_1>       190</TD>
+<TD class=xl17_1>       145</TD>
+<TD class=xl18_1>       134</TD>
+<TD class=xl19_1>        32</TD>
+<TD class=xl20_1>       550</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>       150</TD>
+<TD class=xl15_0>        33</TD>
+<TD class=xl16_0>       395</TD>
+<TD class=xl17_0>       255</TD>
+<TD class=xl18_0>       250</TD>
+<TD class=xl19_0>       177</TD>
+<TD class=xl20_0>     1,260</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Rocas Consag</TD>
+<TD class=xl14_1>        45</TD>
+<TD class=xl15_1>        12</TD>
+<TD class=xl16_1>       109</TD>
+<TD class=xl17_1>        64</TD>
+<TD class=xl18_1>        62</TD>
+<TD class=xl19_1>        39</TD>
+<TD class=xl20_1>       331</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        32</TD>
+<TD class=xl15_0>        30</TD>
+<TD class=xl16_0>       295</TD>
+<TD class=xl17_0>        28</TD>
+<TD class=xl18_0>       208</TD>
+<TD class=xl19_0>        23</TD>
+<TD class=xl20_0>       616</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       118</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>     1,403</TD>
+<TD class=xl17_1>       457</TD>
+<TD class=xl18_1>       516</TD>
+<TD class=xl19_1>       216</TD>
+<TD class=xl20_1>     2,710</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla San Roque</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>         2</TD>
+<TD class=xl20_0>         2</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>        33</TD>
+<TD class=xl15_1>        36</TD>
+<TD class=xl16_1>       278</TD>
+<TD class=xl17_1>        82</TD>
+<TD class=xl18_1>        74</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       503</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>       110</TD>
+<TD class=xl15_0>       141</TD>
+<TD class=xl16_0>       440</TD>
+<TD class=xl17_0>       267</TD>
+<TD class=xl18_0>       234</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     1,192</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>       405</TD>
+<TD class=xl15_1>       532</TD>
+<TD class=xl16_1>     1,976</TD>
+<TD class=xl17_1>       758</TD>
+<TD class=xl18_1>     1,193</TD>
+<TD class=xl19_1>         4</TD>
+<TD class=xl20_1>     4,868</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Jorge</TD>
+<TD class=xl14_0>       363</TD>
+<TD class=xl15_0>        88</TD>
+<TD class=xl16_0>       984</TD>
+<TD class=xl17_0>       198</TD>
+<TD class=xl18_0>       521</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     2,154</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_1>        29</TD>
+<TD class=xl15_1>        30</TD>
+<TD class=xl16_1>       168</TD>
+<TD class=xl17_1>        79</TD>
+<TD class=xl18_1>        94</TD>
+<TD class=xl19_1>         1</TD>
+<TD class=xl20_1>       401</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Islote Faro San Rafaelito</TD>
+<TD class=xl14_0>        34</TD>
+<TD class=xl15_0>       128</TD>
+<TD class=xl16_0>        21</TD>
+<TD class=xl17_0>       300</TD>
+<TD class=xl18_0>         1</TD>
+<TD class=xl19_0>       303</TD>
+<TD class=xl20_0>       787</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2018</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        23</TD>
+<TD class=xl15_1>        16</TD>
+<TD class=xl16_1>       284</TD>
+<TD class=xl17_1>       166</TD>
+<TD class=xl18_1>       103</TD>
+<TD class=xl19_1>        35</TD>
+<TD class=xl20_1>       627</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        16</TD>
+<TD class=xl15_0>        15</TD>
+<TD class=xl16_0>       200</TD>
+<TD class=xl17_0>       100</TD>
+<TD class=xl18_0>        64</TD>
+<TD class=xl19_0>        97</TD>
+<TD class=xl20_0>       492</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>       153</TD>
+<TD class=xl15_1>        55</TD>
+<TD class=xl16_1>       212</TD>
+<TD class=xl17_1>       178</TD>
+<TD class=xl18_1>       231</TD>
+<TD class=xl19_1>        57</TD>
+<TD class=xl20_1>       886</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        39</TD>
+<TD class=xl15_0>        32</TD>
+<TD class=xl16_0>       217</TD>
+<TD class=xl17_0>       126</TD>
+<TD class=xl18_0>       170</TD>
+<TD class=xl19_0>        57</TD>
+<TD class=xl20_0>       641</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        39</TD>
+<TD class=xl15_1>        36</TD>
+<TD class=xl16_1>       164</TD>
+<TD class=xl17_1>       127</TD>
+<TD class=xl18_1>       147</TD>
+<TD class=xl19_1>       180</TD>
+<TD class=xl20_1>       693</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>       129</TD>
+<TD class=xl15_0>        29</TD>
+<TD class=xl16_0>       176</TD>
+<TD class=xl17_0>       105</TD>
+<TD class=xl18_0>       203</TD>
+<TD class=xl19_0>       129</TD>
+<TD class=xl20_0>       771</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Islotes</TD>
+<TD class=xl14_1>        26</TD>
+<TD class=xl15_1>        21</TD>
+<TD class=xl16_1>       398</TD>
+<TD class=xl17_1>        25</TD>
+<TD class=xl18_1>       195</TD>
+<TD class=xl19_1>         4</TD>
+<TD class=xl20_1>       669</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_0>       372</TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0>       834</TD>
+<TD class=xl17_0>       253</TD>
+<TD class=xl18_0>       275</TD>
+<TD class=xl19_0>     3,267</TD>
+<TD class=xl20_0>     5,001</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla San Roque</TD>
+<TD class=xl14_1> </TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1> </TD>
+<TD class=xl17_1> </TD>
+<TD class=xl18_1> </TD>
+<TD class=xl19_1>         3</TD>
+<TD class=xl20_1>         3</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>       111</TD>
+<TD class=xl15_0>       204</TD>
+<TD class=xl16_0>       566</TD>
+<TD class=xl17_0>       262</TD>
+<TD class=xl18_0>       192</TD>
+<TD class=xl19_0>         3</TD>
+<TD class=xl20_0>     1,338</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>       134</TD>
+<TD class=xl15_1>        47</TD>
+<TD class=xl16_1>       594</TD>
+<TD class=xl17_1>       363</TD>
+<TD class=xl18_1>       263</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     1,401</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       314</TD>
+<TD class=xl15_0>       221</TD>
+<TD class=xl16_0>     1,715</TD>
+<TD class=xl17_0>       354</TD>
+<TD class=xl18_0>       852</TD>
+<TD class=xl19_0>         1</TD>
+<TD class=xl20_0>     3,457</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       349</TD>
+<TD class=xl15_1>       167</TD>
+<TD class=xl16_1>     1,292</TD>
+<TD class=xl17_1>       369</TD>
+<TD class=xl18_1>       968</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     3,145</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_0>        40</TD>
+<TD class=xl15_0>        54</TD>
+<TD class=xl16_0>       172</TD>
+<TD class=xl17_0>        46</TD>
+<TD class=xl18_0>        99</TD>
+<TD class=xl19_0>         1</TD>
+<TD class=xl20_0>       412</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Guadalupe</TD>
+<TD class=xl14_1>         8</TD>
+<TD class=xl15_1>        17</TD>
+<TD class=xl16_1>       171</TD>
+<TD class=xl17_1>        36</TD>
+<TD class=xl18_1>       112</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       344</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Islote Faro San Rafaelito</TD>
+<TD class=xl14_0>        41</TD>
+<TD class=xl15_0>       174</TD>
+<TD class=xl16_0>        12</TD>
+<TD class=xl17_0>       535</TD>
+<TD class=xl18_0>         0</TD>
+<TD class=xl19_0>       116</TD>
+<TD class=xl20_0>       878</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2019</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        26</TD>
+<TD class=xl15_1>        18</TD>
+<TD class=xl16_1>       371</TD>
+<TD class=xl17_1>       357</TD>
+<TD class=xl18_1>       115</TD>
+<TD class=xl19_1>       106</TD>
+<TD class=xl20_1>       993</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        21</TD>
+<TD class=xl15_0>        35</TD>
+<TD class=xl16_0>       183</TD>
+<TD class=xl17_0>       140</TD>
+<TD class=xl18_0>        44</TD>
+<TD class=xl19_0>        76</TD>
+<TD class=xl20_0>       499</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>        94</TD>
+<TD class=xl15_1>        33</TD>
+<TD class=xl16_1>       267</TD>
+<TD class=xl17_1>       163</TD>
+<TD class=xl18_1>       157</TD>
+<TD class=xl19_1>        34</TD>
+<TD class=xl20_1>       748</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        55</TD>
+<TD class=xl15_0>        26</TD>
+<TD class=xl16_0>       268</TD>
+<TD class=xl17_0>       174</TD>
+<TD class=xl18_0>       188</TD>
+<TD class=xl19_0>        57</TD>
+<TD class=xl20_0>       768</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        34</TD>
+<TD class=xl15_1>        30</TD>
+<TD class=xl16_1>       167</TD>
+<TD class=xl17_1>       150</TD>
+<TD class=xl18_1>       132</TD>
+<TD class=xl19_1>       115</TD>
+<TD class=xl20_1>       628</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>       215</TD>
+<TD class=xl15_0>        15</TD>
+<TD class=xl16_0>       300</TD>
+<TD class=xl17_0>       218</TD>
+<TD class=xl18_0>       194</TD>
+<TD class=xl19_0>        49</TD>
+<TD class=xl20_0>       991</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Islotes</TD>
+<TD class=xl14_1>        17</TD>
+<TD class=xl15_1>        12</TD>
+<TD class=xl16_1>       400</TD>
+<TD class=xl17_1>         9</TD>
+<TD class=xl18_1>       121</TD>
+<TD class=xl19_1>         8</TD>
+<TD class=xl20_1>       567</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_0>       172</TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0>     1,434</TD>
+<TD class=xl17_0>       559</TD>
+<TD class=xl18_0>       326</TD>
+<TD class=xl19_0> </TD>
+<TD class=xl20_0>     2,491</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>        44</TD>
+<TD class=xl15_1>        87</TD>
+<TD class=xl16_1>       475</TD>
+<TD class=xl17_1>       140</TD>
+<TD class=xl18_1>       140</TD>
+<TD class=xl19_1>         1</TD>
+<TD class=xl20_1>       887</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>       111</TD>
+<TD class=xl15_0>       250</TD>
+<TD class=xl16_0>       982</TD>
+<TD class=xl17_0>       439</TD>
+<TD class=xl18_0>       352</TD>
+<TD class=xl19_0>         6</TD>
+<TD class=xl20_0>     2,140</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>       558</TD>
+<TD class=xl15_1>       724</TD>
+<TD class=xl16_1>     2,379</TD>
+<TD class=xl17_1>       481</TD>
+<TD class=xl18_1>     1,098</TD>
+<TD class=xl19_1>         3</TD>
+<TD class=xl20_1>     5,243</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Jorge</TD>
+<TD class=xl14_0>       208</TD>
+<TD class=xl15_0>       288</TD>
+<TD class=xl16_0>     1,074</TD>
+<TD class=xl17_0>       248</TD>
+<TD class=xl18_0>       643</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     2,461</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_1>        42</TD>
+<TD class=xl15_1>        24</TD>
+<TD class=xl16_1>       214</TD>
+<TD class=xl17_1>        65</TD>
+<TD class=xl18_1>       155</TD>
+<TD class=xl19_1>         1</TD>
+<TD class=xl20_1>       501</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Guadalupe</TD>
+<TD class=xl14_0>         4</TD>
+<TD class=xl15_0>        10</TD>
+<TD class=xl16_0>       120</TD>
+<TD class=xl17_0>        74</TD>
+<TD class=xl18_0>        92</TD>
+<TD class=xl19_0>         5</TD>
+<TD class=xl20_0>       305</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Islote Faro San Rafaelito</TD>
+<TD class=xl14_1>        72</TD>
+<TD class=xl15_1>       285</TD>
+<TD class=xl16_1>        18</TD>
+<TD class=xl17_1>       349</TD>
+<TD class=xl18_1>         2</TD>
+<TD class=xl19_1>        60</TD>
+<TD class=xl20_1>       786</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2020</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        22</TD>
+<TD class=xl15_0>        44</TD>
+<TD class=xl16_0>       416</TD>
+<TD class=xl17_0>       373</TD>
+<TD class=xl18_0>       105</TD>
+<TD class=xl19_0>       287</TD>
+<TD class=xl20_0>     1,247</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>         9</TD>
+<TD class=xl15_1>         4</TD>
+<TD class=xl16_1>       243</TD>
+<TD class=xl17_1>       145</TD>
+<TD class=xl18_1>        47</TD>
+<TD class=xl19_1>       138</TD>
+<TD class=xl20_1>       586</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        68</TD>
+<TD class=xl15_0>        26</TD>
+<TD class=xl16_0>       197</TD>
+<TD class=xl17_0>       199</TD>
+<TD class=xl18_0>       241</TD>
+<TD class=xl19_0>       169</TD>
+<TD class=xl20_0>       900</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        60</TD>
+<TD class=xl15_1>        12</TD>
+<TD class=xl16_1>       283</TD>
+<TD class=xl17_1>       159</TD>
+<TD class=xl18_1>       225</TD>
+<TD class=xl19_1>       124</TD>
+<TD class=xl20_1>       863</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        47</TD>
+<TD class=xl15_0>        32</TD>
+<TD class=xl16_0>       187</TD>
+<TD class=xl17_0>        97</TD>
+<TD class=xl18_0>       142</TD>
+<TD class=xl19_0>       113</TD>
+<TD class=xl20_0>       618</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Coloradito</TD>
+<TD class=xl14_1>        73</TD>
+<TD class=xl15_1>        29</TD>
+<TD class=xl16_1>       149</TD>
+<TD class=xl17_1>        94</TD>
+<TD class=xl18_1>       183</TD>
+<TD class=xl19_1>       220</TD>
+<TD class=xl20_1>       748</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Rocas Consag</TD>
+<TD class=xl14_0>        36</TD>
+<TD class=xl15_0>        12</TD>
+<TD class=xl16_0>        87</TD>
+<TD class=xl17_0>        46</TD>
+<TD class=xl18_0>        36</TD>
+<TD class=xl19_0>        28</TD>
+<TD class=xl20_0>       245</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Islotes</TD>
+<TD class=xl14_1>        29</TD>
+<TD class=xl15_1>        28</TD>
+<TD class=xl16_1>       492</TD>
+<TD class=xl17_1>        30</TD>
+<TD class=xl18_1>       180</TD>
+<TD class=xl19_1>        10</TD>
+<TD class=xl20_1>       769</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_0> </TD>
+<TD class=xl15_0> </TD>
+<TD class=xl16_0> </TD>
+<TD class=xl17_0> </TD>
+<TD class=xl18_0> </TD>
+<TD class=xl19_0>     2,490</TD>
+<TD class=xl20_0>     2,490</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>        54</TD>
+<TD class=xl15_1>        31</TD>
+<TD class=xl16_1>       331</TD>
+<TD class=xl17_1>       230</TD>
+<TD class=xl18_1>       120</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       766</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>       151</TD>
+<TD class=xl15_0>       150</TD>
+<TD class=xl16_0>       640</TD>
+<TD class=xl17_0>       318</TD>
+<TD class=xl18_0>       300</TD>
+<TD class=xl19_0>       262</TD>
+<TD class=xl20_0>     1,821</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>       278</TD>
+<TD class=xl15_1>       239</TD>
+<TD class=xl16_1>     2,004</TD>
+<TD class=xl17_1>     1,078</TD>
+<TD class=xl18_1>       817</TD>
+<TD class=xl19_1>         2</TD>
+<TD class=xl20_1>     4,418</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Jorge</TD>
+<TD class=xl14_0>       236</TD>
+<TD class=xl15_0>        46</TD>
+<TD class=xl16_0>       986</TD>
+<TD class=xl17_0>       223</TD>
+<TD class=xl18_0>       496</TD>
+<TD class=xl19_0>         9</TD>
+<TD class=xl20_0>     1,996</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_1>        45</TD>
+<TD class=xl15_1>         0</TD>
+<TD class=xl16_1>       113</TD>
+<TD class=xl17_1>       248</TD>
+<TD class=xl18_1>       151</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       557</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Islote Faro San Rafaelito</TD>
+<TD class=xl14_0>        32</TD>
+<TD class=xl15_0>       130</TD>
+<TD class=xl16_0>        29</TD>
+<TD class=xl17_0>       430</TD>
+<TD class=xl18_0>         0</TD>
+<TD class=xl19_0>       155</TD>
+<TD class=xl20_0>       776</TD>
+</TR>
+<TR>
+<TD class=xl12_1>2021</TD>
+<TD class=xl13_1>El Partido</TD>
+<TD class=xl14_1>        18</TD>
+<TD class=xl15_1>        58</TD>
+<TD class=xl16_1>       162</TD>
+<TD class=xl17_1>       168</TD>
+<TD class=xl18_1>        96</TD>
+<TD class=xl19_1>       176</TD>
+<TD class=xl20_1>       678</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Rasito</TD>
+<TD class=xl14_0>        17</TD>
+<TD class=xl15_0>        27</TD>
+<TD class=xl16_0>       134</TD>
+<TD class=xl17_0>        95</TD>
+<TD class=xl18_0>        64</TD>
+<TD class=xl19_0>       188</TD>
+<TD class=xl20_0>       525</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>       102</TD>
+<TD class=xl15_1>        90</TD>
+<TD class=xl16_1>       225</TD>
+<TD class=xl17_1>       145</TD>
+<TD class=xl18_1>       150</TD>
+<TD class=xl19_1>        70</TD>
+<TD class=xl20_1>       782</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Machos</TD>
+<TD class=xl14_0>        66</TD>
+<TD class=xl15_0>        56</TD>
+<TD class=xl16_0>       248</TD>
+<TD class=xl17_0>       185</TD>
+<TD class=xl18_0>       173</TD>
+<TD class=xl19_0>        95</TD>
+<TD class=xl20_0>       823</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Cantiles</TD>
+<TD class=xl14_1>        45</TD>
+<TD class=xl15_1>        18</TD>
+<TD class=xl16_1>       162</TD>
+<TD class=xl17_1>       126</TD>
+<TD class=xl18_1>       122</TD>
+<TD class=xl19_1>        87</TD>
+<TD class=xl20_1>       560</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>El Coloradito</TD>
+<TD class=xl14_0>       137</TD>
+<TD class=xl15_0>        60</TD>
+<TD class=xl16_0>       194</TD>
+<TD class=xl17_0>       145</TD>
+<TD class=xl18_0>       166</TD>
+<TD class=xl19_0>        57</TD>
+<TD class=xl20_0>       759</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       112</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>       138</TD>
+<TD class=xl17_1>        83</TD>
+<TD class=xl18_1>       330</TD>
+<TD class=xl19_1>     2,966</TD>
+<TD class=xl20_1>     3,629</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        85</TD>
+<TD class=xl15_0>       103</TD>
+<TD class=xl16_0>       340</TD>
+<TD class=xl17_0>       210</TD>
+<TD class=xl18_0>       163</TD>
+<TD class=xl19_0>         5</TD>
+<TD class=xl20_0>       906</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>       169</TD>
+<TD class=xl15_1>       117</TD>
+<TD class=xl16_1>     1,087</TD>
+<TD class=xl17_1>       443</TD>
+<TD class=xl18_1>       334</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     2,150</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       485</TD>
+<TD class=xl15_0>       222</TD>
+<TD class=xl16_0>     2,473</TD>
+<TD class=xl17_0>     1,288</TD>
+<TD class=xl18_0>       991</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>     5,459</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       225</TD>
+<TD class=xl15_1>        43</TD>
+<TD class=xl16_1>       798</TD>
+<TD class=xl17_1>       270</TD>
+<TD class=xl18_1>       508</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     1,844</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_0>        50</TD>
+<TD class=xl15_0>        48</TD>
+<TD class=xl16_0>       272</TD>
+<TD class=xl17_0>        43</TD>
+<TD class=xl18_0>       141</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       554</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Islote Faro San Rafaelito</TD>
+<TD class=xl14_1>        29</TD>
+<TD class=xl15_1>       119</TD>
+<TD class=xl16_1>        20</TD>
+<TD class=xl17_1>       387</TD>
+<TD class=xl18_1>         0</TD>
+<TD class=xl19_1>       180</TD>
+<TD class=xl20_1>       735</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2022</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        16</TD>
+<TD class=xl15_0>       246</TD>
+<TD class=xl16_0>       247</TD>
+<TD class=xl17_0>       256</TD>
+<TD class=xl18_0>       148</TD>
+<TD class=xl19_0>        26</TD>
+<TD class=xl20_0>       939</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Rasito</TD>
+<TD class=xl14_1>        17</TD>
+<TD class=xl15_1>       177</TD>
+<TD class=xl16_1>       231</TD>
+<TD class=xl17_1>       258</TD>
+<TD class=xl18_1>        75</TD>
+<TD class=xl19_1>        53</TD>
+<TD class=xl20_1>       811</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Granito</TD>
+<TD class=xl14_0>        97</TD>
+<TD class=xl15_0>        35</TD>
+<TD class=xl16_0>       275</TD>
+<TD class=xl17_0>       135</TD>
+<TD class=xl18_0>       192</TD>
+<TD class=xl19_0>        47</TD>
+<TD class=xl20_0>       781</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Los Machos</TD>
+<TD class=xl14_1>        73</TD>
+<TD class=xl15_1>         5</TD>
+<TD class=xl16_1>       161</TD>
+<TD class=xl17_1>       115</TD>
+<TD class=xl18_1>       162</TD>
+<TD class=xl19_1>        71</TD>
+<TD class=xl20_1>       587</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        48</TD>
+<TD class=xl15_0>        25</TD>
+<TD class=xl16_0>       108</TD>
+<TD class=xl17_0>        98</TD>
+<TD class=xl18_0>       149</TD>
+<TD class=xl19_0>       148</TD>
+<TD class=xl20_0>       576</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Coloradito</TD>
+<TD class=xl14_1>       172</TD>
+<TD class=xl15_1>        35</TD>
+<TD class=xl16_1>       218</TD>
+<TD class=xl17_1>       175</TD>
+<TD class=xl18_1>       174</TD>
+<TD class=xl19_1>        17</TD>
+<TD class=xl20_1>       791</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        35</TD>
+<TD class=xl15_0>        12</TD>
+<TD class=xl16_0>       297</TD>
+<TD class=xl17_0>       108</TD>
+<TD class=xl18_0>       121</TD>
+<TD class=xl19_0>        16</TD>
+<TD class=xl20_0>       589</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Asunci&#x00F3;n</TD>
+<TD class=xl14_1>       165</TD>
+<TD class=xl15_1> </TD>
+<TD class=xl16_1>     1,097</TD>
+<TD class=xl17_1>       241</TD>
+<TD class=xl18_1>       401</TD>
+<TD class=xl19_1>     2,371</TD>
+<TD class=xl20_1>     4,275</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro Nolasco</TD>
+<TD class=xl14_0>        49</TD>
+<TD class=xl15_0>       115</TD>
+<TD class=xl16_0>       533</TD>
+<TD class=xl17_0>       225</TD>
+<TD class=xl18_0>       109</TD>
+<TD class=xl19_0>        16</TD>
+<TD class=xl20_0>     1,047</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_1>       206</TD>
+<TD class=xl15_1>       214</TD>
+<TD class=xl16_1>     1,017</TD>
+<TD class=xl17_1>       638</TD>
+<TD class=xl18_1>       314</TD>
+<TD class=xl19_1>         3</TD>
+<TD class=xl20_1>     2,392</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Esteban</TD>
+<TD class=xl14_0>       805</TD>
+<TD class=xl15_0>       484</TD>
+<TD class=xl16_0>     3,630</TD>
+<TD class=xl17_0>     1,325</TD>
+<TD class=xl18_0>     1,212</TD>
+<TD class=xl19_0>         3</TD>
+<TD class=xl20_0>     7,459</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Jorge</TD>
+<TD class=xl14_1>       118</TD>
+<TD class=xl15_1>        63</TD>
+<TD class=xl16_1>       700</TD>
+<TD class=xl17_1>       189</TD>
+<TD class=xl18_1>       259</TD>
+<TD class=xl19_1>         1</TD>
+<TD class=xl20_1>     1,330</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_0>        41</TD>
+<TD class=xl15_0>        16</TD>
+<TD class=xl16_0>       212</TD>
+<TD class=xl17_0>        38</TD>
+<TD class=xl18_0>       227</TD>
+<TD class=xl19_0>         0</TD>
+<TD class=xl20_0>       534</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Isla Guadalupe</TD>
+<TD class=xl14_1>         3</TD>
+<TD class=xl15_1>         7</TD>
+<TD class=xl16_1>        96</TD>
+<TD class=xl17_1>        57</TD>
+<TD class=xl18_1>       105</TD>
+<TD class=xl19_1>         3</TD>
+<TD class=xl20_1>       271</TD>
+</TR>
+<TR>
+<TD class=xl12_0>2023</TD>
+<TD class=xl13_0>El Partido</TD>
+<TD class=xl14_0>        42</TD>
+<TD class=xl15_0>       138</TD>
+<TD class=xl16_0>       419</TD>
+<TD class=xl17_0>       276</TD>
+<TD class=xl18_0>        75</TD>
+<TD class=xl19_0>       165</TD>
+<TD class=xl20_0>     1,115</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Granito</TD>
+<TD class=xl14_1>       126</TD>
+<TD class=xl15_1>        47</TD>
+<TD class=xl16_1>       367</TD>
+<TD class=xl17_1>       280</TD>
+<TD class=xl18_1>       159</TD>
+<TD class=xl19_1>        82</TD>
+<TD class=xl20_1>     1,061</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Cantiles</TD>
+<TD class=xl14_0>        40</TD>
+<TD class=xl15_0>        34</TD>
+<TD class=xl16_0>       266</TD>
+<TD class=xl17_0>       189</TD>
+<TD class=xl18_0>       176</TD>
+<TD class=xl19_0>        73</TD>
+<TD class=xl20_0>       778</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>El Coloradito</TD>
+<TD class=xl14_1>       148</TD>
+<TD class=xl15_1>        50</TD>
+<TD class=xl16_1>       380</TD>
+<TD class=xl17_1>       232</TD>
+<TD class=xl18_1>       168</TD>
+<TD class=xl19_1>        32</TD>
+<TD class=xl20_1>     1,010</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Los Islotes</TD>
+<TD class=xl14_0>        36</TD>
+<TD class=xl15_0>        13</TD>
+<TD class=xl16_0>       344</TD>
+<TD class=xl17_0>        61</TD>
+<TD class=xl18_0>        63</TD>
+<TD class=xl19_0>        25</TD>
+<TD class=xl20_0>       542</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Pedro Nolasco</TD>
+<TD class=xl14_1>        76</TD>
+<TD class=xl15_1>       283</TD>
+<TD class=xl16_1>       501</TD>
+<TD class=xl17_1>       298</TD>
+<TD class=xl18_1>       180</TD>
+<TD class=xl19_1>         9</TD>
+<TD class=xl20_1>     1,347</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Pedro M&#x00E1;rtir</TD>
+<TD class=xl14_0>       394</TD>
+<TD class=xl15_0>       107</TD>
+<TD class=xl16_0>       806</TD>
+<TD class=xl17_0>       362</TD>
+<TD class=xl18_0>       549</TD>
+<TD class=xl19_0>         1</TD>
+<TD class=xl20_0>     2,219</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>San Esteban</TD>
+<TD class=xl14_1>       969</TD>
+<TD class=xl15_1>       571</TD>
+<TD class=xl16_1>     3,505</TD>
+<TD class=xl17_1>     1,200</TD>
+<TD class=xl18_1>     1,141</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>     7,386</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>San Jorge</TD>
+<TD class=xl14_0>       192</TD>
+<TD class=xl15_0>        79</TD>
+<TD class=xl16_0>       583</TD>
+<TD class=xl17_0>       248</TD>
+<TD class=xl18_0>       633</TD>
+<TD class=xl19_0>         6</TD>
+<TD class=xl20_0>     1,741</TD>
+</TR>
+<TR>
+<TD class=xl12_1> </TD>
+<TD class=xl13_1>Farall&#x00F3;n de San Ignacio</TD>
+<TD class=xl14_1>        38</TD>
+<TD class=xl15_1>         8</TD>
+<TD class=xl16_1>       168</TD>
+<TD class=xl17_1>        30</TD>
+<TD class=xl18_1>        93</TD>
+<TD class=xl19_1>         0</TD>
+<TD class=xl20_1>       337</TD>
+</TR>
+<TR>
+<TD class=xl12_0> </TD>
+<TD class=xl13_0>Isla Guadalupe</TD>
+<TD class=xl14_0>         4</TD>
+<TD class=xl15_0>        16</TD>
+<TD class=xl16_0>        95</TD>
+<TD class=xl17_0>        55</TD>
+<TD class=xl18_0>       109</TD>
+<TD class=xl19_0>         6</TD>
+<TD class=xl20_0>       285</TD>
+</TR>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+<TD  class='xl1'>&nbsp;</TD>
+</TABLE>
+  
+</BODY>
+  
+</HTML>
+
+--====Boundary====
+Content-Location: file:///C:/IBIT0002.xht
+Content-Transfer-Encoding: 8bit
+Content-Type: text/html; charset="windows-1252"
+
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+  
+<HEAD>
+<style>
+<!--table
+        {border-collapse:collapse;
+        mso-displayed-decimal-separator:"\.";
+        mso-displayed-thousand-separator:"\,";}
+@page
+        {margin:1.0in .75in 1.0in .75in;
+        mso-header-margin:.5in;
+        mso-footer-margin:.5in;
+        mso-page-orientation:landscape;}
+tr
+        {mso-height-source:auto;}
+col
+        {mso-width-source:auto;}
+br
+        {mso-data-placement:same-cell;}
+.style21
+        {color:blue;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        mso-style-name:Hyperlink;
+        mso-style-id:8;}
+a:link
+        {color:blue;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;}
+a:visited
+        {color:purple;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;}
+.style0
+        {mso-number-format:General;
+        text-align:general;
+        vertical-align:bottom;
+        white-space:nowrap;
+        mso-rotate:0;
+        mso-background-source:auto;
+        mso-pattern:auto;
+        color:windowtext;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        border:none;
+        mso-protection:locked visible;
+        mso-style-name:Normal;
+        mso-style-id:0;}
+td
+        {mso-style-parent:style0;
+        padding:1px;
+        mso-ignore:padding;
+        color:windowtext;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        mso-number-format:General;
+        text-align:general;
+        vertical-align:bottom;
+        border:none;
+        mso-background-source:auto;
+        mso-pattern:auto;
+        mso-protection:locked visible;
+        white-space:nowrap;
+        mso-rotate:0;}
+.xl1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:normal;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl1r
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:normal;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl7
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:normal;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: NONE; border-left: NONE;
+        mso-font-charset:0;}
+.xl7r
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:normal;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: NONE; border-left: NONE;
+        mso-font-charset:0;}
+.xl5_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: NONE; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl5r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: NONE; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl5_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: NONE; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl5r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: NONE; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl6_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: 1.00pt SOLID #000000; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl6r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: 1.00pt SOLID #000000; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl6_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: 1.00pt SOLID #000000; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl6r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:left;
+        white-space:nowrap;
+
+
+ border-top: 1.00pt SOLID #000000; border-bottom: NONE; border-right: 1.00pt SOLID #000000; border-left: 1.00pt SOLID #000000;
+        mso-font-charset:0;}
+.xl3
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl3r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl4
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl4r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:nowrap;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+.xl2
+        {mso-style-parent:style0;
+        color:#808080;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:normal;
+
+
+ border-style: NONE;
+        mso-font-charset:0;}
+-->
+</style>
+<xml>
+ <x:WorksheetOptions>
+  <x:Print>
+   <x:ValidPrinterInfo/>
+  </x:Print>
+  <x:ProtectObjects>False</x:ProtectObjects>
+ </x:WorksheetOptions>
+</xml>
+</HEAD>
+  
+<BODY>
+  
+<TABLE X:STR BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<col style='mso-width-source:userset;width:283pt'>
+<col style='mso-width-source:userset;width:652pt'>
+<TR>
+<TD COLSPAN=2 class=xl1>
+<FONT class=xl2>NOTAS</FONT>
+</TD>
+</TR>
+<TD COLSPAN=2 class=xl1>&nbsp;</TD>
+<TR>
+<TD class=xl3>Variable</TD>
+<TD class=xl4>Notas</TD>
+</TR>
+<TR>
+<TD class=xl5_0>Individuos de lobo marino de California por etapa de crecimiento</TD>
+<TD class=xl6_0>La informaci&#x00F3;n procede de censos poblacionales del lobo marino de California (Zalophus californianus californianus) realizados en colonias ubicadas en ANP de la Pen&#x00ED;nsula de Baja California, como el &#x00C1;rea de Protecci&#x00F3;n de Flora y Fauna (APFF) "Islas del Golfo de California", el Parque Nacional "Zona Marina del Archipi&#x00E9;lago de Esp&#x00ED;ritu Santo", el Parque Nacional "Zona Marina Archipi&#x00E9;lago de San Lorenzo", la Reserva de la Biosfera "Bah&#x00ED;a de los &#x00C1;ngeles y Canales de Ballenas y Salsipuedes", la Reserva de la Biosfera "El Vizca&#x00ED;no" y la Reserva de la Biosfera &#x00BF;Isla San Pedro M&#x00E1;rtir&#x00BF;.&lt;br&gt; En el monitoreo de esta especie (con actividades de campo y estudios de laboratorio) han intervenido, en distintos momentos, tanto personal de las ANP como de diversas instituciones, entre ellas el Instituto Nacional de Ecolog&#x00ED;a, la UNAM, el Centro Interdisciplinario de Ciencias Marinas (CICIMAR) del IPN, la Universidad de Quer&#x00E9;taro, el Centro de Investigaci&#x00F3;n en Alimentaci&#x00F3;n y Desarrollo AC (CIAD) Unidad Guaymas y organizaciones no gubernamentales (Wild Life Trust, Africam Safari). El monitoreo ha sido financiado por el Programa de Monitoreo Biol&#x00F3;gico (PROMOBI) de la CONANP.&lt;br&gt;Las islas Asunci&#x00F3;n, San Roque y Natividad se ubican en la Reserva "El Vizca&#x00ED;no". Los censos de estas islas los realizan personal de la CONANP, la Cooperativa California de San Ignacio del poblado de Bah&#x00ED;a Asunci&#x00F3;n, Cooperativa Buzos y pescadores de la Isla Natividad, as&#x00ED; como tambi&#x00E9;n parte del equipo de la Empresa Exportadora de Sal, S. A. El conteo de individuos se realizaba sin clasificarlos hasta el a&#x00F1;o 2008. En el caso de la Isla Natividad, no se ha realizado censos de esta especie desde el a&#x00F1;o 2013. Los datos que se presentan de estas islas son promedios anuales de los conteos realizados mensualmente (el n&#x00FA;mero de meses con monitoreo de la especie es distinto de un a&#x00F1;o a otro).&lt;br&gt;Las islas San Pedro Nolasco, San Esteban y San Jorge, consideradas islas reproductoras de esta especie, est&#x00E1;n dentro del pol&#x00ED;gono del APFF "Islas del Golfo de California" regi&#x00F3;n Sonora. Los datos que se presentan de estas islas, y de la Reserva "Isla San Pedro M&#x00E1;rtir", son totales de individuos. Los censos los han realizado personal de las ANP y del CICIMAR y del CIAD siguiendo un protocolo estandarizado de monitoreo regional.&lt;br&gt;Los lobos marinos, como los mam&#x00ED;feros marinos en general, son considerados especies "centinela" porque responden r&#x00E1;pidamente a los cambios de calidad del ambiente. Entre las caracter&#x00ED;sticas de esta especie que la hace id&#x00F3;nea como centinela o indicadora de la calidad de los ambientes que habita (zonas costeras e islas), est&#x00E1;n: sus individuos son de una talla corporal que exige una demanda importante de alimento diario; ser depredador de alto nivel tr&#x00F3;fico y con alto metabolismo (su alto nivel tr&#x00F3;fico lo hace sensible a los cambios de productividad y en particular a la biomagnificaci&#x00F3;n de sustancias y metales traza, por lo que funciona como bioindicador de la contaminaci&#x00F3;n costera); y ser residente permanente de los ambientes que habita (por ello son excelentes indicadores de la salud ambiental local).&lt;br&gt;No se dispone de informaci&#x00F3;n de cada colonia de reproducci&#x00F3;n en todo el periodo que se muestra. &lt;br&gt;En su actualizaci&#x00F3;n m&#x00E1;s reciente, la fuente incorpor&#x00F3; informaci&#x00F3;n de colonias en la isla Farall&#x00F3;n de San Ignacio para a&#x00F1;os previamente reportados (Mayo, 2024).&lt;br&gt;Se presenta la informaci&#x00F3;n m&#x00E1;s reciente proporcionada por la fuente (revisi&#x00F3;n: Noviembre, 2025).</TD>
+</TR>
+<TD  class='xl7'>&nbsp;</TD>
+<TD  class='xl7'>&nbsp;</TD>
+</TABLE>
+  
+</BODY>
+  
+</HTML>
+
+--====Boundary====
+Content-Location: file:///C:/IBIT0003.xht
+Content-Transfer-Encoding: 8bit
+Content-Type: text/html; charset="windows-1252"
+
+
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:x="urn:schemas-microsoft-com:office:excel"
+xmlns="http://www.w3.org/TR/REC-html40">
+  
+<HEAD>
+<style>
+<!--table
+        {mso-displayed-decimal-separator:"\.";
+        mso-displayed-thousand-separator:"\,";}
+@page
+        {margin:1.0in .75in 1.0in .75in;
+        mso-header-margin:.5in;
+        mso-footer-margin:.5in;
+        mso-page-orientation:landscape;}
+tr
+        {mso-height-source:auto;}
+col
+        {mso-width-source:auto;}
+br
+        {mso-data-placement:same-cell;}
+.style21
+        {color:blue;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        mso-style-name:Hyperlink;
+        mso-style-id:8;}
+a:link
+        {color:blue;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;}
+a:visited
+        {color:purple;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:underline;
+        text-underline-style:single;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;}
+.style0
+        {mso-number-format:General;
+        text-align:general;
+        vertical-align:bottom;
+        white-space:nowrap;
+        mso-rotate:0;
+        mso-background-source:auto;
+        mso-pattern:auto;
+        color:windowtext;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        border:none;
+        mso-protection:locked visible;
+        mso-style-name:Normal;
+        mso-style-id:0;}
+td
+        {mso-style-parent:style0;
+        padding:1px;
+        mso-ignore:padding;
+        color:windowtext;
+        font-size:10.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:Arial;
+        mso-generic-font-family:auto;
+        mso-font-charset:0;
+        mso-number-format:General;
+        text-align:general;
+        vertical-align:bottom;
+        border:none;
+        mso-background-source:auto;
+        mso-pattern:auto;
+        mso-protection:locked visible;
+        white-space:nowrap;
+        mso-rotate:0;}
+.xl100
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        white-space:normal;
+        mso-font-charset:0;}
+.xl100r
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        text-align:right;
+        white-space:normal;
+        mso-font-charset:0;}
+.xl101_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        white-space:normal;
+        mso-font-charset:0;}
+.xl101r_0
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#FFFFFF;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:normal;
+        mso-font-charset:0;}
+.xl101_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        white-space:normal;
+        mso-font-charset:0;}
+.xl101r_1
+        {mso-style-parent:style0;
+        color:#000000;
+        font-size:9.0pt;
+        font-weight:400;
+        font-style:normal;
+        text-decoration:none;
+        font-family:"OPEN SANS";
+        background:#DEDEDE;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:normal;
+        mso-font-charset:0;}
+.xl103
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        white-space:normal;
+        mso-font-charset:0;}
+.xl103r
+        {mso-style-parent:style0;
+        color:#FFFFFF;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        background:#808080;
+        mso-pattern:auto none;
+        text-align:right;
+        white-space:normal;
+        mso-font-charset:0;}
+.xl105
+        {mso-style-parent:style0;
+        color:#808080;
+        font-size:9.0pt;
+        font-weight:700;
+        font-family:"OPEN SANS";
+        white-space:normal;
+        mso-font-charset:0;}
+-->
+</style>
+<xml>
+ <x:WorksheetOptions>
+  <x:Print>
+   <x:ValidPrinterInfo/>
+  </x:Print>
+  <x:ProtectObjects>False</x:ProtectObjects>
+ </x:WorksheetOptions>
+</xml>
+</HEAD>
+  
+<BODY>
+  
+<TABLE X:STR BORDER=0 CELLPADDING=0 CELLSPACING=0>
+<col>
+<TR>
+<TD class=xl105>
+<FONT class=xl105>FUENTES</FONT>
+</TD>
+</TR>
+<TR>
+<TD class=xl101_0>Comisi&#x00F3;n Nacional de &#x00C1;reas Naturales Protegidas, Direcci&#x00F3;n General de Conservaci&#x00F3;n, Mayo, 2024.</TD>
+</TR>
+<TR>
+<TD class=xl101_1>Comisi&#x00F3;n Nacional de &#x00C1;reas Naturales Protegidas, Direcci&#x00F3;n General de Operaci&#x00F3;n Regional, Mayo, 2022.</TD>
+</TR>
+<TR>
+<TD class=xl101_0>Comisi&#x00F3;n Nacional de &#x00C1;reas Naturales Protegidas, &#x00C1;rea de Protecci&#x00F3;n de Flora y Fauna Islas del Golfo de California, BCS, Septiembre, 2017.</TD>
+</TR>
+<TR>
+<TD class=xl101_1>Comisi&#x00F3;n Nacional de &#x00C1;reas Naturales Protegidas, &#x00C1;rea de Protecci&#x00F3;n de Flora y Fauna Islas del Golfo de California-Sinaloa, Mayo, 2024</TD>
+</TR>
+<TR>
+<TD class=xl101_0>Secretar&#x00ED;a de Medio Ambiente y Recursos Naturales, Direcci&#x00F3;n General de Estad&#x00ED;stica e Informaci&#x00F3;n Ambiental, con base en: CONANP, &#x00AB;Monitoreo del lobo marino (Zalophus californianus californianus) como especie centinela&#x00BB;, Noviembre, 2012. CONANP, Direcci&#x00F3;n de Especies Prioritarias para la Conservaci&#x00F3;n, Mayo, 2016. CONANP, CONANP, Reserva de la Bi&#x00F3;sfera El Vizca&#x00ED;no, Septiembre, 2017.  CONANP,  &#x00C1;rea de Protecci&#x00F3;n de Flora y Fauna Islas del Golfo de California,  BCS, Septiembre, 2017. Direcci&#x00F3;n General de Operaci&#x00F3;n Regional, Mayo, 2020.</TD>
+</TR>
+</TABLE>
+  
+</BODY>
+  
+</HTML>
+
+--====Boundary====--
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="HandheldFriendly" content="True">
+<meta name="PalmComputingPlatform" content="True">
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<title>WebFOCUS Report</title>
+<style type="text/css">
+<!--
+BODY { background-color:#FFFFFF }
+TD { vertical-align:top; }
+TABLE,PRE,SPAN { font-family:OPEN SANS; font-size:9pt; font-weight:normal; font-style:normal; text-decoration:none; color:#000000; background-color:#FFFFFF; }
+.x2_0 { font-family:OPEN SANS; font-size:9pt; font-weight:normal; font-style:normal; text-decoration:none; color:#000000; background-color:#FFFFFF; }
+.x2_1 { font-family:OPEN SANS; font-size:9pt; font-weight:normal; font-style:normal; text-decoration:none; color:#000000; background-color:#DEDEDE; }
+.x3_0 { font-family:OPEN SANS; font-size:9pt; font-weight:normal; font-style:normal; text-decoration:none; color:#000000; background-color:#FFFFFF; }
+.x3_1 { font-family:OPEN SANS; font-size:9pt; font-weight:normal; font-style:normal; text-decoration:none; color:#000000; background-color:#DEDEDE; }
+.x4 { font-family:OPEN SANS; font-size:9pt; font-weight:bold; color:#FFFFFF; background-color:#808080; }
+.x5 { font-family:OPEN SANS; font-size:9pt; font-weight:bold; color:#FFFFFF; background-color:#808080; }
+.x6 { font-family:OPEN SANS; font-size:9pt; font-weight:bold; color:#FFFFFF; background-color:#FFFFFF; }
+.x7 { font-family:OPEN SANS; font-size:9pt; font-weight:normal; font-style:normal; text-decoration:none; color:#000000; background-color:#FFFFFF; width:935pt; text-align:left; }
+-->
+</style>
+</head>
+<body>
+<table border cellpadding=1>
+<col>
+<tr>
+<td style="vertical-align:bottom" class='x4'>
+Fuentes</td>
+</tr>
+<tr>
+<td class='x2_0'>
+Comisión Nacional de Áreas Naturales Protegidas, Dirección General de Conservación, Mayo, 2024.</td>
+</tr>
+<tr>
+<td class='x2_1'>
+Comisión Nacional de Áreas Naturales Protegidas, Dirección General de Operación Regional, Mayo, 2022.</td>
+</tr>
+<tr>
+<td class='x2_0'>
+Comisión Nacional de Áreas Naturales Protegidas, Área de Protección de Flora y Fauna Islas del Golfo de California, BCS, Septiembre, 2017.</td>
+</tr>
+<tr>
+<td class='x2_1'>
+Comisión Nacional de Áreas Naturales Protegidas, Área de Protección de Flora y Fauna Islas del Golfo de California-Sinaloa, Mayo, 2024</td>
+</tr>
+<tr>
+<td class='x2_0'>
+Secretaría de Medio Ambiente y Recursos Naturales, Dirección General de Estadística e Información Ambiental, con base en: CONANP, «Monitoreo del lobo marino (Zalophus californianus californianus) como especie centinela», Noviembre, 2012. CONANP, Dirección de Especies Prioritarias para la Conservación, Mayo, 2016. CONANP, CONANP, Reserva de la Biósfera El Vizcaíno, Septiembre, 2017.  CONANP,  Área de Protección de Flora y Fauna Islas del Golfo de California,  BCS, Septiembre, 2017. Dirección General de Operación Regional, Mayo, 2020.</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,13 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "[TÍTULO DE TU DASHBOARD]"
+
+format:
+  dashboard:
+    scrolling: true
+    orientation: columns
+    theme:
+      - custom.css

@@ -1,0 +1,574 @@
+/*
+ * custom.scss — Tema ODS 14 · Vida Submarina
+ * Coloca este archivo en la misma carpeta que tu .qmd
+ */
+
+/* ── Fuentes ──────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+/* ── Variables de color ───────────────────────── */
+:root {
+  --ocean-deep:   #03045E;
+  --ocean-mid:    #0077B6;
+  --ocean-light:  #00B4D8;
+  --ocean-foam:   #90E0EF;
+  --ocean-mist:   #CAF0F8;
+  --sand:         #F8F9FA;
+  --coral:        #F4A261;
+  --teal:         #2A9D8F;
+  --text-main:    #1a2940;
+  --text-muted:   #4a6278;
+  --card-bg:      #ffffff;
+  --border:       rgba(0,119,182,0.15);
+}
+
+/* ── Base ─────────────────────────────────────── */
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  font-weight: 300;
+  color: var(--text-main);
+  background: linear-gradient(160deg, #f0f8ff 0%, #e8f4fd 100%);
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--ocean-deep);
+}
+
+/* ── Navbar / Header ──────────────────────────── */
+.navbar {
+  background: linear-gradient(90deg, var(--ocean-deep) 0%, var(--ocean-mid) 100%) !important;
+  border-bottom: 3px solid var(--ocean-light);
+  box-shadow: 0 2px 20px rgba(3,4,94,0.3);
+}
+
+.navbar-brand, .navbar-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem !important;
+  color: #ffffff !important;
+  letter-spacing: 0.5px;
+}
+
+.navbar-nav .nav-link {
+  color: var(--ocean-foam) !important;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  transition: color 0.2s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+}
+
+.navbar-nav .nav-link.active {
+  border-bottom: 2px solid var(--ocean-foam);
+}
+
+/* ── Sección: Introducción ────────────────────── */
+.intro-card {
+  background: linear-gradient(135deg, var(--ocean-deep) 0%, var(--ocean-mid) 60%, var(--ocean-light) 100%);
+  color: white;
+  border-radius: 16px;
+  padding: 2.5rem 3rem;
+  margin: 1rem 0 1.5rem 0;
+  box-shadow: 0 8px 40px rgba(3,4,94,0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-card::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  background: rgba(144,224,239,0.12);
+  border-radius: 50%;
+}
+
+.intro-card::after {
+  content: "";
+  position: absolute;
+  bottom: -40px; left: 10%;
+  width: 300px; height: 120px;
+  background: rgba(0,180,216,0.08);
+  border-radius: 50%;
+}
+
+.intro-wave-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.2rem;
+}
+
+.wave-icon {
+  font-size: 2rem;
+  animation: wave 3s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(10deg); }
+  75%       { transform: rotate(-10deg); }
+}
+
+.intro-badge {
+  background: rgba(255,255,255,0.2);
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 20px;
+  padding: 0.3rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  backdrop-filter: blur(4px);
+}
+
+.intro-title {
+  font-size: 2rem;
+  color: white !important;
+  line-height: 1.3;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.intro-story {
+  background: rgba(255,255,255,0.1);
+  border-left: 4px solid var(--ocean-foam);
+  border-radius: 0 12px 12px 0;
+  padding: 1.2rem 1.5rem;
+  margin-bottom: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.lead-paragraph {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+  color: rgba(255,255,255,0.95);
+}
+
+.intro-story p {
+  line-height: 1.7;
+  color: rgba(255,255,255,0.88);
+  margin-bottom: 0.8rem;
+}
+
+.intro-divider {
+  text-align: center;
+  margin: 0.8rem 0;
+  font-size: 1.2rem;
+  opacity: 0.6;
+}
+
+.intro-metrics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.metric-chip {
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 30px;
+  padding: 0.4rem 1rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Encabezados de sección ───────────────────── */
+.section-header {
+  background: linear-gradient(90deg, var(--ocean-mid), var(--ocean-light));
+  border-radius: 10px;
+  padding: 0.7rem 1.5rem;
+  margin: 0.5rem 0 1rem 0;
+  color: white !important;
+}
+
+.section-header h2 {
+  color: white !important;
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+/* ── Barra de botones ─────────────────────────── */
+.toolbar-row {
+  margin-bottom: 1rem;
+}
+
+.chart-toolbar {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.8rem 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 12px rgba(0,119,182,0.08);
+}
+
+.toolbar-label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.btn-group {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.chart-btn {
+  background: white;
+  border: 2px solid var(--ocean-mid);
+  color: var(--ocean-mid);
+  border-radius: 25px;
+  padding: 0.4rem 1.1rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: 'Source Sans 3', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.chart-btn:hover {
+  background: var(--ocean-mist);
+  border-color: var(--ocean-mid);
+  transform: translateY(-1px);
+}
+
+.chart-btn.active {
+  background: var(--ocean-mid);
+  color: white;
+  box-shadow: 0 4px 14px rgba(0,119,182,0.35);
+  transform: translateY(-1px);
+}
+
+/* ── Paneles de gráficas ──────────────────────── */
+.chart-panel {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,119,182,0.08);
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.active-panel { display: block; }
+.hidden-panel  { display: none; }
+
+/* ── Panel lateral de información ────────────── */
+.info-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  box-shadow: 0 2px 16px rgba(0,119,182,0.07);
+  overflow-y: auto;
+}
+
+.info-content.active-info { display: block; }
+.info-content.hidden-info  { display: none; }
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid var(--ocean-mist);
+}
+
+.info-icon { font-size: 1.5rem; }
+
+.info-header h3 {
+  font-size: 1.05rem;
+  margin: 0;
+  color: var(--ocean-deep);
+}
+
+.info-panel p {
+  font-size: 0.93rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.variable-list {
+  background: var(--ocean-mist);
+  border-radius: 10px;
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.variable-list h4 {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ocean-mid);
+  margin-bottom: 0.5rem;
+}
+
+.variable-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.variable-list li {
+  font-size: 0.88rem;
+  padding: 0.25rem 0;
+  color: var(--text-main);
+}
+
+.insight-box {
+  background: linear-gradient(135deg, #fff8f0, #fff3e8);
+  border-left: 4px solid var(--coral);
+  border-radius: 0 10px 10px 0;
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: var(--text-main);
+}
+
+.insight-model {
+  background: linear-gradient(135deg, #f0fff8, #e8f8f5);
+  border-left-color: var(--teal);
+  margin-top: 1rem;
+}
+
+/* ── Panel del Modelo ─────────────────────────── */
+.model-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 2px 16px rgba(0,119,182,0.07);
+}
+
+.model-header {
+  margin-bottom: 1.2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--ocean-mist);
+}
+
+.model-badge {
+  background: var(--ocean-mid);
+  color: white;
+  border-radius: 20px;
+  padding: 0.25rem 0.9rem;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.model-header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--ocean-deep);
+}
+
+.model-section {
+  margin-bottom: 1.1rem;
+}
+
+.model-section h4 {
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ocean-mid);
+  margin-bottom: 0.5rem;
+}
+
+.model-section p {
+  font-size: 0.92rem;
+  line-height: 1.7;
+  color: var(--text-muted);
+}
+
+.model-vars {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-size: 0.9rem;
+}
+
+.model-vars li {
+  padding: 0.3rem 0;
+  border-bottom: 1px dashed var(--border);
+  color: var(--text-main);
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-top: 0.5rem;
+}
+
+.metric-card {
+  background: linear-gradient(135deg, var(--ocean-mist), white);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.metric-value {
+  font-size: 1.3rem;
+  font-weight: 700;
+  font-family: 'Playfair Display', serif;
+  color: var(--ocean-mid);
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* ── Panel de Conclusiones ────────────────────── */
+.conclusions-panel {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: 0 2px 16px rgba(0,119,182,0.07);
+}
+
+.conclusions-header {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 2px solid var(--ocean-mist);
+}
+
+.conclusions-icon { font-size: 1.4rem; }
+
+.conclusions-header h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: var(--ocean-deep);
+}
+
+.conclusion-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+  align-items: flex-start;
+}
+
+.conclusion-number {
+  min-width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, var(--ocean-mid), var(--ocean-light));
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.82rem;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+
+.conclusion-item h4 {
+  font-size: 0.95rem;
+  color: var(--ocean-deep);
+  margin-bottom: 0.3rem;
+}
+
+.conclusion-item p {
+  font-size: 0.88rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.recommendations-box {
+  background: linear-gradient(135deg, #f0f8ff, #e8f4fd);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.recommendations-box h4 {
+  font-size: 0.88rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--ocean-mid);
+  margin-bottom: 0.6rem;
+}
+
+.recommendations-box ul {
+  padding-left: 1.2rem;
+  margin: 0;
+}
+
+.recommendations-box li {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: var(--text-main);
+  padding: 0.2rem 0;
+}
+
+.ods-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--ocean-mist);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+/* ── Quarto overrides ─────────────────────────── */
+.quarto-dashboard .card {
+  border: 1px solid var(--border) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 16px rgba(0,119,182,0.06) !important;
+}
+
+.quarto-dashboard .card-header {
+  background: linear-gradient(90deg, var(--ocean-mist), white) !important;
+  border-bottom: 2px solid var(--border) !important;
+  font-family: 'Playfair Display', serif !important;
+  font-size: 1rem !important;
+  color: var(--ocean-deep) !important;
+}
+
+.quarto-dashboard .tab-content {
+  padding: 1rem !important;
+}
+
+/* ── Scrollbar temática ───────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ocean-mist); }
+::-webkit-scrollbar-thumb {
+  background: var(--ocean-mid);
+  border-radius: 3px;
+}
