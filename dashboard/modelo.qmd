@@ -1,6 +1,12 @@
+---
+title: "Análisis Exploratorio"
+---
+
 ```{python}
-#| cache: true
 #| label: setup
+#| include: false
+#| cache: true
+
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
