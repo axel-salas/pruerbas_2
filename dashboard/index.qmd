@@ -9,33 +9,34 @@ execute:
 format:
   dashboard:
     scrolling: true
-    orientation: rows  # <-- Cambiamos a rows para apilar horizontalmente
+    orientation: rows
     self-contained: true 
 ---
 
 # 🌊 Vida Submarina en Baja California
 
 ## Row
-
 ###
 ::: {.callout-important appearance="minimal"}
 # Interacción entre biodiversidad, pesca y cambio climático
 Este dashboard analiza cómo la actividad humana y fenómenos climáticos afectan el equilibrio del ecosistema marino, integrando evidencia histórica y proyecciones futuras.
 :::
 
-## Row {height=10%}
-
-###
+## Row
+### 
+::: {.text-center}
 [🔎 Análisis Exploratorio](analisis.qmd){.btn .btn-primary}
 [📊 Modelo Predictivo](modelo.qmd){.btn .btn-success}
 [📌 Conclusiones](conclusiones.qmd){.btn .btn-secondary}
-
-## Row {height=10%}
-
-### ¿Qué encontrarás?
+:::
 
 ## Row
+### 
+::: {.text-center}
+## ¿Qué encontrarás?
+:::
 
+## Row
 ### 🔎 Análisis Exploratorio
 ::: {.callout-note appearance="simple"}
 Visualización de patrones históricos:
@@ -71,7 +72,6 @@ Enfoque en sostenibilidad y toma de decisiones.
 :::
 
 ## Row
-
 ###
 ::: {.callout-important appearance="minimal"}
 ## 💡 Insight central
