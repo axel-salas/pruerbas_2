@@ -12,41 +12,87 @@ format:
     orientation: columns
     self-contained: true 
 ---
-::: {.hero .fade-in-delay}
+# 🌊 Vida Submarina en Baja California
 
-# 🌊 Biodiversidad y Pesca en Baja California
+## Column {100%}
 
-## Exploración interactiva del equilibrio entre ecosistema y actividad humana
+::: {.callout-important appearance="minimal"}
 
-<div class="hero-buttons fade-in-delay">
+## Interacción entre biodiversidad, pesca y cambio climático
 
-[📈 Análisis Exploratorio](analisis.qmd){.btn .btn-primary}
-[🔮 Modelo Predictivo](introduccion.qmd){.btn .btn-success}
-
-
-</div>
+Este dashboard analiza cómo la actividad pesquera y fenómenos como *El Niño* afectan el equilibrio del ecosistema marino.
 
 :::
 
 ---
 
-## 🔎 ¿Qué encontrarás? {.fade-in}
+## Column {100%}
 
-::: {.grid}
+[🔎 Explorar análisis](analisis.qmd){.btn .btn-primary}
+[📊 Ver modelo predictivo](modelo.qmd){.btn .btn-success}
+[📌 Leer conclusiones](conclusiones.qmd){.btn .btn-secondary}
 
-::: {.g-col-4}
-### 📈 Análisis Exploratorio
-Visualiza cómo evolucionan las especies y la actividad pesquera en el tiempo.
+---
+
+## Column {100%}
+
+## ¿Qué encontrarás?
+
+---
+
+## Column {33%}
+
+::: {.callout-note appearance="simple"}
+## 🔎 Análisis Exploratorio
+
+- Tendencias históricas  
+- Ballenas y pelícanos  
+- Producción pesquera  
+- Impacto de El Niño  
+
 :::
 
-::: {.g-col-4}
-### 🔮 Modelo Predictivo
-Explora escenarios futuros y el impacto de distintas decisiones.
+---
+
+## Column {33%}
+
+::: {.callout-note appearance="simple"}
+## 📊 Modelo Predictivo
+
+- Simulación Monte Carlo  
+- Escenario inercial vs conservación  
+- Sliders interactivos  
+- Proyección a futuro  
+
 :::
 
-::: {.g-col-4}
-### 📌 Conclusiones
-Identifica los hallazgos clave para la sostenibilidad marina.
+---
+
+## Column {33%}
+
+::: {.callout-note appearance="simple"}
+## 📌 Conclusiones
+
+- Hallazgos clave  
+- Impacto humano  
+- Rol del clima  
+- Recomendaciones  
+
 :::
+
+---
+
+## Column {100%}
+
+::: {.callout-important appearance="minimal"}
+
+## 💡 ¿Por qué importa?
+
+El equilibrio marino depende de decisiones humanas.
+
+Este dashboard permite entender:
+- cómo evoluciona el ecosistema  
+- qué ocurre sin intervención  
+- qué estrategias son sostenibles  
 
 :::
