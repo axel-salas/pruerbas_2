@@ -58,7 +58,7 @@ _layout = dict(
 )
 
 # ═══════════════════════════════════════════════
-#  FUNCIONES DE GRÁFICAS (Todo en un solo lugar)
+#  FUNCIONES DE GRÁFICAS
 # ═══════════════════════════════════════════════
 
 el_nino_periods = [
@@ -118,45 +118,96 @@ def crear_fig_embarcaciones(df):
     return fig
 ```
 
-##🔎 Análisis Exploratorio
-### Row {.tabset .tabset-ocean}
-🐋 Ballenas
-:::: {.grid}
+# 🔎 Análisis Exploratorio
 
-::: {.g-col-12 .g-col-lg-8}
+## Row {.tabset}
 
+### 🐋 Ballenas
+
+:::: {style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;"}
+
+::: {style="flex: 7; min-width: 60%;"}
 ```{python}
 #| fig-responsive: true
 display(crear_fig_ballenas(ballenas))
 ```
-
 :::
 
-::: {.g-col-12 .g-col-lg-4}
+::: {style="flex: 3; min-width: 300px;"}
 ::: {.callout-note appearance="minimal" icon=false}
+## Indicador pelágico de largo alcance
+La ballena gris recorre hasta 20,000 kilómetros por temporada entre sus zonas de alimentación en el Ártico y sus criaderos en las lagunas de Baja California. Eso la convierte en un integrador biológico de condiciones oceánicas a escala continental.
 
-Indicador pelágico de largo alcance
-La ballena gris recorre hasta 20,000 kilómetros por temporada entre sus zonas de alimentación en el Ártico y sus criaderos en las lagunas de Baja California. Eso la convierte en algo extraordinario para la ciencia: un integrador biológico de condiciones oceánicas a escala continental.
+Cuando los avistamientos caen, no es porque las ballenas se hayan escondido. Es porque el sistema que las sostiene está fallando.
 
-Cuando los avistamientos caen, no es porque las ballenas se hayan escondido. Es porque el sistema que las sostiene: zooplancton, peces pequeños, corrientes frías, está fallando.
-
-Los datos de monitoreo muestran una trayectoria perturbadora. Desde el máximo histórico de más de 3,000 individuos registrados en 2012, la población ha caído sistemáticamente. Para 2020, los avistamientos tocaron mínimos de apenas 1,000 individuos, una caída del 67% en ocho años. La ligera recuperación de 2023-2024 aún no alcanza la mitad del pico registrado.
-
-Los años sombreados en las gráficas corresponden a eventos El Niño; perturbaciones climáticas que calientan el Pacífico oriental y reducen la productividad marina. Algunos valles en la curva coinciden con estos eventos. Pero no todos. Y eso importa.
-
-Variables utilizadas:
-
-[Variable 1]: [Descripción breve]
-
-[Variable 2]: [Descripción breve]
-
-Fuente: [Origen de los datos]
+Los datos de monitoreo muestran una trayectoria perturbadora. Desde el máximo histórico de más de 3,000 individuos registrados en 2012, la población ha caído sistemáticamente.
 :::
 
 ::: {.callout-important appearance="minimal" icon=false}
+## 💡 Hallazgo clave
+La ligera recuperación de 2023-2024 aún no alcanza la mitad del pico registrado en la década anterior.
+:::
+:::
 
-💡 Hallazgo clave
-[Escribe aquí el dato o tendencia más importante que revela esta gráfica.]
+::::
+
+
+### 🐦 Pelícanos
+
+:::: {style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;"}
+
+::: {style="flex: 7; min-width: 60%;"}
+```{python}
+#| fig-responsive: true
+display(crear_fig_pelicanos(pelicanos))
+```
+:::
+
+::: {style="flex: 3; min-width: 300px;"}
+::: {.callout-note appearance="minimal" icon=false}
+## Indicador costero
+Si la ballena gris mira el océano desde lejos, el pelícano pardo lo mira desde arriba. Se zambulle en picada para capturar sardinas y anchovetas: exactamente las mismas especies que captura la flota pesquera.
+
+La cantidad de nidos activos es el termómetro más sensible de su éxito reproductivo. Un pelícano que no come bien, no anida.
+
+Desde un máximo de más de 30,000 nidos en 2011, la curva cae de forma casi vertical. Para 2014-2015, los registros muestran valores cercanos a cero nidos activos.
+:::
+
+::: {.callout-important appearance="minimal" icon=false}
+## 💡 Hallazgo clave
+El pelícano pardo compite con la flota pesquera por el mismo recurso. Donde la flota abunda, el pelícano escasea.
 :::
 :::
+
+::::
+
+
+### 🚢 Producción y Flota
+
+:::: {style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;"}
+
+::: {style="flex: 7; min-width: 60%;"}
+```{python}
+#| fig-responsive: true
+display(crear_fig_pesca(produccion_pesquera))
+display(crear_fig_embarcaciones(embarcaciones))
+```
+:::
+
+::: {style="flex: 3; min-width: 300px;"}
+::: {.callout-note appearance="minimal" icon=false}
+## Presión extractiva
+Mientras las poblaciones silvestres oscilan, dos curvas no han dejado de crecer.
+
+La flota pesquera registrada pasó de menos de 5,000 embarcaciones a mediados de los ochenta a casi 7,000 en 2024. No son fluctuaciones estacionales: es una expansión estructural de la capacidad extractiva.
+
+La producción pesquera siguió una trayectoria similar. El pico de 2024 ocurrió precisamente cuando los indicadores biológicos mostraban sus valores más bajos.
+:::
+
+::: {.callout-important appearance="minimal" icon=false}
+## 💡 Hallazgo clave
+A mayor extracción, menor biomasa silvestre observable. La flota sigue creciendo hacia el límite del ecosistema.
+:::
+:::
+
 ::::
