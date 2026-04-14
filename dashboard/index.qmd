@@ -16,29 +16,35 @@ format:
 # 🌊 Vida Submarina en Baja California
 
 ## Row
-###
+
+### 
+
 ::: {.callout-important appearance="minimal"}
 # Interacción entre biodiversidad, pesca y cambio climático
 Este dashboard analiza cómo la actividad humana y fenómenos climáticos afectan el equilibrio del ecosistema marino, integrando evidencia histórica y proyecciones futuras.
 :::
 
-## Row
-### 
+<br>
+
 ::: {.text-center}
 [🔎 Análisis Exploratorio](analisis.qmd){.btn .btn-primary}
 [📊 Modelo Predictivo](modelo.qmd){.btn .btn-success}
 [📌 Conclusiones](conclusiones.qmd){.btn .btn-secondary}
 :::
 
-## Row
-### 
+<br>
+
 ::: {.text-center}
 ## ¿Qué encontrarás?
 :::
 
-## Row
-### 🔎 Análisis Exploratorio
+<br>
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
 ::: {.callout-note appearance="simple"}
+## 🔎 Análisis Exploratorio
 Visualización de patrones históricos:
 
 - Avistamientos de ballenas  
@@ -48,9 +54,11 @@ Visualización de patrones históricos:
 
 Identifica cambios y momentos críticos del ecosistema.
 :::
+:::
 
-### 📊 Modelo Predictivo
+::: {.g-col-12 .g-col-md-4}
 ::: {.callout-note appearance="simple"}
+## 📊 Modelo Predictivo
 Simulación de escenarios futuros:
 
 - Trayectoria sin intervención  
@@ -59,9 +67,11 @@ Simulación de escenarios futuros:
 
 Evalúa el impacto de decisiones actuales.
 :::
+:::
 
-### 📌 Conclusiones
+::: {.g-col-12 .g-col-md-4}
 ::: {.callout-note appearance="simple"}
+## 📌 Conclusiones
 Síntesis estratégica:
 
 - Presión sobre el ecosistema  
@@ -70,9 +80,12 @@ Síntesis estratégica:
 
 Enfoque en sostenibilidad y toma de decisiones.
 :::
+:::
 
-## Row
-###
+:::
+
+<br>
+
 ::: {.callout-important appearance="minimal"}
 ## 💡 Insight central
 El sistema marino responde simultáneamente a presiones climáticas y humanas.  
