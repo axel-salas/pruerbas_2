@@ -151,19 +151,18 @@ La ligera recuperación de 2023-2024 aún no alcanza la mitad del pico registrad
 
 ::::
 
-
 ### 🐦 Pelícanos
 
-:::: {style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;"}
+:::: {layout="[70, 30]"}
 
-::: {style="flex: 7; min-width: 60%;"}
+::: {#columna-grafica-pelicanos}
 ```{python}
 #| fig-responsive: true
 display(crear_fig_pelicanos(pelicanos))
 ```
 :::
 
-::: {style="flex: 3; min-width: 300px;"}
+::: {#columna-texto-pelicanos}
 ::: {.callout-note appearance="minimal" icon=false}
 ## Indicador costero
 Si la ballena gris mira el océano desde lejos, el pelícano pardo lo mira desde arriba. Se zambulle en picada para capturar sardinas y anchovetas: exactamente las mismas especies que captura la flota pesquera.
@@ -184,9 +183,9 @@ El pelícano pardo compite con la flota pesquera por el mismo recurso. Donde la 
 
 ### 🚢 Producción y Flota
 
-:::: {style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;"}
+:::: {layout="[70, 30]"}
 
-::: {style="flex: 7; min-width: 60%;"}
+::: {#columna-grafica-flota}
 ```{python}
 #| fig-responsive: true
 display(crear_fig_pesca(produccion_pesquera))
@@ -194,7 +193,7 @@ display(crear_fig_embarcaciones(embarcaciones))
 ```
 :::
 
-::: {style="flex: 3; min-width: 300px;"}
+::: {#columna-texto-flota}
 ::: {.callout-note appearance="minimal" icon=false}
 ## Presión extractiva
 Mientras las poblaciones silvestres oscilan, dos curvas no han dejado de crecer.
@@ -210,4 +209,5 @@ A mayor extracción, menor biomasa silvestre observable. La flota sigue creciend
 :::
 :::
 
+::::
 ::::
