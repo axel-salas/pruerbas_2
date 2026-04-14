@@ -25,9 +25,10 @@ Este dashboard analiza cómo la actividad humana y fenómenos climáticos afecta
 :::
 
 ::: {.text-center .mb-4}
-[🔎 Análisis Exploratorio](analisis.qmd){.btn .btn-primary}
-[📊 Modelo Predictivo](modelo.qmd){.btn .btn-success}
-[📌 Conclusiones](conclusiones.qmd){.btn .btn-secondary}
+[ Introduccion](introduccion.qmd){.btn .btn-secondary}
+[ Análisis Exploratorio](analisis.qmd){.btn .btn-primary}
+[ Modelo Predictivo](modelo.qmd){.btn .btn-success}
+[ Escenarios a Futuro](escenarios.qmd){.btn .btn-secondary}
 :::
 
 ::: {.text-center .mb-4}
@@ -38,7 +39,15 @@ Este dashboard analiza cómo la actividad humana y fenómenos climáticos afecta
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.callout-note appearance="simple"}
-## 🔎 Análisis Exploratorio
+##  Introduccion
+
+
+
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.callout-note appearance="simple"}
+##  Análisis Exploratorio
 Visualización de patrones históricos:
 
 - Avistamientos de ballenas  
@@ -52,7 +61,7 @@ Identifica cambios y momentos críticos del ecosistema.
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.callout-note appearance="simple"}
-## 📊 Modelo Predictivo
+##  Modelo Predictivo
 Simulación de escenarios futuros:
 
 - Trayectoria sin intervención  
@@ -65,14 +74,12 @@ Evalúa el impacto de decisiones actuales.
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.callout-note appearance="simple"}
-## 📌 Conclusiones
-Síntesis estratégica:
+##  Escenarios a futuro
 
 - Presión sobre el ecosistema  
 - Riesgos a futuro  
 - Recomendaciones  
 
-Enfoque en sostenibilidad y toma de decisiones.
 :::
 :::
 
