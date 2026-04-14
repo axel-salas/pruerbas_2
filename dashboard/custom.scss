@@ -91,3 +91,13 @@ a {
 .g-col-4:hover {
   transform: translateY(-8px) scale(1.02);
 }
+
+body {
+  transition: all 0.3s ease;
+}
+
+/* evita columna rara en dashboard */
+.quarto-dashboard-content {
+  max-width: 1200px;
+  margin: auto;
+}
