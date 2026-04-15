@@ -1,5 +1,5 @@
 ---
-title: "Análisis Exploratorio"
+title: "Modelo Predictivo"
 ---
 
 ```{python}
