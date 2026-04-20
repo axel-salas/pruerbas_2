@@ -1,0 +1,15 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "DERRE - HackODS  ODS 14 · Vida Submarina"
+
+
+format:
+  dashboard:
+    scrolling: true
+    orientation: columns
+    theme:
+      - custom.scss
+
