@@ -1,0 +1,672 @@
+---
+title: "DERRE · ODS 14 · Vida Submarina"
+author: "DERRE"
+date: today
+execute:
+  echo: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    smooth-scroll: true
+    toc: false
+    theme: none
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+---
+
+```{=html}
+<style>
+  /* ============================================
+     RESET & ROOT VARIABLES
+  ============================================ */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --abyss:      #020b18;
+    --deep:       #041e35;
+    --midnight:   #063052;
+    --ocean:      #0a4f7e;
+    --wave:       #1278b0;
+    --reef:       #1ba3c6;
+    --foam:       #5dd6f0;
+    --biolum:     #00ffe7;
+    --biolum2:    #00d4c8;
+    --pearl:      #e8f4f8;
+    --text-main:  #cce8f4;
+    --text-muted: #7ab4cc;
+    --glass-bg:   rgba(10, 79, 126, 0.18);
+    --glass-border: rgba(93, 214, 240, 0.2);
+    --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    --ff-display: 'Playfair Display', Georgia, serif;
+    --ff-body:    'DM Sans', sans-serif;
+    --ff-mono:    'Space Mono', monospace;
+  }
+
+  /* ============================================
+     GLOBAL BASE
+  ============================================ */
+  html { scroll-behavior: smooth; }
+
+  body, .quarto-container, #quarto-content, main {
+    background: transparent !important;
+    font-family: var(--ff-body);
+    color: var(--text-main);
+    min-height: 100vh;
+  }
+
+  /* Override Quarto layout padding */
+  #quarto-content { padding: 0 !important; max-width: 100% !important; }
+  .page-layout-full { padding: 0 !important; }
+  
+  /* Remove default title block */
+  #title-block-header { display: none !important; }
+  h1.title, p.author, p.date { display: none !important; }
+
+  /* ============================================
+     ANIMATED OCEAN BACKGROUND
+  ============================================ */
+  body {
+    background:
+      radial-gradient(ellipse at 20% 10%, rgba(0, 255, 231, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 90%, rgba(18, 120, 176, 0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(6, 48, 82, 0.5) 0%, transparent 70%),
+      linear-gradient(170deg, var(--abyss) 0%, var(--deep) 40%, var(--midnight) 70%, #041529 100%) !important;
+    background-attachment: fixed !important;
+  }
+
+  /* Particle canvas */
+  #ocean-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  /* ============================================
+     MAIN WRAPPER
+  ============================================ */
+  .ocean-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem 6rem;
+  }
+
+  /* ============================================
+     HERO SECTION
+  ============================================ */
+  .hero-section {
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    padding: 0.4rem 1.2rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--foam);
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    backdrop-filter: blur(10px);
+    animation: fadeInDown 0.8s ease both;
+  }
+
+  .hero-badge i { color: var(--biolum); font-size: 0.8rem; }
+
+  .hero-eyebrow {
+    font-family: var(--ff-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: var(--reef);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    animation: fadeInDown 0.9s ease both;
+    animation-delay: 0.1s;
+  }
+
+  .hero-title {
+    font-family: var(--ff-display);
+    font-size: clamp(2.4rem, 5vw, 4.2rem);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--pearl);
+    margin-bottom: 1.5rem;
+    animation: fadeInDown 1s ease both;
+    animation-delay: 0.15s;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    background: linear-gradient(135deg, var(--foam), var(--biolum));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 3rem;
+    line-height: 1.7;
+    animation: fadeInDown 1s ease both;
+    animation-delay: 0.25s;
+  }
+
+  .hero-divider {
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--biolum), transparent);
+    margin: 0 auto 3rem;
+    animation: fadeIn 1.2s ease both;
+    animation-delay: 0.4s;
+  }
+
+  /* Wave decoration */
+  .hero-wave {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 60px;
+    overflow: hidden;
+  }
+
+  .hero-wave svg {
+    width: 100%;
+    height: 100%;
+    fill: rgba(93, 214, 240, 0.06);
+  }
+
+  /* ============================================
+     SECTION LABELS
+  ============================================ */
+  .section-label {
+    font-family: var(--ff-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    color: var(--reef);
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, var(--glass-border), transparent);
+  }
+
+  .section-title {
+    font-family: var(--ff-display);
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: var(--pearl);
+    margin-bottom: 0.5rem;
+  }
+
+  .section-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+  }
+
+  /* ============================================
+     GLASSMORPHISM CARDS
+  ============================================ */
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: var(--glass-shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(93,214,240,0.4), transparent);
+  }
+
+  .glass-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0,255,231,0.06);
+    border-color: rgba(93, 214, 240, 0.4);
+  }
+
+  /* ============================================
+     NAVIGATION CARDS GRID
+  ============================================ */
+  .nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.4rem;
+    margin-bottom: 3rem;
+  }
+
+  .nav-card {
+    padding: 2rem 1.8rem;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav-card-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+  }
+
+  .nav-card:nth-child(1) .nav-card-icon { background: rgba(27,163,198,0.2); color: var(--reef); box-shadow: 0 0 20px rgba(27,163,198,0.2); }
+  .nav-card:nth-child(2) .nav-card-icon { background: rgba(18,120,176,0.2); color: var(--wave); box-shadow: 0 0 20px rgba(18,120,176,0.2); }
+  .nav-card:nth-child(3) .nav-card-icon { background: rgba(0,255,231,0.1); color: var(--biolum); box-shadow: 0 0 20px rgba(0,255,231,0.15); }
+  .nav-card:nth-child(4) .nav-card-icon { background: rgba(93,214,240,0.15); color: var(--foam); box-shadow: 0 0 20px rgba(93,214,240,0.15); }
+
+  .nav-card-title {
+    font-family: var(--ff-display);
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--pearl);
+    margin-bottom: 0.5rem;
+  }
+
+  .nav-card-desc {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.4rem;
+  }
+
+  .nav-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--foam);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(93,214,240,0.3);
+    padding-bottom: 2px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .nav-card:hover .nav-card-link {
+    color: var(--biolum);
+    border-color: var(--biolum);
+  }
+
+  .nav-card-link i { font-size: 0.7rem; transition: transform 0.2s; }
+  .nav-card:hover .nav-card-link i { transform: translateX(4px); }
+
+  /* ============================================
+     INSIGHT BANNER
+  ============================================ */
+  .insight-banner {
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(0,255,231,0.06) 0%, rgba(10,79,126,0.25) 100%);
+    border: 1px solid rgba(0,255,231,0.2);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .insight-banner::after {
+    content: '';
+    position: absolute;
+    top: -50%; right: -10%;
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(0,255,231,0.05) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .insight-icon-wrap {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(0,255,231,0.1);
+    border: 1px solid rgba(0,255,231,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    color: var(--biolum);
+    flex-shrink: 0;
+    box-shadow: 0 0 30px rgba(0,255,231,0.15);
+  }
+
+  .insight-label {
+    font-family: var(--ff-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.15em;
+    color: var(--biolum2);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .insight-text {
+    font-family: var(--ff-display);
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--pearl);
+    line-height: 1.6;
+  }
+
+  /* ============================================
+     FOOTER
+  ============================================ */
+  .ocean-footer {
+    text-align: center;
+    padding: 3rem 0 2rem;
+    border-top: 1px solid var(--glass-border);
+    margin-top: 2rem;
+  }
+
+  .footer-ods-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.8rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    padding: 0.6rem 1.6rem;
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    backdrop-filter: blur(8px);
+    margin-bottom: 1rem;
+  }
+
+  .footer-ods-badge span { color: var(--foam); font-weight: 700; }
+
+  .footer-credit {
+    font-size: 0.8rem;
+    color: rgba(123, 180, 204, 0.5);
+  }
+
+  /* ============================================
+     STATS ROW
+  ============================================ */
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 3rem;
+  }
+
+  .stat-card {
+    padding: 1.8rem 1.5rem;
+    text-align: center;
+  }
+
+  .stat-value {
+    font-family: var(--ff-display);
+    font-size: 2.4rem;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-card:nth-child(1) .stat-value { color: var(--foam); }
+  .stat-card:nth-child(2) .stat-value { color: var(--biolum); }
+  .stat-card:nth-child(3) .stat-value { color: var(--reef); }
+
+  .stat-label {
+    font-family: var(--ff-mono);
+    font-size: 0.68rem;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .stat-unit {
+    font-family: var(--ff-mono);
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-left: 0.2rem;
+  }
+
+  /* ============================================
+     ANIMATIONS
+  ============================================ */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0,255,231,0.15); }
+    50%       { box-shadow: 0 0 40px rgba(0,255,231,0.3); }
+  }
+
+  .insight-icon-wrap { animation: pulse-glow 3s ease-in-out infinite; }
+
+  /* Stagger animation for cards */
+  .nav-card:nth-child(1) { animation: fadeInDown 0.6s ease both; animation-delay: 0.1s; }
+  .nav-card:nth-child(2) { animation: fadeInDown 0.6s ease both; animation-delay: 0.2s; }
+  .nav-card:nth-child(3) { animation: fadeInDown 0.6s ease both; animation-delay: 0.3s; }
+  .nav-card:nth-child(4) { animation: fadeInDown 0.6s ease both; animation-delay: 0.4s; }
+
+  .stat-card:nth-child(1) { animation: fadeInDown 0.6s ease both; animation-delay: 0.15s; }
+  .stat-card:nth-child(2) { animation: fadeInDown 0.6s ease both; animation-delay: 0.25s; }
+  .stat-card:nth-child(3) { animation: fadeInDown 0.6s ease both; animation-delay: 0.35s; }
+
+  /* ============================================
+     RESPONSIVE
+  ============================================ */
+  @media (max-width: 768px) {
+    .ocean-wrapper { padding: 0 1rem 4rem; }
+    .hero-section  { padding: 4rem 1rem 3rem; }
+    .stats-row     { grid-template-columns: 1fr; }
+    .insight-banner { grid-template-columns: 1fr; text-align: center; padding: 1.8rem; }
+    .insight-icon-wrap { margin: 0 auto; }
+  }
+
+  @media (max-width: 500px) {
+    .nav-grid { grid-template-columns: 1fr; }
+    .hero-title { font-size: 2rem; }
+  }
+</style>
+
+<!-- Particle background canvas -->
+<canvas id="ocean-canvas"></canvas>
+
+<div class="ocean-wrapper">
+
+  <!-- ═══ HERO ═══════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="hero-badge">
+      <i class="fa-solid fa-water"></i>
+      DERRE · HackODS 2025
+    </div>
+    <p class="hero-eyebrow">Objetivo de Desarrollo Sostenible · 14</p>
+    <h1 class="hero-title">
+      ¿Puede la <em>biodiversidad marina</em><br>recuperarse del crecimiento pesquero<br>en Baja California?
+    </h1>
+    <p class="hero-subtitle">
+      Un análisis de datos sobre la interacción entre ecosistemas oceánicos, 
+      poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
+    </p>
+    <div class="hero-divider"></div>
+  </section>
+
+  <!-- ═══ STATS ROW ═══════════════════════════════ -->
+  <div class="stats-row">
+    <div class="glass-card stat-card">
+      <div class="stat-value">3.1M<span class="stat-unit">km²</span></div>
+      <div class="stat-label"><i class="fa-solid fa-globe fa-xs"></i> &nbsp;Mar Territorial Mexicano</div>
+    </div>
+    <div class="glass-card stat-card">
+      <div class="stat-value">~30%</div>
+      <div class="stat-label"><i class="fa-solid fa-fish fa-xs"></i> &nbsp;Especies en Riesgo Global</div>
+    </div>
+    <div class="glass-card stat-card">
+      <div class="stat-value">2030</div>
+      <div class="stat-label"><i class="fa-solid fa-calendar fa-xs"></i> &nbsp;Meta Agenda ODS</div>
+    </div>
+  </div>
+
+  <!-- ═══ NAVIGATION SECTION ══════════════════════ -->
+  <div class="section-label"><i class="fa-solid fa-compass"></i> Navegación del análisis</div>
+  <h2 class="section-title">Explora el estudio</h2>
+  <p class="section-desc">
+    Cuatro secciones interconectadas que van del contexto a la acción, 
+    combinando exploración histórica con modelado predictivo.
+  </p>
+
+  <div class="nav-grid">
+
+    <div class="glass-card nav-card">
+      <div class="nav-card-icon"><i class="fa-solid fa-book-open"></i></div>
+      <div class="nav-card-title">Introducción</div>
+      <div class="nav-card-desc">Contexto general del proyecto y la importancia ecológica y económica del área de estudio en Baja California.</div>
+      <a class="nav-card-link" href="introduccion.qmd">Ir a Introducción <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="glass-card nav-card">
+      <div class="nav-card-icon"><i class="fa-solid fa-chart-line"></i></div>
+      <div class="nav-card-title">Análisis Exploratorio</div>
+      <div class="nav-card-desc">Visualización de patrones históricos de ballenas, pelícanos y producción pesquera a lo largo del tiempo.</div>
+      <a class="nav-card-link" href="analisis.qmd">Ir a Análisis <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="glass-card nav-card">
+      <div class="nav-card-icon"><i class="fa-solid fa-brain"></i></div>
+      <div class="nav-card-title">Modelo Predictivo</div>
+      <div class="nav-card-desc">Simulación de escenarios futuros basados en el modelo de Ricker, con parámetros ajustables.</div>
+      <a class="nav-card-link" href="modelo.qmd">Ir a Modelo <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+    <div class="glass-card nav-card">
+      <div class="nav-card-icon"><i class="fa-solid fa-binoculars"></i></div>
+      <div class="nav-card-title">Escenarios a Futuro</div>
+      <div class="nav-card-desc">Análisis de riesgos y recomendaciones estratégicas para la conservación marina sostenible.</div>
+      <a class="nav-card-link" href="escenarios.qmd">Ir a Escenarios <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
+
+  </div>
+
+  <!-- ═══ INSIGHT BANNER ══════════════════════════ -->
+  <div class="insight-banner">
+    <div class="insight-icon-wrap"><i class="fa-solid fa-lightbulb"></i></div>
+    <div>
+      <div class="insight-label"><i class="fa-solid fa-circle fa-2xs"></i>&nbsp; Insight central del estudio</div>
+      <p class="insight-text">
+        "El sistema marino responde simultáneamente a presiones climáticas y humanas. 
+        Entender esta interacción es clave para diseñar estrategias verdaderamente sostenibles."
+      </p>
+    </div>
+  </div>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════ -->
+  <footer class="ocean-footer">
+    <div class="footer-ods-badge">
+      <i class="fa-solid fa-water"></i>
+      <span>ODS 14</span> · Vida Submarina · Agenda 2030 para el Desarrollo Sostenible
+    </div>
+    <p class="footer-credit">Elaborado por DERRE · HackODS 2025</p>
+  </footer>
+
+</div>
+
+<!-- Particle animation script -->
+<script>
+(function() {
+  const canvas = document.getElementById('ocean-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  const particles = [];
+  const count = 70;
+
+  for (let i = 0; i < count; i++) {
+    particles.push({
+      x:     Math.random() * window.innerWidth,
+      y:     Math.random() * window.innerHeight,
+      r:     Math.random() * 1.8 + 0.4,
+      vx:    (Math.random() - 0.5) * 0.3,
+      vy:    -(Math.random() * 0.4 + 0.1),
+      alpha: Math.random() * 0.5 + 0.1,
+      hue:   Math.random() > 0.5 ? '93, 214, 240' : '0, 255, 231',
+    });
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x  += p.vx;
+      p.y  += p.vy;
+      p.alpha += (Math.random() - 0.5) * 0.01;
+      p.alpha  = Math.max(0.05, Math.min(0.6, p.alpha));
+
+      if (p.y < -10) { p.y = canvas.height + 10; p.x = Math.random() * canvas.width; }
+      if (p.x < -10 || p.x > canvas.width + 10) { p.x = Math.random() * canvas.width; }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${p.hue}, ${p.alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+</script>
+```
