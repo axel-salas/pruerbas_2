@@ -1,0 +1,28 @@
+project:
+  type: website
+  output-dir: _site
+
+website:
+  title: "DERRE - HackODS  ODS 14 · Vida Submarina"
+  navbar:
+      left:
+        - href: index.qmd
+          text: Inicio
+        - href: introduccion.qmd
+          text: Introducción
+        - href: analisis.qmd
+          text: Análisis Exploratorio
+        - href: modelo.qmd
+          text: Modelo Predictivo
+        - href: escenarios.qmd
+          text: Escenarios a futuro
+        - href: conclusiones.qmd
+          text: Conclusiones
+
+format:
+  dashboard:
+    scrolling: true
+    orientation: columns
+    theme:
+      - custom.scss
+
