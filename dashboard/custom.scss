@@ -11,7 +11,14 @@
 //  Deben declararse ANTES del @import de Bootstrap para que
 //  Sass las tome como valores de las variables por defecto (!default)
 // ────────────────────────────────────────────────────────────────
+/*
+ * custom.scss — Tema ODS 14 · Vida Submarina
+ * Coloca este archivo en la misma carpeta que tu .qmd
+ */
 
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
 // Paleta primaria
 $primary:        #1278b0;
 $secondary:      #1ba3c6;
