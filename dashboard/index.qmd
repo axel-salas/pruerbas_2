@@ -1,6 +1,6 @@
 ---
-title: "Vida Submarina en Baja California"
-subtitle: "ODS 14 · ¿Puede la biodiversidad marina recuperarse del crecimiento pesquero?"
+title: "DERRE - HackODS"
+subtitle: "ODS 14 · Vida Submarina"
 author: "DERRE"
 date: today
 execute:
@@ -8,180 +8,110 @@ execute:
   warning: false
 format:
   html:
-    self-contained: true
-    smooth-scroll: true
-    toc: false
     theme: custom.scss
-    include-in-header:
-      text: |
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    self-contained: true
+    toc: false
+    page-layout: custom
 ---
 
-::: {.pagina-principal}
+::: {.page-container}
 
-<!-- ══════════════════════════════════════
-     HERO
-══════════════════════════════════════ -->
+&lt;!-- ═══════ HERO SECTION ═══════ --&gt;
 
-::: {.hero-seccion}
+::: {.hero-section}
 
-::: {.hero-badge}
-DERRE · HackODS 2025
-:::
+# 🌊 Vida Submarina en Baja California
 
-::: {.hero-eyebrow}
-Objetivo de Desarrollo Sostenible · 14
-:::
-
-::: {.hero-titulo}
-¿Puede la *biodiversidad marina* recuperarse del crecimiento pesquero en Baja California?
-:::
-
-::: {.hero-subtitulo}
-Un análisis de datos sobre la interacción entre ecosistemas oceánicos, poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
-:::
-
-::: {.hero-divisor}
+::: {.hero-subtitle}
+DERRE · HackODS · Agenda 2030
 :::
 
 :::
 
-<!-- ══════════════════════════════════════
-     ESTADÍSTICAS
-══════════════════════════════════════ -->
+&lt;!-- ═══════ SECTION HEADER ═══════ --&gt;
 
-::: {.stats-fila}
-
-::: {.glass-card .stat-tarjeta}
-::: {.stat-valor .stat-azul}
-3.1M km²
-:::
-::: {.stat-etiqueta}
-Mar Territorial Mexicano
-:::
+::: {.section-header}
+### ¿Qué encontrarás en este análisis?
 :::
 
-::: {.glass-card .stat-tarjeta}
-::: {.stat-valor .stat-cian}
-~30%
-:::
-::: {.stat-etiqueta}
-Especies en Riesgo Global
-:::
+&lt;!-- ═══════ NAVIGATION CARDS GRID ═══════ --&gt;
+
+::: {.cards-grid}
+
+::: {.nav-card}
+
+::: {.card-number}
+01
 :::
 
-::: {.glass-card .stat-tarjeta}
-::: {.stat-valor .stat-verde}
-2030
-:::
-::: {.stat-etiqueta}
-Meta Agenda ODS
-:::
-:::
+#### Introducción
+
+Explora el contexto general del proyecto y la importancia del área de estudio.
+
+[Ir a Introducción](introduccion.qmd){.btn-card}
 
 :::
 
-<!-- ══════════════════════════════════════
-     SECCIÓN DE NAVEGACIÓN
-══════════════════════════════════════ -->
+::: {.nav-card}
 
-::: {.seccion-label}
-Navegación del análisis
+::: {.card-number}
+02
 :::
 
-::: {.seccion-titulo}
-Explora el estudio
+#### Análisis Exploratorio
+
+Visualización de patrones históricos de ballenas, pelícanos y producción pesquera.
+
+[Ir a Análisis](analisis.qmd){.btn-card}
+
 :::
 
-::: {.seccion-desc}
-Cuatro secciones interconectadas que van del contexto a la acción, combinando exploración histórica con modelado predictivo.
+::: {.nav-card}
+
+::: {.card-number}
+03
 :::
 
-::: {.nav-grid}
+#### Modelo Predictivo
 
-::: {.glass-card .nav-tarjeta}
-::: {.nav-icono .icono-azul}
+Simulación de escenarios futuros basados en el modelo de Ricker.
+
+[Ir a Modelo](modelo.qmd){.btn-card}
+
 :::
 
-::: {.nav-tarjeta-titulo}
-Introducción
+::: {.nav-card}
+
+::: {.card-number}
+04
 :::
 
-::: {.nav-tarjeta-desc}
-Contexto general del proyecto y la importancia ecológica y económica del área de estudio en Baja California.
-:::
+#### Escenarios a futuro
 
-[Ir a Introducción →](introduccion.qmd){.nav-enlace}
-:::
+Análisis de riesgos y recomendaciones estratégicas para la conservación.
 
-::: {.glass-card .nav-tarjeta}
-::: {.nav-icono .icono-wave}
-:::
+[Ir a Escenarios](escenarios.qmd){.btn-card}
 
-::: {.nav-tarjeta-titulo}
-Análisis Exploratorio
-:::
-
-::: {.nav-tarjeta-desc}
-Visualización de patrones históricos de ballenas, pelícanos y producción pesquera a lo largo del tiempo.
-:::
-
-[Ir a Análisis →](analisis.qmd){.nav-enlace}
-:::
-
-::: {.glass-card .nav-tarjeta}
-::: {.nav-icono .icono-cian}
-:::
-
-::: {.nav-tarjeta-titulo}
-Modelo Predictivo
-:::
-
-::: {.nav-tarjeta-desc}
-Simulación de escenarios futuros basados en el modelo de Ricker, con parámetros ajustables.
-:::
-
-[Ir a Modelo →](modelo.qmd){.nav-enlace}
-:::
-
-::: {.glass-card .nav-tarjeta}
-::: {.nav-icono .icono-espuma}
-:::
-
-::: {.nav-tarjeta-titulo}
-Escenarios a Futuro
-:::
-
-::: {.nav-tarjeta-desc}
-Análisis de riesgos y recomendaciones estratégicas para la conservación marina sostenible.
-:::
-
-[Ir a Escenarios →](escenarios.qmd){.nav-enlace}
 :::
 
 :::
 
-<!-- ══════════════════════════════════════
-     INSIGHT CALLOUT
-══════════════════════════════════════ -->
+&lt;!-- ═══════ CENTRAL INSIGHT ═══════ --&gt;
 
-::: {.callout-important .insight-callout appearance="minimal" icon=false}
+::: {.insight-section}
 
-## Insight central del estudio
+::: {.callout-important appearance="simple"}
+## 💡 Insight central
 
-*"El sistema marino responde simultáneamente a presiones climáticas y humanas. Entender esta interacción es clave para diseñar estrategias verdaderamente sostenibles."*
+El sistema marino responde simultáneamente a presiones climáticas y humanas. Entender esta interacción es clave para diseñar estrategias sostenibles.
+:::
 
 :::
 
-<!-- ══════════════════════════════════════
-     PIE DE PÁGINA
-══════════════════════════════════════ -->
+&lt;!-- ═══════ FOOTER ═══════ --&gt;
 
-::: {.pie-pagina}
-**ODS 14 · Vida Submarina** · Agenda 2030 para el Desarrollo Sostenible · Elaborado por DERRE
+::: {.footer-ods}
+**ODS 14 · Vida Submarina** · Agenda 2030 para el Desarrollo Sostenible
 :::
 
 :::
