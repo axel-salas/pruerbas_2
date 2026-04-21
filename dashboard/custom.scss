@@ -7,428 +7,488 @@
 
 /*-- scss:rules --*/
 
+/* ============================================
+   OCEAN THEME FOR SDG 14 - VIDA SUBMARINA
+   ============================================ */
 
-/* ── FUENTES ─────────────────────────────────────────────── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+/* ── Google Fonts ── */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* ── VARIABLES ───────────────────────────────────────────── */
+/* ── Color Palette: Deep Ocean ── */
+$ocean-deep:      #0a1628;
+$ocean-mid:       #0d2137;
+$ocean-surface:   #134b70;
+$turquoise:       #2ec4b6;
+$turquoise-light: #5eead4;
+$sand:            #e9c46a;
+$sand-light:      #f4e4bc;
+$coral:           #e07a5f;
+$foam-white:      #e0f7fa;
+$pure-white:      #ffffff;
+$glass-bg:        rgba(13, 33, 55, 0.55);
+$glass-border:    rgba(46, 196, 182, 0.25);
+
+/* ── Base Overrides ── */
+$body-bg:                $ocean-deep;
+$body-color:             $foam-white;
+$font-family-base:        'Inter', sans-serif;
+$font-family-heading:     'Montserrat', sans-serif;
+$font-family-display:     'Playfair Display', serif;
+$headings-color:          $turquoise-light;
+$link-color:              $turquoise;
+$link-hover-color:        $turquoise-light;
+
+/* ── Quarto-Specific Variables ── */
+$code-block-bg:           $ocean-mid;
+$code-color:              $turquoise-light;
+
+/* ── Root Custom Properties ── */
 :root {
-  --abyss:          #020b18;
-  --deep:           #041e35;
-  --midnight:       #063052;
-  --ocean:          #0a4f7e;
-  --wave:           #1278b0;
-  --reef:           #1ba3c6;
-  --foam:           #5dd6f0;
-  --biolum:         #00ffe7;
-  --biolum2:        #00d4c8;
-  --pearl:          #e8f4f8;
-  --text-main:      #cce8f4;
-  --text-muted:     #7ab4cc;
-  --glass-bg:       rgba(10, 79, 126, 0.18);
-  --glass-border:   rgba(93, 214, 240, 0.22);
-  --glass-shadow:   0 8px 32px rgba(0, 0, 0, 0.45);
-  --radius-card:    20px;
-  --radius-badge:   100px;
-  --ff-display:     'Playfair Display', Georgia, serif;
-  --ff-body:        'DM Sans', system-ui, sans-serif;
-  --ff-mono:        'Space Mono', monospace;
+  --ocean-deep:     #{$ocean-deep};
+  --ocean-mid:      #{$ocean-mid};
+  --ocean-surface:  #{$ocean-surface};
+  --turquoise:      #{$turquoise};
+  --turquoise-light:#{$turquoise-light};
+  --sand:           #{$sand};
+  --sand-light:     #{$sand-light};
+  --coral:          #{$coral};
+  --foam-white:     #{$foam-white};
+  --glass-bg:       #{$glass-bg};
+  --glass-border:   #{$glass-border};
 }
 
-/* ── RESET & BASE ────────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; }
-
-html { scroll-behavior: smooth; }
+/* ═══════════════════════════════════════════
+   GLOBAL STYLES
+   ═══════════════════════════════════════════ */
 
 body {
-  font-family: var(--ff-body);
-  font-weight: 400;
-  color: var(--text-main);
-  min-height: 100vh;
-  /* Fondo oceánico en capas */
-  background:
-    radial-gradient(ellipse at 18%  8%, rgba(0, 255, 231, 0.055) 0%, transparent 48%),
-    radial-gradient(ellipse at 82% 92%, rgba(18, 120, 176, 0.13)  0%, transparent 48%),
-    radial-gradient(ellipse at 50% 50%, rgba(6,  48,  82, 0.50)   0%, transparent 68%),
-    linear-gradient(168deg,
-      var(--abyss)  0%,
-      var(--deep)   38%,
-      var(--midnight) 68%,
-      #041529       100%);
+  font-family: $font-family-base;
+  background: linear-gradient(180deg, $ocean-deep 0%, $ocean-mid 40%, $ocean-surface 100%);
   background-attachment: fixed;
+  min-height: 100vh;
+  line-height: 1.7;
 }
 
-/* Quarto añade padding por defecto — lo neutralizamos */
-#quarto-content,
-.page-layout-full,
-main.content {
-  max-width: 100% !important;
-  padding:   0    !important;
-  margin:    0    !important;
+/* Animated ocean shimmer on body via pseudo on main content */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    radial-gradient(ellipse at 20% 80%, rgba(46, 196, 182, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(19, 75, 112, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 50%, rgba(233, 196, 106, 0.03) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
 }
 
-/* Ocultar el title-block de Quarto (usamos el nuestro) */
-#title-block-header { display: none !important; }
-
-/* ── CONTENEDOR PRINCIPAL ────────────────────────────────── */
-.pagina-principal {
-  max-width: 1180px;
-  margin:    0 auto;
-  padding:   0 2rem 7rem;
+.page-container {
+  position: relative;
+  z-index: 1;
 }
 
-/* ── HERO ────────────────────────────────────────────────── */
-.hero-seccion {
-  text-align:  center;
-  padding:     6.5rem 2rem 4rem;
-  position:    relative;
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-family-heading;
+  letter-spacing: -0.02em;
+  word-break: keep-all;
 }
 
-.hero-badge {
-  display:         inline-block;
-  background:      var(--glass-bg);
-  border:          1px solid var(--glass-border);
-  border-radius:   var(--radius-badge);
-  padding:         0.38rem 1.2rem;
-  font-family:     var(--ff-mono);
-  font-size:       0.70rem;
-  letter-spacing:  0.14em;
-  text-transform:  uppercase;
-  color:           var(--foam);
-  backdrop-filter: blur(10px);
-  margin-bottom:   1.8rem;
-  animation:       fadeSlideDown 0.7s ease both;
+h1 {
+  font-family: $font-family-display;
+  font-weight: 700;
+  color: $pure-white;
+  text-shadow: 0 2px 20px rgba(46, 196, 182, 0.3);
 }
 
-.hero-eyebrow {
-  font-family:    var(--ff-mono);
-  font-size:      0.72rem;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color:          var(--reef);
-  margin-bottom:  0.9rem;
-  animation:      fadeSlideDown 0.8s ease 0.08s both;
+h2 {
+  font-weight: 600;
+  color: $turquoise-light;
 }
 
-.hero-titulo {
-  font-family:   var(--ff-display);
-  font-size:     clamp(2.1rem, 4.8vw, 4rem);
-  font-weight:   900;
-  line-height:   1.12;
-  color:         var(--pearl);
-  margin-bottom: 1.4rem;
-  animation:     fadeSlideDown 0.9s ease 0.14s both;
+h3 {
+  font-weight: 600;
+  color: $turquoise;
 }
 
-/* El *texto en itálica* del título recibe gradiente bioluminiscente */
-.hero-titulo em {
-  font-style: italic;
-  background: linear-gradient(130deg, var(--foam), var(--biolum));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip:         text;
-}
-
-.hero-subtitulo {
-  font-size:     1.02rem;
-  font-weight:   300;
-  color:         var(--text-muted);
-  max-width:     620px;
-  margin:        0 auto 2.5rem;
-  line-height:   1.75;
-  animation:     fadeSlideDown 1s ease 0.20s both;
-}
-
-.hero-divisor {
-  width:      80px;
-  height:     2px;
-  background: linear-gradient(90deg, transparent, var(--biolum), transparent);
-  margin:     0 auto 3.5rem;
-  animation:  fadeIn 1.2s ease 0.35s both;
-}
-
-/* ── TARJETA VIDRIO (base reutilizable) ──────────────────── */
-.glass-card {
-  background:             var(--glass-bg);
-  border:                 1px solid var(--glass-border);
-  border-radius:          var(--radius-card);
-  backdrop-filter:        blur(16px);
-  -webkit-backdrop-filter:blur(16px);
-  box-shadow:             var(--glass-shadow);
-  position:               relative;
-  overflow:               hidden;
-  transition:             transform 0.30s ease,
-                          box-shadow 0.30s ease,
-                          border-color 0.30s ease;
-}
-
-/* Reflejo superior tipo vidrio mojado */
-.glass-card::before {
-  content:    '';
-  position:   absolute;
-  top: 0; left: 0; right: 0;
-  height:     1px;
-  background: linear-gradient(90deg, transparent, rgba(93,214,240,0.45), transparent);
-}
-
-.glass-card:hover {
-  transform:    translateY(-6px);
-  box-shadow:   0 22px 60px rgba(0,0,0,0.52),
-                0  0  38px rgba(0,255,231,0.07);
-  border-color: rgba(93,214,240,0.42);
-}
-
-/* ── FILA DE ESTADÍSTICAS ────────────────────────────────── */
-.stats-fila {
-  display:               grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:                   1.2rem;
-  margin-bottom:         3rem;
-}
-
-.stat-tarjeta {
-  padding:    1.8rem 1.4rem;
-  text-align: center;
-  animation:  fadeSlideDown 0.6s ease both;
-}
-
-.stat-tarjeta:nth-child(1) { animation-delay: 0.10s; }
-.stat-tarjeta:nth-child(2) { animation-delay: 0.20s; }
-.stat-tarjeta:nth-child(3) { animation-delay: 0.30s; }
-
-.stat-valor {
-  font-family:   var(--ff-display);
-  font-size:     2.3rem;
-  font-weight:   900;
-  line-height:   1;
-  margin-bottom: 0.35rem;
-}
-
-.stat-azul  { color: var(--foam); }
-.stat-cian  { color: var(--biolum); }
-.stat-verde { color: var(--reef); }
-
-.stat-etiqueta {
-  font-family:    var(--ff-mono);
-  font-size:      0.68rem;
-  color:          var(--text-muted);
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-/* ── SECCIÓN NAVEGACIÓN — cabecera ───────────────────────── */
-.seccion-label {
-  font-family:    var(--ff-mono);
-  font-size:      0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color:          var(--reef);
-  margin-bottom:  0.5rem;
-  display:        flex;
-  align-items:    center;
-  gap:            0.6rem;
-}
-
-.seccion-label::after {
-  content:    '';
-  flex:       1;
-  height:     1px;
-  background: linear-gradient(90deg, var(--glass-border), transparent);
-}
-
-.seccion-titulo {
-  font-family:   var(--ff-display);
-  font-size:     1.75rem;
-  font-weight:   700;
-  color:         var(--pearl);
-  margin-bottom: 0.45rem;
-}
-
-/* Quarto convierte ## en h2 — lo interceptamos */
-h2.seccion-titulo, .seccion-titulo h2 {
-  font-family: var(--ff-display) !important;
-  color:       var(--pearl)      !important;
-}
-
-.seccion-desc {
-  font-size:     0.95rem;
-  color:         var(--text-muted);
-  margin-bottom: 2.2rem;
-  line-height:   1.65;
-  max-width:     680px;
-}
-
-/* ── GRID DE TARJETAS DE NAVEGACIÓN ─────────────────────── */
-.nav-grid {
-  display:               grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap:                   1.4rem;
-  margin-bottom:         3rem;
-}
-
-.nav-tarjeta {
-  padding: 2rem 1.8rem;
-  animation: fadeSlideDown 0.6s ease both;
-}
-
-.nav-tarjeta:nth-child(1) { animation-delay: 0.10s; }
-.nav-tarjeta:nth-child(2) { animation-delay: 0.20s; }
-.nav-tarjeta:nth-child(3) { animation-delay: 0.30s; }
-.nav-tarjeta:nth-child(4) { animation-delay: 0.40s; }
-
-/* Ícono circular en cada tarjeta */
-.nav-icono {
-  width:         50px;
-  height:        50px;
-  border-radius: 14px;
-  margin-bottom: 1.1rem;
-  background-repeat:   no-repeat;
-  background-position: center;
-  background-size:     22px;
-}
-
-/* Colores por sección — usamos background-color + pseudoícono via CSS */
-.icono-azul   { background-color: rgba(27,163,198,0.20); }
-.icono-wave   { background-color: rgba(18,120,176,0.20); }
-.icono-cian   { background-color: rgba(0,255,231,0.10);  }
-.icono-espuma { background-color: rgba(93,214,240,0.15); }
-
-.nav-tarjeta-titulo {
-  font-family:   var(--ff-display);
-  font-size:     1.1rem;
-  font-weight:   700;
-  color:         var(--pearl);
-  margin-bottom: 0.5rem;
-}
-
-/* Quarto convierte **texto** en <strong> dentro de p */
-.nav-tarjeta > p > strong,
-.nav-tarjeta strong {
-  font-family: var(--ff-display) !important;
-  font-size:   1.1rem;
-  color:       var(--pearl);
-  display:     block;
-  margin-bottom: 0.5rem;
-}
-
-.nav-tarjeta-desc {
-  font-size:     0.88rem;
-  color:         var(--text-muted);
-  line-height:   1.62;
-  margin-bottom: 1.3rem;
-}
-
-/* El párrafo de descripción dentro de nav-tarjeta */
-.nav-tarjeta > p:not(:last-child) {
-  font-size:   0.88rem;
-  color:       var(--text-muted);
-  line-height: 1.62;
-}
-
-/* Enlace de navegación */
-.nav-enlace,
-.nav-tarjeta a {
-  display:         inline-block;
-  font-family:     var(--ff-mono);
-  font-size:       0.70rem;
-  letter-spacing:  0.08em;
-  text-transform:  uppercase;
-  color:           var(--foam);
+/* Links */
+a {
+  transition: all 0.3s ease;
   text-decoration: none;
-  border-bottom:   1px solid rgba(93,214,240,0.35);
-  padding-bottom:  2px;
-  transition:      color 0.22s ease, border-color 0.22s ease;
-}
 
-.nav-enlace:hover,
-.nav-tarjeta a:hover {
-  color:        var(--biolum);
-  border-color: var(--biolum);
-}
-
-/* ── CALLOUT INSIGHT ─────────────────────────────────────── */
-.callout-important.insight-callout,
-.callout.callout-important {
-  background: linear-gradient(135deg,
-    rgba(0,255,231,0.055) 0%,
-    rgba(10,79,126,0.25)  100%) !important;
-  border:        1px solid rgba(0,255,231,0.22) !important;
-  border-radius: var(--radius-card) !important;
-  border-left:   none !important;
-  padding:       2.4rem 3rem !important;
-  margin-bottom: 3rem !important;
-  color:         var(--text-main) !important;
-  box-shadow:    0 8px 32px rgba(0,0,0,0.35) !important;
-}
-
-.callout-important .callout-title,
-.callout-important.insight-callout .callout-title {
-  font-family:   var(--ff-mono) !important;
-  font-size:     0.70rem !important;
-  letter-spacing:0.14em !important;
-  text-transform:uppercase !important;
-  color:         var(--biolum2) !important;
-  margin-bottom: 0.7rem !important;
-}
-
-.callout-important .callout-body p,
-.callout-important p {
-  font-family: var(--ff-display) !important;
-  font-size:   1.08rem !important;
-  font-style:  italic !important;
-  color:       var(--pearl) !important;
-  line-height: 1.65 !important;
-}
-
-/* ── PIE DE PÁGINA ───────────────────────────────────────── */
-.pie-pagina {
-  text-align:   center;
-  padding:      2.5rem 0 1.5rem;
-  border-top:   1px solid var(--glass-border);
-  margin-top:   2rem;
-  font-family:  var(--ff-mono);
-  font-size:    0.72rem;
-  color:        rgba(123,180,204,0.55);
-  letter-spacing: 0.06em;
-}
-
-/* ── SEPARADORES hr ──────────────────────────────────────── */
-hr {
-  border:     none;
-  border-top: 1px solid var(--glass-border);
-  margin:     2.5rem 0;
-  opacity:    0.5;
-}
-
-/* ── ANIMACIONES ─────────────────────────────────────────── */
-@keyframes fadeSlideDown {
-  from { opacity: 0; transform: translateY(-18px); }
-  to   { opacity: 1; transform: translateY(0);     }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes pulseGlow {
-  0%, 100% { box-shadow: 0 0 18px rgba(0,255,231,0.14); }
-  50%       { box-shadow: 0 0 36px rgba(0,255,231,0.30); }
-}
-
-/* ── RESPONSIVE ──────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .pagina-principal { padding: 0 1rem 5rem; }
-  .hero-seccion     { padding: 4rem 0.5rem 3rem; }
-  .stats-fila       { grid-template-columns: 1fr; }
-
-  .callout-important.insight-callout,
-  .callout.callout-important {
-    padding: 1.8rem 1.4rem !important;
+  &:hover {
+    color: $turquoise-light;
+    text-shadow: 0 0 8px rgba(46, 196, 182, 0.4);
   }
 }
 
-@media (max-width: 520px) {
-  .hero-titulo      { font-size: 1.9rem; }
-  .nav-grid         { grid-template-columns: 1fr; }
+/* ═══════════════════════════════════════════
+   HERO SECTION
+   ═══════════════════════════════════════════ */
+
+.hero-section {
+  text-align: center;
+  padding: 3rem 1.5rem 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+
+  /* Wave decoration at bottom */
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath fill='rgba(46,196,182,0.15)' d='M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,64C960,75,1056,85,1152,80C1248,75,1344,53,1392,42.7L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z'%3E%3C/path%3E%3C/svg%3E") no-repeat bottom;
+    background-size: cover;
+    opacity: 0.6;
+  }
+
+  /* Floating bubbles decoration */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, rgba(46, 196, 182, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: float-up 6s ease-in-out infinite;
+  }
+}
+
+.hero-title {
+  font-family: $font-family-display;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: $pure-white;
+  margin-bottom: 0.75rem;
+  line-height: 1.2;
+  text-shadow: 0 4px 30px rgba(46, 196, 182, 0.35);
+
+  @media (max-width: 768px) {
+    font-size: 2rem;
+  }
+}
+
+.hero-subtitle {
+  font-family: $font-family-heading;
+  font-size: 1.3rem;
+  font-weight: 300;
+  color: $turquoise-light;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+@keyframes float-up {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-20px) scale(1.2); opacity: 0.8; }
+}
+
+/* ═══════════════════════════════════════════
+   SECTION HEADERS
+   ═══════════════════════════════════════════ */
+
+.section-header {
+  text-align: center;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+
+  h3 {
+    font-family: $font-family-heading;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: $sand-light;
+    display: inline-block;
+    padding: 0 1.5rem;
+    position: relative;
+
+    /* Decorative line behind heading */
+    &::before,
+    &::after {
+      content: '◆';
+      color: $turquoise;
+      opacity: 0.5;
+      padding: 0 0.75rem;
+      font-size: 0.6rem;
+      vertical-align: middle;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════
+   NAVIGATION CARDS (Glassmorphism)
+   ═══════════════════════════════════════════ */
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+}
+
+.nav-card {
+  position: relative;
+  background: linear-gradient(145deg, rgba(19, 75, 112, 0.5) 0%, rgba(13, 33, 55, 0.7) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid $glass-border;
+  border-radius: 20px;
+  padding: 2rem 1.75rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  overflow: hidden;
+
+  /* Inner glow on hover */
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(46, 196, 182, 0.08) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+
+  &:hover {
+    transform: translateY(-8px) scale(1.02);
+    border-color: rgba(46, 196, 182, 0.5);
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(46, 196, 182, 0.15),
+      inset 0 1px 0 rgba(255, 255, 255, 0.05);
+
+    &::before {
+      opacity: 1;
+    }
+  }
+
+  /* Card icon/number styling */
+  .card-number {
+    font-family: $font-family-display;
+    font-size: 3rem;
+    font-weight: 700;
+    color: rgba(46, 196, 182, 0.2);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  h4 {
+    font-family: $font-family-heading;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: $turquoise-light;
+    margin-bottom: 0.75rem;
+    word-break: keep-all;
+  }
+
+  p {
+    font-size: 0.95rem;
+    color: rgba(224, 247, 250, 0.85);
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  /* Button styling within cards */
+  .btn-card {
+    display: inline-block;
+    padding: 0.65rem 1.75rem;
+    border-radius: 50px;
+    font-family: $font-family-heading;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    transition: all 0.3s ease;
+    border: 1.5px solid $turquoise;
+    color: $turquoise;
+    background: transparent;
+
+    &:hover {
+      background: linear-gradient(135deg, $turquoise 0%, $ocean-surface 100%);
+      color: $pure-white;
+      border-color: transparent;
+      box-shadow: 0 4px 20px rgba(46, 196, 182, 0.4);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+  }
+}
+
+/* Card color accents */
+.nav-card:nth-child(1) {
+  border-top: 3px solid $turquoise;
+}
+
+.nav-card:nth-child(2) {
+  border-top: 3px solid $sand;
+}
+
+.nav-card:nth-child(3) {
+  border-top: 3px solid $coral;
+}
+
+.nav-card:nth-child(4) {
+  border-top: 3px solid $turquoise-light;
+}
+
+/* ═══════════════════════════════════════════
+   CALLOUTS (Ocean Styled)
+   ═══════════════════════════════════════════ */
+
+/* Override default callout styling for ocean theme */
+.callout {
+  border-radius: 16px;
+  border: 1px solid rgba(46, 196, 182, 0.2);
+  background: linear-gradient(135deg, rgba(19, 75, 112, 0.4) 0%, rgba(10, 22, 40, 0.6) 100%);
+  backdrop-filter: blur(12px);
+}
+
+.callout.callout-style-simple {
+  border-left: 4px solid $turquoise;
+  padding: 1.5rem;
+}
+
+.callout.callout-style-default {
+  border-left: 4px solid $turquoise;
+}
+
+.callout.callout-important {
+  border-left-color: $coral;
+  background: linear-gradient(135deg, rgba(224, 122, 95, 0.1) 0%, rgba(10, 22, 40, 0.5) 100%);
+
+  .callout-header {
+    color: $coral;
+  }
+}
+
+.callout.callout-note {
+  border-left-color: $turquoise;
+
+  .callout-header {
+    color: $turquoise-light;
+  }
+}
+
+.callout-header {
+  font-family: $font-family-heading;
+  font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════
+   INSIGHT SECTION
+   ═══════════════════════════════════════════ */
+
+.insight-section {
+  margin: 2.5rem 1rem;
+  position: relative;
+
+  .callout {
+    position: relative;
+    overflow: hidden;
+
+    /* Decorative wave pattern */
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 200px;
+      height: 100px;
+      background: radial-gradient(ellipse at bottom right, rgba(46, 196, 182, 0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+  }
+}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+
+.footer-ods {
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 2rem;
+  position: relative;
+
+  /* Top divider line with gradient */
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 20%;
+    right: 20%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, $turquoise 50%, transparent 100%);
+    opacity: 0.4;
+  }
+
+  p {
+    font-family: $font-family-heading;
+    font-size: 0.9rem;
+    color: rgba(224, 247, 250, 0.6);
+    letter-spacing: 0.05em;
+    margin: 0;
+  }
+
+  strong {
+    color: $turquoise;
+    font-weight: 600;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   UTILITY CLASSES
+   ═══════════════════════════════════════════ */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-5 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 1rem;
+}
+
+.py-4 {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for ocean feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $ocean-deep;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, $ocean-surface, $turquoise);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: $turquoise;
 }
