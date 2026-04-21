@@ -25,6 +25,6 @@ format:
   dashboard:
     scrolling: true
     orientation: columns
-    theme: none
+    theme: custom.scss
     css: estilos.css
 
