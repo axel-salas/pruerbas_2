@@ -1,7 +1,9 @@
 project:
   type: website
   output-dir: _site
-
+  resources:
+    - estilos.css
+    
 website:
   title: "DERRE - HackODS  ODS 14 · Vida Submarina"
   navbar:
