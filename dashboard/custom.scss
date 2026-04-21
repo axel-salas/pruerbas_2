@@ -1,231 +1,739 @@
-/*
- * custom.scss — Tema ODS 14 · Vida Submarina
- * Coloca este archivo en la misma carpeta que tu .qmd
- */
+// ================================================================
+//  custom.scss — DERRE · ODS 14 · Vida Submarina
+//  Cubre: (1) portada format:html  +  (2) format:dashboard
+//  Método: sobrescritura de variables Bootstrap/bslib primero,
+//          luego reglas CSS apuntando a clases nativas de Quarto.
+// ================================================================
 
-/*-- scss:defaults --*/
 
-/*-- scss:rules --*/
+// ────────────────────────────────────────────────────────────────
+//  SECCIÓN 1 — VARIABLES BOOTSTRAP / BSLIB
+//  Deben declararse ANTES del @import de Bootstrap para que
+//  Sass las tome como valores de las variables por defecto (!default)
+// ────────────────────────────────────────────────────────────────
 
-/* ── Google Fonts: Inter + Playfair Display ── */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+// Paleta primaria
+$primary:        #1278b0;
+$secondary:      #1ba3c6;
+$success:        #2a9d8f;
+$info:           #5dd6f0;
+$warning:        #f4a261;
+$danger:         #c62828;
+$light:          #cce8f4;
+$dark:           #020b18;
 
-/* ── Fuente base del dashboard ── */
-body, .dashboard-body, .quarto-dashboard {
-  font-family: 'Inter', sans-serif !important;
-}
+// Tipografía
+$font-family-sans-serif: 'DM Sans', system-ui, sans-serif;
+$font-family-monospace:  'Space Mono', monospace;
+$font-size-base:         0.95rem;
+$headings-font-family:   'Playfair Display', Georgia, serif;
+$headings-font-weight:   700;
+$headings-color:         #e8f4f8;
+$body-color:             #cce8f4;
 
-h1, h2, h3 {
-  font-family: 'Playfair Display', serif !important;
-}
+// Fondo global
+$body-bg:        #041e35;
 
-h4, h5, h6, p, li, .card-title {
-  font-family: 'Inter', sans-serif !important;
-}
+// Bordes y radio
+$border-color:   rgba(93, 214, 240, 0.22);
+$border-radius:  12px;
+$border-radius-lg: 18px;
 
-/* ── Value Boxes ── */
-.valuebox {
-  border-radius: 10px !important;
-  padding: 1rem 1.2rem !important;
-  font-family: 'Inter', sans-serif !important;
-}
+// Tarjetas Bootstrap
+$card-bg:           rgba(10, 79, 126, 0.18);
+$card-border-color: rgba(93, 214, 240, 0.22);
+$card-border-radius: 18px;
+$card-box-shadow:    0 8px 32px rgba(0, 0, 0, 0.45);
+$card-cap-bg:        rgba(6, 48, 82, 0.5);
+$card-color:         #cce8f4;
 
-.valuebox-value {
-  font-size: 2rem !important;
-  font-weight: 700 !important;
-  font-family: 'Inter', sans-serif !important;
-  letter-spacing: -0.03em;
-}
+// Navbar Bootstrap
+$navbar-dark-color:          rgba(204, 232, 244, 0.85);
+$navbar-dark-hover-color:    #5dd6f0;
+$navbar-dark-active-color:   #00ffe7;
+$navbar-dark-bg:             #020b18;
 
-.valuebox-title {
-  font-size: 0.75rem !important;
-  font-weight: 500 !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  opacity: 0.88;
-  font-family: 'Inter', sans-serif !important;
-}
+// Links
+$link-color:       #5dd6f0;
+$link-hover-color: #00ffe7;
 
-/* ── Variables de color: Mar de Cortés ───────────────────────── */
+// ────────────────────────────────────────────────────────────────
+//  SECCIÓN 2 — VARIABLES SASS PROPIAS (disponibles en todo el archivo)
+// ────────────────────────────────────────────────────────────────
+
+$abyss:        #020b18;
+$deep:         #041e35;
+$midnight:     #063052;
+$ocean:        #0a4f7e;
+$wave:         #1278b0;
+$reef:         #1ba3c6;
+$foam:         #5dd6f0;
+$biolum:       #00ffe7;
+$biolum2:      #00d4c8;
+$pearl:        #e8f4f8;
+$text-main:    #cce8f4;
+$text-muted-c: #7ab4cc;
+$glass-bg:     rgba(10, 79, 126, 0.18);
+$glass-border: rgba(93, 214, 240, 0.22);
+$glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.45);
+
+$ff-display: 'Playfair Display', Georgia, serif;
+$ff-body:    'DM Sans', system-ui, sans-serif;
+$ff-mono:    'Space Mono', monospace;
+
+
+// ────────────────────────────────────────────────────────────────
+//  SECCIÓN 3 — GOOGLE FONTS (vía @use Sass o import CSS)
+// ────────────────────────────────────────────────────────────────
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+
+
+// ================================================================
+//  BLOQUE A — ESTILOS GLOBALES (portada + dashboard)
+// ================================================================
+
+// -- Variables CSS (runtime, disponibles para JS si se necesita) -
 :root {
-  --ocean-deep:   #1B263B; /* Azul marino profundo y elegante */
-  --ocean-mid:    #415A77; /* Azul acero */
-  --ocean-light:  #bed1e8; /* Pizarra claro */
-  --ocean-foam:   #E0E1DD; /* Blanco arena/espuma */
-  --ocean-mist:   #F0F4F8; /* Fondo grisáceo muy tenue */
-  --sand:         #E5D9C5; /* Arena cálida */
-  --coral:        #E07A5F; /* Coral apagado para alertas/botones */
-  --teal:         #3D5A80; /* Azul verdoso clásico */
-  --text-main:    #1e293b; /* Texto oscuro para máxima legibilidad */
-  --text-muted:   #64748b; /* Texto secundario gris */
-  --card-bg:      #ffffff;
-  --border:       rgba(27, 38, 59, 0.1);
+  --abyss:        #{$abyss};
+  --deep:         #{$deep};
+  --midnight:     #{$midnight};
+  --ocean:        #{$ocean};
+  --wave:         #{$wave};
+  --reef:         #{$reef};
+  --foam:         #{$foam};
+  --biolum:       #{$biolum};
+  --biolum2:      #{$biolum2};
+  --pearl:        #{$pearl};
+  --text-main:    #{$text-main};
+  --text-muted:   #{$text-muted-c};
+  --glass-bg:     #{$glass-bg};
+  --glass-border: #{$glass-border};
+  --glass-shadow: #{$glass-shadow};
+  --ff-display:   #{$ff-display};
+  --ff-body:      #{$ff-body};
+  --ff-mono:      #{$ff-mono};
 }
 
-/* ===== FONDO GLOBAL ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
 body {
-  background-color: #0f172a;
-  color: #e2e8f0;
+  font-family:  $ff-body;
+  color:        $text-main;
+  min-height:   100vh;
+  background:
+    radial-gradient(ellipse at 18%  8%,  rgba(0,255,231,0.055) 0%, transparent 48%),
+    radial-gradient(ellipse at 82%  92%, rgba(18,120,176,0.13)  0%, transparent 48%),
+    radial-gradient(ellipse at 50%  50%, rgba(6,48,82,0.50)     0%, transparent 68%),
+    linear-gradient(168deg, $abyss 0%, $deep 38%, $midnight 68%, #041529 100%);
+  background-attachment: fixed;
 }
 
-/* custom.css */
-.grid-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  gap: 1.5rem;
-  width: 100%;
+
+// ================================================================
+//  BLOQUE B — PORTADA (format: html)
+//  Todas las clases custom del index.qmd
+// ================================================================
+
+// Neutralizar padding de Quarto en modo HTML
+#quarto-content,
+.page-layout-full,
+main.content {
+  max-width: 100% !important;
+  padding:   0    !important;
+  margin:    0    !important;
 }
 
-.card-navigation {
-    transition: transform 0.2s;
-    background-color: #1a1d27 !important;
-    border: 1px solid #2a2d3a !important;
-    height: 100%;
-    margin-bottom: 0 !important; /* Evita el apilamiento por margen */
+#title-block-header { display: none !important; }
+
+.pagina-principal {
+  max-width: 1180px;
+  margin:    0 auto;
+  padding:   0 2rem 7rem;
 }
 
-.card-navigation:hover {
-    transform: translateY(-5px);
-    border-color: #1DB38A !important;
-}
-
-.hero-card {
-    background: linear-gradient(135deg, #0f1117 0%, #1a1d27 100%) !important;
-    border-left: 5px solid #1DB38A !important;
-    border-radius: 15px;
-}
-
-.card-navigation {
-    transition: transform 0.2s;
-    height: 100%;
-}
-
-.card-navigation:hover {
-    transform: translateY(-5px);
-}
-
-.footer-ods {
-    border-top: 1px solid #2a2d3a;
-    color: #888;
-}
-
-/* ─── COLOR DE TÍTULOS ─── */
-
-/* Título principal del Hero (h1) */
-.hero-card h1 {
-    color: #ffffff !important;
-}
-
-/* Títulos de las tarjetas de navegación (h2) */
-.card-navigation h2 {
-    color: #ffffff !important; /* Puedes cambiarlo a #1DB38A si prefieres que destaquen en verde */
-    font-size: 1.5rem; /* Ajuste opcional para que no se vean gigantes */
-    margin-bottom: 15px;
-}
-
-/* ===== TITULOS ===== */
-h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-weight: 600;
-  color: var(--ocean-foam);
-}
-
-/* HERO más dominante */
-.callout-important {
-  background: linear-gradient(135deg, #03045E, #0077B6);
-  color: white;
+// Hero
+.hero-seccion {
   text-align: center;
-  padding: 60px 25px;
-  border-radius: 18px;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+  padding:    6.5rem 2rem 4rem;
+  position:   relative;
 }
 
-/* tarjetas alineadas */
-.callout-note {
-  height: 100%;
-  background: #1e293b;
-  border-radius: 15px;
-  padding: 20px;
-  transition: transform 0.2s ease;
+.hero-badge {
+  display:         inline-block;
+  background:      $glass-bg;
+  border:          1px solid $glass-border;
+  border-radius:   100px;
+  padding:         0.38rem 1.2rem;
+  font-family:     $ff-mono;
+  font-size:       0.70rem;
+  letter-spacing:  0.14em;
+  text-transform:  uppercase;
+  color:           $foam;
+  backdrop-filter: blur(10px);
+  margin-bottom:   1.8rem;
+  animation:       fadeSlideDown 0.7s ease both;
 }
 
-.callout-note:hover {
-  transform: translateY(-5px);
+.hero-eyebrow {
+  font-family:    $ff-mono;
+  font-size:      0.72rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color:          $reef;
+  margin-bottom:  0.9rem;
+  animation:      fadeSlideDown 0.8s 0.08s ease both;
 }
 
-/* botones centrados */
-.btn {
-  margin: 10px;
-  border-radius: 12px;
-  padding: 12px 24px;
+.hero-titulo {
+  font-family:   $ff-display;
+  font-size:     clamp(2.1rem, 4.8vw, 4rem);
+  font-weight:   900;
+  line-height:   1.12;
+  color:         $pearl;
+  margin-bottom: 1.4rem;
+  animation:     fadeSlideDown 0.9s 0.14s ease both;
+
+  em {
+    font-style:  italic;
+    background:  linear-gradient(130deg, $foam, $biolum);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
 }
 
-/* espacio entre filas */
-.quarto-dashboard-row {
-  margin-bottom: 25px;
+.hero-subtitulo {
+  font-size:     1.02rem;
+  font-weight:   300;
+  color:         $text-muted-c;
+  max-width:     620px;
+  margin:        0 auto 2.5rem;
+  line-height:   1.75;
+  animation:     fadeSlideDown 1s 0.20s ease both;
 }
 
-.ods-footer {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background: var(--ocean-mist);
-  border-radius: 10px;
-  padding: 0.8rem 1rem;
-  font-size: 0.88rem;
-  line-height: 1.5;
-  color: var(--text-muted);
-  margin-top: 1rem;
+.hero-divisor {
+  width:      80px;
+  height:     2px;
+  background: linear-gradient(90deg, transparent, $biolum, transparent);
+  margin:     0 auto 3.5rem;
+  animation:  fadeIn 1.2s 0.35s ease both;
 }
 
-/* ── Forzar colores de texto en Dashboards y Callouts ───────────────── */
+// Glass card (portada)
+.glass-card {
+  background:              $glass-bg;
+  border:                  1px solid $glass-border;
+  border-radius:           18px;
+  backdrop-filter:         blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:              $glass-shadow;
+  position:                relative;
+  overflow:                hidden;
+  transition: transform 0.30s ease, box-shadow 0.30s ease, border-color 0.30s ease;
 
-/* 1. Títulos sueltos (como el #### ¿Qué encontrarás?) */
-h4 {
-  color: var(--ocean-deep) !important;
-  font-weight: 700;
+  &::before {
+    content:    '';
+    position:   absolute;
+    top: 0; left: 0; right: 0;
+    height:     1px;
+    background: linear-gradient(90deg, transparent, rgba(93,214,240,0.45), transparent);
+  }
+
+  &:hover {
+    transform:    translateY(-6px);
+    box-shadow:   0 22px 60px rgba(0,0,0,0.52), 0 0 38px rgba(0,255,231,0.07);
+    border-color: rgba(93,214,240,0.42);
+  }
 }
 
-/* 2. Color del texto dentro de las tarjetas (Callouts) */
-.callout-body-container,
-.callout-body,
-.callout p, 
-.callout ul li {
-  color: var(--ocean-light) !important;
+// Stats portada
+.stats-fila {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   1.2rem;
+  margin-bottom:         3rem;
 }
 
-/* 3. Color de los títulos dentro de las tarjetas (Callouts) */
-.callout-title,
-.callout-title-container {
-  color: var(--ocean-deep) !important;
-  font-family: 'Playfair Display', serif !important;
+.stat-tarjeta {
+  padding: 1.8rem 1.4rem;
+  text-align: center;
+  animation:  fadeSlideDown 0.6s ease both;
+  &:nth-child(1) { animation-delay: 0.10s; }
+  &:nth-child(2) { animation-delay: 0.20s; }
+  &:nth-child(3) { animation-delay: 0.30s; }
 }
 
-/* 4. Asegurar que las tarjetas de "insight" resalten bien */
-.callout-important {
-  background-color: rgba(255, 255, 255, 0.7) !important;
-  border-left: 5px solid var(--ocean-mid) !important;
+.stat-valor {
+  font-family:   $ff-display;
+  font-size:     2.3rem;
+  font-weight:   900;
+  line-height:   1;
+  margin-bottom: 0.35rem;
 }
 
-/* ── Scrollbar temática ───────────────────────── */
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: var(--ocean-mist); }
-::-webkit-scrollbar-thumb {
-  background: var(--mid);
-  border-radius: 3px;
+.stat-azul  { color: $foam; }
+.stat-cian  { color: $biolum; }
+.stat-verde { color: $reef; }
+
+.stat-etiqueta {
+  font-family:    $ff-mono;
+  font-size:      0.68rem;
+  color:          $text-muted-c;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
 }
 
-/* Evitar que las tarjetas se estiren verticalmente */
-.callout {
-  height: max-content !important;
-  margin-bottom: 1rem;
+// Sección nav portada
+.seccion-label {
+  font-family:    $ff-mono;
+  font-size:      0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          $reef;
+  margin-bottom:  0.5rem;
+  display:        flex;
+  align-items:    center;
+  gap:            0.6rem;
+
+  &::after {
+    content:    '';
+    flex:       1;
+    height:     1px;
+    background: linear-gradient(90deg, $glass-border, transparent);
+  }
 }
 
-/* Alinear el contenido de la cuadrícula hacia arriba */
-.grid {
-  align-items: start !important;
+.seccion-titulo {
+  font-family:   $ff-display;
+  font-size:     1.75rem;
+  font-weight:   700;
+  color:         $pearl;
+  margin-bottom: 0.45rem;
+}
+
+.seccion-desc {
+  font-size:     0.95rem;
+  color:         $text-muted-c;
+  margin-bottom: 2.2rem;
+  line-height:   1.65;
+  max-width:     680px;
+}
+
+.nav-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:                   1.4rem;
+  margin-bottom:         3rem;
+}
+
+.nav-tarjeta {
+  padding:   2rem 1.8rem;
+  animation: fadeSlideDown 0.6s ease both;
+  &:nth-child(1) { animation-delay: 0.10s; }
+  &:nth-child(2) { animation-delay: 0.20s; }
+  &:nth-child(3) { animation-delay: 0.30s; }
+  &:nth-child(4) { animation-delay: 0.40s; }
+
+  > p > strong,
+  strong {
+    font-family:   $ff-display !important;
+    font-size:     1.1rem;
+    color:         $pearl;
+    display:       block;
+    margin-bottom: 0.5rem;
+  }
+
+  > p:not(:last-child) {
+    font-size:   0.88rem;
+    color:       $text-muted-c;
+    line-height: 1.62;
+  }
+
+  a {
+    display:         inline-block;
+    font-family:     $ff-mono;
+    font-size:       0.70rem;
+    letter-spacing:  0.08em;
+    text-transform:  uppercase;
+    color:           $foam;
+    text-decoration: none;
+    border-bottom:   1px solid rgba(93,214,240,0.35);
+    padding-bottom:  2px;
+    transition:      color 0.22s ease, border-color 0.22s ease;
+
+    &:hover {
+      color:        $biolum;
+      border-color: $biolum;
+    }
+  }
+}
+
+.nav-icono {
+  width:         50px;
+  height:        50px;
+  border-radius: 14px;
+  margin-bottom: 1.1rem;
+}
+
+.icono-azul   { background-color: rgba(27,163,198,0.20); }
+.icono-wave   { background-color: rgba(18,120,176,0.20); }
+.icono-cian   { background-color: rgba(0,255,231,0.10);  }
+.icono-espuma { background-color: rgba(93,214,240,0.15); }
+
+// Callout portada
+.callout-important.insight-callout,
+.callout.callout-important {
+  background:    linear-gradient(135deg, rgba(0,255,231,0.055) 0%, rgba(10,79,126,0.25) 100%) !important;
+  border:        1px solid rgba(0,255,231,0.22) !important;
+  border-radius: 18px !important;
+  border-left:   none !important;
+  padding:       2.4rem 3rem !important;
+  margin-bottom: 3rem !important;
+  color:         $text-main !important;
+  box-shadow:    0 8px 32px rgba(0,0,0,0.35) !important;
+
+  .callout-title {
+    font-family:    $ff-mono !important;
+    font-size:      0.70rem !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    color:          $biolum2 !important;
+    margin-bottom:  0.7rem !important;
+  }
+
+  .callout-body p,
+  p {
+    font-family: $ff-display !important;
+    font-size:   1.08rem !important;
+    font-style:  italic !important;
+    color:       $pearl !important;
+    line-height: 1.65 !important;
+  }
+}
+
+.pie-pagina {
+  text-align:     center;
+  padding:        2.5rem 0 1.5rem;
+  border-top:     1px solid $glass-border;
+  margin-top:     2rem;
+  font-family:    $ff-mono;
+  font-size:      0.72rem;
+  color:          rgba(123,180,204,0.55);
+  letter-spacing: 0.06em;
+}
+
+hr {
+  border:     none;
+  border-top: 1px solid $glass-border;
+  margin:     2.5rem 0;
+  opacity:    0.5;
+}
+
+
+// ================================================================
+//  BLOQUE C — DASHBOARD (format: dashboard)
+//  Sobrescritura de clases nativas de bslib / Quarto Dashboard
+// ================================================================
+
+// ── C1. Estructura raíz del dashboard ──────────────────────────
+
+.quarto-dashboard {
+  background: transparent;
+
+  // Barra de navegación superior (páginas del dashboard)
+  .navbar,
+  .navbar-default,
+  nav.navbar {
+    background:   $abyss !important;
+    border-bottom: 1px solid $glass-border;
+    box-shadow:   0 2px 20px rgba(0,0,0,0.5);
+    font-family:  $ff-mono;
+
+    .navbar-brand {
+      font-family:    $ff-display;
+      font-size:      1.1rem;
+      font-weight:    700;
+      color:          $pearl !important;
+      letter-spacing: 0.02em;
+    }
+
+    // Pestañas de página (# Ballenas, # Pelícanos, etc.)
+    .navbar-nav .nav-link {
+      font-family:    $ff-mono;
+      font-size:      0.72rem;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color:          rgba(204,232,244,0.75) !important;
+      padding:        0.55rem 1rem;
+      border-radius:  6px;
+      transition:     color 0.2s ease, background 0.2s ease;
+
+      &:hover {
+        color:      $foam !important;
+        background: rgba(93,214,240,0.07);
+      }
+
+      &.active {
+        color:      $biolum !important;
+        background: rgba(0,255,231,0.08);
+        border-bottom: 2px solid $biolum;
+      }
+    }
+  }
+
+  // Área de contenido del dashboard
+  .quarto-dashboard-content,
+  .tab-content,
+  #quarto-content {
+    background: transparent;
+    padding:    1rem 1.2rem 2rem;
+  }
+}
+
+// ── C2. Tarjetas (cards) de bslib ──────────────────────────────
+//   Quarto Dashboard envuelve cada celda en .bslib-card / .card
+
+.bslib-card,
+.card {
+  background:              $glass-bg !important;
+  border:                  1px solid $glass-border !important;
+  border-radius:           18px !important;
+  backdrop-filter:         blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  box-shadow:              $glass-shadow !important;
+  color:                   $text-main !important;
+  transition:              box-shadow 0.3s ease, border-color 0.3s ease;
+  position:                relative;
+  overflow:                hidden;
+
+  // Reflejo de vidrio
+  &::before {
+    content:    '';
+    position:   absolute;
+    top: 0; left: 0; right: 0;
+    height:     1px;
+    background: linear-gradient(90deg, transparent, rgba(93,214,240,0.4), transparent);
+    pointer-events: none;
+  }
+
+  &:hover {
+    box-shadow:   0 16px 48px rgba(0,0,0,0.55), 0 0 28px rgba(0,255,231,0.06) !important;
+    border-color: rgba(93,214,240,0.38) !important;
+  }
+
+  // Encabezado de tarjeta
+  .card-header,
+  .bslib-card-header {
+    background:    rgba(6, 48, 82, 0.55) !important;
+    border-bottom: 1px solid $glass-border !important;
+    font-family:   $ff-display;
+    font-size:     0.95rem;
+    font-weight:   700;
+    color:         $pearl !important;
+    padding:       0.85rem 1.2rem;
+  }
+
+  // Cuerpo de tarjeta
+  .card-body,
+  .bslib-card-body {
+    padding:    1rem 1.2rem;
+    color:      $text-main;
+  }
+}
+
+// ── C3. Value Boxes ─────────────────────────────────────────────
+//   .valuebox es el contenedor nativo de Quarto Dashboard
+
+.valuebox,
+.bslib-value-box {
+  border-radius:   16px !important;
+  border:          1px solid $glass-border !important;
+  backdrop-filter: blur(14px) !important;
+  box-shadow:      $glass-shadow !important;
+  position:        relative;
+  overflow:        hidden;
+
+  // Reflejo
+  &::before {
+    content:    '';
+    position:   absolute;
+    top: 0; left: 0; right: 0;
+    height:     1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  // Valor principal (número grande)
+  .valuebox-value,
+  .value-box-value {
+    font-family: $ff-display !important;
+    font-size:   clamp(1.6rem, 3vw, 2.4rem) !important;
+    font-weight: 900 !important;
+    line-height: 1.1;
+    color:       $pearl !important;
+  }
+
+  // Etiqueta descriptiva
+  .valuebox-title,
+  .value-box-title,
+  .value-box-showcase ~ .value-box-area .value-box-title {
+    font-family:    $ff-mono !important;
+    font-size:      0.68rem !important;
+    letter-spacing: 0.10em !important;
+    text-transform: uppercase !important;
+    color:          rgba(232,244,248,0.80) !important;
+    line-height:    1.4;
+  }
+
+  // Ícono del valuebox
+  .valuebox-icon,
+  .value-box-showcase {
+    opacity: 0.85;
+    font-size: 1.8rem !important;
+  }
+
+  // Colores específicos por color de bootstrap pasado al valuebox
+  // Quarto toma el `color=` y añade clases bg-* o text-bg-*
+  &.bg-primary,   &.text-bg-primary   { background: linear-gradient(135deg, rgba(18,120,176,0.75), rgba(10,79,126,0.85)) !important; }
+  &.bg-success,   &.text-bg-success   { background: linear-gradient(135deg, rgba(42,157,143,0.75), rgba(6,48,82,0.85))   !important; }
+  &.bg-danger,    &.text-bg-danger    { background: linear-gradient(135deg, rgba(198,40,40,0.70),  rgba(6,48,82,0.85))   !important; }
+  &.bg-warning,   &.text-bg-warning   { background: linear-gradient(135deg, rgba(244,162,97,0.70), rgba(6,48,82,0.85))   !important; }
+  &.bg-info,      &.text-bg-info      { background: linear-gradient(135deg, rgba(93,214,240,0.55), rgba(6,48,82,0.85))   !important; }
+  &.bg-secondary, &.text-bg-secondary { background: linear-gradient(135deg, rgba(27,163,198,0.65), rgba(6,48,82,0.85))   !important; }
+}
+
+// ── C4. Filas y columnas del dashboard layout ───────────────────
+
+.quarto-dashboard .dashboard-row,
+.quarto-dashboard .bslib-grid,
+.quarto-dashboard .bslib-gap-spacing {
+  gap: 1rem !important;
+}
+
+// ── C5. Sidebar del dashboard (si existe) ──────────────────────
+
+.sidebar,
+.bslib-sidebar-layout > .bslib-sidebar {
+  background:    rgba(4, 30, 53, 0.85) !important;
+  border-right:  1px solid $glass-border !important;
+  backdrop-filter: blur(12px);
+  color:         $text-main !important;
+
+  .sidebar-title {
+    font-family: $ff-display;
+    font-size:   1rem;
+    font-weight: 700;
+    color:       $pearl;
+    margin-bottom: 1rem;
+  }
+
+  label {
+    font-family:    $ff-mono;
+    font-size:      0.70rem;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color:          $text-muted-c;
+  }
+
+  // Inputs dentro del sidebar
+  .form-control,
+  .form-select,
+  .shiny-input-container input,
+  .shiny-input-container select {
+    background:   rgba(6,48,82,0.7) !important;
+    border:       1px solid $glass-border !important;
+    color:        $text-main !important;
+    border-radius: 8px !important;
+
+    &:focus {
+      border-color: $biolum !important;
+      box-shadow:   0 0 0 3px rgba(0,255,231,0.15) !important;
+      outline: none;
+    }
+  }
+
+  // Slider
+  .irs--shiny .irs-bar,
+  .irs--shiny .irs-handle {
+    background: $reef;
+    border-color: $reef;
+  }
+}
+
+// ── C6. Tabset panels dentro del dashboard ─────────────────────
+
+.nav-tabs {
+  border-bottom: 1px solid $glass-border;
+
+  .nav-link {
+    font-family:    $ff-mono;
+    font-size:      0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color:          $text-muted-c !important;
+    border:         none !important;
+    border-radius:  8px 8px 0 0 !important;
+    padding:        0.5rem 1rem;
+    transition:     color 0.2s ease, background 0.2s ease;
+
+    &:hover { color: $foam !important; background: rgba(93,214,240,0.07); }
+    &.active {
+      color:        $biolum !important;
+      background:   rgba(0,255,231,0.06) !important;
+      border-bottom: 2px solid $biolum !important;
+    }
+  }
+}
+
+// ── C7. Scrollbars ─────────────────────────────────────────────
+
+::-webkit-scrollbar            { width: 6px; height: 6px; }
+::-webkit-scrollbar-track      { background: $abyss; }
+::-webkit-scrollbar-thumb      { background: $ocean; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: $wave; }
+
+
+// ================================================================
+//  BLOQUE D — ANIMACIONES (compartidas)
+// ================================================================
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 18px rgba(0,255,231,0.14); }
+  50%       { box-shadow: 0 0 36px rgba(0,255,231,0.30); }
+}
+
+
+// ================================================================
+//  BLOQUE E — RESPONSIVE
+// ================================================================
+
+@media (max-width: 768px) {
+  .pagina-principal { padding: 0 1rem 5rem; }
+  .hero-seccion     { padding: 4rem 0.5rem 3rem; }
+  .stats-fila       { grid-template-columns: 1fr; }
+
+  .callout-important.insight-callout,
+  .callout.callout-important { padding: 1.8rem 1.4rem !important; }
+
+  .bslib-value-box .valuebox-value,
+  .bslib-value-box .value-box-value { font-size: 1.5rem !important; }
+}
+
+@media (max-width: 520px) {
+  .hero-titulo { font-size: 1.9rem; }
+  .nav-grid    { grid-template-columns: 1fr; }
 }
