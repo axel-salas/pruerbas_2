@@ -1,0 +1,188 @@
+---
+title: "Vida Submarina en Baja California"
+subtitle: "ODS 14 · ¿Puede la biodiversidad marina recuperarse del crecimiento pesquero?"
+author: "DERRE"
+date: today
+execute:
+  echo: false
+  warning: false
+format:
+  html:
+    self-contained: true
+    smooth-scroll: true
+    toc: false
+    theme: none
+    css: estilos.css
+    include-in-header:
+      text: |
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+---
+
+::: {.pagina-principal}
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+
+::: {.hero-seccion}
+
+::: {.hero-badge}
+DERRE · HackODS 2025
+:::
+
+::: {.hero-eyebrow}
+Objetivo de Desarrollo Sostenible · 14
+:::
+
+::: {.hero-titulo}
+¿Puede la *biodiversidad marina* recuperarse del crecimiento pesquero en Baja California?
+:::
+
+::: {.hero-subtitulo}
+Un análisis de datos sobre la interacción entre ecosistemas oceánicos, poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
+:::
+
+::: {.hero-divisor}
+:::
+
+:::
+
+<!-- ══════════════════════════════════════
+     ESTADÍSTICAS
+══════════════════════════════════════ -->
+
+::: {.stats-fila}
+
+::: {.glass-card .stat-tarjeta}
+::: {.stat-valor .stat-azul}
+3.1M km²
+:::
+::: {.stat-etiqueta}
+Mar Territorial Mexicano
+:::
+:::
+
+::: {.glass-card .stat-tarjeta}
+::: {.stat-valor .stat-cian}
+~30%
+:::
+::: {.stat-etiqueta}
+Especies en Riesgo Global
+:::
+:::
+
+::: {.glass-card .stat-tarjeta}
+::: {.stat-valor .stat-verde}
+2030
+:::
+::: {.stat-etiqueta}
+Meta Agenda ODS
+:::
+:::
+
+:::
+
+<!-- ══════════════════════════════════════
+     SECCIÓN DE NAVEGACIÓN
+══════════════════════════════════════ -->
+
+::: {.seccion-label}
+Navegación del análisis
+:::
+
+::: {.seccion-titulo}
+Explora el estudio
+:::
+
+::: {.seccion-desc}
+Cuatro secciones interconectadas que van del contexto a la acción, combinando exploración histórica con modelado predictivo.
+:::
+
+::: {.nav-grid}
+
+::: {.glass-card .nav-tarjeta}
+::: {.nav-icono .icono-azul}
+:::
+
+::: {.nav-tarjeta-titulo}
+Introducción
+:::
+
+::: {.nav-tarjeta-desc}
+Contexto general del proyecto y la importancia ecológica y económica del área de estudio en Baja California.
+:::
+
+[Ir a Introducción →](introduccion.qmd){.nav-enlace}
+:::
+
+::: {.glass-card .nav-tarjeta}
+::: {.nav-icono .icono-wave}
+:::
+
+::: {.nav-tarjeta-titulo}
+Análisis Exploratorio
+:::
+
+::: {.nav-tarjeta-desc}
+Visualización de patrones históricos de ballenas, pelícanos y producción pesquera a lo largo del tiempo.
+:::
+
+[Ir a Análisis →](analisis.qmd){.nav-enlace}
+:::
+
+::: {.glass-card .nav-tarjeta}
+::: {.nav-icono .icono-cian}
+:::
+
+::: {.nav-tarjeta-titulo}
+Modelo Predictivo
+:::
+
+::: {.nav-tarjeta-desc}
+Simulación de escenarios futuros basados en el modelo de Ricker, con parámetros ajustables.
+:::
+
+[Ir a Modelo →](modelo.qmd){.nav-enlace}
+:::
+
+::: {.glass-card .nav-tarjeta}
+::: {.nav-icono .icono-espuma}
+:::
+
+::: {.nav-tarjeta-titulo}
+Escenarios a Futuro
+:::
+
+::: {.nav-tarjeta-desc}
+Análisis de riesgos y recomendaciones estratégicas para la conservación marina sostenible.
+:::
+
+[Ir a Escenarios →](escenarios.qmd){.nav-enlace}
+:::
+
+:::
+
+<!-- ══════════════════════════════════════
+     INSIGHT CALLOUT
+══════════════════════════════════════ -->
+
+::: {.callout-important .insight-callout appearance="minimal" icon=false}
+
+## Insight central del estudio
+
+*"El sistema marino responde simultáneamente a presiones climáticas y humanas. Entender esta interacción es clave para diseñar estrategias verdaderamente sostenibles."*
+
+:::
+
+<!-- ══════════════════════════════════════
+     PIE DE PÁGINA
+══════════════════════════════════════ -->
+
+::: {.pie-pagina}
+**ODS 14 · Vida Submarina** · Agenda 2030 para el Desarrollo Sostenible · Elaborado por DERRE
+:::
+
+:::
