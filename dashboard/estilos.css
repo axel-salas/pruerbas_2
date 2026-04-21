@@ -1,0 +1,429 @@
+/* ============================================================
+   estilos.css — DERRE · ODS 14 · Vida Submarina
+   Todo el diseño visual vive aquí, el .qmd queda limpio
+   ============================================================ */
+
+/* ── FUENTES ─────────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap');
+
+/* ── VARIABLES ───────────────────────────────────────────── */
+:root {
+  --abyss:          #020b18;
+  --deep:           #041e35;
+  --midnight:       #063052;
+  --ocean:          #0a4f7e;
+  --wave:           #1278b0;
+  --reef:           #1ba3c6;
+  --foam:           #5dd6f0;
+  --biolum:         #00ffe7;
+  --biolum2:        #00d4c8;
+  --pearl:          #e8f4f8;
+  --text-main:      #cce8f4;
+  --text-muted:     #7ab4cc;
+  --glass-bg:       rgba(10, 79, 126, 0.18);
+  --glass-border:   rgba(93, 214, 240, 0.22);
+  --glass-shadow:   0 8px 32px rgba(0, 0, 0, 0.45);
+  --radius-card:    20px;
+  --radius-badge:   100px;
+  --ff-display:     'Playfair Display', Georgia, serif;
+  --ff-body:        'DM Sans', system-ui, sans-serif;
+  --ff-mono:        'Space Mono', monospace;
+}
+
+/* ── RESET & BASE ────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--ff-body);
+  font-weight: 400;
+  color: var(--text-main);
+  min-height: 100vh;
+  /* Fondo oceánico en capas */
+  background:
+    radial-gradient(ellipse at 18%  8%, rgba(0, 255, 231, 0.055) 0%, transparent 48%),
+    radial-gradient(ellipse at 82% 92%, rgba(18, 120, 176, 0.13)  0%, transparent 48%),
+    radial-gradient(ellipse at 50% 50%, rgba(6,  48,  82, 0.50)   0%, transparent 68%),
+    linear-gradient(168deg,
+      var(--abyss)  0%,
+      var(--deep)   38%,
+      var(--midnight) 68%,
+      #041529       100%);
+  background-attachment: fixed;
+}
+
+/* Quarto añade padding por defecto — lo neutralizamos */
+#quarto-content,
+.page-layout-full,
+main.content {
+  max-width: 100% !important;
+  padding:   0    !important;
+  margin:    0    !important;
+}
+
+/* Ocultar el title-block de Quarto (usamos el nuestro) */
+#title-block-header { display: none !important; }
+
+/* ── CONTENEDOR PRINCIPAL ────────────────────────────────── */
+.pagina-principal {
+  max-width: 1180px;
+  margin:    0 auto;
+  padding:   0 2rem 7rem;
+}
+
+/* ── HERO ────────────────────────────────────────────────── */
+.hero-seccion {
+  text-align:  center;
+  padding:     6.5rem 2rem 4rem;
+  position:    relative;
+}
+
+.hero-badge {
+  display:         inline-block;
+  background:      var(--glass-bg);
+  border:          1px solid var(--glass-border);
+  border-radius:   var(--radius-badge);
+  padding:         0.38rem 1.2rem;
+  font-family:     var(--ff-mono);
+  font-size:       0.70rem;
+  letter-spacing:  0.14em;
+  text-transform:  uppercase;
+  color:           var(--foam);
+  backdrop-filter: blur(10px);
+  margin-bottom:   1.8rem;
+  animation:       fadeSlideDown 0.7s ease both;
+}
+
+.hero-eyebrow {
+  font-family:    var(--ff-mono);
+  font-size:      0.72rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color:          var(--reef);
+  margin-bottom:  0.9rem;
+  animation:      fadeSlideDown 0.8s ease 0.08s both;
+}
+
+.hero-titulo {
+  font-family:   var(--ff-display);
+  font-size:     clamp(2.1rem, 4.8vw, 4rem);
+  font-weight:   900;
+  line-height:   1.12;
+  color:         var(--pearl);
+  margin-bottom: 1.4rem;
+  animation:     fadeSlideDown 0.9s ease 0.14s both;
+}
+
+/* El *texto en itálica* del título recibe gradiente bioluminiscente */
+.hero-titulo em {
+  font-style: italic;
+  background: linear-gradient(130deg, var(--foam), var(--biolum));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip:         text;
+}
+
+.hero-subtitulo {
+  font-size:     1.02rem;
+  font-weight:   300;
+  color:         var(--text-muted);
+  max-width:     620px;
+  margin:        0 auto 2.5rem;
+  line-height:   1.75;
+  animation:     fadeSlideDown 1s ease 0.20s both;
+}
+
+.hero-divisor {
+  width:      80px;
+  height:     2px;
+  background: linear-gradient(90deg, transparent, var(--biolum), transparent);
+  margin:     0 auto 3.5rem;
+  animation:  fadeIn 1.2s ease 0.35s both;
+}
+
+/* ── TARJETA VIDRIO (base reutilizable) ──────────────────── */
+.glass-card {
+  background:             var(--glass-bg);
+  border:                 1px solid var(--glass-border);
+  border-radius:          var(--radius-card);
+  backdrop-filter:        blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  box-shadow:             var(--glass-shadow);
+  position:               relative;
+  overflow:               hidden;
+  transition:             transform 0.30s ease,
+                          box-shadow 0.30s ease,
+                          border-color 0.30s ease;
+}
+
+/* Reflejo superior tipo vidrio mojado */
+.glass-card::before {
+  content:    '';
+  position:   absolute;
+  top: 0; left: 0; right: 0;
+  height:     1px;
+  background: linear-gradient(90deg, transparent, rgba(93,214,240,0.45), transparent);
+}
+
+.glass-card:hover {
+  transform:    translateY(-6px);
+  box-shadow:   0 22px 60px rgba(0,0,0,0.52),
+                0  0  38px rgba(0,255,231,0.07);
+  border-color: rgba(93,214,240,0.42);
+}
+
+/* ── FILA DE ESTADÍSTICAS ────────────────────────────────── */
+.stats-fila {
+  display:               grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:                   1.2rem;
+  margin-bottom:         3rem;
+}
+
+.stat-tarjeta {
+  padding:    1.8rem 1.4rem;
+  text-align: center;
+  animation:  fadeSlideDown 0.6s ease both;
+}
+
+.stat-tarjeta:nth-child(1) { animation-delay: 0.10s; }
+.stat-tarjeta:nth-child(2) { animation-delay: 0.20s; }
+.stat-tarjeta:nth-child(3) { animation-delay: 0.30s; }
+
+.stat-valor {
+  font-family:   var(--ff-display);
+  font-size:     2.3rem;
+  font-weight:   900;
+  line-height:   1;
+  margin-bottom: 0.35rem;
+}
+
+.stat-azul  { color: var(--foam); }
+.stat-cian  { color: var(--biolum); }
+.stat-verde { color: var(--reef); }
+
+.stat-etiqueta {
+  font-family:    var(--ff-mono);
+  font-size:      0.68rem;
+  color:          var(--text-muted);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+/* ── SECCIÓN NAVEGACIÓN — cabecera ───────────────────────── */
+.seccion-label {
+  font-family:    var(--ff-mono);
+  font-size:      0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color:          var(--reef);
+  margin-bottom:  0.5rem;
+  display:        flex;
+  align-items:    center;
+  gap:            0.6rem;
+}
+
+.seccion-label::after {
+  content:    '';
+  flex:       1;
+  height:     1px;
+  background: linear-gradient(90deg, var(--glass-border), transparent);
+}
+
+.seccion-titulo {
+  font-family:   var(--ff-display);
+  font-size:     1.75rem;
+  font-weight:   700;
+  color:         var(--pearl);
+  margin-bottom: 0.45rem;
+}
+
+/* Quarto convierte ## en h2 — lo interceptamos */
+h2.seccion-titulo, .seccion-titulo h2 {
+  font-family: var(--ff-display) !important;
+  color:       var(--pearl)      !important;
+}
+
+.seccion-desc {
+  font-size:     0.95rem;
+  color:         var(--text-muted);
+  margin-bottom: 2.2rem;
+  line-height:   1.65;
+  max-width:     680px;
+}
+
+/* ── GRID DE TARJETAS DE NAVEGACIÓN ─────────────────────── */
+.nav-grid {
+  display:               grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:                   1.4rem;
+  margin-bottom:         3rem;
+}
+
+.nav-tarjeta {
+  padding: 2rem 1.8rem;
+  animation: fadeSlideDown 0.6s ease both;
+}
+
+.nav-tarjeta:nth-child(1) { animation-delay: 0.10s; }
+.nav-tarjeta:nth-child(2) { animation-delay: 0.20s; }
+.nav-tarjeta:nth-child(3) { animation-delay: 0.30s; }
+.nav-tarjeta:nth-child(4) { animation-delay: 0.40s; }
+
+/* Ícono circular en cada tarjeta */
+.nav-icono {
+  width:         50px;
+  height:        50px;
+  border-radius: 14px;
+  margin-bottom: 1.1rem;
+  background-repeat:   no-repeat;
+  background-position: center;
+  background-size:     22px;
+}
+
+/* Colores por sección — usamos background-color + pseudoícono via CSS */
+.icono-azul   { background-color: rgba(27,163,198,0.20); }
+.icono-wave   { background-color: rgba(18,120,176,0.20); }
+.icono-cian   { background-color: rgba(0,255,231,0.10);  }
+.icono-espuma { background-color: rgba(93,214,240,0.15); }
+
+.nav-tarjeta-titulo {
+  font-family:   var(--ff-display);
+  font-size:     1.1rem;
+  font-weight:   700;
+  color:         var(--pearl);
+  margin-bottom: 0.5rem;
+}
+
+/* Quarto convierte **texto** en <strong> dentro de p */
+.nav-tarjeta > p > strong,
+.nav-tarjeta strong {
+  font-family: var(--ff-display) !important;
+  font-size:   1.1rem;
+  color:       var(--pearl);
+  display:     block;
+  margin-bottom: 0.5rem;
+}
+
+.nav-tarjeta-desc {
+  font-size:     0.88rem;
+  color:         var(--text-muted);
+  line-height:   1.62;
+  margin-bottom: 1.3rem;
+}
+
+/* El párrafo de descripción dentro de nav-tarjeta */
+.nav-tarjeta > p:not(:last-child) {
+  font-size:   0.88rem;
+  color:       var(--text-muted);
+  line-height: 1.62;
+}
+
+/* Enlace de navegación */
+.nav-enlace,
+.nav-tarjeta a {
+  display:         inline-block;
+  font-family:     var(--ff-mono);
+  font-size:       0.70rem;
+  letter-spacing:  0.08em;
+  text-transform:  uppercase;
+  color:           var(--foam);
+  text-decoration: none;
+  border-bottom:   1px solid rgba(93,214,240,0.35);
+  padding-bottom:  2px;
+  transition:      color 0.22s ease, border-color 0.22s ease;
+}
+
+.nav-enlace:hover,
+.nav-tarjeta a:hover {
+  color:        var(--biolum);
+  border-color: var(--biolum);
+}
+
+/* ── CALLOUT INSIGHT ─────────────────────────────────────── */
+.callout-important.insight-callout,
+.callout.callout-important {
+  background: linear-gradient(135deg,
+    rgba(0,255,231,0.055) 0%,
+    rgba(10,79,126,0.25)  100%) !important;
+  border:        1px solid rgba(0,255,231,0.22) !important;
+  border-radius: var(--radius-card) !important;
+  border-left:   none !important;
+  padding:       2.4rem 3rem !important;
+  margin-bottom: 3rem !important;
+  color:         var(--text-main) !important;
+  box-shadow:    0 8px 32px rgba(0,0,0,0.35) !important;
+}
+
+.callout-important .callout-title,
+.callout-important.insight-callout .callout-title {
+  font-family:   var(--ff-mono) !important;
+  font-size:     0.70rem !important;
+  letter-spacing:0.14em !important;
+  text-transform:uppercase !important;
+  color:         var(--biolum2) !important;
+  margin-bottom: 0.7rem !important;
+}
+
+.callout-important .callout-body p,
+.callout-important p {
+  font-family: var(--ff-display) !important;
+  font-size:   1.08rem !important;
+  font-style:  italic !important;
+  color:       var(--pearl) !important;
+  line-height: 1.65 !important;
+}
+
+/* ── PIE DE PÁGINA ───────────────────────────────────────── */
+.pie-pagina {
+  text-align:   center;
+  padding:      2.5rem 0 1.5rem;
+  border-top:   1px solid var(--glass-border);
+  margin-top:   2rem;
+  font-family:  var(--ff-mono);
+  font-size:    0.72rem;
+  color:        rgba(123,180,204,0.55);
+  letter-spacing: 0.06em;
+}
+
+/* ── SEPARADORES hr ──────────────────────────────────────── */
+hr {
+  border:     none;
+  border-top: 1px solid var(--glass-border);
+  margin:     2.5rem 0;
+  opacity:    0.5;
+}
+
+/* ── ANIMACIONES ─────────────────────────────────────────── */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-18px); }
+  to   { opacity: 1; transform: translateY(0);     }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 18px rgba(0,255,231,0.14); }
+  50%       { box-shadow: 0 0 36px rgba(0,255,231,0.30); }
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .pagina-principal { padding: 0 1rem 5rem; }
+  .hero-seccion     { padding: 4rem 0.5rem 3rem; }
+  .stats-fila       { grid-template-columns: 1fr; }
+
+  .callout-important.insight-callout,
+  .callout.callout-important {
+    padding: 1.8rem 1.4rem !important;
+  }
+}
+
+@media (max-width: 520px) {
+  .hero-titulo      { font-size: 1.9rem; }
+  .nav-grid         { grid-template-columns: 1fr; }
+}
