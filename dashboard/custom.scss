@@ -1,0 +1,231 @@
+/*
+ * custom.scss — Tema ODS 14 · Vida Submarina
+ * Coloca este archivo en la misma carpeta que tu .qmd
+ */
+
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
+
+/* ── Google Fonts: Inter + Playfair Display ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap');
+
+/* ── Fuente base del dashboard ── */
+body, .dashboard-body, .quarto-dashboard {
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif !important;
+}
+
+h4, h5, h6, p, li, .card-title {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ── Value Boxes ── */
+.valuebox {
+  border-radius: 10px !important;
+  padding: 1rem 1.2rem !important;
+  font-family: 'Inter', sans-serif !important;
+}
+
+.valuebox-value {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  font-family: 'Inter', sans-serif !important;
+  letter-spacing: -0.03em;
+}
+
+.valuebox-title {
+  font-size: 0.75rem !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.88;
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* ── Variables de color: Mar de Cortés ───────────────────────── */
+:root {
+  --ocean-deep:   #1B263B; /* Azul marino profundo y elegante */
+  --ocean-mid:    #415A77; /* Azul acero */
+  --ocean-light:  #bed1e8; /* Pizarra claro */
+  --ocean-foam:   #E0E1DD; /* Blanco arena/espuma */
+  --ocean-mist:   #F0F4F8; /* Fondo grisáceo muy tenue */
+  --sand:         #E5D9C5; /* Arena cálida */
+  --coral:        #E07A5F; /* Coral apagado para alertas/botones */
+  --teal:         #3D5A80; /* Azul verdoso clásico */
+  --text-main:    #1e293b; /* Texto oscuro para máxima legibilidad */
+  --text-muted:   #64748b; /* Texto secundario gris */
+  --card-bg:      #ffffff;
+  --border:       rgba(27, 38, 59, 0.1);
+}
+
+/* ===== FONDO GLOBAL ===== */
+body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* custom.css */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.card-navigation {
+    transition: transform 0.2s;
+    background-color: #1a1d27 !important;
+    border: 1px solid #2a2d3a !important;
+    height: 100%;
+    margin-bottom: 0 !important; /* Evita el apilamiento por margen */
+}
+
+.card-navigation:hover {
+    transform: translateY(-5px);
+    border-color: #1DB38A !important;
+}
+
+.hero-card {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1d27 100%) !important;
+    border-left: 5px solid #1DB38A !important;
+    border-radius: 15px;
+}
+
+.card-navigation {
+    transition: transform 0.2s;
+    height: 100%;
+}
+
+.card-navigation:hover {
+    transform: translateY(-5px);
+}
+
+.footer-ods {
+    border-top: 1px solid #2a2d3a;
+    color: #888;
+}
+
+/* ─── COLOR DE TÍTULOS ─── */
+
+/* Título principal del Hero (h1) */
+.hero-card h1 {
+    color: #ffffff !important;
+}
+
+/* Títulos de las tarjetas de navegación (h2) */
+.card-navigation h2 {
+    color: #ffffff !important; /* Puedes cambiarlo a #1DB38A si prefieres que destaquen en verde */
+    font-size: 1.5rem; /* Ajuste opcional para que no se vean gigantes */
+    margin-bottom: 15px;
+}
+
+/* ===== TITULOS ===== */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-weight: 600;
+  color: var(--ocean-foam);
+}
+
+/* HERO más dominante */
+.callout-important {
+  background: linear-gradient(135deg, #03045E, #0077B6);
+  color: white;
+  text-align: center;
+  padding: 60px 25px;
+  border-radius: 18px;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.3);
+}
+
+/* tarjetas alineadas */
+.callout-note {
+  height: 100%;
+  background: #1e293b;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.2s ease;
+}
+
+.callout-note:hover {
+  transform: translateY(-5px);
+}
+
+/* botones centrados */
+.btn {
+  margin: 10px;
+  border-radius: 12px;
+  padding: 12px 24px;
+}
+
+/* espacio entre filas */
+.quarto-dashboard-row {
+  margin-bottom: 25px;
+}
+
+.ods-footer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: var(--ocean-mist);
+  border-radius: 10px;
+  padding: 0.8rem 1rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin-top: 1rem;
+}
+
+/* ── Forzar colores de texto en Dashboards y Callouts ───────────────── */
+
+/* 1. Títulos sueltos (como el #### ¿Qué encontrarás?) */
+h4 {
+  color: var(--ocean-deep) !important;
+  font-weight: 700;
+}
+
+/* 2. Color del texto dentro de las tarjetas (Callouts) */
+.callout-body-container,
+.callout-body,
+.callout p, 
+.callout ul li {
+  color: var(--ocean-light) !important;
+}
+
+/* 3. Color de los títulos dentro de las tarjetas (Callouts) */
+.callout-title,
+.callout-title-container {
+  color: var(--ocean-deep) !important;
+  font-family: 'Playfair Display', serif !important;
+}
+
+/* 4. Asegurar que las tarjetas de "insight" resalten bien */
+.callout-important {
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  border-left: 5px solid var(--ocean-mid) !important;
+}
+
+/* ── Scrollbar temática ───────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--ocean-mist); }
+::-webkit-scrollbar-thumb {
+  background: var(--mid);
+  border-radius: 3px;
+}
+
+/* Evitar que las tarjetas se estiren verticalmente */
+.callout {
+  height: max-content !important;
+  margin-bottom: 1rem;
+}
+
+/* Alinear el contenido de la cuadrícula hacia arriba */
+.grid {
+  align-items: start !important;
+}
