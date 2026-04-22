@@ -810,6 +810,48 @@ body {
 
 
 // ================================================================
+//  §15  LOBOS MARINOS — Grupo Control
+//  Acento verde-esmeralda para distinguir visualmente esta sección
+//  de las secciones de ballenas (azul) y pelícanos (teal).
+// ================================================================
+
+// Valuebox color personalizado para "Grupo Control" (#1B5E20).
+// bslib no tiene una variable semántica verde-oscuro, así que
+// apuntamos al atributo style que genera Quarto cuando color=""
+// lleva un hex directo. Forzamos contraste de texto legible.
+.bslib-value-box[style*="1B5E20"],
+.bslib-value-box[style*="1b5e20"] {
+  background: linear-gradient(140deg,
+    rgba(27, 94, 32, 0.80),
+    rgba(4, 30, 53, 0.90)) !important;
+  border-color: rgba(76, 175, 80, 0.35) !important;
+
+  .value-box-value,
+  .valuebox-value { color: #c8f5c8 !important; }
+
+  .value-box-title,
+  .valuebox-title { color: rgba(200, 245, 200, 0.82) !important; }
+}
+
+// Callouts de la sección lobos: ajuste de borde izquierdo al verde
+// .callout-note y .callout-important ya están estilizados globalmente;
+// aquí solo añadimos la clase auxiliar .callout-control para que la
+// card de texto tenga un borde izquierdo verde esmeralda si se desea.
+.callout-control {
+  border-left-color: #4CAF50 !important;
+}
+
+// Card de análisis del grupo control (layout derecho)
+.card-control {
+  .card-body { padding: 1.3rem 1.5rem; }
+
+  // Separador visual entre los dos callouts
+  .callout + .callout { margin-top: 1.2rem; }
+}
+
+
+
+// ================================================================
 //  §13  RESPONSIVE
 // ================================================================
 

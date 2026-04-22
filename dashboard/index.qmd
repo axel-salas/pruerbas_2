@@ -1,16 +1,39 @@
 ---
 title: "ODS 14 · Vida Submarina"
----
-## Row {#seccion-1}
-# Portada
+project:
+  type: default
+  output-dir: ../docs
+  resources:
+    - .nojekyll
 
-## Row {height="42vh"}
+# Configuraciones globales para el Dashboard
+format:
+  dashboard:
+    title: "DERRE - HackODS ODS 14 · Vida Submarina"
+    scrolling: true
+    theme: custom.scss
+    nav-buttons:
+      - text: "Inicio"
+        href: "#seccion-1"
+      - text: "Introducción"
+        href: "#seccion-2"
+      - text: "Análisis Exploratorio"
+        href: "#seccion-3"
+      - text: "Modelo Predictivo"
+        href: "#seccion-4"
+      - text: "Escenarios a futuro"
+        href: "#seccion-5"
+      - text: "Conclusiones"
+        href: "#seccion-6"
+---
+
+## Row {#seccion-1 height="42vh"}
 
 ::: {.card .card-hero}
 ::: {.card-body}
 
 ::: {.hero-badge}
-DERRE · HackODS 2025 · ODS 14
+DERRE · HackODS 2026 · ODS 14
 :::
 
 ::: {.hero-eyebrow}
@@ -74,7 +97,6 @@ Contexto general del proyecto y la importancia ecológica y económica del área
 :::
 
 ### Column {width="20%"}
-
 ::: {.card .card-nav}
 ::: {.card-body}
 ::: {.nav-numero}
@@ -92,10 +114,7 @@ Visualización de patrones históricos de ballenas, pelícanos y producción pes
 :::
 :::
 
-
-
 ### Column {width="20%"}
-
 ::: {.card .card-nav}
 ::: {.card-body}
 ::: {.nav-numero}
@@ -114,7 +133,6 @@ Simulación de escenarios futuros basados en el modelo de Ricker, con parámetro
 :::
 
 ### Column {width="20%"}
-
 ::: {.card .card-nav}
 ::: {.card-body}
 ::: {.nav-numero}
@@ -133,7 +151,6 @@ Análisis de riesgos y recomendaciones estratégicas para la conservación marin
 :::
 
 ### Column {width="20%"}
-
 ::: {.card .card-nav}
 ::: {.card-body}
 ::: {.nav-numero}
@@ -151,25 +168,22 @@ Conclusiones finales e ideas de desarrollo a futuro
 :::
 :::
 
-## Row {height="17vh"}
-
-### Column {width="100%"}
+## Row {height="auto"}
 
 ::: {.card}
 ::: {.card-header}
 Insight central del estudio
 :::
+::: {.card-body}
 
-::: {.callout-important appearance="minimal" icon=false}
-
-## El sistema responde a dos presiones simultáneas
-
+::: {.callout-important title="El sistema responde a dos presiones simultáneas" appearance="minimal" icon=false}
 *"El sistema marino responde simultáneamente a presiones climáticas y humanas. Entender esta interacción es clave para diseñar estrategias verdaderamente sostenibles."*
+:::
 
 :::
 :::
 
-## Row 
+## Row {height="auto"}
 
 ::: {.card}
 ::: {.card-header}
@@ -182,7 +196,7 @@ Modelo utilizado
 :::
 
 ::: {.seccion-titulo}
-Modelo de Ricker
+**Modelo de Ricker**
 :::
 
 ::: {.seccion-desc}
@@ -196,7 +210,7 @@ Datos fuente
 :::
 
 ::: {.seccion-titulo}
-Series históricas 1999 – 2024
+**Series históricas 1999 – 2024**
 :::
 
 ::: {.seccion-desc}
@@ -206,10 +220,7 @@ Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en ton
 :::
 :::
 
-## Row {#seccion-2}
-# 📖 Contexto del Proyecto
-
-## Row {height="25%"}
+## Row {#seccion-2 height="20vh"}
 
 ::: {.valuebox icon="graph-up-arrow" color="#C62828"}
 **+48% Flota Pesquera**
@@ -226,19 +237,17 @@ Pico histórico de extracción registrado en 2024.
 Aportación de Baja California al total pesquero de México.
 :::
 
-## Row {height="75%"}
+## Row {height="auto"}
 
 ### Column {width="55%"}
 
-::: {.callout-important appearance="simple"}
-## Un mar que se está vaciando
+::: {.callout-important title="Un mar que se está vaciando" appearance="simple"}
 Hay un momento en que los números dejan de ser estadísticas y se convierten en una advertencia. **En Baja California, ese momento ya llegó.**
 
 La pregunta ya no es si el ecosistema está bajo presión. La pregunta es si todavía es capaz de recuperarse. Para responderla, no basta con mirar las redes: tenemos que evaluar el ecosistema completo.
 :::
 
-::: {.callout-note appearance="simple"}
-## El Tesoro Biológico bajo amenaza
+::: {.callout-note title="El Tesoro Biológico bajo amenaza" appearance="simple"}
 Esta región es de una relevancia ecológica mundial. Alberga:
 
 * 🐟 **900 especies de peces** (90% endémicas).
@@ -265,8 +274,18 @@ Para lograrlo, utilizamos indicadores clave como *proxies* de salud:
 * 🔮 **3. Escenarios a futuro:** Implicaciones y recomendaciones estratégicas para la sostenibilidad de la Agenda 2030 (ODS 14).
 :::
 
-## Row {#seccion-3}
-## Análisis Exploratorio
+## Row {#seccion-3 height="auto"}
+
+::: {.card}
+::: {.card-header}
+**💡 Insight del Sistema**
+:::
+::: {.card-body}
+::: {.callout-note title="El sistema responde..."}
+Aquí va el texto de tu análisis. Al pasar el título como atributo y envolver el callout dentro del `.card-body`, Quarto respetará los márgenes correctamente (padding) y no intentará crear filas invisibles que rompan la tarjeta.
+:::
+:::
+:::
 
 ```{python}
 #| label: setup1
@@ -415,8 +434,6 @@ def crear_fig_pelicanos(df):
         showarrow=True, arrowhead=2, ax=0, ay=-40,
         font=dict(color=C_TEAL, size=12))
 
-    # shapes_nino usa xref="x" numérico; pelícanos tiene eje categórico
-    # → solo añadimos si el eje es compatible
     fig.update_layout(
         **_bg,
         title=dict(
@@ -504,9 +521,11 @@ def crear_fig_embarcaciones(df):
     return fig
 ```
 
+## Row {.tabset}
+
 ### Ballenas
 
-## Row {height="20%"}
+#### Row {height="20%"}
 
 ::: {.valuebox icon="water" color="#0077B6"}
 **20,000 km**
@@ -526,7 +545,7 @@ Máximo histórico registrado (2012)
 Desplome poblacional al mínimo histórico (2020)
 :::
 
-## Row {height="80%"}
+#### Row {height="80%"}
 
 ```{python}
 #| fig-responsive: true
@@ -535,7 +554,7 @@ display(crear_fig_ballenas(ballenas))
 
 ### Pelícanos
 
-## Row {height="20%"}
+#### Row {height="20%"}
 
 ::: {.valuebox icon="tsunami" color="#0077B6"}
 **Indicador Costero**
@@ -555,7 +574,7 @@ Máximo histórico registrado (2011)
 Colapso reproductivo sin precedentes (2014–2015)
 :::
 
-## Row {height="80%"}
+#### Row {height="80%"}
 
 ```{python}
 #| fig-responsive: true
@@ -564,7 +583,7 @@ display(crear_fig_pelicanos(pelicanos))
 
 ### Producción y Flota
 
-## Row {height="20%"}
+#### Row {height="20%"}
 
 ::: {.valuebox icon="droplet" color="#0077B6"}
 **La Paradoja**
@@ -584,22 +603,21 @@ Expansión estructural récord de la flota al 2024
 Pico de producción en años de crisis biológica
 :::
 
-## Row {height="40%"}
+#### Row {height="40%"}
 
 ```{python}
 #| fig-responsive: true
 display(crear_fig_pesca(produccion_pesquera))
 ```
 
-## Row {height="40%"}
+#### Row {height="40%"}
 
 ```{python}
 #| fig-responsive: true
 display(crear_fig_embarcaciones(embarcaciones))
 ```
 
-## Row {#seccion-4}
-## Modelo Predictivo
+## Row {#seccion-4 height="auto"}
 
 ```{python}
 #| label: setup2
@@ -887,9 +905,7 @@ def construir_figura(variable='H'):
     return fig
 ```
 
-### Simulación Matemática
-
-## Row {height="15%"}
+### Row {height="15%"}
 
 ::: {.valuebox icon="graph-up-arrow" color="primary"}
 **1.15**
@@ -921,52 +937,9 @@ f — Expansión y crecimiento de flota
 ε_P — Anomalías humanas (Esfuerzo)
 :::
 
-## Row {height="85%"}
+## Row {#seccion-5 .tabset}
 
-### Column {width="30%"}
-
-::: {.card .card-modelo-desc title="Dinámica del modelo"}
-Para comprender la capacidad de resistencia del ecosistema, utilizamos un **modelo dinámico basado en Lotka-Volterra y Ricker**, adaptado a un sistema depredador-presa marino.
-
-**La dinámica**
-
-La biodiversidad disminuye conforme aumenta la presión pesquera, mientras que la flota crece de forma casi independiente. El modelo añade ruido estadístico para simular el clima y factores humanos impredecibles.
-
-**Fórmulas del modelo**
-
-$$H_{t+1} = H_t \exp\left(r \left(1 - {H_t}\right) - a P_t\right) + \varepsilon_H$$
-
-$$P_{t+1} = P_t \exp\left(f \left(1 - {P_t}\right)\right) + \varepsilon_P$$
-:::
-
-::: {.card .card-modelo-ctrl title="Controles de intervención"}
-El modelo te permite explorar **escenarios de política pesquera** ajustando tres parámetros con los sliders integrados en cada gráfico:
-
-- **Factor de presión (a):** Simula la intensidad de las cuotas de captura y la presión sobre el ecosistema.
-- **Factor crecimiento (f):** Controla los límites a la expansión de la flota pesquera.
-- **Año de intervención:** Define el momento en que entran en vigor las políticas de regulación.
-
-Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodiversidad marina frente al escenario inercial de referencia.
-:::
-
-### Column {width="70%" .tabset}
-
-#### Biodiversidad Marina (H)
-
-```{python}
-#| fig-responsive: true
-display(construir_figura('H'))
-```
-
-#### Esfuerzo Pesquero (P)
-
-```{python}
-#| fig-responsive: true
-display(construir_figura('P'))
-```
-
-## Row {#seccion-5}
-## Escenarios a Futuro
+### Escenario 1 — Inercial
 
 ```{python}
 #| label: setup3
@@ -1007,13 +980,12 @@ AÑOS_OBS = AÑOS[:len(H_OBS)]
 N_SIMS   = 300
 
 # ── Paleta integrada con el tema marino ──────────────────────────────────────
-# Fondos transparentes para encajar sobre .bslib-card del custom.scss
-BG_PLOT = 'rgba(0,0,0,0)'           # hereda el glass-card del tema
-AX_PLOT = 'rgba(6,48,82,0.45)'      # azul profundo semi-transparente
-GR_PLOT = 'rgba(93,214,240,0.12)'   # cuadrícula: cian muy suave
-TX_PLOT = '#cce8f4'                  # --text-main del tema
+BG_PLOT = 'rgba(0,0,0,0)'           
+AX_PLOT = 'rgba(6,48,82,0.45)'      
+GR_PLOT = 'rgba(93,214,240,0.12)'   
+TX_PLOT = '#cce8f4'                 
 
-# Colores por escenario (conservados del original — buen contraste sobre oscuro)
+# Colores por escenario 
 ESCENARIOS = {
     'inercial': {
         'H': '#E8A838', 'P': '#E8A838',
@@ -1031,7 +1003,6 @@ ESCENARIOS = {
         'P_band': 'rgba(224,92,42,0.15)',
     },
 }
-
 
 # ── 2. SIMULACIÓN ────────────────────────────────────────────────────────────
 
@@ -1115,7 +1086,6 @@ def hacer_figura(res):
     años_l = list(AÑOS)
     años_o = list(AÑOS_OBS)
 
-    # Métricas de comparación vs. inercial
     h_fin_iner = float(np.mean(resultados[0]['H']['med'][-10:]))
     h_fin_este = float(np.mean(H_st['med'][-10:]))
     p_fin_iner = float(np.mean(resultados[0]['P']['med'][-10:]))
@@ -1133,7 +1103,7 @@ def hacer_figura(res):
         ],
     )
 
-    # ── Panel H ──────────────────────────────────────────────────────────────
+    # Panel H 
     fig.add_trace(go.Scatter(
         x=años_l + años_l[::-1],
         y=list(H_st['q95']) + list(H_st['q5'])[::-1],
@@ -1156,7 +1126,7 @@ def hacer_figura(res):
         hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
     ), row=1, col=1)
 
-    # ── Panel P ──────────────────────────────────────────────────────────────
+    # Panel P 
     fig.add_trace(go.Scatter(
         x=años_l + años_l[::-1],
         y=list(P_st['q95']) + list(P_st['q5'])[::-1],
@@ -1179,7 +1149,7 @@ def hacer_figura(res):
         hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
     ), row=2, col=1)
 
-    # ── Líneas verticales de intervención ────────────────────────────────────
+    # Líneas verticales
     for row in (1, 2):
         fig.add_vline(
             x=yr,
@@ -1187,7 +1157,7 @@ def hacer_figura(res):
             row=row, col=1
         )
 
-    # ── Anotaciones de métricas ───────────────────────────────────────────────
+    # Anotaciones
     emoji_dH = '▲' if delta_H >= 0 else '▼'
     emoji_dP = '▲' if delta_P >= 0 else '▼'
 
@@ -1219,7 +1189,7 @@ def hacer_figura(res):
         **ann_style
     )
 
-    # ── Layout ───────────────────────────────────────────────────────────────
+    # Layout
     fig.update_layout(
         plot_bgcolor=AX_PLOT,
         paper_bgcolor=BG_PLOT,
@@ -1230,7 +1200,7 @@ def hacer_figura(res):
             font=dict(size=16, color=TX_PLOT),
             x=0.5, xanchor='center', y=0.97,
         ),
-        height=660,
+        height=550, 
         margin=dict(t=110, b=50, l=70, r=25),
         hovermode='x unified',
         legend=dict(
@@ -1264,7 +1234,6 @@ def hacer_figura(res):
     )
     fig.update_xaxes(title_text='Año', row=2, col=1)
 
-    # Subtítulos de subplots en color del tema
     for ann in fig.layout.annotations:
         if ann.text in ('H — Biodiversidad marina (presa)',
                         'P — Flota pesquera (depredador)'):
@@ -1273,155 +1242,232 @@ def hacer_figura(res):
 
     return fig
 
-
 # ── 5. GENERAR FIGURAS ────────────────────────────────────────────────────────
-
 figs = [hacer_figura(res) for res in resultados]
 ```
-
-### Escenario 1 — Catastrófico
-
-## Row {height="70%"}
-
-```{python}
-#| fig-responsive: true
-display(figs[2])
-```
-
-## Row {height="30%"}
-
-::: {.callout-important appearance="minimal" icon=false}
-
-## 03 — Lo que pasa si seguimos acelerando
-
-Este escenario no es una advertencia abstracta: es la predicción directa de tendencias ya observadas. Si la dinámica actual se intensifica — presión pesquera **+40%** (**a × 1.4 = 2.863**) y flota acelerando al mismo ritmo (**f × 1.4 = 0.0661**) desde hoy — el modelo muestra una biodiversidad marina que cae por debajo del escenario inercial de forma persistente, oscilando en niveles de **0.05–0.08**. A esos niveles, la capacidad reproductiva está tan comprometida que cualquier perturbación adicional —El Niño, una marea roja, una temporada agresiva— puede empujar la población fuera del rango de recuperación.
-
-La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos peces, con una biodiversidad mucho más dañada como costo del crecimiento. El modelo no puede responder cuánto vale hoy un pelícano que no anida o una ballena que no regresa. Sí puede mostrar que el costo de no responderla se acumula, año tras año, en una curva que baja más rápido de lo que cualquier regulación futura podrá revertir.
-
-:::
-
-### Escenario 2 — Inercial
-
-## Row {height="70%"}
 
 ```{python}
 #| fig-responsive: true
 display(figs[0])
 ```
 
-## Row {height="30%"}
-
 ::: {.callout-warning appearance="minimal" icon=false}
-
 ## 01 — El mar que seguimos ignorando
 
 El Golfo de California no colapsó de golpe. Lo hicimos lentamente, temporada tras temporada, con cada embarcación adicional que salió al agua y cada tonelada extra que subió a cubierta. Los datos muestran que entre 1999 y 2024 ya ocurrió lo más difícil de revertir: la biodiversidad marina pasó de niveles moderados a oscilar peligrosamente cerca de cero, mientras la flota pesquera creció de forma casi ininterrumpida.
 
 Este escenario no supone ningún cambio. Los parámetros son exactamente los que el modelo recuperó de los datos reales: una tasa de depredación **a = 2.045** que supera la capacidad de recuperación natural de las presas, y una flota que sigue expandiéndose con **f = 0.0472** año tras año. Lo que proyecta el modelo es sobrio: H se estabiliza en torno a 0.10–0.15, una fracción de sus máximos históricos. No hay colapso abrupto, pero tampoco recuperación. El sistema queda atrapado en un equilibrio degradado del que es muy difícil salir sin intervención externa. En ecología marina, una población crónicamente baja es vulnerable a cualquier perturbación adicional que sí podría empujarla al colapso definitivo.
-
 :::
 
-### Escenario 3 — Conservación
-
-## Row {height="70%"}
+### Escenario 2 — Conservación
 
 ```{python}
 #| fig-responsive: true
 display(figs[1])
 ```
 
-## Row {height="30%"}
-
 ::: {.callout-note appearance="minimal" icon=false}
-
 ## 02 — La ventana que todavía existe
 
 En 2030, tras cinco años de debate y negociación, el gobierno de México implementa un acuerdo regional de manejo pesquero. Las vedas se amplían, las licencias de nuevas embarcaciones se congelan, y el esfuerzo pesquero total se reduce a la mitad: una reducción del 50% en la presión sobre el ecosistema (**a × 0.5 = 1.0225**) y un freno equivalente al crecimiento de la flota (**f × 0.5 = 0.0236**).
 
 El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad responde. No de forma espectacular ni inmediata, pero sí de forma sostenida. A partir de 2032, la trayectoria mediana de H se separa visiblemente del escenario inercial. La diferencia al final del período ronda el **+70% respecto al escenario inercial**: una política de conservación implementada hoy aproximadamente duplica el nivel de biodiversidad que tendremos a finales de siglo. Este escenario no promete un regreso al máximo histórico de 2012 — promete algo más valioso: una trayectoria estable y ascendente en lugar de una meseta de deterioro.
+:::
 
+### Escenario 3 — Catastrófico
+
+```{python}
+#| fig-responsive: true
+display(figs[2])
+```
+
+::: {.callout-important appearance="minimal" icon=false}
+## 03 — Lo que pasa si seguimos acelerando
+
+Este escenario no es una advertencia abstracta: es la predicción directa de tendencias ya observadas. Si la dinámica actual se intensifica — presión pesquera **+40%** (**a × 1.4 = 2.863**) y flota acelerando al mismo ritmo (**f × 1.4 = 0.0661**) desde hoy — el modelo muestra una biodiversidad marina que cae por debajo del escenario inercial de forma persistente, oscilando en niveles de **0.05–0.08**. A esos niveles, la capacidad reproductiva está tan comprometida que cualquier perturbación adicional —El Niño, una marea roja, una temporada agresiva— puede empujar la población fuera del rango de recuperación.
+
+La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos peces, con una biodiversidad mucho más dañada como costo del crecimiento. El modelo no puede responder cuánto vale hoy un pelícano que no anida o una ballena que no regresa. Sí puede mostrar que el costo de no responderla se acumula, año tras año, en una curva que baja más rápido de lo que cualquier regulación futura podrá revertir.
 :::
 
 ## Row {#seccion-6}
-## Conclusiones 
 
 ```{python}
-#| label: setup4
+#| label: setup-lobos
 #| include: false
 
 import plotly.graph_objects as go
 import pandas as pd
 import numpy as np
+from IPython.display import display
 
 # ═══════════════════════════════════════════════
 #  CARGA DE DATOS
 # ═══════════════════════════════════════════════
 
-# LOBOS MARINOS
-lobos_marinos=pd.read_csv('../datos/lobos_marinos/lobos_marinos.csv').iloc[:17]
-lobos_marinos['total_lobos_marinos']=lobos_marinos['total_lobos_marinos'].str.replace(',', '').astype(float)
+lobos_marinos = pd.read_csv('../datos/lobos_marinos/lobos_marinos.csv').iloc[:17]
+lobos_marinos['total_lobos_marinos'] = (
+    lobos_marinos['total_lobos_marinos']
+    .str.replace(',', '')
+    .astype(float)
+)
 
 # ═══════════════════════════════════════════════
-#  FUNCION DE GRÁFICA
+#  PALETA ALINEADA AL TEMA MARINO (custom.scss)
 # ═══════════════════════════════════════════════
 
-el_nino_periods = [
-    (2009, 2010), (2014, 2016),(2018, 2019)
-]
+# Fondos transparentes → heredan el .bslib-card del tema
+BG_PLOT  = 'rgba(0,0,0,0)'           # papel transparente
+AX_PLOT  = 'rgba(6,48,82,0.45)'      # área de plot azul profundo
+GR_PLOT  = 'rgba(93,214,240,0.12)'   # cuadrícula cian suave
+TX_PLOT  = '#cce8f4'                  # --text-main del tema
+
+# Acento verde-esmeralda (grupo control, sin presión pesquera)
+C_VERDE       = '#4CAF50'
+C_VERDE_DARK  = '#1B5E20'
+C_NINO_FILL   = 'rgba(76, 175, 80, 0.12)'   # franja El Niño verde suave
+
+el_nino_periods = [(2009, 2010), (2014, 2016), (2018, 2019)]
+
+# ═══════════════════════════════════════════════
+#  FUNCIÓN DE GRÁFICA
+# ═══════════════════════════════════════════════
 
 def crear_fig_lobos_marinos(df):
-    el_nino_periods = [(2009, 2010), (2014, 2016), (2018, 2019)]
     fig = go.Figure()
-    
-    fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(symbol="square", size=15, color="rgba(34, 139, 34, 0.2)"), name='Fenómeno de El Niño', showlegend=True))
-    
-    fig.add_trace(go.Scatter(x=df['año'], y=df['total_lobos_marinos'], mode='lines+markers', name='Lobos Marinos', line=dict(color='#4CAF50', width=3), marker=dict(size=9, color='#1B5E20', symbol='circle'), fill='tozeroy', fillcolor='rgba(76, 175, 80, 0.05)', hovertemplate="<b>Año:</b> %{x}<br><b>Población:</b> %{y:,.0f}<extra></extra>"))
-    
-    shapes = [dict(type="rect", x0=s, x1=e, y0=0, y1=1, xref="x", yref="paper", fillcolor="rgba(34, 139, 34, 0.2)", line_width=0, layer="below") for (s, e) in el_nino_periods]
-    
-    max_val = df['total_lobos_marinos'].max()
+
+    # Leyenda El Niño
+    fig.add_trace(go.Scatter(
+        x=[None], y=[None], mode='markers',
+        marker=dict(symbol='square', size=15, color=C_NINO_FILL),
+        name='Fenómeno de El Niño', showlegend=True
+    ))
+
+    # Serie principal
+    fig.add_trace(go.Scatter(
+        x=df['año'], y=df['total_lobos_marinos'],
+        mode='lines+markers', name='Lobos Marinos',
+        line=dict(color=C_VERDE, width=3, shape='spline'),
+        marker=dict(size=9, color=C_VERDE_DARK, symbol='circle'),
+        fill='tozeroy', fillcolor='rgba(76,175,80,0.08)',
+        hovertemplate='<b>Año:</b> %{x}<br><b>Población:</b> %{y:,.0f}<extra></extra>'
+    ))
+
+    # Franjas El Niño
+    shapes = [
+        dict(type='rect', x0=s, x1=e, y0=0, y1=1,
+             xref='x', yref='paper',
+             fillcolor=C_NINO_FILL, line_width=0, layer='below')
+        for s, e in el_nino_periods
+    ]
+
+    # Anotación máximo histórico
+    max_val  = df['total_lobos_marinos'].max()
     max_year = df.loc[df['total_lobos_marinos'].idxmax(), 'año']
-    
-    fig.add_annotation(x=max_year, y=max_val, text="<b>Máximo histórico</b>", showarrow=True, arrowhead=2, ax=0, ay=-40, font=dict(color="#1B5E20", size=12))
-    
-    fig.update_layout(shapes=shapes, title={'text': "<b>Monitoreo de Lobos Marinos en Baja California</b><br><span style='font-size:14px; color:gray;'>Dinámica poblacional y estrés ambiental</span>", 'y':0.95, 'x':0.5, 'xanchor': 'center', 'yanchor': 'top'}, template="plotly_white", hovermode="x unified", font=dict(family="Arial", size=12, color="#2c3e50"), autosize=True, legend=dict(orientation="v", y=0.5, yanchor="middle", x=1.02, xanchor="left"), margin=dict(l=80, r=120, t=110, b=60), height=400)
-    
-    fig.update_xaxes(title="Temporada (Año)", tickangle=-45, dtick=1, showgrid=True, gridcolor='rgba(200, 200, 200, 0.2)')
-    
-    fig.update_yaxes(title="Total de Lobos Marinos", tickformat=",", showgrid=True, gridcolor='rgba(200, 200, 200, 0.2)')
-    
+    fig.add_annotation(
+        x=max_year, y=max_val,
+        text='<b>Máximo histórico</b>',
+        showarrow=True, arrowhead=2, ax=0, ay=-40,
+        font=dict(color=C_VERDE, size=12)
+    )
+
+    fig.update_layout(
+        shapes=shapes,
+        title=dict(
+            text=(
+                '<b>Población de Lobos Marinos: El Grupo Control</b><br>'
+                "<span style='font-size:13px;color:#7ab4cc;'>"
+                'Especie protegida sin presión pesquera directa</span>'
+            ),
+            y=0.95, x=0.02, xanchor='left', yanchor='top'
+        ),
+        # Fondos transparentes — el glass-card del tema es el fondo visible
+        plot_bgcolor=AX_PLOT,
+        paper_bgcolor=BG_PLOT,
+        font=dict(color=TX_PLOT, family='DM Sans, system-ui, sans-serif'),
+        hovermode='x unified',
+        legend=dict(
+            orientation='h', y=1.05, yanchor='bottom', x=1, xanchor='right',
+            bgcolor='rgba(4,30,53,0.82)',
+            bordercolor='rgba(93,214,240,0.22)', borderwidth=1,
+            font=dict(color=TX_PLOT)
+        ),
+        margin=dict(l=60, r=30, t=105, b=60),
+        height=480
+    )
+
+    fig.update_xaxes(
+        title='Temporada (Año)',
+        tickangle=0, dtick=2, showgrid=False,
+        color=TX_PLOT, linecolor='rgba(93,214,240,0.2)'
+    )
+    fig.update_yaxes(
+        title='Individuos',
+        tickformat=',', showgrid=True,
+        gridcolor=GR_PLOT,
+        color=TX_PLOT, linecolor='rgba(93,214,240,0.2)'
+    )
+
     return fig
 ```
 
-## Row {.tabset}
+# Lobos Marinos
 
-### Lobos Marinos
+## Row {height="20%"}
 
-:::: {layout="[70, 30]"}
+::: {.valuebox icon="shield-check" color="success"}
+**Grupo Control**
 
-::: {#columna-grafica}
+Sin impacto de pesca directa ni redes incidentales
+:::
+
+::: {.valuebox icon="graph-up-arrow" color="primary"}
+**7,500+ individuos**
+
+Máximo histórico · Temporada 2022 – 2023
+:::
+
+::: {.valuebox icon="info-circle" color="secondary"}
+**Protección Federal**
+
+Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
+:::
+
+## Row {height="80%"}
+
+### Column {width="65%"}
+
 ```{python}
 #| fig-responsive: true
 display(crear_fig_lobos_marinos(lobos_marinos))
 ```
-:::
 
-::: {#columna-texto}
+### Column {width="35%"}
+
+::: {.card .card-control}
+::: {.card-body}
+
 ::: {.callout-note appearance="minimal" icon=false}
-### El control natural
-Para poder dar una conclusion debemos hablar primero sobre uno de los personajes más importantes de esta historia, los lobos marinos, y lo vemos claramente: no por lo que muestra, sino por lo que no debería estar mostrando. 
-El lobo marino de California habita en colonias reproductivas en islas del Pacífico mexicano que están bajo protección federal estricta. No hay pesca directa sobre su hábitat. No hay redes que intercepten sus rutas. Si hay un animal que debería estar aislado del efecto de la presión pesquera, es este.
-Eso lo convierte en nuestro grupo control: el indicador que nos permite separar el efecto del clima sobre nuestras especies, del efecto de la pesca.
-La población de lobos marinos ha mostrado recuperación sostenida a lo largo de la serie histórica, con fluctuaciones atribuibles a eventos El Niño pero con una tendencia general al alza. Para 2022-2023, los registros superaron los 7,500 individuos, el máximo histórico de la serie.
+
+## El control natural
+
+El lobo marino de California es nuestro **indicador base**. Al habitar colonias protegidas donde no hay pesca, nos permite separar el efecto del clima del efecto de la actividad humana.
+
+Mientras las ballenas y pelícanos sufren colapsos, los lobos marinos muestran una **recuperación sostenida**. Esto demuestra que el ecosistema tiene capacidad de resiliencia cuando la presión extractiva se elimina de la ecuación.
 
 :::
 
 ::: {.callout-important appearance="minimal" icon=false}
-### Conclusión
-El modelo predice una tendencia preocupante, el escenario inercial (en el que no se hacen regulaciones y la tendencia continúa como lo ha hecho hasta ahora) es muy similar al escenario catastrófico. La tendencia que lleva la población tanto de pelícanos como de ballenas es extremadamente decreciente. Hay datos atípicos que no se alinean con el modelo y mucho ruido en las poblaciones, probablemente por los ciclos migratorios y el clima, sin embargo, la tendencia general es capturada por el modelo y el escenario inercial es devastador. La pregunta es ¿hay algo que se pueda hacer? El modelo como tal responde a esta pregunta a través de la simulación del efecto que políticas de conservación ambiental podrían tener en la población de ballenas y pelícanos. Al reducir el impacto que la flota tiene en la población en un 50% del actual sucede un cambio drástico en la tendencia de la población, hay un régimen de conservación en el modelo, se nos indica que la población podría conservarse en este caso. 
 
-Como evidencia empírica del cambio que podría tener el ecosistema incluimos la población de leones marinos en la Isla de San Esteban como indicadores. El 7 de junio del año 2000 se estableció el Área de Protección de Flora y Fauna "Islas del Golfo de California" (Secretaría de Medio Ambiente y Recursos Naturales [SEMARNAT], 2001). El impacto de esta política de conservación es evidente en la tendencia de los datos de los leones marinos, mostrando que sí es posible obtener un cambio a través de políticas de conservación. Hay que considerar que las zonas pesqueras no pueden tener el mismo tratamiento de conservación que el de una zona nacional protegida, sin embargo, la posibilidad de cambio tiene tanto evidencia matemática como empírica. 
+## Conclusión crítica
+
+La evidencia es doble:
+
+1. **Matemática:** El modelo predice que reducir el impacto de la flota al 50% estabilizaría las poblaciones.
+2. **Empírica:** El éxito de los lobos marinos tras la creación del Área de Protección *Islas del Golfo de California* en el año 2000 confirma que las políticas de conservación **sí funcionan en la vida real**.
+
+El escenario inercial es devastador, pero la posibilidad de cambio tiene tanto respaldo científico como evidencia en campo.
+
+:::
 
 :::
 :::
-::::
