@@ -1,9 +1,11 @@
-// ================================================================
-//  custom.scss — DERRE · ODS 14 · Vida Submarina
-//  Cubre: portada (format:dashboard) + analisis + escenarios
-//  Estrategia: variables Bootstrap primero → reglas CSS después
-// ================================================================
+/*
+ * custom.scss — Tema ODS 14 · Vida Submarina
+ * Coloca este archivo en la misma carpeta que tu .qmd
+ */
 
+/*-- scss:defaults --*/
+
+/*-- scss:rules --*/
 
 // ────────────────────────────────────────────────────────────────
 //  §1  VARIABLES BOOTSTRAP / BSLIB
@@ -823,4 +825,30 @@ body {
 
 @media (max-width: 520px) {
   .hero-pregunta { font-size: 1.35rem; }
+}
+
+/* Estilo para el botón de navegación "Siguiente" */
+.navbar {
+  .navbar-nav {
+    // Buscamos el enlace dentro de la navegación
+    .nav-link {
+      &[aria-label="Ir al siguiente tablero"] {
+        border: 1px solid $biolum; // Usamos tu variable cian
+        border-radius: 8px;
+        padding: 5px 15px !important;
+        margin-left: 15px;
+        color: $biolum !important;
+        transition: all 0.3s ease;
+        font-weight: 500;
+        background: rgba($biolum, 0.05);
+
+        &:hover {
+          background: $biolum;
+          color: $abyss !important; // Usa tu variable de fondo oscuro
+          transform: translateY(-2px);
+          box-shadow: 0 4px 15px rgba($biolum, 0.3);
+        }
+      }
+    }
+  }
 }
