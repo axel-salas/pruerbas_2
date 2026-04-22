@@ -65,10 +65,10 @@ Especies marinas en riesgo global
 Meta de la Agenda ODS
 :::
 
+
 ## Row {height="25vh"}
 
-### Column {width="25%"}
-
+### Column {width="20%"}
 ::: {.card .card-nav}
 ::: {.card-body}
 ::: {.nav-numero}
@@ -86,61 +86,80 @@ Contexto general del proyecto y la importancia ecológica y económica del área
 :::
 :::
 
-### Column {width="25%"}
-
-## Row {height="25vh"}
-
 ### Column {width="20%"}
+
 ::: {.card .card-nav}
 ::: {.card-body}
-::: {.nav-numero} 01 — INTRODUCCIÓN :::
-::: {.nav-accent .nav-accent-wave} ::: 
-::: {.nav-card-titulo} Introducción :::
-::: {.nav-card-desc} Contexto general del proyecto y la importancia ecológica en Baja California. :::
-[Ir a Introducción →](introduccion.qmd){.nav-enlace}
+::: {.nav-numero}
+02 — Análisis
 :::
+::: {.nav-accent .nav-accent-wave}
 :::
-
-### Column {width="20%"}
-::: {.card .card-nav}
-::: {.card-body}
-::: {.nav-numero} 02 — ANÁLISIS :::
-::: {.nav-accent .nav-accent-wave} :::
-::: {.nav-card-titulo} Análisis Exploratorio :::
-::: {.nav-card-desc} Visualización de patrones históricos de ballenas, pelícanos y producción pesquera. :::
+::: {.nav-card-titulo}
+Análisis Exploratorio
+:::
+::: {.nav-card-desc}
+Visualización de patrones históricos de ballenas, pelícanos y producción pesquera a lo largo del tiempo.
+:::
 [Ir a Análisis →](analisis.qmd){.nav-enlace}
 :::
 :::
 
+
+
 ### Column {width="20%"}
+
 ::: {.card .card-nav}
 ::: {.card-body}
-::: {.nav-numero} 03 — MODELO :::
-::: {.nav-accent .nav-accent-wave} :::
-::: {.nav-card-titulo} Modelo Predictivo :::
-::: {.nav-card-desc} Simulación de escenarios futuros basados en el modelo de Ricker e interactivos. :::
+::: {.nav-numero}
+03 — Modelo
+:::
+::: {.nav-accent .nav-accent-cian}
+:::
+::: {.nav-card-titulo}
+Modelo Predictivo
+:::
+::: {.nav-card-desc}
+Simulación de escenarios futuros basados en el modelo de Ricker, con parámetros ajustables e interactivos.
+:::
 [Ir a Modelo →](modelo.qmd){.nav-enlace}
 :::
 :::
 
 ### Column {width="20%"}
+
 ::: {.card .card-nav}
 ::: {.card-body}
-::: {.nav-numero} 04 — ESCENARIOS :::
-::: {.nav-accent .nav-accent-wave} :::
-::: {.nav-card-titulo} Escenarios a Futuro :::
-::: {.nav-card-desc} Análisis de riesgos y recomendaciones estratégicas para la conservación marina. :::
+::: {.nav-numero}
+04 — Escenarios
+:::
+::: {.nav-accent .nav-accent-espuma}
+:::
+::: {.nav-card-titulo}
+Escenarios a Futuro
+:::
+::: {.nav-card-desc}
+Análisis de riesgos y recomendaciones estratégicas para la conservación marina sostenible.
+:::
 [Ir a Escenarios →](escenarios.qmd){.nav-enlace}
 :::
 :::
 
 ### Column {width="20%"}
+
 ::: {.card .card-nav}
 ::: {.card-body}
-::: {.nav-numero} 05 — CONCLUSIONES :::
-::: {.nav-accent .nav-accent-wave} :::
-::: {.nav-card-titulo} Conclusiones :::
-::: {.nav-card-desc} Resumen de hallazgos clave, limitaciones del estudio y próximos pasos del proyecto. :::
+::: {.nav-numero}
+05 — Conclusiones
+:::
+::: {.nav-accent .nav-accent-espuma}
+:::
+::: {.nav-card-titulo}
+Conclusiones
+:::
+::: {.nav-card-desc}
+Conclusiones finales e ideas de desarrollo a futuro
+:::
 [Ir a Conclusiones →](conclusiones.qmd){.nav-enlace}
 :::
 :::
