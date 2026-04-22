@@ -11,7 +11,8 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -29,18 +30,17 @@ jobs:
           uv pip install jupyter nbformat pandas matplotlib plotly
 
       - name: Render Quarto Project
-        # Eliminamos working-directory si tu archivo _quarto.yml está en la raíz
-        # Si está dentro de /dashboard, asegúrate que el output-dir en el yaml sea ../docs
+        # Forzamos el renderizado a la carpeta /docs en la raíz
         run: |
-          uv run quarto render dashboard --output-dir docs
+          uv run quarto render dashboard --output-dir ../docs
 
       - name: Prevent Jekyll
         run: touch docs/.nojekyll
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs
-          publish_branch: gh-pages
-          keep_files: false
+      - name: Commit and Push to docs folder
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/
+          git commit -m "Actualización automática de dashboards en /docs [skip ci]" || echo "No hay cambios para subir"
+          git push
