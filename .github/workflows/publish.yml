@@ -33,7 +33,7 @@ jobs:
           uv run quarto render
 
       - name: Add .nojekyll
-        run: touch ../docs/.nojekyll
+        run: touch dashboard/_site/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
