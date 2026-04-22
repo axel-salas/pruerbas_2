@@ -1,10 +1,10 @@
 ---
 title: "ODS 14 · Vida Submarina"
 ---
-## Row {#seccion-1}
-# Portada
 
-## Row {height="42vh"}
+## Portada {#seccion-1}
+
+### Row {height="42vh"}
 
 ::: {.card .card-hero}
 ::: {.card-body}
@@ -33,7 +33,7 @@ poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
 :::
 :::
 
-## Row {height="17vh"}
+### Row {height="17vh"}
 
 ::: {.valuebox icon="water" color="primary"}
 **3.1 M km²**
@@ -53,7 +53,7 @@ Especies marinas en riesgo global
 Meta de la Agenda ODS
 :::
 
-## Row {height="25vh"}
+### Row {height="25vh"}
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -151,7 +151,7 @@ Conclusiones finales e ideas de desarrollo a futuro
 :::
 :::
 
-## Row {height="17vh"}
+### Row {height="17vh"}
 
 ### Column {width="100%"}
 
@@ -169,7 +169,7 @@ Insight central del estudio
 :::
 :::
 
-## Row 
+### Row 
 
 ::: {.card}
 ::: {.card-header}
@@ -206,10 +206,9 @@ Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en ton
 :::
 :::
 
-## Row {#seccion-2}
-# 📖 Contexto del Proyecto
+## 📖 Contexto del Proyecto {#seccion-2}
 
-## Row {height="25%"}
+### Row {height="25%"}
 
 ::: {.valuebox icon="graph-up-arrow" color="#C62828"}
 **+48% Flota Pesquera**
@@ -226,7 +225,7 @@ Pico histórico de extracción registrado en 2024.
 Aportación de Baja California al total pesquero de México.
 :::
 
-## Row {height="75%"}
+### Row {height="75%"}
 
 ### Column {width="55%"}
 
@@ -265,8 +264,7 @@ Para lograrlo, utilizamos indicadores clave como *proxies* de salud:
 * 🔮 **3. Escenarios a futuro:** Implicaciones y recomendaciones estratégicas para la sostenibilidad de la Agenda 2030 (ODS 14).
 :::
 
-## Row {#seccion-3}
-## Análisis Exploratorio
+## Análisis Exploratorio {#seccion-3}
 
 ```{python}
 #| label: setup1
@@ -279,23 +277,23 @@ import numpy as np
 from IPython.display import display
 
 # ── Paleta ───────────────────────────────────
-C_DEEP  = "#03045E"
-C_MID   = "#0077B6"
+C_DEEP  = "#03045E"
+C_MID   = "#0077B6"
 C_LIGHT = "#00B4D8"
-C_FOAM  = "#90E0EF"
-C_MIST  = "#CAF0F8"
+C_FOAM  = "#90E0EF"
+C_MIST  = "#CAF0F8"
 C_CORAL = "#F4A261"
-C_TEAL  = "#2A9D8F"
+C_TEAL  = "#2A9D8F"
 
 # ── Fondo transparente para gráficos (encajan con el tema oscuro) ──
 _bg = dict(
-    plot_bgcolor="rgba(0,0,0,0)",
-    paper_bgcolor="rgba(0,0,0,0)",
-    font_color="#cce8f4",
+    plot_bgcolor="rgba(0,0,0,0)",
+    paper_bgcolor="rgba(0,0,0,0)",
+    font_color="#cce8f4",
 )
 
 # ═══════════════════════════════════════════════
-#  CARGA DE DATOS
+#  CARGA DE DATOS
 # ═══════════════════════════════════════════════
 
 np.random.seed(42)
@@ -310,8 +308,8 @@ pelicanos.columns = ['año', 'cantidad_nidos_pelicanos']
 pelicanos['año'] = pelicanos['año'].astype(str)
 
 produccion_pesquera = pd.read_csv(
-    '../datos/produccion_pesquera/produccion_pesquera.csv',
-    header=None, names=['año', 'toneladas_pescadas']
+    '../datos/produccion_pesquera/produccion_pesquera.csv',
+    header=None, names=['año', 'toneladas_pescadas']
 )
 produccion_pesquera['toneladas_pescadas'] = produccion_pesquera['toneladas_pescadas'].str.replace(',', '').astype(float)
 produccion_pesquera['año'] = produccion_pesquera['año'].astype(float)
@@ -321,192 +319,192 @@ embarcaciones['total_embarcaciones'] = embarcaciones['total_embarcaciones'].str.
 embarcaciones['año'] = pd.to_numeric(embarcaciones['año'])
 
 # ═══════════════════════════════════════════════
-#  FRANJAS EL NIÑO (compartidas entre figuras)
+#  FRANJAS EL NIÑO (compartidas entre figuras)
 # ═══════════════════════════════════════════════
 
 el_nino_periods = [
-    (2002, 2003), (2004, 2005), (2006, 2007),
-    (2009, 2010), (2014, 2016), (2018, 2019)
+    (2002, 2003), (2004, 2005), (2006, 2007),
+    (2009, 2010), (2014, 2016), (2018, 2019)
 ]
 
 shapes_nino = [
-    dict(
-        type="rect", x0=s, x1=e, y0=0, y1=1,
-        xref="x", yref="paper",
-        fillcolor="rgba(244, 162, 97, 0.15)",
-        line_width=0, layer="below"
-    )
-    for s, e in el_nino_periods
+    dict(
+        type="rect", x0=s, x1=e, y0=0, y1=1,
+        xref="x", yref="paper",
+        fillcolor="rgba(244, 162, 97, 0.15)",
+        line_width=0, layer="below"
+    )
+    for s, e in el_nino_periods
 ]
 
 # ═══════════════════════════════════════════════
-#  FUNCIONES DE FIGURAS
+#  FUNCIONES DE FIGURAS
 # ═══════════════════════════════════════════════
 
 def crear_fig_ballenas(df):
-    fig = go.Figure()
+    fig = go.Figure()
 
-    # Leyenda El Niño
-    fig.add_trace(go.Scatter(
-        x=[None], y=[None], mode='markers',
-        marker=dict(symbol="square", size=15, color="rgba(244,162,97,0.3)"),
-        name='Fenómeno de El Niño (Calentamiento)', showlegend=True
-    ))
+    # Leyenda El Niño
+    fig.add_trace(go.Scatter(
+        x=[None], y=[None], mode='markers',
+        marker=dict(symbol="square", size=15, color="rgba(244,162,97,0.3)"),
+        name='Fenómeno de El Niño (Calentamiento)', showlegend=True
+    ))
 
-    # Serie principal
-    fig.add_trace(go.Scatter(
-        x=df['año'], y=df['poblacion registrada'],
-        mode='lines+markers', name='Avistamientos',
-        line=dict(color=C_MID, width=3, shape='spline'),
-        marker=dict(size=8, color=C_DEEP, symbol='circle'),
-        fill='tozeroy', fillcolor='rgba(0,180,216,0.15)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Individuos:</b> %{y:,.0f}<extra></extra>"
-    ))
+    # Serie principal
+    fig.add_trace(go.Scatter(
+        x=df['año'], y=df['poblacion registrada'],
+        mode='lines+markers', name='Avistamientos',
+        line=dict(color=C_MID, width=3, shape='spline'),
+        marker=dict(size=8, color=C_DEEP, symbol='circle'),
+        fill='tozeroy', fillcolor='rgba(0,180,216,0.15)',
+        hovertemplate="<b>Año:</b> %{x}<br><b>Individuos:</b> %{y:,.0f}<extra></extra>"
+    ))
 
-    fig.add_annotation(x=2012, y=3070, text="<b>Máximo histórico</b>",
-        showarrow=True, arrowhead=2, ax=0, ay=-40,
-        font=dict(color=C_TEAL, size=12))
-    fig.add_annotation(x=2020, y=980, text="<b>Mínimo histórico</b>",
-        showarrow=True, arrowhead=2, ax=0, ay=30,
-        font=dict(color="#C62828", size=12))
+    fig.add_annotation(x=2012, y=3070, text="<b>Máximo histórico</b>",
+        showarrow=True, arrowhead=2, ax=0, ay=-40,
+        font=dict(color=C_TEAL, size=12))
+    fig.add_annotation(x=2020, y=980, text="<b>Mínimo histórico</b>",
+        showarrow=True, arrowhead=2, ax=0, ay=30,
+        font=dict(color="#C62828", size=12))
 
-    fig.update_layout(
-        **_bg,
-        shapes=shapes_nino,
-        title=dict(
-            text="<b>Monitoreo de Ballenas en Baja California</b>"
-                 "<br><span style='font-size:13px;color:#7ab4cc;'>"
-                 "El impacto de la temperatura oceánica en la migración</span>",
-            y=0.96, x=0.02, xanchor='left', yanchor='top'
-        ),
-        xaxis_title="Temporada (Año)",
-        yaxis_title="Individuos Registrados",
-        hovermode="x unified",
-        legend=dict(orientation="h", y=1.05, yanchor="bottom", x=1, xanchor="right"),
-        margin=dict(l=60, r=30, t=100, b=60),
-        height=420
-    )
-    fig.update_xaxes(tickformat=".0f", tickangle=0, dtick=4, showgrid=False,
-                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
-    fig.update_yaxes(showgrid=True, gridcolor='rgba(93,214,240,0.12)',
-                     tickformat=",", color="#7ab4cc")
-    return fig
+    fig.update_layout(
+        **_bg,
+        shapes=shapes_nino,
+        title=dict(
+            text="<b>Monitoreo de Ballenas en Baja California</b>"
+                 "<br><span style='font-size:13px;color:#7ab4cc;'>"
+                 "El impacto de la temperatura oceánica en la migración</span>",
+            y=0.96, x=0.02, xanchor='left', yanchor='top'
+        ),
+        xaxis_title="Temporada (Año)",
+        yaxis_title="Individuos Registrados",
+        hovermode="x unified",
+        legend=dict(orientation="h", y=1.05, yanchor="bottom", x=1, xanchor="right"),
+        margin=dict(l=60, r=30, t=100, b=60),
+        height=420
+    )
+    fig.update_xaxes(tickformat=".0f", tickangle=0, dtick=4, showgrid=False,
+                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
+    fig.update_yaxes(showgrid=True, gridcolor='rgba(93,214,240,0.12)',
+                     tickformat=",", color="#7ab4cc")
+    return fig
 
 
 def crear_fig_pelicanos(df):
-    fig = go.Figure()
+    fig = go.Figure()
 
-    fig.add_trace(go.Scatter(
-        x=[None], y=[None], mode='markers',
-        marker=dict(symbol="square", size=15, color="rgba(244,162,97,0.3)"),
-        name='Fenómeno de El Niño', showlegend=True
-    ))
+    fig.add_trace(go.Scatter(
+        x=[None], y=[None], mode='markers',
+        marker=dict(symbol="square", size=15, color="rgba(244,162,97,0.3)"),
+        name='Fenómeno de El Niño', showlegend=True
+    ))
 
-    fig.add_trace(go.Scatter(
-        x=df['año'], y=df['cantidad_nidos_pelicanos'],
-        mode='lines+markers', name='Nidos Activos',
-        line=dict(color=C_TEAL, width=3, shape='spline'),
-        marker=dict(size=8, color=C_DEEP, symbol='circle'),
-        fill='tozeroy', fillcolor='rgba(42,157,143,0.15)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Nidos:</b> %{y:,.0f}<extra></extra>"
-    ))
+    fig.add_trace(go.Scatter(
+        x=df['año'], y=df['cantidad_nidos_pelicanos'],
+        mode='lines+markers', name='Nidos Activos',
+        line=dict(color=C_TEAL, width=3, shape='spline'),
+        marker=dict(size=8, color=C_DEEP, symbol='circle'),
+        fill='tozeroy', fillcolor='rgba(42,157,143,0.15)',
+        hovertemplate="<b>Año:</b> %{x}<br><b>Nidos:</b> %{y:,.0f}<extra></extra>"
+    ))
 
-    fig.add_annotation(x='2011', y=30400, text="<b>Máximo histórico</b>",
-        showarrow=True, arrowhead=2, ax=0, ay=-40,
-        font=dict(color=C_TEAL, size=12))
+    fig.add_annotation(x='2011', y=30400, text="<b>Máximo histórico</b>",
+        showarrow=True, arrowhead=2, ax=0, ay=-40,
+        font=dict(color=C_TEAL, size=12))
 
-    # shapes_nino usa xref="x" numérico; pelícanos tiene eje categórico
-    # → solo añadimos si el eje es compatible
-    fig.update_layout(
-        **_bg,
-        title=dict(
-            text="<b>Dinámica Reproductiva: Pelícano Pardo</b>"
-                 "<br><span style='font-size:13px;color:#7ab4cc;'>"
-                 "Impacto de la variabilidad oceánica en la anidación</span>",
-            y=0.96, x=0.02, xanchor='left', yanchor='top'
-        ),
-        xaxis_title="Temporada (Año)",
-        yaxis_title="Cantidad de Nidos",
-        hovermode="x unified",
-        legend=dict(orientation="h", y=1.05, yanchor="bottom", x=1, xanchor="right"),
-        margin=dict(l=60, r=30, t=100, b=60),
-        height=420
-    )
-    fig.update_xaxes(tickangle=0, dtick=3, showgrid=False,
-                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
-    fig.update_yaxes(showgrid=True, gridcolor='rgba(93,214,240,0.12)',
-                     tickformat=",", color="#7ab4cc")
-    return fig
+    # shapes_nino usa xref="x" numérico; pelícanos tiene eje categórico
+    # → solo añadimos si el eje es compatible
+    fig.update_layout(
+        **_bg,
+        title=dict(
+            text="<b>Dinámica Reproductiva: Pelícano Pardo</b>"
+                 "<br><span style='font-size:13px;color:#7ab4cc;'>"
+                 "Impacto de la variabilidad oceánica en la anidación</span>",
+            y=0.96, x=0.02, xanchor='left', yanchor='top'
+        ),
+        xaxis_title="Temporada (Año)",
+        yaxis_title="Cantidad de Nidos",
+        hovermode="x unified",
+        legend=dict(orientation="h", y=1.05, yanchor="bottom", x=1, xanchor="right"),
+        margin=dict(l=60, r=30, t=100, b=60),
+        height=420
+    )
+    fig.update_xaxes(tickangle=0, dtick=3, showgrid=False,
+                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
+    fig.update_yaxes(showgrid=True, gridcolor='rgba(93,214,240,0.12)',
+                     tickformat=",", color="#7ab4cc")
+    return fig
 
 
 def crear_fig_pesca(df):
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=df['año'], y=df['toneladas_pescadas'],
-        mode='lines+markers', name='Producción (Ton)',
-        line=dict(color='#C62828', width=3, shape='spline'),
-        marker=dict(size=8, color='#B71C1C', symbol='diamond'),
-        fill='tozeroy', fillcolor='rgba(198,40,40,0.1)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Captura:</b> %{y:,.0f} ton<extra></extra>"
-    ))
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=df['año'], y=df['toneladas_pescadas'],
+        mode='lines+markers', name='Producción (Ton)',
+        line=dict(color='#C62828', width=3, shape='spline'),
+        marker=dict(size=8, color='#B71C1C', symbol='diamond'),
+        fill='tozeroy', fillcolor='rgba(198,40,40,0.1)',
+        hovertemplate="<b>Año:</b> %{x}<br><b>Captura:</b> %{y:,.0f} ton<extra></extra>"
+    ))
 
-    max_ton  = df['toneladas_pescadas'].max()
-    max_year = df.loc[df['toneladas_pescadas'].idxmax(), 'año']
-    fig.add_annotation(x=max_year, y=max_ton, text="<b>Pico máximo histórico</b>",
-        showarrow=True, arrowhead=2, ax=-40, ay=-30,
-        font=dict(color="#E53935", size=12))
+    max_ton  = df['toneladas_pescadas'].max()
+    max_year = df.loc[df['toneladas_pescadas'].idxmax(), 'año']
+    fig.add_annotation(x=max_year, y=max_ton, text="<b>Pico máximo histórico</b>",
+        showarrow=True, arrowhead=2, ax=-40, ay=-30,
+        font=dict(color="#E53935", size=12))
 
-    fig.update_layout(
-        **_bg,
-        title=dict(text="<b>Extracción Pesquera en Baja California</b>",
-                   y=0.96, x=0.02, xanchor='left', yanchor='top'),
-        xaxis_title="Año", yaxis_title="Toneladas",
-        hovermode="x unified",
-        margin=dict(l=60, r=30, t=70, b=50),
-        height=320
-    )
-    fig.update_xaxes(tickangle=0, dtick=4, showgrid=False,
-                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
-    fig.update_yaxes(tickformat=",", showgrid=True,
-                     gridcolor='rgba(93,214,240,0.12)', color="#7ab4cc")
-    return fig
+    fig.update_layout(
+        **_bg,
+        title=dict(text="<b>Extracción Pesquera en Baja California</b>",
+                   y=0.96, x=0.02, xanchor='left', yanchor='top'),
+        xaxis_title="Año", yaxis_title="Toneladas",
+        hovermode="x unified",
+        margin=dict(l=60, r=30, t=70, b=50),
+        height=320
+    )
+    fig.update_xaxes(tickangle=0, dtick=4, showgrid=False,
+                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
+    fig.update_yaxes(tickformat=",", showgrid=True,
+                     gridcolor='rgba(93,214,240,0.12)', color="#7ab4cc")
+    return fig
 
 
 def crear_fig_embarcaciones(df):
-    fig = go.Figure()
-    fig.add_trace(go.Scatter(
-        x=df['año'], y=df['total_embarcaciones'],
-        mode='lines+markers', name='Total Embarcaciones',
-        line=dict(color='#E65100', width=3, shape='spline'),
-        marker=dict(size=8, color='#BF360C', symbol='diamond'),
-        fill='tozeroy', fillcolor='rgba(230,81,0,0.1)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Flota:</b> %{y:,.0f} barcos<extra></extra>"
-    ))
+    fig = go.Figure()
+    fig.add_trace(go.Scatter(
+        x=df['año'], y=df['total_embarcaciones'],
+        mode='lines+markers', name='Total Embarcaciones',
+        line=dict(color='#E65100', width=3, shape='spline'),
+        marker=dict(size=8, color='#BF360C', symbol='diamond'),
+        fill='tozeroy', fillcolor='rgba(230,81,0,0.1)',
+        hovertemplate="<b>Año:</b> %{x}<br><b>Flota:</b> %{y:,.0f} barcos<extra></extra>"
+    ))
 
-    max_val  = df['total_embarcaciones'].max()
-    max_year = df.loc[df['total_embarcaciones'].idxmax(), 'año']
-    fig.add_annotation(x=max_year, y=max_val, text="<b>Flota máxima</b>",
-        showarrow=True, arrowhead=2, ax=-40, ay=-30,
-        font=dict(color="#E65100", size=12))
+    max_val  = df['total_embarcaciones'].max()
+    max_year = df.loc[df['total_embarcaciones'].idxmax(), 'año']
+    fig.add_annotation(x=max_year, y=max_val, text="<b>Flota máxima</b>",
+        showarrow=True, arrowhead=2, ax=-40, ay=-30,
+        font=dict(color="#E65100", size=12))
 
-    fig.update_layout(
-        **_bg,
-        title=dict(text="<b>Crecimiento de la Flota Pesquera</b>",
-                   y=0.96, x=0.02, xanchor='left', yanchor='top'),
-        hovermode="x unified",
-        margin=dict(l=60, r=30, t=70, b=50),
-        height=320
-    )
-    fig.update_xaxes(title="Año", tickangle=0, dtick=4, showgrid=False,
-                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
-    fig.update_yaxes(title="Embarcaciones", tickformat=",", showgrid=True,
-                     gridcolor='rgba(93,214,240,0.12)', color="#7ab4cc")
-    return fig
+    fig.update_layout(
+        **_bg,
+        title=dict(text="<b>Crecimiento de la Flota Pesquera</b>",
+                   y=0.96, x=0.02, xanchor='left', yanchor='top'),
+        hovermode="x unified",
+        margin=dict(l=60, r=30, t=70, b=50),
+        height=320
+    )
+    fig.update_xaxes(title="Año", tickangle=0, dtick=4, showgrid=False,
+                     color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
+    fig.update_yaxes(title="Embarcaciones", tickformat=",", showgrid=True,
+                     gridcolor='rgba(93,214,240,0.12)', color="#7ab4cc")
+    return fig
 ```
 
 ### Ballenas
 
-## Row {height="20%"}
+### Row {height="20%"}
 
 ::: {.valuebox icon="water" color="#0077B6"}
 **20,000 km**
@@ -526,7 +524,7 @@ Máximo histórico registrado (2012)
 Desplome poblacional al mínimo histórico (2020)
 :::
 
-## Row {height="80%"}
+### Row {height="80%"}
 
 ```{python}
 #| fig-responsive: true
@@ -535,7 +533,7 @@ display(crear_fig_ballenas(ballenas))
 
 ### Pelícanos
 
-## Row {height="20%"}
+### Row {height="20%"}
 
 ::: {.valuebox icon="tsunami" color="#0077B6"}
 **Indicador Costero**
@@ -555,7 +553,7 @@ Máximo histórico registrado (2011)
 Colapso reproductivo sin precedentes (2014–2015)
 :::
 
-## Row {height="80%"}
+### Row {height="80%"}
 
 ```{python}
 #| fig-responsive: true
@@ -564,7 +562,7 @@ display(crear_fig_pelicanos(pelicanos))
 
 ### Producción y Flota
 
-## Row {height="20%"}
+### Row {height="20%"}
 
 ::: {.valuebox icon="droplet" color="#0077B6"}
 **La Paradoja**
@@ -584,22 +582,21 @@ Expansión estructural récord de la flota al 2024
 Pico de producción en años de crisis biológica
 :::
 
-## Row {height="40%"}
+### Row {height="40%"}
 
 ```{python}
 #| fig-responsive: true
 display(crear_fig_pesca(produccion_pesquera))
 ```
 
-## Row {height="40%"}
+### Row {height="40%"}
 
 ```{python}
 #| fig-responsive: true
 display(crear_fig_embarcaciones(embarcaciones))
 ```
 
-## Row {#seccion-4}
-## Modelo Predictivo
+## Modelo Predictivo {#seccion-4}
 
 ```{python}
 #| label: setup2
@@ -617,46 +614,46 @@ warnings.filterwarnings('ignore')
 # ── 1. DATOS Y PARÁMETROS ────────────────────────────────────────────────────
 
 H_OBS = np.array([
-    0.3955, 0.2110, 0.1324, 0.2965, 0.1371, 0.7856, 0.6301, 0.7755,
-    0.1915, 0.2478, 0.1508, 0.0019, 0.7141, 1.0000, 0.3317, 0.5094,
-    0.5473, 0.4663, 0.2647, 0.3063, 0.0490, 0.0000, 0.1266, 0.0481,
-    0.1683, 0.1683
+    0.3955, 0.2110, 0.1324, 0.2965, 0.1371, 0.7856, 0.6301, 0.7755,
+    0.1915, 0.2478, 0.1508, 0.0019, 0.7141, 1.0000, 0.3317, 0.5094,
+    0.5473, 0.4663, 0.2647, 0.3063, 0.0490, 0.0000, 0.1266, 0.0481,
+    0.1683, 0.1683
 ])
 P_OBS = np.array([
-    0.2620, 0.3156, 0.2890, 0.3070, 0.2879, 0.2694, 0.2575, 0.2641,
-    0.2496, 0.1191, 0.1842, 0.2185, 0.1624, 0.2637, 0.0000, 0.3311,
-    0.1241, 0.1882, 0.3972, 0.6336, 0.5479, 0.6653, 0.5310, 0.7614,
-    0.7429, 1.0000
+    0.2620, 0.3156, 0.2890, 0.3070, 0.2879, 0.2694, 0.2575, 0.2641,
+    0.2496, 0.1191, 0.1842, 0.2185, 0.1624, 0.2637, 0.0000, 0.3311,
+    0.1241, 0.1882, 0.3972, 0.6336, 0.5479, 0.6653, 0.5310, 0.7614,
+    0.7429, 1.0000
 ])
 
-T_PROJ  = 100
+T_PROJ  = 100
 AÑO_INI = 1999
-AÑOS    = np.arange(AÑO_INI, AÑO_INI + T_PROJ)
-N_HIST  = len(H_OBS)
+AÑOS    = np.arange(AÑO_INI, AÑO_INI + T_PROJ)
+N_HIST  = len(H_OBS)
 
-GRID_A  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
-GRID_F  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
+GRID_A  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
+GRID_F  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
 GRID_YR = np.array([2025, 2027, 2030, 2032, 2035, 2037, 2040])
 
 # ── Paleta integrada con el tema marino del custom.scss ──────────────────────
 # Fondos transparentes → hereda el glass-card del tema
 # Colores de datos alineados a la paleta ODS-14
 COLORES = {
-    'H_cons':  '#1DB38A',               # verde-teal (biodiversidad recuperándose)
-    'H_iner':  '#E05C2A',               # naranja-rojo (escenario inercial)
-    'P_cons':  '#5dd6f0',               # foam del tema (flota bajo control)
-    'P_iner':  '#f4a261',               # warning del tema (flota descontrolada)
-    'hist_H':  '#1DB38A',
-    'hist_P':  '#E05C2A',
-    # Fondos: transparentes para encajar sobre .bslib-card
-    'bg':      'rgba(0,0,0,0)',         # papel transparente
-    'ax':      'rgba(6,48,82,0.45)',    # área de plot azul profundo
-    'grid':    'rgba(93,214,240,0.12)', # cuadrícula cian muy suave
-    'text':    '#cce8f4',               # --text-main del tema
-    # Sliders (SVG inline — se controlan vía dict en Plotly)
-    'sl_bg':   '#041e35',               # fondo del slider = $deep
-    'sl_bord': '#1278b0',               # borde del slider = $wave
-    'sl_tick': '#5dd6f0',               # ticks del slider = $foam
+    'H_cons':  '#1DB38A',               # verde-teal (biodiversidad recuperándose)
+    'H_iner':  '#E05C2A',               # naranja-rojo (escenario inercial)
+    'P_cons':  '#5dd6f0',               # foam del tema (flota bajo control)
+    'P_iner':  '#f4a261',               # warning del tema (flota descontrolada)
+    'hist_H':  '#1DB38A',
+    'hist_P':  '#E05C2A',
+    # Fondos: transparentes para encajar sobre .bslib-card
+    'bg':      'rgba(0,0,0,0)',         # papel transparente
+    'ax':      'rgba(6,48,82,0.45)',    # área de plot azul profundo
+    'grid':    'rgba(93,214,240,0.12)', # cuadrícula cian muy suave
+    'text':    '#cce8f4',               # --text-main del tema
+    # Sliders (SVG inline — se controlan vía dict en Plotly)
+    'sl_bg':   '#041e35',               # fondo del slider = $deep
+    'sl_bord': '#1278b0',               # borde del slider = $wave
+    'sl_tick': '#5dd6f0',               # ticks del slider = $foam
 }
 
 # ── 2. CARGA DE DATOS PRECOMPUTADOS ──────────────────────────────────────────
@@ -664,232 +661,232 @@ COLORES = {
 PATH_CACHE = '../datos/cache_modelo/cache_escenarios.json'
 
 if not os.path.exists(PATH_CACHE):
-    raise FileNotFoundError(f"No se encontró el archivo de caché en: {PATH_CACHE}")
+    raise FileNotFoundError(f"No se encontró el archivo de caché en: {PATH_CACHE}")
 
 with open(PATH_CACHE, 'r') as f:
-    datos_crudos = json.load(f)
+    datos_crudos = json.load(f)
 
 CACHE = {}
 for k, v in datos_crudos.items():
-    try:
-        fa, ff, yr = k.split('_')
-        key = (round(float(fa), 2), round(float(ff), 2), int(yr))
-        CACHE[key] = v
-    except ValueError:
-        continue
+    try:
+        fa, ff, yr = k.split('_')
+        key = (round(float(fa), 2), round(float(ff), 2), int(yr))
+        CACHE[key] = v
+    except ValueError:
+        continue
 
 # ── 3. CONSTRUCCIÓN DE FIGURAS ────────────────────────────────────────────────
 
-AÑOS_OBS  = list(AÑOS[:N_HIST])
+AÑOS_OBS  = list(AÑOS[:N_HIST])
 AÑOS_FULL = list(AÑOS)
-IDX_BASE  = 4   # índice central de los grids (factor = 1.00)
+IDX_BASE  = 4   # índice central de los grids (factor = 1.00)
 
 
 def ganancia_txt(d, dk, di):
-    hi_fin = float(np.mean(d[di]['med'][-10:]))
-    hc_fin = float(np.mean(d[dk]['med'][-10:]))
-    g = (hc_fin - hi_fin) / max(hi_fin, 0.001) * 100
-    signo = '+' if g >= 0 else ''
-    return (f"Proyectado: {hc_fin:.3f}  |  Inercial: {hi_fin:.3f}  "
-            f"|  Diferencia: {signo}{g:.1f}%")
+    hi_fin = float(np.mean(d[di]['med'][-10:]))
+    hc_fin = float(np.mean(d[dk]['med'][-10:]))
+    g = (hc_fin - hi_fin) / max(hi_fin, 0.001) * 100
+    signo = '+' if g >= 0 else ''
+    return (f"Proyectado: {hc_fin:.3f}  |  Inercial: {hi_fin:.3f}  "
+            f"|  Diferencia: {signo}{g:.1f}%")
 
 
 def construir_figura(variable='H'):
-    assert variable in ('H', 'P')
-    es_H     = variable == 'H'
-    col_cons = COLORES['H_cons'] if es_H else COLORES['P_cons']
-    col_iner = COLORES['H_iner'] if es_H else COLORES['P_iner']
-    obs_data = H_OBS if es_H else P_OBS
-    titulo   = ('H — Biodiversidad marina (presa)' if es_H
-                 else 'P — Flota pesquera (depredador)')
-    ytit     = 'H normalizado' if es_H else 'P normalizado'
-    dk       = 'Hc' if es_H else 'Pc'
-    di       = 'Hi' if es_H else 'Pi'
+    assert variable in ('H', 'P')
+    es_H     = variable == 'H'
+    col_cons = COLORES['H_cons'] if es_H else COLORES['P_cons']
+    col_iner = COLORES['H_iner'] if es_H else COLORES['P_iner']
+    obs_data = H_OBS if es_H else P_OBS
+    titulo   = ('H — Biodiversidad marina (presa)' if es_H
+                 else 'P — Flota pesquera (depredador)')
+    ytit     = 'H normalizado' if es_H else 'P normalizado'
+    dk       = 'Hc' if es_H else 'Pc'
+    di       = 'Hi' if es_H else 'Pi'
 
-    # Escenario por defecto
-    fa0, ff0, yr0 = round(GRID_A[IDX_BASE], 2), round(GRID_F[IDX_BASE], 2), 2030
-    key0 = (fa0, ff0, yr0)
-    if key0 not in CACHE:
-        key0 = list(CACHE.keys())[0]
-    d0 = CACHE[key0]
+    # Escenario por defecto
+    fa0, ff0, yr0 = round(GRID_A[IDX_BASE], 2), round(GRID_F[IDX_BASE], 2), 2030
+    key0 = (fa0, ff0, yr0)
+    if key0 not in CACHE:
+        key0 = list(CACHE.keys())[0]
+    d0 = CACHE[key0]
 
-    fig = go.Figure()
+    fig = go.Figure()
 
-    # Datos históricos
-    fig.add_trace(go.Scatter(
-        x=AÑOS_OBS, y=list(obs_data),
-        mode='markers',
-        marker=dict(color='white', size=7, line=dict(color=col_cons, width=1.5)),
-        name='Datos históricos',
-        hovertemplate='Año: %{x}<br>Valor: %{y:.3f}<extra></extra>',
-    ))
+    # Datos históricos
+    fig.add_trace(go.Scatter(
+        x=AÑOS_OBS, y=list(obs_data),
+        mode='markers',
+        marker=dict(color='white', size=7, line=dict(color=col_cons, width=1.5)),
+        name='Datos históricos',
+        hovertemplate='Año: %{x}<br>Valor: %{y:.3f}<extra></extra>',
+    ))
 
-    # Escenario inercial (referencia)
-    fig.add_trace(go.Scatter(
-        x=AÑOS_FULL, y=list(d0[di]['med']),
-        mode='lines',
-        line=dict(color=col_iner, width=2, dash='dash'),
-        name='Inercial (100% presión)',
-        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Inercial</extra>',
-    ))
+    # Escenario inercial (referencia)
+    fig.add_trace(go.Scatter(
+        x=AÑOS_FULL, y=list(d0[di]['med']),
+        mode='lines',
+        line=dict(color=col_iner, width=2, dash='dash'),
+        name='Inercial (100% presión)',
+        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Inercial</extra>',
+    ))
 
-    # Escenario proyectado
-    fig.add_trace(go.Scatter(
-        x=AÑOS_FULL, y=list(d0[dk]['med']),
-        mode='lines',
-        line=dict(color=col_cons, width=2.8),
-        name='Escenario proyectado',
-        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Proyección</extra>',
-    ))
+    # Escenario proyectado
+    fig.add_trace(go.Scatter(
+        x=AÑOS_FULL, y=list(d0[dk]['med']),
+        mode='lines',
+        line=dict(color=col_cons, width=2.8),
+        name='Escenario proyectado',
+        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Proyección</extra>',
+    ))
 
-    # Línea vertical de intervención
-    fig.add_vline(
-        x=yr0,
-        line=dict(color='rgba(204,232,244,0.45)', width=1.5, dash='dot'),
-        annotation=dict(
-            text='Año de intervención',
-            font=dict(color=COLORES['text'], size=10),
-            showarrow=False, yref='paper', y=1.02, xanchor='left'
-        )
-    )
+    # Línea vertical de intervención
+    fig.add_vline(
+        x=yr0,
+        line=dict(color='rgba(204,232,244,0.45)', width=1.5, dash='dot'),
+        annotation=dict(
+            text='Año de intervención',
+            font=dict(color=COLORES['text'], size=10),
+            showarrow=False, yref='paper', y=1.02, xanchor='left'
+        )
+    )
 
-    # ── Frames animados (uno por combinación del grid) ────────────
-    frames = []
-    for fa in GRID_A:
-        for ff in GRID_F:
-            for yr in GRID_YR:
-                key = (round(fa, 2), round(ff, 2), int(yr))
-                if key in CACHE:
-                    d = CACHE[key]
-                    frames.append(go.Frame(
-                        name=f"{fa:.2f}_{ff:.2f}_{yr}",
-                        data=[
-                            go.Scatter(x=AÑOS_OBS,  y=list(obs_data)),
-                            go.Scatter(x=AÑOS_FULL, y=list(d[di]['med'])),
-                            go.Scatter(x=AÑOS_FULL, y=list(d[dk]['med'])),
-                        ],
-                        layout=go.Layout(
-                            shapes=[dict(
-                                type='line', x0=yr, x1=yr, y0=0, y1=1,
-                                xref='x', yref='paper',
-                                line=dict(color='rgba(204,232,244,0.45)',
-                                          width=1.5, dash='dot')
-                            )],
-                            annotations=[dict(
-                                xref='paper', yref='paper', x=0.01, y=0.97,
-                                text=ganancia_txt(d, dk, di),
-                                font=dict(color=COLORES['text'], size=11),
-                                showarrow=False,
-                                bgcolor='rgba(4,30,53,0.88)',
-                                bordercolor='rgba(93,214,240,0.25)',
-                                borderpad=6
-                            )]
-                        )
-                    ))
-    fig.frames = frames
+    # ── Frames animados (uno por combinación del grid) ────────────
+    frames = []
+    for fa in GRID_A:
+        for ff in GRID_F:
+            for yr in GRID_YR:
+                key = (round(fa, 2), round(ff, 2), int(yr))
+                if key in CACHE:
+                    d = CACHE[key]
+                    frames.append(go.Frame(
+                        name=f"{fa:.2f}_{ff:.2f}_{yr}",
+                        data=[
+                            go.Scatter(x=AÑOS_OBS,  y=list(obs_data)),
+                            go.Scatter(x=AÑOS_FULL, y=list(d[di]['med'])),
+                            go.Scatter(x=AÑOS_FULL, y=list(d[dk]['med'])),
+                        ],
+                        layout=go.Layout(
+                            shapes=[dict(
+                                type='line', x0=yr, x1=yr, y0=0, y1=1,
+                                xref='x', yref='paper',
+                                line=dict(color='rgba(204,232,244,0.45)',
+                                          width=1.5, dash='dot')
+                            )],
+                            annotations=[dict(
+                                xref='paper', yref='paper', x=0.01, y=0.97,
+                                text=ganancia_txt(d, dk, di),
+                                font=dict(color=COLORES['text'], size=11),
+                                showarrow=False,
+                                bgcolor='rgba(4,30,53,0.88)',
+                                bordercolor='rgba(93,214,240,0.25)',
+                                borderpad=6
+                            )]
+                        )
+                    ))
+    fig.frames = frames
 
-    # ── Sliders — colores alineados al tema marino ────────────────
-    _sl = dict(
-        bgcolor=COLORES['sl_bg'],
-        bordercolor=COLORES['sl_bord'],
-        tickcolor=COLORES['sl_tick'],
-        font=dict(color=COLORES['text'], size=10),
-        pad=dict(t=10),
-        len=0.88, x=0.06,
-    )
+    # ── Sliders — colores alineados al tema marino ────────────────
+    _sl = dict(
+        bgcolor=COLORES['sl_bg'],
+        bordercolor=COLORES['sl_bord'],
+        tickcolor=COLORES['sl_tick'],
+        font=dict(color=COLORES['text'], size=10),
+        pad=dict(t=10),
+        len=0.88, x=0.06,
+    )
 
-    sliders = [
-        dict(
-            **_sl, y=-0.15, active=IDX_BASE,
-            steps=[dict(
-                method='animate',
-                args=[[f"{round(fa,2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{GRID_YR[2]}"],
-                      dict(mode='immediate',
-                           frame=dict(duration=0, redraw=True),
-                           transition=dict(duration=0))],
-                label=f'{int(fa*100)}%'
-            ) for fa in GRID_A],
-            currentvalue=dict(
-                prefix='Factor presión (a): ',
-                font=dict(color=COLORES['text'], size=11)
-            ),
-        ),
-        dict(
-            **_sl, y=-0.35, active=IDX_BASE,
-            steps=[dict(
-                method='animate',
-                args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(ff,2):.2f}_{GRID_YR[2]}"],
-                      dict(mode='immediate',
-                           frame=dict(duration=0, redraw=True),
-                           transition=dict(duration=0))],
-                label=f'{int(ff*100)}%'
-            ) for ff in GRID_F],
-            currentvalue=dict(
-                prefix='Factor crecimiento (f): ',
-                font=dict(color=COLORES['text'], size=11)
-            ),
-        ),
-        dict(
-            **_sl, y=-0.55, active=2,
-            steps=[dict(
-                method='animate',
-                args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{int(yr)}"],
-                      dict(mode='immediate',
-                           frame=dict(duration=0, redraw=True),
-                           transition=dict(duration=0))],
-                label=str(int(yr))
-            ) for yr in GRID_YR],
-            currentvalue=dict(
-                prefix='Año intervención: ',
-                font=dict(color=COLORES['text'], size=11)
-            ),
-        ),
-    ]
+    sliders = [
+        dict(
+            **_sl, y=-0.15, active=IDX_BASE,
+            steps=[dict(
+                method='animate',
+                args=[[f"{round(fa,2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{GRID_YR[2]}"],
+                      dict(mode='immediate',
+                           frame=dict(duration=0, redraw=True),
+                           transition=dict(duration=0))],
+                label=f'{int(fa*100)}%'
+            ) for fa in GRID_A],
+            currentvalue=dict(
+                prefix='Factor presión (a): ',
+                font=dict(color=COLORES['text'], size=11)
+            ),
+        ),
+        dict(
+            **_sl, y=-0.35, active=IDX_BASE,
+            steps=[dict(
+                method='animate',
+                args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(ff,2):.2f}_{GRID_YR[2]}"],
+                      dict(mode='immediate',
+                           frame=dict(duration=0, redraw=True),
+                           transition=dict(duration=0))],
+                label=f'{int(ff*100)}%'
+            ) for ff in GRID_F],
+            currentvalue=dict(
+                prefix='Factor crecimiento (f): ',
+                font=dict(color=COLORES['text'], size=11)
+            ),
+        ),
+        dict(
+            **_sl, y=-0.55, active=2,
+            steps=[dict(
+                method='animate',
+                args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{int(yr)}"],
+                      dict(mode='immediate',
+                           frame=dict(duration=0, redraw=True),
+                           transition=dict(duration=0))],
+                label=str(int(yr))
+            ) for yr in GRID_YR],
+            currentvalue=dict(
+                prefix='Año intervención: ',
+                font=dict(color=COLORES['text'], size=11)
+            ),
+        ),
+    ]
 
-    # ── Layout ───────────────────────────────────────────────────
-    fig.update_layout(
-        title=dict(
-            text=titulo,
-            font=dict(color=COLORES['text'], size=15),
-            x=0.5, xanchor='center'
-        ),
-        # Transparente → hereda el .card-modelo-grafico del SCSS
-        plot_bgcolor=COLORES['ax'],
-        paper_bgcolor=COLORES['bg'],
-        font=dict(color=COLORES['text'], family='DM Sans, system-ui, sans-serif'),
-        xaxis=dict(
-            title='Año',
-            gridcolor=COLORES['grid'],
-            linecolor='rgba(93,214,240,0.2)',
-            range=[AÑO_INI - 1, AÑO_INI + T_PROJ],
-            tickfont=dict(color=COLORES['text'])
-        ),
-        yaxis=dict(
-            title=ytit,
-            gridcolor=COLORES['grid'],
-            linecolor='rgba(93,214,240,0.2)',
-            rangemode='nonnegative',
-            tickfont=dict(color=COLORES['text'])
-        ),
-        legend=dict(
-            bgcolor='rgba(4,30,53,0.85)',
-            bordercolor='rgba(93,214,240,0.22)',
-            borderwidth=1,
-            orientation='h', y=1.08, x=0.0,
-            font=dict(color=COLORES['text'])
-        ),
-        margin=dict(t=100, b=280, l=60, r=40),
-        sliders=sliders,
-        height=750,
-        hovermode='x unified',
-    )
+    # ── Layout ───────────────────────────────────────────────────
+    fig.update_layout(
+        title=dict(
+            text=titulo,
+            font=dict(color=COLORES['text'], size=15),
+            x=0.5, xanchor='center'
+        ),
+        # Transparente → hereda el .card-modelo-grafico del SCSS
+        plot_bgcolor=COLORES['ax'],
+        paper_bgcolor=COLORES['bg'],
+        font=dict(color=COLORES['text'], family='DM Sans, system-ui, sans-serif'),
+        xaxis=dict(
+            title='Año',
+            gridcolor=COLORES['grid'],
+            linecolor='rgba(93,214,240,0.2)',
+            range=[AÑO_INI - 1, AÑO_INI + T_PROJ],
+            tickfont=dict(color=COLORES['text'])
+        ),
+        yaxis=dict(
+            title=ytit,
+            gridcolor=COLORES['grid'],
+            linecolor='rgba(93,214,240,0.2)',
+            rangemode='nonnegative',
+            tickfont=dict(color=COLORES['text'])
+        ),
+        legend=dict(
+            bgcolor='rgba(4,30,53,0.85)',
+            bordercolor='rgba(93,214,240,0.22)',
+            borderwidth=1,
+            orientation='h', y=1.08, x=0.0,
+            font=dict(color=COLORES['text'])
+        ),
+        margin=dict(t=100, b=280, l=60, r=40),
+        sliders=sliders,
+        height=750,
+        hovermode='x unified',
+    )
 
-    return fig
+    return fig
 ```
 
 ### Simulación Matemática
 
-## Row {height="15%"}
+### Row {height="15%"}
 
 ::: {.valuebox icon="graph-up-arrow" color="primary"}
 **1.15**
@@ -921,7 +918,7 @@ f — Expansión y crecimiento de flota
 ε_P — Anomalías humanas (Esfuerzo)
 :::
 
-## Row {height="85%"}
+### Row {height="85%"}
 
 ### Column {width="30%"}
 
@@ -965,8 +962,7 @@ display(construir_figura('H'))
 display(construir_figura('P'))
 ```
 
-## Row {#seccion-5}
-## Escenarios a Futuro
+## Escenarios a Futuro {#seccion-5}
 
 ```{python}
 #| label: setup3
@@ -980,298 +976,298 @@ from IPython.display import display
 # ── 1. DATOS Y PARÁMETROS BASE ───────────────────────────────────────────────
 
 H_OBS = np.array([
-    0.3955, 0.2110, 0.1324, 0.2965, 0.1371, 0.7856, 0.6301, 0.7755,
-    0.1915, 0.2478, 0.1508, 0.0019, 0.7141, 1.0000, 0.3317, 0.5094,
-    0.5473, 0.4663, 0.2647, 0.3063, 0.0490, 0.0000, 0.1266, 0.0481,
-    0.1683, 0.1683
+    0.3955, 0.2110, 0.1324, 0.2965, 0.1371, 0.7856, 0.6301, 0.7755,
+    0.1915, 0.2478, 0.1508, 0.0019, 0.7141, 1.0000, 0.3317, 0.5094,
+    0.5473, 0.4663, 0.2647, 0.3063, 0.0490, 0.0000, 0.1266, 0.0481,
+    0.1683, 0.1683
 ])
 P_OBS = np.array([
-    0.2620, 0.3156, 0.2890, 0.3070, 0.2879, 0.2694, 0.2575, 0.2641,
-    0.2496, 0.1191, 0.1842, 0.2185, 0.1624, 0.2637, 0.0000, 0.3311,
-    0.1241, 0.1882, 0.3972, 0.6336, 0.5479, 0.6653, 0.5310, 0.7614,
-    0.7429, 1.0000
+    0.2620, 0.3156, 0.2890, 0.3070, 0.2879, 0.2694, 0.2575, 0.2641,
+    0.2496, 0.1191, 0.1842, 0.2185, 0.1624, 0.2637, 0.0000, 0.3311,
+    0.1241, 0.1882, 0.3972, 0.6336, 0.5479, 0.6653, 0.5310, 0.7614,
+    0.7429, 1.0000
 ])
 
 # Medianas MCMC
-R_M  = 1.1564
-A_M  = 2.045
-F_M  = 0.0472
+R_M  = 1.1564
+A_M  = 2.045
+F_M  = 0.0472
 SH_M = 0.2643
 SP_M = 0.197
 K = C = 1.0
 
-T        = 100
-AÑO_INI  = 1999
-AÑOS     = np.arange(AÑO_INI, AÑO_INI + T)
+T        = 100
+AÑO_INI  = 1999
+AÑOS     = np.arange(AÑO_INI, AÑO_INI + T)
 AÑOS_OBS = AÑOS[:len(H_OBS)]
-N_SIMS   = 300
+N_SIMS   = 300
 
 # ── Paleta integrada con el tema marino ──────────────────────────────────────
 # Fondos transparentes para encajar sobre .bslib-card del custom.scss
-BG_PLOT = 'rgba(0,0,0,0)'           # hereda el glass-card del tema
-AX_PLOT = 'rgba(6,48,82,0.45)'      # azul profundo semi-transparente
-GR_PLOT = 'rgba(93,214,240,0.12)'   # cuadrícula: cian muy suave
-TX_PLOT = '#cce8f4'                  # --text-main del tema
+BG_PLOT = 'rgba(0,0,0,0)'           # hereda el glass-card del tema
+AX_PLOT = 'rgba(6,48,82,0.45)'      # azul profundo semi-transparente
+GR_PLOT = 'rgba(93,214,240,0.12)'   # cuadrícula: cian muy suave
+TX_PLOT = '#cce8f4'                  # --text-main del tema
 
 # Colores por escenario (conservados del original — buen contraste sobre oscuro)
 ESCENARIOS = {
-    'inercial': {
-        'H': '#E8A838', 'P': '#E8A838',
-        'H_band': 'rgba(232,168,56,0.15)',
-        'P_band': 'rgba(232,168,56,0.15)',
-    },
-    'conservacion': {
-        'H': '#1DB38A', 'P': '#1DB38A',
-        'H_band': 'rgba(29,179,138,0.15)',
-        'P_band': 'rgba(29,179,138,0.15)',
-    },
-    'catastrofico': {
-        'H': '#E05C2A', 'P': '#E05C2A',
-        'H_band': 'rgba(224,92,42,0.15)',
-        'P_band': 'rgba(224,92,42,0.15)',
-    },
+    'inercial': {
+        'H': '#E8A838', 'P': '#E8A838',
+        'H_band': 'rgba(232,168,56,0.15)',
+        'P_band': 'rgba(232,168,56,0.15)',
+    },
+    'conservacion': {
+        'H': '#1DB38A', 'P': '#1DB38A',
+        'H_band': 'rgba(29,179,138,0.15)',
+        'P_band': 'rgba(29,179,138,0.15)',
+    },
+    'catastrofico': {
+        'H': '#E05C2A', 'P': '#E05C2A',
+        'H_band': 'rgba(224,92,42,0.15)',
+        'P_band': 'rgba(224,92,42,0.15)',
+    },
 }
 
 
 # ── 2. SIMULACIÓN ────────────────────────────────────────────────────────────
 
 def simular(ruido_hist_H, ruido_hist_P, ruido_fut_H, ruido_fut_P,
-            año_interv, factor_a, factor_f):
-    H = np.zeros(T)
-    P = np.zeros(T)
-    H[0], P[0] = H_OBS[0], P_OBS[0]
-    fi = 0
-    for t in range(T - 1):
-        futuro = AÑOS[t] >= año_interv
-        a_act  = A_M * factor_a if futuro else A_M
-        f_act  = F_M * factor_f if futuro else F_M
-        rH = ruido_fut_H[fi] if futuro else ruido_hist_H[t]
-        rP = ruido_fut_P[fi] if futuro else ruido_hist_P[t]
-        if futuro:
-            fi += 1
-        H[t+1] = np.clip(
-            H[t] * np.exp(R_M * (1 - H[t]/K) - a_act * P[t]) + rH,
-            0.001, 5.0)
-        P[t+1] = np.clip(
-            P[t] * np.exp(f_act * (1 - P[t]/C)) + rP,
-            0.001, 5.0)
-    return H, P
+            año_interv, factor_a, factor_f):
+    H = np.zeros(T)
+    P = np.zeros(T)
+    H[0], P[0] = H_OBS[0], P_OBS[0]
+    fi = 0
+    for t in range(T - 1):
+        futuro = AÑOS[t] >= año_interv
+        a_act  = A_M * factor_a if futuro else A_M
+        f_act  = F_M * factor_f if futuro else F_M
+        rH = ruido_fut_H[fi] if futuro else ruido_hist_H[t]
+        rP = ruido_fut_P[fi] if futuro else ruido_hist_P[t]
+        if futuro:
+            fi += 1
+        H[t+1] = np.clip(
+            H[t] * np.exp(R_M * (1 - H[t]/K) - a_act * P[t]) + rH,
+            0.001, 5.0)
+        P[t+1] = np.clip(
+            P[t] * np.exp(f_act * (1 - P[t]/C)) + rP,
+            0.001, 5.0)
+    return H, P
 
 
 def monte_carlo(año_interv, factor_a, factor_f, seed=42):
-    rng   = np.random.default_rng(seed)
-    H_arr = np.zeros((N_SIMS, T))
-    P_arr = np.zeros((N_SIMS, T))
-    for i in range(N_SIMS):
-        rH_h = rng.normal(0, SH_M, T)
-        rP_h = rng.normal(0, SP_M, T)
-        rH_f = rng.normal(0, SH_M, T)
-        rP_f = rng.normal(0, SP_M, T)
-        H_arr[i], P_arr[i] = simular(rH_h, rP_h, rH_f, rP_f,
-                                      año_interv, factor_a, factor_f)
-    def st(mat):
-        return dict(
-            med=np.median(mat, axis=0),
-            q5 =np.percentile(mat, 5,  axis=0),
-            q95=np.percentile(mat, 95, axis=0),
-        )
-    return st(H_arr), st(P_arr)
+    rng   = np.random.default_rng(seed)
+    H_arr = np.zeros((N_SIMS, T))
+    P_arr = np.zeros((N_SIMS, T))
+    for i in range(N_SIMS):
+        rH_h = rng.normal(0, SH_M, T)
+        rP_h = rng.normal(0, SP_M, T)
+        rH_f = rng.normal(0, SH_M, T)
+        rP_f = rng.normal(0, SP_M, T)
+        H_arr[i], P_arr[i] = simular(rH_h, rP_h, rH_f, rP_f,
+                                      año_interv, factor_a, factor_f)
+    def st(mat):
+        return dict(
+            med=np.median(mat, axis=0),
+            q5 =np.percentile(mat, 5,  axis=0),
+            q95=np.percentile(mat, 95, axis=0),
+        )
+    return st(H_arr), st(P_arr)
 
 
 # ── 3. PRE-CÓMPUTO DE LOS 3 ESCENARIOS ──────────────────────────────────────
 
 cfg = [
-    ('Escenario 1 — Inercial',
-     'Parámetros actuales sin intervención',
-     1.0, 1.0, 2025, 'inercial'),
-    ('Escenario 2 — Conservación',
-     'Regulación pesquera: −50% presión y −50% crecimiento de flota',
-     0.5, 0.5, 2030, 'conservacion'),
-    ('Escenario 3 — Catastrófico',
-     'Expansión no regulada: +40% presión y +40% crecimiento de flota',
-     1.4, 1.4, 2025, 'catastrofico'),
+    ('Escenario 1 — Inercial',
+     'Parámetros actuales sin intervención',
+     1.0, 1.0, 2025, 'inercial'),
+    ('Escenario 2 — Conservación',
+     'Regulación pesquera: −50% presión y −50% crecimiento de flota',
+     0.5, 0.5, 2030, 'conservacion'),
+    ('Escenario 3 — Catastrófico',
+     'Expansión no regulada: +40% presión y +40% crecimiento de flota',
+     1.4, 1.4, 2025, 'catastrofico'),
 ]
 
 resultados = []
 for nombre, label, fa, ff, yr, tipo in cfg:
-    H_st, P_st = monte_carlo(yr, fa, ff)
-    resultados.append(dict(
-        nombre=nombre, label=label, fa=fa, ff=ff,
-        yr=yr, tipo=tipo, H=H_st, P=P_st
-    ))
+    H_st, P_st = monte_carlo(yr, fa, ff)
+    resultados.append(dict(
+        nombre=nombre, label=label, fa=fa, ff=ff,
+        yr=yr, tipo=tipo, H=H_st, P=P_st
+    ))
 
 
 # ── 4. FUNCIÓN DE FIGURA ─────────────────────────────────────────────────────
 
 def hacer_figura(res):
-    tipo   = res['tipo']
-    col    = ESCENARIOS[tipo]
-    H_st   = res['H']
-    P_st   = res['P']
-    yr     = res['yr']
-    nombre = res['nombre']
-    label  = res['label']
+    tipo   = res['tipo']
+    col    = ESCENARIOS[tipo]
+    H_st   = res['H']
+    P_st   = res['P']
+    yr     = res['yr']
+    nombre = res['nombre']
+    label  = res['label']
 
-    años_l = list(AÑOS)
-    años_o = list(AÑOS_OBS)
+    años_l = list(AÑOS)
+    años_o = list(AÑOS_OBS)
 
-    # Métricas de comparación vs. inercial
-    h_fin_iner = float(np.mean(resultados[0]['H']['med'][-10:]))
-    h_fin_este = float(np.mean(H_st['med'][-10:]))
-    p_fin_iner = float(np.mean(resultados[0]['P']['med'][-10:]))
-    p_fin_este = float(np.mean(P_st['med'][-10:]))
-    delta_H = (h_fin_este - h_fin_iner) / max(h_fin_iner, 0.001) * 100
-    delta_P = (p_fin_este - p_fin_iner) / max(p_fin_iner, 0.001) * 100
+    # Métricas de comparación vs. inercial
+    h_fin_iner = float(np.mean(resultados[0]['H']['med'][-10:]))
+    h_fin_este = float(np.mean(H_st['med'][-10:]))
+    p_fin_iner = float(np.mean(resultados[0]['P']['med'][-10:]))
+    p_fin_este = float(np.mean(P_st['med'][-10:]))
+    delta_H = (h_fin_este - h_fin_iner) / max(h_fin_iner, 0.001) * 100
+    delta_P = (p_fin_este - p_fin_iner) / max(p_fin_iner, 0.001) * 100
 
-    fig = make_subplots(
-        rows=2, cols=1,
-        shared_xaxes=True,
-        vertical_spacing=0.10,
-        subplot_titles=[
-            'H — Biodiversidad marina (presa)',
-            'P — Flota pesquera (depredador)',
-        ],
-    )
+    fig = make_subplots(
+        rows=2, cols=1,
+        shared_xaxes=True,
+        vertical_spacing=0.10,
+        subplot_titles=[
+            'H — Biodiversidad marina (presa)',
+            'P — Flota pesquera (depredador)',
+        ],
+    )
 
-    # ── Panel H ──────────────────────────────────────────────────────────────
-    fig.add_trace(go.Scatter(
-        x=años_l + años_l[::-1],
-        y=list(H_st['q95']) + list(H_st['q5'])[::-1],
-        fill='toself', fillcolor=col['H_band'],
-        line=dict(width=0), showlegend=False, hoverinfo='skip',
-    ), row=1, col=1)
+    # ── Panel H ──────────────────────────────────────────────────────────────
+    fig.add_trace(go.Scatter(
+        x=años_l + años_l[::-1],
+        y=list(H_st['q95']) + list(H_st['q5'])[::-1],
+        fill='toself', fillcolor=col['H_band'],
+        line=dict(width=0), showlegend=False, hoverinfo='skip',
+    ), row=1, col=1)
 
-    fig.add_trace(go.Scatter(
-        x=años_l, y=list(H_st['med']),
-        mode='lines', line=dict(color=col['H'], width=2.8),
-        name='Mediana H',
-        hovertemplate='%{x}: %{y:.3f}<extra>Mediana H</extra>',
-    ), row=1, col=1)
+    fig.add_trace(go.Scatter(
+        x=años_l, y=list(H_st['med']),
+        mode='lines', line=dict(color=col['H'], width=2.8),
+        name='Mediana H',
+        hovertemplate='%{x}: %{y:.3f}<extra>Mediana H</extra>',
+    ), row=1, col=1)
 
-    fig.add_trace(go.Scatter(
-        x=años_o, y=list(H_OBS),
-        mode='markers',
-        marker=dict(color='white', size=7, line=dict(color=col['H'], width=1.5)),
-        name='Datos históricos H',
-        hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
-    ), row=1, col=1)
+    fig.add_trace(go.Scatter(
+        x=años_o, y=list(H_OBS),
+        mode='markers',
+        marker=dict(color='white', size=7, line=dict(color=col['H'], width=1.5)),
+        name='Datos históricos H',
+        hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
+    ), row=1, col=1)
 
-    # ── Panel P ──────────────────────────────────────────────────────────────
-    fig.add_trace(go.Scatter(
-        x=años_l + años_l[::-1],
-        y=list(P_st['q95']) + list(P_st['q5'])[::-1],
-        fill='toself', fillcolor=col['P_band'],
-        line=dict(width=0), showlegend=False, hoverinfo='skip',
-    ), row=2, col=1)
+    # ── Panel P ──────────────────────────────────────────────────────────────
+    fig.add_trace(go.Scatter(
+        x=años_l + años_l[::-1],
+        y=list(P_st['q95']) + list(P_st['q5'])[::-1],
+        fill='toself', fillcolor=col['P_band'],
+        line=dict(width=0), showlegend=False, hoverinfo='skip',
+    ), row=2, col=1)
 
-    fig.add_trace(go.Scatter(
-        x=años_l, y=list(P_st['med']),
-        mode='lines', line=dict(color=col['P'], width=2.8),
-        name='Mediana P',
-        hovertemplate='%{x}: %{y:.3f}<extra>Mediana P</extra>',
-    ), row=2, col=1)
+    fig.add_trace(go.Scatter(
+        x=años_l, y=list(P_st['med']),
+        mode='lines', line=dict(color=col['P'], width=2.8),
+        name='Mediana P',
+        hovertemplate='%{x}: %{y:.3f}<extra>Mediana P</extra>',
+    ), row=2, col=1)
 
-    fig.add_trace(go.Scatter(
-        x=años_o, y=list(P_OBS),
-        mode='markers',
-        marker=dict(color='white', size=7, line=dict(color=col['P'], width=1.5)),
-        name='Datos históricos P',
-        hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
-    ), row=2, col=1)
+    fig.add_trace(go.Scatter(
+        x=años_o, y=list(P_OBS),
+        mode='markers',
+        marker=dict(color='white', size=7, line=dict(color=col['P'], width=1.5)),
+        name='Datos históricos P',
+        hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
+    ), row=2, col=1)
 
-    # ── Líneas verticales de intervención ────────────────────────────────────
-    for row in (1, 2):
-        fig.add_vline(
-            x=yr,
-            line=dict(color='rgba(204,232,244,0.45)', width=1.5, dash='dot'),
-            row=row, col=1
-        )
+    # ── Líneas verticales de intervención ────────────────────────────────────
+    for row in (1, 2):
+        fig.add_vline(
+            x=yr,
+            line=dict(color='rgba(204,232,244,0.45)', width=1.5, dash='dot'),
+            row=row, col=1
+        )
 
-    # ── Anotaciones de métricas ───────────────────────────────────────────────
-    emoji_dH = '▲' if delta_H >= 0 else '▼'
-    emoji_dP = '▲' if delta_P >= 0 else '▼'
+    # ── Anotaciones de métricas ───────────────────────────────────────────────
+    emoji_dH = '▲' if delta_H >= 0 else '▼'
+    emoji_dP = '▲' if delta_P >= 0 else '▼'
 
-    ann_style = dict(
-        showarrow=False,
-        font=dict(size=10, color=TX_PLOT),
-        bgcolor='rgba(4,30,53,0.88)',
-        bordercolor='rgba(93,214,240,0.25)',
-        borderwidth=1, borderpad=6, align='left',
-    )
+    ann_style = dict(
+        showarrow=False,
+        font=dict(size=10, color=TX_PLOT),
+        bgcolor='rgba(4,30,53,0.88)',
+        bordercolor='rgba(93,214,240,0.25)',
+        borderwidth=1, borderpad=6, align='left',
+    )
 
-    fig.add_annotation(
-        xref='paper', yref='y',
-        x=0.01, y=float(H_st['med'][-1]) + 0.05,
-        xanchor='left', yanchor='bottom',
-        text=(f"H final (2089-2098): <b>{h_fin_este:.3f}</b><br>"
-              f"vs. inercial: <b>{h_fin_iner:.3f}</b> "
-              f"<b>({emoji_dH} {abs(delta_H):.1f}%)</b>"),
-        **ann_style
-    )
+    fig.add_annotation(
+        xref='paper', yref='y',
+        x=0.01, y=float(H_st['med'][-1]) + 0.05,
+        xanchor='left', yanchor='bottom',
+        text=(f"H final (2089-2098): <b>{h_fin_este:.3f}</b><br>"
+              f"vs. inercial: <b>{h_fin_iner:.3f}</b> "
+              f"<b>({emoji_dH} {abs(delta_H):.1f}%)</b>"),
+        **ann_style
+    )
 
-    fig.add_annotation(
-        xref='paper', yref='y2',
-        x=0.01, y=float(P_st['med'][-1]) + 0.05,
-        xanchor='left', yanchor='bottom',
-        text=(f"P final (2089-2098): <b>{p_fin_este:.3f}</b><br>"
-              f"vs. inercial: <b>{p_fin_iner:.3f}</b> "
-              f"<b>({emoji_dP} {abs(delta_P):.1f}%)</b>"),
-        **ann_style
-    )
+    fig.add_annotation(
+        xref='paper', yref='y2',
+        x=0.01, y=float(P_st['med'][-1]) + 0.05,
+        xanchor='left', yanchor='bottom',
+        text=(f"P final (2089-2098): <b>{p_fin_este:.3f}</b><br>"
+              f"vs. inercial: <b>{p_fin_iner:.3f}</b> "
+              f"<b>({emoji_dP} {abs(delta_P):.1f}%)</b>"),
+        **ann_style
+    )
 
-    # ── Layout ───────────────────────────────────────────────────────────────
-    fig.update_layout(
-        plot_bgcolor=AX_PLOT,
-        paper_bgcolor=BG_PLOT,
-        font=dict(color=TX_PLOT, family='DM Sans, system-ui, sans-serif', size=11),
-        title=dict(
-            text=(f"<b>{nombre}</b><br>"
-                  f"<span style='font-size:13px;color:{TX_PLOT};'>{label}</span>"),
-            font=dict(size=16, color=TX_PLOT),
-            x=0.5, xanchor='center', y=0.97,
-        ),
-        height=660,
-        margin=dict(t=110, b=50, l=70, r=25),
-        hovermode='x unified',
-        legend=dict(
-            orientation='h', x=0.0, y=-0.08,
-            bgcolor='rgba(4,30,53,0.82)',
-            bordercolor='rgba(93,214,240,0.22)',
-            borderwidth=1, font=dict(size=10),
-        ),
-    )
+    # ── Layout ───────────────────────────────────────────────────────────────
+    fig.update_layout(
+        plot_bgcolor=AX_PLOT,
+        paper_bgcolor=BG_PLOT,
+        font=dict(color=TX_PLOT, family='DM Sans, system-ui, sans-serif', size=11),
+        title=dict(
+            text=(f"<b>{nombre}</b><br>"
+                  f"<span style='font-size:13px;color:{TX_PLOT};'>{label}</span>"),
+            font=dict(size=16, color=TX_PLOT),
+            x=0.5, xanchor='center', y=0.97,
+        ),
+        height=660,
+        margin=dict(t=110, b=50, l=70, r=25),
+        hovermode='x unified',
+        legend=dict(
+            orientation='h', x=0.0, y=-0.08,
+            bgcolor='rgba(4,30,53,0.82)',
+            bordercolor='rgba(93,214,240,0.22)',
+            borderwidth=1, font=dict(size=10),
+        ),
+    )
 
-    ax_common = dict(
-        gridcolor=GR_PLOT,
-        linecolor='rgba(93,214,240,0.2)',
-        tickfont=dict(color=TX_PLOT, size=10),
-        range=[AÑO_INI - 1, AÑO_INI + T + 1],
-    )
-    for row in (1, 2):
-        fig.update_xaxes(**ax_common, showgrid=False, row=row, col=1)
+    ax_common = dict(
+        gridcolor=GR_PLOT,
+        linecolor='rgba(93,214,240,0.2)',
+        tickfont=dict(color=TX_PLOT, size=10),
+        range=[AÑO_INI - 1, AÑO_INI + T + 1],
+    )
+    for row in (1, 2):
+        fig.update_xaxes(**ax_common, showgrid=False, row=row, col=1)
 
-    fig.update_yaxes(
-        title_text='H normalizado', gridcolor=GR_PLOT,
-        linecolor='rgba(93,214,240,0.2)',
-        tickfont=dict(color=TX_PLOT, size=10),
-        rangemode='nonnegative', row=1, col=1,
-    )
-    fig.update_yaxes(
-        title_text='P normalizado', gridcolor=GR_PLOT,
-        linecolor='rgba(93,214,240,0.2)',
-        tickfont=dict(color=TX_PLOT, size=10),
-        rangemode='nonnegative', row=2, col=1,
-    )
-    fig.update_xaxes(title_text='Año', row=2, col=1)
+    fig.update_yaxes(
+        title_text='H normalizado', gridcolor=GR_PLOT,
+        linecolor='rgba(93,214,240,0.2)',
+        tickfont=dict(color=TX_PLOT, size=10),
+        rangemode='nonnegative', row=1, col=1,
+    )
+    fig.update_yaxes(
+        title_text='P normalizado', gridcolor=GR_PLOT,
+        linecolor='rgba(93,214,240,0.2)',
+        tickfont=dict(color=TX_PLOT, size=10),
+        rangemode='nonnegative', row=2, col=1,
+    )
+    fig.update_xaxes(title_text='Año', row=2, col=1)
 
-    # Subtítulos de subplots en color del tema
-    for ann in fig.layout.annotations:
-        if ann.text in ('H — Biodiversidad marina (presa)',
-                        'P — Flota pesquera (depredador)'):
-            ann.font.color = TX_PLOT
-            ann.font.size  = 12
+    # Subtítulos de subplots en color del tema
+    for ann in fig.layout.annotations:
+        if ann.text in ('H — Biodiversidad marina (presa)',
+                        'P — Flota pesquera (depredador)'):
+            ann.font.color = TX_PLOT
+            ann.font.size  = 12
 
-    return fig
+    return fig
 
 
 # ── 5. GENERAR FIGURAS ────────────────────────────────────────────────────────
@@ -1281,14 +1277,14 @@ figs = [hacer_figura(res) for res in resultados]
 
 ### Escenario 1 — Catastrófico
 
-## Row {height="70%"}
+### Row {height="70%"}
 
 ```{python}
 #| fig-responsive: true
 display(figs[2])
 ```
 
-## Row {height="30%"}
+### Row {height="30%"}
 
 ::: {.callout-important appearance="minimal" icon=false}
 
@@ -1302,14 +1298,14 @@ La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos 
 
 ### Escenario 2 — Inercial
 
-## Row {height="70%"}
+### Row {height="70%"}
 
 ```{python}
 #| fig-responsive: true
 display(figs[0])
 ```
 
-## Row {height="30%"}
+### Row {height="30%"}
 
 ::: {.callout-warning appearance="minimal" icon=false}
 
@@ -1323,14 +1319,14 @@ Este escenario no supone ningún cambio. Los parámetros son exactamente los que
 
 ### Escenario 3 — Conservación
 
-## Row {height="70%"}
+### Row {height="70%"}
 
 ```{python}
 #| fig-responsive: true
 display(figs[1])
 ```
 
-## Row {height="30%"}
+### Row {height="30%"}
 
 ::: {.callout-note appearance="minimal" icon=false}
 
@@ -1342,8 +1338,7 @@ El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad respo
 
 :::
 
-## Row {#seccion-6}
-## Conclusiones 
+## Conclusiones {#seccion-6}
 
 ```{python}
 #| label: setup4
@@ -1354,7 +1349,7 @@ import pandas as pd
 import numpy as np
 
 # ═══════════════════════════════════════════════
-#  CARGA DE DATOS
+#  CARGA DE DATOS
 # ═══════════════════════════════════════════════
 
 # LOBOS MARINOS
@@ -1362,38 +1357,38 @@ lobos_marinos=pd.read_csv('../datos/lobos_marinos/lobos_marinos.csv').iloc[:17]
 lobos_marinos['total_lobos_marinos']=lobos_marinos['total_lobos_marinos'].str.replace(',', '').astype(float)
 
 # ═══════════════════════════════════════════════
-#  FUNCION DE GRÁFICA
+#  FUNCION DE GRÁFICA
 # ═══════════════════════════════════════════════
 
 el_nino_periods = [
-    (2009, 2010), (2014, 2016),(2018, 2019)
+    (2009, 2010), (2014, 2016),(2018, 2019)
 ]
 
 def crear_fig_lobos_marinos(df):
-    el_nino_periods = [(2009, 2010), (2014, 2016), (2018, 2019)]
-    fig = go.Figure()
-    
-    fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(symbol="square", size=15, color="rgba(34, 139, 34, 0.2)"), name='Fenómeno de El Niño', showlegend=True))
-    
-    fig.add_trace(go.Scatter(x=df['año'], y=df['total_lobos_marinos'], mode='lines+markers', name='Lobos Marinos', line=dict(color='#4CAF50', width=3), marker=dict(size=9, color='#1B5E20', symbol='circle'), fill='tozeroy', fillcolor='rgba(76, 175, 80, 0.05)', hovertemplate="<b>Año:</b> %{x}<br><b>Población:</b> %{y:,.0f}<extra></extra>"))
-    
-    shapes = [dict(type="rect", x0=s, x1=e, y0=0, y1=1, xref="x", yref="paper", fillcolor="rgba(34, 139, 34, 0.2)", line_width=0, layer="below") for (s, e) in el_nino_periods]
-    
-    max_val = df['total_lobos_marinos'].max()
-    max_year = df.loc[df['total_lobos_marinos'].idxmax(), 'año']
-    
-    fig.add_annotation(x=max_year, y=max_val, text="<b>Máximo histórico</b>", showarrow=True, arrowhead=2, ax=0, ay=-40, font=dict(color="#1B5E20", size=12))
-    
-    fig.update_layout(shapes=shapes, title={'text': "<b>Monitoreo de Lobos Marinos en Baja California</b><br><span style='font-size:14px; color:gray;'>Dinámica poblacional y estrés ambiental</span>", 'y':0.95, 'x':0.5, 'xanchor': 'center', 'yanchor': 'top'}, template="plotly_white", hovermode="x unified", font=dict(family="Arial", size=12, color="#2c3e50"), autosize=True, legend=dict(orientation="v", y=0.5, yanchor="middle", x=1.02, xanchor="left"), margin=dict(l=80, r=120, t=110, b=60), height=400)
-    
-    fig.update_xaxes(title="Temporada (Año)", tickangle=-45, dtick=1, showgrid=True, gridcolor='rgba(200, 200, 200, 0.2)')
-    
-    fig.update_yaxes(title="Total de Lobos Marinos", tickformat=",", showgrid=True, gridcolor='rgba(200, 200, 200, 0.2)')
-    
-    return fig
+    el_nino_periods = [(2009, 2010), (2014, 2016), (2018, 2019)]
+    fig = go.Figure()
+    
+    fig.add_trace(go.Scatter(x=[None], y=[None], mode='markers', marker=dict(symbol="square", size=15, color="rgba(34, 139, 34, 0.2)"), name='Fenómeno de El Niño', showlegend=True))
+    
+    fig.add_trace(go.Scatter(x=df['año'], y=df['total_lobos_marinos'], mode='lines+markers', name='Lobos Marinos', line=dict(color='#4CAF50', width=3), marker=dict(size=9, color='#1B5E20', symbol='circle'), fill='tozeroy', fillcolor='rgba(76, 175, 80, 0.05)', hovertemplate="<b>Año:</b> %{x}<br><b>Población:</b> %{y:,.0f}<extra></extra>"))
+    
+    shapes = [dict(type="rect", x0=s, x1=e, y0=0, y1=1, xref="x", yref="paper", fillcolor="rgba(34, 139, 34, 0.2)", line_width=0, layer="below") for (s, e) in el_nino_periods]
+    
+    max_val = df['total_lobos_marinos'].max()
+    max_year = df.loc[df['total_lobos_marinos'].idxmax(), 'año']
+    
+    fig.add_annotation(x=max_year, y=max_val, text="<b>Máximo histórico</b>", showarrow=True, arrowhead=2, ax=0, ay=-40, font=dict(color="#1B5E20", size=12))
+    
+    fig.update_layout(shapes=shapes, title={'text': "<b>Monitoreo de Lobos Marinos en Baja California</b><br><span style='font-size:14px; color:gray;'>Dinámica poblacional y estrés ambiental</span>", 'y':0.95, 'x':0.5, 'xanchor': 'center', 'yanchor': 'top'}, template="plotly_white", hovermode="x unified", font=dict(family="Arial", size=12, color="#2c3e50"), autosize=True, legend=dict(orientation="v", y=0.5, yanchor="middle", x=1.02, xanchor="left"), margin=dict(l=80, r=120, t=110, b=60), height=400)
+    
+    fig.update_xaxes(title="Temporada (Año)", tickangle=-45, dtick=1, showgrid=True, gridcolor='rgba(200, 200, 200, 0.2)')
+    
+    fig.update_yaxes(title="Total de Lobos Marinos", tickformat=",", showgrid=True, gridcolor='rgba(200, 200, 200, 0.2)')
+    
+    return fig
 ```
 
-## Row {.tabset}
+### Row {.tabset}
 
 ### Lobos Marinos
 
@@ -1409,7 +1404,7 @@ display(crear_fig_lobos_marinos(lobos_marinos))
 ::: {#columna-texto}
 ::: {.callout-note appearance="minimal" icon=false}
 ### El control natural
-Para poder dar una conclusion debemos hablar primero sobre uno de los personajes más importantes de esta historia, los lobos marinos, y lo vemos claramente: no por lo que muestra, sino por lo que no debería estar mostrando. 
+Para poder dar una conclusion debemos hablar primero sobre uno de los personajes más importantes de esta historia, los lobos marinos, y lo vemos claramente: no por lo que muestra, sino por lo que no debería estar mostrando. 
 El lobo marino de California habita en colonias reproductivas en islas del Pacífico mexicano que están bajo protección federal estricta. No hay pesca directa sobre su hábitat. No hay redes que intercepten sus rutas. Si hay un animal que debería estar aislado del efecto de la presión pesquera, es este.
 Eso lo convierte en nuestro grupo control: el indicador que nos permite separar el efecto del clima sobre nuestras especies, del efecto de la pesca.
 La población de lobos marinos ha mostrado recuperación sostenida a lo largo de la serie histórica, con fluctuaciones atribuibles a eventos El Niño pero con una tendencia general al alza. Para 2022-2023, los registros superaron los 7,500 individuos, el máximo histórico de la serie.
@@ -1418,9 +1413,9 @@ La población de lobos marinos ha mostrado recuperación sostenida a lo largo de
 
 ::: {.callout-important appearance="minimal" icon=false}
 ### Conclusión
-El modelo predice una tendencia preocupante, el escenario inercial (en el que no se hacen regulaciones y la tendencia continúa como lo ha hecho hasta ahora) es muy similar al escenario catastrófico. La tendencia que lleva la población tanto de pelícanos como de ballenas es extremadamente decreciente. Hay datos atípicos que no se alinean con el modelo y mucho ruido en las poblaciones, probablemente por los ciclos migratorios y el clima, sin embargo, la tendencia general es capturada por el modelo y el escenario inercial es devastador. La pregunta es ¿hay algo que se pueda hacer? El modelo como tal responde a esta pregunta a través de la simulación del efecto que políticas de conservación ambiental podrían tener en la población de ballenas y pelícanos. Al reducir el impacto que la flota tiene en la población en un 50% del actual sucede un cambio drástico en la tendencia de la población, hay un régimen de conservación en el modelo, se nos indica que la población podría conservarse en este caso. 
+El modelo predice una tendencia preocupante, el escenario inercial (en el que no se hacen regulaciones y la tendencia continúa como lo ha hecho hasta ahora) es muy similar al escenario catastrófico. La tendencia que lleva la población tanto de pelícanos como de ballenas es extremadamente decreciente. Hay datos atípicos que no se alinean con el modelo y mucho ruido en las poblaciones, probablemente por los ciclos migratorios y el clima, sin embargo, la tendencia general es capturada por el modelo y el escenario inercial es devastador. La pregunta es ¿hay algo que se pueda hacer? El modelo como tal responde a esta pregunta a través de la simulación del efecto que políticas de conservación ambiental podrían tener en la población de ballenas y pelícanos. Al reducir el impacto que la flota tiene en la población en un 50% del actual sucede un cambio drástico en la tendencia de la población, hay un régimen de conservación en el modelo, se nos indica que la población podría conservarse en este caso. 
 
-Como evidencia empírica del cambio que podría tener el ecosistema incluimos la población de leones marinos en la Isla de San Esteban como indicadores. El 7 de junio del año 2000 se estableció el Área de Protección de Flora y Fauna "Islas del Golfo de California" (Secretaría de Medio Ambiente y Recursos Naturales [SEMARNAT], 2001). El impacto de esta política de conservación es evidente en la tendencia de los datos de los leones marinos, mostrando que sí es posible obtener un cambio a través de políticas de conservación. Hay que considerar que las zonas pesqueras no pueden tener el mismo tratamiento de conservación que el de una zona nacional protegida, sin embargo, la posibilidad de cambio tiene tanto evidencia matemática como empírica. 
+Como evidencia empírica del cambio que podría tener el ecosistema incluimos la población de leones marinos en la Isla de San Esteban como indicadores. El 7 de junio del año 2000 se estableció el Área de Protección de Flora y Fauna "Islas del Golfo de California" (Secretaría de Medio Ambiente y Recursos Naturales [SEMARNAT], 2001). El impacto de esta política de conservación es evidente en la tendencia de los datos de los leones marinos, mostrando que sí es posible obtener un cambio a través de políticas de conservación. Hay que considerar que las zonas pesqueras no pueden tener el mismo tratamiento de conservación que el de una zona nacional protegida, sin embargo, la posibilidad de cambio tiene tanto evidencia matemática como empírica. 
 
 :::
 :::
