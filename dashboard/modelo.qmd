@@ -16,7 +16,6 @@ import json
 import os
 import warnings
 warnings.filterwarnings('ignore')
-from IPython.display import display
 
 # ── 1. DATOS Y PARÁMETROS ────────────────────────────────────────────────────
 
@@ -33,13 +32,13 @@ P_OBS = np.array([
     0.7429, 1.0000
 ])
 
-# Configuración de la simulación
+# Configuración de la simulación (Deben coincidir con los del JSON)
 T_PROJ   = 100
 AÑO_INI  = 1999
 AÑOS     = np.arange(AÑO_INI, AÑO_INI + T_PROJ)
 N_HIST   = len(H_OBS)
 
-# Grids de la caché
+# Grids (Asegúrate de que coincidan con los usados para generar el JSON)
 GRID_A  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
 GRID_F  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
 GRID_YR = np.array([2025, 2027, 2030, 2032, 2035, 2037, 2040])
@@ -55,52 +54,172 @@ COLORES = {
 PATH_CACHE = '../datos/cache_modelo/cache_escenarios.json'
 
 if not os.path.exists(PATH_CACHE):
-    # Generar un aviso visual si falta el archivo
-    CACHE = {}
-else:
-    with open(PATH_CACHE, 'r') as f:
-        datos_crudos = json.load(f)
-    CACHE = {}
-    for k, v in datos_crudos.items():
-        try:
-            fa, ff, yr = k.split('_')
-            key = (round(float(fa), 2), round(float(ff), 2), int(yr))
-            CACHE[key] = v
-        except: continue
+    raise FileNotFoundError(f"No se encontró el archivo de caché en: {PATH_CACHE}")
+
+with open(PATH_CACHE, 'r') as f:
+    datos_crudos = json.load(f)
+
+# Re-construcción del diccionario CACHE 
+# El JSON guarda las llaves como strings "fa_ff_yr", las convertimos a tuplas
+CACHE = {}
+for k, v in datos_crudos.items():
+    # Intentar parsear la llave (asumiendo formato "0.2_0.4_2030" o similar)
+    try:
+        fa, ff, yr = k.split('_')
+        key = (round(float(fa), 2), round(float(ff), 2), int(yr))
+        CACHE[key] = v
+    except ValueError:
+        # Si la llave ya es directamente un string numérico o tiene otro formato
+        continue
+
+print(f"Caché cargado con éxito: {len(CACHE)} combinaciones.")
 
 # ── 3. CONSTRUCCIÓN DE FIGURAS ────────────────────────────────────────────────
 
+AÑOS_STR    = [str(a) for a in AÑOS]
+AÑOS_OBS    = list(AÑOS[:N_HIST])
+AÑOS_FULL   = list(AÑOS)
+
+def _hex_rgba(hex_color, alpha):
+    r = int(hex_color[1:3], 16)
+    g = int(hex_color[3:5], 16)
+    b = int(hex_color[5:7], 16)
+    return f'rgba({r},{g},{b},{alpha})'
+
 def construir_figura(variable='H'):
+    assert variable in ('H', 'P')
     es_H = variable == 'H'
     col_cons = COLORES['H_cons'] if es_H else COLORES['P_cons']
     col_iner = COLORES['H_iner'] if es_H else COLORES['P_iner']
     obs_data = H_OBS if es_H else P_OBS
-    titulo   = ('Biodiversidad (Presa)' if es_H else 'Esfuerzo Pesquero (Depredador)')
+    titulo   = ('H — Biodiversidad marina (presa)' if es_H
+                 else 'P — Flota pesquera (depredador)')
+    ytit     = 'H normalizado' if es_H else 'P normalizado'
 
-    # Estado inicial
-    fa0, ff0, yr0 = 1.00, 1.00, 2030
+    # Escenario inicial por defecto
+    IDX_BASE = 4
+    fa0, ff0, yr0 = round(GRID_A[IDX_BASE], 2), round(GRID_F[IDX_BASE], 2), 2030
     key0 = (fa0, ff0, yr0)
-    d0 = CACHE.get(key0, list(CACHE.values())[0] if CACHE else None)
     
+    if key0 not in CACHE:
+        # Fallback si la llave exacta no existe
+        key0 = list(CACHE.keys())[0]
+        
+    d0   = CACHE[key0]
+    dk   = 'Hc' if es_H else 'Pc'
+    di   = 'Hi' if es_H else 'Pi'
+
     fig = go.Figure()
 
-    if d0:
-        dk, di = ('Hc', 'Hi') if es_H else ('Pc', 'Pi')
-        # Proyectado e Inercial
-        fig.add_trace(go.Scatter(x=AÑOS, y=d0[di]['med'], name='Inercial', line=dict(color=col_iner, dash='dash')))
-        fig.add_trace(go.Scatter(x=AÑOS, y=d0[dk]['med'], name='Proyectado', line=dict(color=col_cons, width=3)))
-
     # Histórico
-    fig.add_trace(go.Scatter(x=AÑOS[:N_HIST], y=obs_data, mode='markers', name='Histórico', marker=dict(color='white', line=dict(color=col_cons, width=1.5))))
+    fig.add_trace(go.Scatter(
+        x=AÑOS_OBS, y=list(obs_data),
+        mode='markers',
+        marker=dict(color='white', size=7, line=dict(color=col_cons, width=1.5)),
+        name='Datos históricos',
+        hovertemplate='Año: %{x}<br>Valor: %{y:.3f}<extra></extra>',
+    ))
+
+    # Inercial
+    fig.add_trace(go.Scatter(
+        x=AÑOS_FULL, y=list(d0[di]['med']),
+        mode='lines', line=dict(color=col_iner, width=2, dash='dash'),
+        name='Inercial (100% presión)', hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Inercial</extra>',
+    ))
+    
+    # Proyectado
+    fig.add_trace(go.Scatter(
+        x=AÑOS_FULL, y=list(d0[dk]['med']),
+        mode='lines', line=dict(color=col_cons, width=2.8),
+        name='Escenario proyectado', hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Proyección</extra>',
+    ))
+
+    fig.add_vline(
+        x=yr0, line=dict(color='rgba(220,220,220,0.55)', width=1.5, dash='dot'),
+        annotation=dict(text='Año de intervención', font=dict(color=COLORES['text'], size=10),
+                        showarrow=False, yref='paper', y=1.02, xanchor='left')
+    )
+
+    def ganancia_txt(d, dk, di):
+        hi_fin  = float(np.mean(d[di]['med'][-10:]))
+        hc_fin  = float(np.mean(d[dk]['med'][-10:]))
+        g = (hc_fin - hi_fin) / max(hi_fin, 0.001) * 100
+        return (f"Proyectado: {hc_fin:.3f} | Inercial: {hi_fin:.3f} "
+                f"| Diferencia: {'+' if g>=0 else ''}{g:.1f}%")
+
+    # Generación de Frames desde el CACHE
+    frames = []
+    for fa in GRID_A:
+        for ff in GRID_F:
+            for yr in GRID_YR:
+                key = (round(fa, 2), round(ff, 2), int(yr))
+                if key in CACHE:
+                    d = CACHE[key]
+                    frames.append(go.Frame(
+                        name=f"{fa:.2f}_{ff:.2f}_{yr}",
+                        data=[
+                            go.Scatter(x=AÑOS_OBS, y=list(obs_data)),
+                            go.Scatter(x=AÑOS_FULL, y=list(d[di]['med'])),
+                            go.Scatter(x=AÑOS_FULL, y=list(d[dk]['med'])),
+                        ],
+                        layout=go.Layout(
+                            shapes=[dict(type='line', x0=yr, x1=yr, y0=0, y1=1,
+                                         xref='x', yref='paper',
+                                         line=dict(color='rgba(220,220,220,0.55)', width=1.5, dash='dot'))],
+                            annotations=[dict(xref='paper', yref='paper', x=0.01, y=0.97,
+                                              text=ganancia_txt(d, dk, di), font=dict(color=COLORES['text'], size=11),
+                                              showarrow=False, bgcolor='rgba(26,29,39,0.8)', borderpad=6)]
+                        )
+                    ))
+    fig.frames = frames
+
+    # Sliders
+    sliders = [
+        dict(
+            active=IDX_BASE,
+            steps=[dict(method='animate',
+                        args=[[f"{round(fa,2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{GRID_YR[2]}"],
+                              dict(mode='immediate', frame=dict(duration=0, redraw=True), transition=dict(duration=0))],
+                        label=f'{int(fa*100)}%') for fa in GRID_A],
+            currentvalue=dict(prefix='Factor presión (a): ', font=dict(color=COLORES['text'], size=11)),
+            pad=dict(t=10), len=0.88, x=0.06, y=-0.15,
+            bgcolor=COLORES['ax'], bordercolor=COLORES['grid'], tickcolor=COLORES['text'], font=dict(color=COLORES['text'], size=10),
+        ),
+        dict(
+            active=IDX_BASE,
+            steps=[dict(method='animate',
+                        args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(ff,2):.2f}_{GRID_YR[2]}"],
+                              dict(mode='immediate', frame=dict(duration=0, redraw=True), transition=dict(duration=0))],
+                        label=f'{int(ff*100)}%') for ff in GRID_F],
+            currentvalue=dict(prefix='Factor crecimiento (f): ', font=dict(color=COLORES['text'], size=11)),
+            pad=dict(t=10), len=0.88, x=0.06, y=-0.35,
+            bgcolor=COLORES['ax'], bordercolor=COLORES['grid'], tickcolor=COLORES['text'], font=dict(color=COLORES['text'], size=10),
+        ),
+        dict(
+            active=2,
+            steps=[dict(method='animate',
+                        args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{int(yr)}"],
+                              dict(mode='immediate', frame=dict(duration=0, redraw=True), transition=dict(duration=0))],
+                        label=str(int(yr))) for yr in GRID_YR],
+            currentvalue=dict(prefix='Año intervención: ', font=dict(color=COLORES['text'], size=11)),
+            pad=dict(t=10), len=0.88, x=0.06, y=-0.55,
+            bgcolor=COLORES['ax'], bordercolor=COLORES['grid'], tickcolor=COLORES['text'], font=dict(color=COLORES['text'], size=10),
+        ),
+    ]
 
     fig.update_layout(
-        title=titulo,
-        template="plotly_dark",
-        plot_bgcolor=COLORES['ax'],
-        paper_bgcolor=COLORES['bg'],
-        margin=dict(t=50, b=150),
-        height=600
+        title=dict(text=titulo, font=dict(color=COLORES['text'], size=16), x=0.5, xanchor='center'),
+        plot_bgcolor=COLORES['ax'], paper_bgcolor=COLORES['bg'],
+        font=dict(color=COLORES['text'], family='Inter, Arial, sans-serif'),
+        xaxis=dict(title='Año', gridcolor=COLORES['grid'], linecolor=COLORES['grid'], range=[AÑO_INI - 1, AÑO_INI + T_PROJ]),
+        yaxis=dict(title=ytit, gridcolor=COLORES['grid'], linecolor=COLORES['grid'], rangemode='nonnegative'),
+        legend=dict(bgcolor='rgba(26,29,39,0.85)', orientation='h', y=1.08, x=0.0),
+        margin=dict(t=100, b=280, l=60, r=40),
+        sliders=sliders,
+        height=750,
+        hovermode='x unified',
     )
+
     return fig
 ```
 
