@@ -277,13 +277,13 @@ import numpy as np
 from IPython.display import display
 
 # ── Paleta ───────────────────────────────────
-C_DEEP  = "#03045E"
-C_MID   = "#0077B6"
+C_DEEP = "#03045E"
+C_MID = "#0077B6"
 C_LIGHT = "#00B4D8"
-C_FOAM  = "#90E0EF"
-C_MIST  = "#CAF0F8"
+C_FOAM = "#90E0EF"
+C_MIST = "#CAF0F8"
 C_CORAL = "#F4A261"
-C_TEAL  = "#2A9D8F"
+C_TEAL = "#2A9D8F"
 
 # ── Fondo transparente para gráficos (encajan con el tema oscuro) ──
 _bg = dict(
