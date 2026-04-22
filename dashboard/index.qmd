@@ -146,7 +146,7 @@ Análisis de riesgos y recomendaciones estratégicas para la conservación marin
 :::
 :::
 
-## Row {height="6vh"}
+## Row 
 
 ### Column {width="100%"}
 
@@ -164,7 +164,7 @@ Insight central del estudio
 :::
 :::
 
-## Row {height="10vh"}
+## Row 
 
 ::: {.card}
 ::: {.card-header}
