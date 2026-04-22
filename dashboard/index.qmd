@@ -2,7 +2,7 @@
 title: "ODS 14 · Vida Submarina"
 format:
   dashboard:
-    orientation: row
+    orientation: rows
     theme: custom.scss
     scrolling: true
     nav-buttons:
