@@ -719,20 +719,20 @@ body {
     // Buscamos el enlace dentro de la navegación
     .nav-link {
       &[aria-label="Ir al siguiente tablero"] {
-        border: 1px solid $cian-marino; // El color que definimos antes
+        border: 1px solid $biolum; // Usamos tu variable cian
         border-radius: 8px;
         padding: 5px 15px !important;
         margin-left: 15px;
-        color: $cian-marino !important;
+        color: $biolum !important;
         transition: all 0.3s ease;
         font-weight: 500;
-        background: rgba($cian-marino, 0.05);
+        background: rgba($biolum, 0.05);
 
         &:hover {
-          background: $cian-marino;
-          color: $oceano-profundo !important; // Cambia el texto a oscuro al pasar el mouse
+          background: $biolum;
+          color: $abyss !important; // Usa tu variable de fondo oscuro
           transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba($cian-marino, 0.3);
+          box-shadow: 0 4px 15px rgba($biolum, 0.3);
         }
       }
     }
