@@ -1,10 +1,11 @@
 project:
   type: website
-  output-dir: _site
-
+  output-dir: docs
+  resources:
+    - .nojekyll
     
 website:
-  title: "DERRE - HackODS  ODS 14 · Vida Submarina"
+  title: "DERRE - HackODS ODS 14 · Vida Submarina"
   navbar:
       left:
         - href: index.qmd
@@ -25,4 +26,3 @@ format:
     scrolling: true
     orientation: rows
     theme: custom.scss
-
