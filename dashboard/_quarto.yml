@@ -24,7 +24,7 @@ website:
 format:
   dashboard:
     scrolling: true
-    orientation: columns
+    orientation: rows
     theme: custom.scss
     css: estilos.css
 
