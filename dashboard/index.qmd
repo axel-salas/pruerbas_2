@@ -16,7 +16,7 @@ execute:
 
 # Portada
 
-## Row {height="42%"}
+## Row {height="40%"}
 
 ::: {.card .card-hero}
 ::: {.card-body}
@@ -45,7 +45,7 @@ poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
 :::
 :::
 
-## Row {height="16%"}
+## Row {height="15%"}
 
 ::: {.valuebox icon="water" color="primary"}
 **3.1 M km²**
@@ -65,7 +65,7 @@ Especies marinas en riesgo global
 Meta de la Agenda ODS
 :::
 
-## Row {height="27%"}
+## Row {height="25%"}
 
 ### Column {width="25%"}
 
