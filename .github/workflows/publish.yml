@@ -13,7 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: quarto-dev/quarto-actions/setup@main
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: 1.6.0
           
@@ -28,17 +29,18 @@ jobs:
           uv pip install jupyter nbformat pandas matplotlib plotly
 
       - name: Render Quarto Project
-        working-directory: ./dashboard
+        # Eliminamos working-directory si tu archivo _quarto.yml está en la raíz
+        # Si está dentro de /dashboard, asegúrate que el output-dir en el yaml sea ../docs
         run: |
-          uv run quarto render
+          uv run quarto render dashboard --output-dir docs
 
-      - name: Add .nojekyll
-        run: touch dashboard/_site/.nojekyll
+      - name: Prevent Jekyll
+        run: touch docs/.nojekyll
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dashboard/docs
+          publish_dir: ./docs
           publish_branch: gh-pages
           keep_files: false
