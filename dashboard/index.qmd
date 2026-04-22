@@ -6,7 +6,7 @@ format:
     scrolling: true
     nav-buttons:
       - icon: github
-        href: https://github.com/
+        href: https://github.com/axel-salas/DERRE_hackods
         aria-label: Repositorio
 execute:
   echo: false
