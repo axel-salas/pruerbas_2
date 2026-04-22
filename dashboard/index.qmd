@@ -65,7 +65,7 @@ Especies marinas en riesgo global
 Meta de la Agenda ODS
 :::
 
-## Row {height="42%"}
+## Row {height="27%"}
 
 ### Column {width="25%"}
 
@@ -143,11 +143,9 @@ Análisis de riesgos y recomendaciones estratégicas para la conservación marin
 :::
 :::
 
-# Sobre el proyecto
+## Row {height="5%"}
 
-## Row {height="100%"}
-
-### Column {width="60%"}
+### Column {width="100%"}
 
 ::: {.card}
 ::: {.card-header}
@@ -163,7 +161,7 @@ Insight central del estudio
 :::
 :::
 
-### Column {width="40%"}
+## Row {height="10%"}
 
 ::: {.card}
 ::: {.card-header}
