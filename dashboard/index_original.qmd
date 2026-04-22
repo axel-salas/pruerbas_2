@@ -1,0 +1,220 @@
+---
+title: "ODS 14 · Vida Submarina"
+format:
+  dashboard:
+    orientation: rows
+    theme: custom.scss
+    scrolling: true
+    nav-buttons:
+      - text: "Siguiente: Introducción →"
+        href: "introduccion.html"
+        aria-label: "Ir al siguiente tablero"
+execute:
+  echo: false
+  warning: false
+---
+
+# Portada
+
+## Row {height="42vh"}
+
+::: {.card .card-hero}
+::: {.card-body}
+
+::: {.hero-badge}
+DERRE · HackODS 2025 · ODS 14
+:::
+
+::: {.hero-eyebrow}
+Objetivo de Desarrollo Sostenible · 14 · Vida Submarina
+:::
+
+::: {.hero-pregunta}
+¿Puede la *biodiversidad marina* recuperarse\
+del crecimiento pesquero en Baja California?
+:::
+
+::: {.hero-desc}
+Un análisis de datos sobre la interacción entre ecosistemas oceánicos,
+poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
+:::
+
+::: {.hero-divisor}
+:::
+
+:::
+:::
+
+## Row {height="17vh"}
+
+::: {.valuebox icon="water" color="primary"}
+**3.1 M km²**
+
+Mar territorial mexicano
+:::
+
+::: {.valuebox icon="exclamation-triangle-fill" color="danger"}
+**~30 %**
+
+Especies marinas en riesgo global
+:::
+
+::: {.valuebox icon="calendar-check" color="success"}
+**2030**
+
+Meta de la Agenda ODS
+:::
+
+
+## Row {height="25vh"}
+
+### Column {width="20%"}
+::: {.card .card-nav}
+::: {.card-body}
+::: {.nav-numero}
+01 — Introducción
+:::
+::: {.nav-accent .nav-accent-azul}
+:::
+::: {.nav-card-titulo}
+Introducción
+:::
+::: {.nav-card-desc}
+Contexto general del proyecto y la importancia ecológica y económica del área de estudio en Baja California.
+:::
+[Ir a Introducción →](introduccion.qmd){.nav-enlace}
+:::
+:::
+
+### Column {width="20%"}
+
+::: {.card .card-nav}
+::: {.card-body}
+::: {.nav-numero}
+02 — Análisis
+:::
+::: {.nav-accent .nav-accent-wave}
+:::
+::: {.nav-card-titulo}
+Análisis Exploratorio
+:::
+::: {.nav-card-desc}
+Visualización de patrones históricos de ballenas, pelícanos y producción pesquera a lo largo del tiempo.
+:::
+[Ir a Análisis →](analisis.qmd){.nav-enlace}
+:::
+:::
+
+
+
+### Column {width="20%"}
+
+::: {.card .card-nav}
+::: {.card-body}
+::: {.nav-numero}
+03 — Modelo
+:::
+::: {.nav-accent .nav-accent-cian}
+:::
+::: {.nav-card-titulo}
+Modelo Predictivo
+:::
+::: {.nav-card-desc}
+Simulación de escenarios futuros basados en el modelo de Ricker, con parámetros ajustables e interactivos.
+:::
+[Ir a Modelo →](modelo.qmd){.nav-enlace}
+:::
+:::
+
+### Column {width="20%"}
+
+::: {.card .card-nav}
+::: {.card-body}
+::: {.nav-numero}
+04 — Escenarios
+:::
+::: {.nav-accent .nav-accent-espuma}
+:::
+::: {.nav-card-titulo}
+Escenarios a Futuro
+:::
+::: {.nav-card-desc}
+Análisis de riesgos y recomendaciones estratégicas para la conservación marina sostenible.
+:::
+[Ir a Escenarios →](escenarios.qmd){.nav-enlace}
+:::
+:::
+
+### Column {width="20%"}
+
+::: {.card .card-nav}
+::: {.card-body}
+::: {.nav-numero}
+05 — Conclusiones
+:::
+::: {.nav-accent .nav-accent-espuma}
+:::
+::: {.nav-card-titulo}
+Conclusiones
+:::
+::: {.nav-card-desc}
+Conclusiones finales e ideas de desarrollo a futuro
+:::
+[Ir a Conclusiones →](conclusiones.qmd){.nav-enlace}
+:::
+:::
+
+## Row {height="17vh"}
+
+### Column {width="100%"}
+
+::: {.card}
+::: {.card-header}
+Insight central del estudio
+:::
+
+::: {.callout-important appearance="minimal" icon=false}
+
+## El sistema responde a dos presiones simultáneas
+
+*"El sistema marino responde simultáneamente a presiones climáticas y humanas. Entender esta interacción es clave para diseñar estrategias verdaderamente sostenibles."*
+
+:::
+:::
+
+## Row 
+
+::: {.card}
+::: {.card-header}
+Metodología
+:::
+::: {.card-body}
+
+::: {.seccion-label}
+Modelo utilizado
+:::
+
+::: {.seccion-titulo}
+Modelo de Ricker
+:::
+
+::: {.seccion-desc}
+Modelo clásico de dinámica poblacional adaptado para capturar la interacción depredador-presa entre la flota pesquera y la biodiversidad marina de Baja California. Los parámetros fueron estimados via MCMC con 300 simulaciones Monte Carlo.
+:::
+
+---
+
+::: {.seccion-label}
+Datos fuente
+:::
+
+::: {.seccion-titulo}
+Series históricas 1999 – 2024
+:::
+
+::: {.seccion-desc}
+Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en toneladas y registro de embarcaciones activas por temporada en el litoral bajacaliforniano.
+:::
+
+:::
+:::

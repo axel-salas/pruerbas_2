@@ -1,0 +1,378 @@
+---
+title: "Modelo Predictivo"
+format:
+  dashboard:
+    theme: custom.scss
+    scrolling: false
+    nav-buttons:
+      - icon: house
+        href: index.qmd
+        aria-label: Inicio
+execute:
+  echo: false
+  warning: false
+---
+
+```{python}
+#| label: setup
+#| include: false
+#| cache: true
+
+import numpy as np
+import plotly.graph_objects as go
+from IPython.display import display
+import json
+import os
+import warnings
+warnings.filterwarnings('ignore')
+
+# ── 1. DATOS Y PARÁMETROS ────────────────────────────────────────────────────
+
+H_OBS = np.array([
+    0.3955, 0.2110, 0.1324, 0.2965, 0.1371, 0.7856, 0.6301, 0.7755,
+    0.1915, 0.2478, 0.1508, 0.0019, 0.7141, 1.0000, 0.3317, 0.5094,
+    0.5473, 0.4663, 0.2647, 0.3063, 0.0490, 0.0000, 0.1266, 0.0481,
+    0.1683, 0.1683
+])
+P_OBS = np.array([
+    0.2620, 0.3156, 0.2890, 0.3070, 0.2879, 0.2694, 0.2575, 0.2641,
+    0.2496, 0.1191, 0.1842, 0.2185, 0.1624, 0.2637, 0.0000, 0.3311,
+    0.1241, 0.1882, 0.3972, 0.6336, 0.5479, 0.6653, 0.5310, 0.7614,
+    0.7429, 1.0000
+])
+
+T_PROJ  = 100
+AÑO_INI = 1999
+AÑOS    = np.arange(AÑO_INI, AÑO_INI + T_PROJ)
+N_HIST  = len(H_OBS)
+
+GRID_A  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
+GRID_F  = np.array([0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00])
+GRID_YR = np.array([2025, 2027, 2030, 2032, 2035, 2037, 2040])
+
+# ── Paleta integrada con el tema marino del custom.scss ──────────────────────
+# Fondos transparentes → hereda el glass-card del tema
+# Colores de datos alineados a la paleta ODS-14
+COLORES = {
+    'H_cons':  '#1DB38A',               # verde-teal (biodiversidad recuperándose)
+    'H_iner':  '#E05C2A',               # naranja-rojo (escenario inercial)
+    'P_cons':  '#5dd6f0',               # foam del tema (flota bajo control)
+    'P_iner':  '#f4a261',               # warning del tema (flota descontrolada)
+    'hist_H':  '#1DB38A',
+    'hist_P':  '#E05C2A',
+    # Fondos: transparentes para encajar sobre .bslib-card
+    'bg':      'rgba(0,0,0,0)',         # papel transparente
+    'ax':      'rgba(6,48,82,0.45)',    # área de plot azul profundo
+    'grid':    'rgba(93,214,240,0.12)', # cuadrícula cian muy suave
+    'text':    '#cce8f4',               # --text-main del tema
+    # Sliders (SVG inline — se controlan vía dict en Plotly)
+    'sl_bg':   '#041e35',               # fondo del slider = $deep
+    'sl_bord': '#1278b0',               # borde del slider = $wave
+    'sl_tick': '#5dd6f0',               # ticks del slider = $foam
+}
+
+# ── 2. CARGA DE DATOS PRECOMPUTADOS ──────────────────────────────────────────
+
+PATH_CACHE = '../datos/cache_modelo/cache_escenarios.json'
+
+if not os.path.exists(PATH_CACHE):
+    raise FileNotFoundError(f"No se encontró el archivo de caché en: {PATH_CACHE}")
+
+with open(PATH_CACHE, 'r') as f:
+    datos_crudos = json.load(f)
+
+CACHE = {}
+for k, v in datos_crudos.items():
+    try:
+        fa, ff, yr = k.split('_')
+        key = (round(float(fa), 2), round(float(ff), 2), int(yr))
+        CACHE[key] = v
+    except ValueError:
+        continue
+
+# ── 3. CONSTRUCCIÓN DE FIGURAS ────────────────────────────────────────────────
+
+AÑOS_OBS  = list(AÑOS[:N_HIST])
+AÑOS_FULL = list(AÑOS)
+IDX_BASE  = 4   # índice central de los grids (factor = 1.00)
+
+
+def ganancia_txt(d, dk, di):
+    hi_fin = float(np.mean(d[di]['med'][-10:]))
+    hc_fin = float(np.mean(d[dk]['med'][-10:]))
+    g = (hc_fin - hi_fin) / max(hi_fin, 0.001) * 100
+    signo = '+' if g >= 0 else ''
+    return (f"Proyectado: {hc_fin:.3f}  |  Inercial: {hi_fin:.3f}  "
+            f"|  Diferencia: {signo}{g:.1f}%")
+
+
+def construir_figura(variable='H'):
+    assert variable in ('H', 'P')
+    es_H     = variable == 'H'
+    col_cons = COLORES['H_cons'] if es_H else COLORES['P_cons']
+    col_iner = COLORES['H_iner'] if es_H else COLORES['P_iner']
+    obs_data = H_OBS if es_H else P_OBS
+    titulo   = ('H — Biodiversidad marina (presa)' if es_H
+                 else 'P — Flota pesquera (depredador)')
+    ytit     = 'H normalizado' if es_H else 'P normalizado'
+    dk       = 'Hc' if es_H else 'Pc'
+    di       = 'Hi' if es_H else 'Pi'
+
+    # Escenario por defecto
+    fa0, ff0, yr0 = round(GRID_A[IDX_BASE], 2), round(GRID_F[IDX_BASE], 2), 2030
+    key0 = (fa0, ff0, yr0)
+    if key0 not in CACHE:
+        key0 = list(CACHE.keys())[0]
+    d0 = CACHE[key0]
+
+    fig = go.Figure()
+
+    # Datos históricos
+    fig.add_trace(go.Scatter(
+        x=AÑOS_OBS, y=list(obs_data),
+        mode='markers',
+        marker=dict(color='white', size=7, line=dict(color=col_cons, width=1.5)),
+        name='Datos históricos',
+        hovertemplate='Año: %{x}<br>Valor: %{y:.3f}<extra></extra>',
+    ))
+
+    # Escenario inercial (referencia)
+    fig.add_trace(go.Scatter(
+        x=AÑOS_FULL, y=list(d0[di]['med']),
+        mode='lines',
+        line=dict(color=col_iner, width=2, dash='dash'),
+        name='Inercial (100% presión)',
+        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Inercial</extra>',
+    ))
+
+    # Escenario proyectado
+    fig.add_trace(go.Scatter(
+        x=AÑOS_FULL, y=list(d0[dk]['med']),
+        mode='lines',
+        line=dict(color=col_cons, width=2.8),
+        name='Escenario proyectado',
+        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Proyección</extra>',
+    ))
+
+    # Línea vertical de intervención
+    fig.add_vline(
+        x=yr0,
+        line=dict(color='rgba(204,232,244,0.45)', width=1.5, dash='dot'),
+        annotation=dict(
+            text='Año de intervención',
+            font=dict(color=COLORES['text'], size=10),
+            showarrow=False, yref='paper', y=1.02, xanchor='left'
+        )
+    )
+
+    # ── Frames animados (uno por combinación del grid) ────────────
+    frames = []
+    for fa in GRID_A:
+        for ff in GRID_F:
+            for yr in GRID_YR:
+                key = (round(fa, 2), round(ff, 2), int(yr))
+                if key in CACHE:
+                    d = CACHE[key]
+                    frames.append(go.Frame(
+                        name=f"{fa:.2f}_{ff:.2f}_{yr}",
+                        data=[
+                            go.Scatter(x=AÑOS_OBS,  y=list(obs_data)),
+                            go.Scatter(x=AÑOS_FULL, y=list(d[di]['med'])),
+                            go.Scatter(x=AÑOS_FULL, y=list(d[dk]['med'])),
+                        ],
+                        layout=go.Layout(
+                            shapes=[dict(
+                                type='line', x0=yr, x1=yr, y0=0, y1=1,
+                                xref='x', yref='paper',
+                                line=dict(color='rgba(204,232,244,0.45)',
+                                          width=1.5, dash='dot')
+                            )],
+                            annotations=[dict(
+                                xref='paper', yref='paper', x=0.01, y=0.97,
+                                text=ganancia_txt(d, dk, di),
+                                font=dict(color=COLORES['text'], size=11),
+                                showarrow=False,
+                                bgcolor='rgba(4,30,53,0.88)',
+                                bordercolor='rgba(93,214,240,0.25)',
+                                borderpad=6
+                            )]
+                        )
+                    ))
+    fig.frames = frames
+
+    # ── Sliders — colores alineados al tema marino ────────────────
+    _sl = dict(
+        bgcolor=COLORES['sl_bg'],
+        bordercolor=COLORES['sl_bord'],
+        tickcolor=COLORES['sl_tick'],
+        font=dict(color=COLORES['text'], size=10),
+        pad=dict(t=10),
+        len=0.88, x=0.06,
+    )
+
+    sliders = [
+        dict(
+            **_sl, y=-0.15, active=IDX_BASE,
+            steps=[dict(
+                method='animate',
+                args=[[f"{round(fa,2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{GRID_YR[2]}"],
+                      dict(mode='immediate',
+                           frame=dict(duration=0, redraw=True),
+                           transition=dict(duration=0))],
+                label=f'{int(fa*100)}%'
+            ) for fa in GRID_A],
+            currentvalue=dict(
+                prefix='Factor presión (a): ',
+                font=dict(color=COLORES['text'], size=11)
+            ),
+        ),
+        dict(
+            **_sl, y=-0.35, active=IDX_BASE,
+            steps=[dict(
+                method='animate',
+                args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(ff,2):.2f}_{GRID_YR[2]}"],
+                      dict(mode='immediate',
+                           frame=dict(duration=0, redraw=True),
+                           transition=dict(duration=0))],
+                label=f'{int(ff*100)}%'
+            ) for ff in GRID_F],
+            currentvalue=dict(
+                prefix='Factor crecimiento (f): ',
+                font=dict(color=COLORES['text'], size=11)
+            ),
+        ),
+        dict(
+            **_sl, y=-0.55, active=2,
+            steps=[dict(
+                method='animate',
+                args=[[f"{round(GRID_A[IDX_BASE],2):.2f}_{round(GRID_F[IDX_BASE],2):.2f}_{int(yr)}"],
+                      dict(mode='immediate',
+                           frame=dict(duration=0, redraw=True),
+                           transition=dict(duration=0))],
+                label=str(int(yr))
+            ) for yr in GRID_YR],
+            currentvalue=dict(
+                prefix='Año intervención: ',
+                font=dict(color=COLORES['text'], size=11)
+            ),
+        ),
+    ]
+
+    # ── Layout ───────────────────────────────────────────────────
+    fig.update_layout(
+        title=dict(
+            text=titulo,
+            font=dict(color=COLORES['text'], size=15),
+            x=0.5, xanchor='center'
+        ),
+        # Transparente → hereda el .card-modelo-grafico del SCSS
+        plot_bgcolor=COLORES['ax'],
+        paper_bgcolor=COLORES['bg'],
+        font=dict(color=COLORES['text'], family='DM Sans, system-ui, sans-serif'),
+        xaxis=dict(
+            title='Año',
+            gridcolor=COLORES['grid'],
+            linecolor='rgba(93,214,240,0.2)',
+            range=[AÑO_INI - 1, AÑO_INI + T_PROJ],
+            tickfont=dict(color=COLORES['text'])
+        ),
+        yaxis=dict(
+            title=ytit,
+            gridcolor=COLORES['grid'],
+            linecolor='rgba(93,214,240,0.2)',
+            rangemode='nonnegative',
+            tickfont=dict(color=COLORES['text'])
+        ),
+        legend=dict(
+            bgcolor='rgba(4,30,53,0.85)',
+            bordercolor='rgba(93,214,240,0.22)',
+            borderwidth=1,
+            orientation='h', y=1.08, x=0.0,
+            font=dict(color=COLORES['text'])
+        ),
+        margin=dict(t=100, b=280, l=60, r=40),
+        sliders=sliders,
+        height=750,
+        hovermode='x unified',
+    )
+
+    return fig
+```
+
+# Simulación Matemática
+
+## Row {height="15%"}
+
+::: {.valuebox icon="graph-up-arrow" color="primary"}
+**1.15**
+
+r — Tasa de crecimiento natural (Biodiversidad)
+:::
+
+::: {.valuebox icon="exclamation-triangle" color="danger"}
+**2.04**
+
+a — Tasa de depredación (Impacto pesquero)
+:::
+
+::: {.valuebox icon="bar-chart" color="warning"}
+**0.04**
+
+f — Expansión y crecimiento de flota
+:::
+
+::: {.valuebox icon="cloud" color="success"}
+**± 0.26**
+
+ε_H — Variabilidad ambiental (Clima)
+:::
+
+::: {.valuebox icon="people" color="secondary"}
+**± 0.19**
+
+ε_P — Anomalías humanas (Esfuerzo)
+:::
+
+## Row {height="85%"}
+
+### Column {width="30%"}
+
+::: {.card .card-modelo-desc title="Dinámica del modelo"}
+Para comprender la capacidad de resistencia del ecosistema, utilizamos un **modelo dinámico basado en Lotka-Volterra y Ricker**, adaptado a un sistema depredador-presa marino.
+
+**La dinámica**
+
+La biodiversidad disminuye conforme aumenta la presión pesquera, mientras que la flota crece de forma casi independiente. El modelo añade ruido estadístico para simular el clima y factores humanos impredecibles.
+
+**Fórmulas del modelo**
+
+$$H_{t+1} = H_t \exp\left(r \left(1 - {H_t}\right) - a P_t\right) + \varepsilon_H$$
+
+$$P_{t+1} = P_t \exp\left(f \left(1 - {P_t}\right)\right) + \varepsilon_P$$
+:::
+
+::: {.card .card-modelo-ctrl title="Controles de intervención"}
+El modelo te permite explorar **escenarios de política pesquera** ajustando tres parámetros con los sliders integrados en cada gráfico:
+
+- **Factor de presión (a):** Simula la intensidad de las cuotas de captura y la presión sobre el ecosistema.
+- **Factor crecimiento (f):** Controla los límites a la expansión de la flota pesquera.
+- **Año de intervención:** Define el momento en que entran en vigor las políticas de regulación.
+
+Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodiversidad marina frente al escenario inercial de referencia.
+:::
+
+### Column {width="70%" .tabset}
+
+#### Biodiversidad Marina (H)
+
+```{python}
+#| fig-responsive: true
+display(construir_figura('H'))
+```
+
+#### Esfuerzo Pesquero (P)
+
+```{python}
+#| fig-responsive: true
+display(construir_figura('P'))
+```
