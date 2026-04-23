@@ -379,13 +379,13 @@ def crear_fig_ballenas(df):
         line=dict(color=C_MID, width=3, shape='spline'),
         marker=dict(size=8, color=C_DEEP, symbol='circle'),
         fill='tozeroy', fillcolor='rgba(0,180,216,0.15)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Individuos:</b> %{y:,.0f}<extra></extra>"
+        hovertemplate="Año: %{x} | Individuos: %{y:,.0f}"
     ))
 
-    fig.add_annotation(x=2012, y=3070, text="<b>Máximo histórico</b>",
+    fig.add_annotation(x=2012, y=3070, text="Máximo histórico",
         showarrow=True, arrowhead=2, ax=0, ay=-40,
         font=dict(color=C_TEAL, size=12))
-    fig.add_annotation(x=2020, y=980, text="<b>Mínimo histórico</b>",
+    fig.add_annotation(x=2020, y=980, text="Mínimo histórico",
         showarrow=True, arrowhead=2, ax=0, ay=30,
         font=dict(color="#C62828", size=12))
 
@@ -393,9 +393,7 @@ def crear_fig_ballenas(df):
         **_bg,
         shapes=shapes_nino,
         title=dict(
-            text="<b>Monitoreo de Ballenas en Baja California</b>"
-                 "<br><span style='font-size:13px;color:#7ab4cc;'>"
-                 "El impacto de la temperatura oceánica en la migración</span>",
+            text="Monitoreo de Ballenas en Baja California\nEl impacto de la temperatura oceánica en la migración",
             y=0.96, x=0.02, xanchor='left', yanchor='top'
         ),
         xaxis_title="Temporada (Año)",
@@ -427,24 +425,20 @@ def crear_fig_pelicanos(df):
         line=dict(color=C_TEAL, width=3, shape='spline'),
         marker=dict(size=8, color=C_DEEP, symbol='circle'),
         fill='tozeroy', fillcolor='rgba(42,157,143,0.15)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Nidos:</b> %{y:,.0f}<extra></extra>"
+        hovertemplate="Año: %{x} | Nidos: %{y:,.0f}"
     ))
 
-    fig.add_annotation(x='2011', y=30400, text="<b>Máximo histórico</b>",
+    fig.add_annotation(x='2011', y=30400, text="Máximo histórico",
         showarrow=True, arrowhead=2, ax=0, ay=-40,
         font=dict(color=C_TEAL, size=12))
 
     fig.update_layout(
         **_bg,
         title=dict(
-            text="<b>Dinámica Reproductiva: Pelícano Pardo</b>"
-                 "<br><span style='font-size:13px;color:#7ab4cc;'>"
-                 "Impacto de la variabilidad oceánica en la anidación</span>",
+            text="Dinámica Reproductiva: Pelícano Pardo\nImpacto de la variabilidad oceánica en la anidación",
             y=0.96, x=0.02, xanchor='left', yanchor='top'
         ),
         xaxis_title="Temporada (Año)",
-        yaxis_title="Cantidad de Nidos",
-        hovermode="x unified",
         legend=dict(orientation="h", y=1.05, yanchor="bottom", x=1, xanchor="right"),
         margin=dict(l=60, r=30, t=100, b=60),
         height=420
@@ -464,18 +458,18 @@ def crear_fig_pesca(df):
         line=dict(color='#C62828', width=3, shape='spline'),
         marker=dict(size=8, color='#B71C1C', symbol='diamond'),
         fill='tozeroy', fillcolor='rgba(198,40,40,0.1)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Captura:</b> %{y:,.0f} ton<extra></extra>"
+        hovertemplate="Año: %{x} | Captura: %{y:,.0f} ton"
     ))
 
     max_ton  = df['toneladas_pescadas'].max()
     max_year = df.loc[df['toneladas_pescadas'].idxmax(), 'año']
-    fig.add_annotation(x=max_year, y=max_ton, text="<b>Pico máximo histórico</b>",
+    fig.add_annotation(x=max_year, y=max_ton, text="Pico máximo histórico",
         showarrow=True, arrowhead=2, ax=-40, ay=-30,
         font=dict(color="#E53935", size=12))
 
     fig.update_layout(
         **_bg,
-        title=dict(text="<b>Extracción Pesquera en Baja California</b>",
+        title=dict(text="Extracción Pesquera en Baja California",
                    y=0.96, x=0.02, xanchor='left', yanchor='top'),
         xaxis_title="Año", yaxis_title="Toneladas",
         hovermode="x unified",
@@ -497,18 +491,18 @@ def crear_fig_embarcaciones(df):
         line=dict(color='#E65100', width=3, shape='spline'),
         marker=dict(size=8, color='#BF360C', symbol='diamond'),
         fill='tozeroy', fillcolor='rgba(230,81,0,0.1)',
-        hovertemplate="<b>Año:</b> %{x}<br><b>Flota:</b> %{y:,.0f} barcos<extra></extra>"
+        hovertemplate="Año: %{x} | Flota: %{y:,.0f} barcos"
     ))
 
     max_val  = df['total_embarcaciones'].max()
     max_year = df.loc[df['total_embarcaciones'].idxmax(), 'año']
-    fig.add_annotation(x=max_year, y=max_val, text="<b>Flota máxima</b>",
+    fig.add_annotation(x=max_year, y=max_val, text="Flota máxima",
         showarrow=True, arrowhead=2, ax=-40, ay=-30,
         font=dict(color="#E65100", size=12))
 
     fig.update_layout(
         **_bg,
-        title=dict(text="<b>Crecimiento de la Flota Pesquera</b>",
+        title=dict(text="Crecimiento de la Flota Pesquera",
                    y=0.96, x=0.02, xanchor='left', yanchor='top'),
         hovermode="x unified",
         margin=dict(l=60, r=30, t=70, b=50),
@@ -739,7 +733,7 @@ def construir_figura(variable='H'):
         mode='markers',
         marker=dict(color='white', size=7, line=dict(color=col_cons, width=1.5)),
         name='Datos históricos',
-        hovertemplate='Año: %{x}<br>Valor: %{y:.3f}<extra></extra>',
+        hovertemplate='Año: %{x} | Valor: %{y:.3f}',
     ))
 
     # Escenario inercial (referencia)
@@ -748,7 +742,7 @@ def construir_figura(variable='H'):
         mode='lines',
         line=dict(color=col_iner, width=2, dash='dash'),
         name='Inercial (100% presión)',
-        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Inercial</extra>',
+        hovertemplate='Año: %{x} | Valor: %{y:.3f} (Inercial)',
     ))
 
     # Escenario proyectado
@@ -757,7 +751,7 @@ def construir_figura(variable='H'):
         mode='lines',
         line=dict(color=col_cons, width=2.8),
         name='Escenario proyectado',
-        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Proyección</extra>',
+        hovertemplate='Año: %{x} | Valor: %{y:.3f} (Proyección)',
     ))
 
     # Línea vertical de intervención
@@ -937,6 +931,50 @@ f — Expansión y crecimiento de flota
 ε_P — Anomalías humanas (Esfuerzo)
 :::
 
+### Row {height="85%"}
+
+### Column {width="30%"}
+
+::: {.card .card-modelo-desc title="Dinámica del modelo"}
+Para comprender la capacidad de resistencia del ecosistema, utilizamos un **modelo dinámico basado en Lotka-Volterra y Ricker**, adaptado a un sistema depredador-presa marino.
+
+**La dinámica**
+
+La biodiversidad disminuye conforme aumenta la presión pesquera, mientras que la flota crece de forma casi independiente. El modelo añade ruido estadístico para simular el clima y factores humanos impredecibles.
+
+**Fórmulas del modelo**
+
+$$H_{t+1} = H_t \exp\left(r \left(1 - {H_t}\right) - a P_t\right) + \varepsilon_H$$
+
+$$P_{t+1} = P_t \exp\left(f \left(1 - {P_t}\right)\right) + \varepsilon_P$$
+:::
+
+::: {.card .card-modelo-ctrl title="Controles de intervención"}
+El modelo te permite explorar **escenarios de política pesquera** ajustando tres parámetros con los sliders integrados en cada gráfico:
+
+- **Factor de presión (a):** Simula la intensidad de las cuotas de captura y la presión sobre el ecosistema.
+- **Factor crecimiento (f):** Controla los límites a la expansión de la flota pesquera.
+- **Año de intervención:** Define el momento en que entran en vigor las políticas de regulación.
+
+Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodiversidad marina frente al escenario inercial de referencia.
+:::
+
+### Column {width="70%" .tabset}
+
+#### Biodiversidad Marina (H)
+
+```{python}
+#| fig-responsive: true
+display(construir_figura('H'))
+```
+
+#### Esfuerzo Pesquero (P)
+
+```{python}
+#| fig-responsive: true
+display(construir_figura('P'))
+```
+
 ## Row {#seccion-5 .tabset}
 
 ### Escenario 1 — Inercial
@@ -1115,7 +1153,7 @@ def hacer_figura(res):
         x=años_l, y=list(H_st['med']),
         mode='lines', line=dict(color=col['H'], width=2.8),
         name='Mediana H',
-        hovertemplate='%{x}: %{y:.3f}<extra>Mediana H</extra>',
+        hovertemplate='Año: %{x} | Valor: %{y:.3f} (Mediana)',
     ), row=1, col=1)
 
     fig.add_trace(go.Scatter(
@@ -1123,7 +1161,7 @@ def hacer_figura(res):
         mode='markers',
         marker=dict(color='white', size=7, line=dict(color=col['H'], width=1.5)),
         name='Datos históricos H',
-        hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
+        hovertemplate='Año: %{x} | Valor: %{y:.3f} (Histórico)',
     ), row=1, col=1)
 
     # Panel P 
@@ -1138,7 +1176,7 @@ def hacer_figura(res):
         x=años_l, y=list(P_st['med']),
         mode='lines', line=dict(color=col['P'], width=2.8),
         name='Mediana P',
-        hovertemplate='%{x}: %{y:.3f}<extra>Mediana P</extra>',
+        hovertemplate='Año: %{x} | Valor: %{y:.3f} (Mediana)',
     ), row=2, col=1)
 
     fig.add_trace(go.Scatter(
@@ -1146,7 +1184,7 @@ def hacer_figura(res):
         mode='markers',
         marker=dict(color='white', size=7, line=dict(color=col['P'], width=1.5)),
         name='Datos históricos P',
-        hovertemplate='%{x}: %{y:.3f}<extra>Histórico</extra>',
+        hovertemplate='Año: %{x} | Valor: %{y:.3f} (Histórico)',
     ), row=2, col=1)
 
     # Líneas verticales
@@ -1173,9 +1211,9 @@ def hacer_figura(res):
         xref='paper', yref='y',
         x=0.01, y=float(H_st['med'][-1]) + 0.05,
         xanchor='left', yanchor='bottom',
-        text=(f"H final (2089-2098): <b>{h_fin_este:.3f}</b><br>"
-              f"vs. inercial: <b>{h_fin_iner:.3f}</b> "
-              f"<b>({emoji_dH} {abs(delta_H):.1f}%)</b>"),
+        text=(f"H final (2089-2098): {h_fin_este:.3f}\n"
+              f"vs. inercial: {h_fin_iner:.3f} "
+              f"({emoji_dH} {abs(delta_H):.1f}%)"),
         **ann_style
     )
 
@@ -1183,9 +1221,9 @@ def hacer_figura(res):
         xref='paper', yref='y2',
         x=0.01, y=float(P_st['med'][-1]) + 0.05,
         xanchor='left', yanchor='bottom',
-        text=(f"P final (2089-2098): <b>{p_fin_este:.3f}</b><br>"
-              f"vs. inercial: <b>{p_fin_iner:.3f}</b> "
-              f"<b>({emoji_dP} {abs(delta_P):.1f}%)</b>"),
+        text=(f"P final (2089-2098): {p_fin_este:.3f}\n"
+              f"vs. inercial: {p_fin_iner:.3f} "
+              f"({emoji_dP} {abs(delta_P):.1f}%)"),
         **ann_style
     )
 
@@ -1195,8 +1233,7 @@ def hacer_figura(res):
         paper_bgcolor=BG_PLOT,
         font=dict(color=TX_PLOT, family='DM Sans, system-ui, sans-serif', size=11),
         title=dict(
-            text=(f"<b>{nombre}</b><br>"
-                  f"<span style='font-size:13px;color:{TX_PLOT};'>{label}</span>"),
+            text=(f"{nombre}\n{label}"),
             font=dict(size=16, color=TX_PLOT),
             x=0.5, xanchor='center', y=0.97,
         ),
@@ -1349,7 +1386,7 @@ def crear_fig_lobos_marinos(df):
         line=dict(color=C_VERDE, width=3, shape='spline'),
         marker=dict(size=9, color=C_VERDE_DARK, symbol='circle'),
         fill='tozeroy', fillcolor='rgba(76,175,80,0.08)',
-        hovertemplate='<b>Año:</b> %{x}<br><b>Población:</b> %{y:,.0f}<extra></extra>'
+        hovertemplate='Año: %{x} | Población: %{y:,.0f}'
     ))
 
     # Franjas El Niño
@@ -1365,7 +1402,7 @@ def crear_fig_lobos_marinos(df):
     max_year = df.loc[df['total_lobos_marinos'].idxmax(), 'año']
     fig.add_annotation(
         x=max_year, y=max_val,
-        text='<b>Máximo histórico</b>',
+        text='Máximo histórico',
         showarrow=True, arrowhead=2, ax=0, ay=-40,
         font=dict(color=C_VERDE, size=12)
     )
@@ -1374,9 +1411,8 @@ def crear_fig_lobos_marinos(df):
         shapes=shapes,
         title=dict(
             text=(
-                '<b>Población de Lobos Marinos: El Grupo Control</b><br>'
-                "<span style='font-size:13px;color:#7ab4cc;'>"
-                'Especie protegida sin presión pesquera directa</span>'
+                'Población de Lobos Marinos: El Grupo Control\n'
+                'Especie protegida sin presión pesquera directa'
             ),
             y=0.95, x=0.02, xanchor='left', yanchor='top'
         ),
