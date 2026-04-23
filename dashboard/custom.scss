@@ -66,7 +66,6 @@ $input-placeholder-color: rgba(122, 180, 204, 0.6);
 $input-focus-border-color: #00ffe7;
 $input-focus-box-shadow:   0 0 0 3px rgba(0, 255, 231, 0.15);
 
-
 // ────────────────────────────────────────────────────────────────
 //  §2  VARIABLES SASS PROPIAS
 // ────────────────────────────────────────────────────────────────
@@ -83,6 +82,7 @@ $biolum2:      #00d4c8;
 $pearl:        #e8f4f8;
 $text-main:    #cce8f4;
 $text-muted-c: #7ab4cc;
+
 $glass-bg:     rgba(6, 40, 72, 0.55);
 $glass-border: rgba(93, 214, 240, 0.22);
 $glass-glow:   0 8px 40px rgba(0, 0, 0, 0.50);
@@ -90,7 +90,6 @@ $glass-glow:   0 8px 40px rgba(0, 0, 0, 0.50);
 $ff-display: 'Playfair Display', Georgia, serif;
 $ff-body:    'DM Sans', system-ui, sans-serif;
 $ff-mono:    'Space Mono', monospace;
-
 
 // ────────────────────────────────────────────────────────────────
 //  §3  GOOGLE FONTS
@@ -110,7 +109,6 @@ body {
   font-family: $ff-body;
   color:       $text-main;
   min-height:  100vh;
-
   // Fondo oceánico multicapa — fijo para que no haga scroll
   background:
     radial-gradient(ellipse at 15%  5%,  rgba(0, 255, 231, 0.07)  0%, transparent 45%),
@@ -265,30 +263,25 @@ body {
 
 // ── §6.5  Plotly dentro de card-body — contención de altura ────────
 //
-//  Problema: .plotly-graph-div tiene height inline fijada por Plotly.
-//  Solución SCSS: Forzar que el card-body sea un flex-column que ceda
-//  espacio al gráfico sin desbordarse. El truco clave es min-height:0
-//  en el flex item (el card-body) para que pueda comprimirse.
+//  Problema: .plotly-graph-div se desborda y rompe el layout.
+//  Solución: Hacemos que card-body sea un contenedor flex puro y
+//  dejamos que Plotly ocupe el espacio disponible sin asfixiar al SVG.
 
 .bslib-card > .card-body,
 .card > .card-body {
+  display: flex;
+  flex-direction: column;
   min-height: 0;          // Permite que el flex item se comprima
-  overflow:   hidden;     // Corta cualquier desbordamiento residual
+  overflow: hidden;       // Corta cualquier desbordamiento residual
 }
 
-// El div raíz de Plotly debe seguir el 100% del ancho/alto disponible
+// Plotly hereda el espacio flex en lugar de usar 100% estricto
 .card-body .plotly-graph-div,
 .bslib-card-body .plotly-graph-div {
-  width:      100% !important;
-  height:     100% !important;
-  min-height: 0   !important;
-  max-height: 100% !important;
-
-  // El SVG interno también debe ceder
-  svg.main-svg {
-    width:  100% !important;
-    height: 100% !important;
-  }
+  flex: 1 1 auto;
+  width: 100% !important;
+  min-height: 0 !important;
+  position: relative;
 }
 
 
@@ -396,7 +389,8 @@ body {
   &::after {
     content:  '';
     position: absolute;
-    top: -80px; right: -80px;
+    top: -80px;
+    right: -80px;
     width:  320px; height: 320px;
     background: radial-gradient(circle,
       rgba(0,255,231,0.07) 0%,
@@ -477,7 +471,6 @@ body {
 
 .card-nav {
   cursor: pointer;
-
   .card-body { padding: 1.6rem 1.5rem; }
 }
 
@@ -546,7 +539,6 @@ body {
 
 // Quarto Dashboard renderiza el callout dentro de un .bslib-card;
 // apuntamos a las clases del callout tal como las genera Quarto.
-
 .callout-important {
   background:    linear-gradient(135deg,
     rgba(0,255,231,0.05) 0%,
@@ -705,7 +697,7 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 16px rgba(0,255,231,0.12); }
-  50%       { box-shadow: 0 0 34px rgba(0,255,231,0.28); }
+  50%      { box-shadow: 0 0 34px rgba(0,255,231,0.28); }
 }
 
 // Entrada suave para las cards del dashboard
@@ -737,7 +729,6 @@ body {
   // Fondo más oscuro que el glass estándar para que el área
   // de plot tenga contraste con los ejes semi-transparentes
   background: rgba(4, 22, 48, 0.70) !important;
-
   .card-body { padding: 0.6rem 0.8rem; }
 }
 
@@ -745,10 +736,9 @@ body {
 //  Plotly renderiza los sliders como SVG dentro del div del gráfico.
 //  No podemos cambiar su fill directamente con CSS de forma fiable,
 //  pero sí podemos ajustar el contenedor y el texto circundante.
-
-// Barra de track del slider (rect con clase "bg")
-// Plotly escucha style inline — lo mejor es setear los colores
-// directamente en Python (COLORES dict). Ver modelo.qmd §COLORES.
+//  Barra de track del slider (rect con clase "bg")
+//  Plotly escucha style inline — lo mejor es setear los colores
+//  directamente en Python (COLORES dict). Ver modelo.qmd §COLORES.
 
 // ── §14.3  Card de descripción del modelo ───────────────────────
 
@@ -865,6 +855,7 @@ body {
 // .callout-note y .callout-important ya están estilizados globalmente;
 // aquí solo añadimos la clase auxiliar .callout-control para que la
 // card de texto tenga un borde izquierdo verde esmeralda si se desea.
+
 .callout-control {
   border-left-color: #4CAF50 !important;
 }
@@ -924,7 +915,6 @@ body {
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
   box-sizing: border-box;
-
   padding:       1.8rem 3.5rem; 
   background:    linear-gradient(90deg,
                    rgba(2,11,24,0.0)  0%,
@@ -1061,10 +1051,8 @@ body {
     border:           none        !important;
     box-shadow:       none        !important;
     backdrop-filter:  none        !important;
-    
     // 2. ESTO ELIMINA LA BARRA INFERIOR: Evita que Quarto genere scrollbars
-    overflow:         visible     !important; 
-
+    overflow:         visible     !important;
     &::before { display: none !important; }
 
     &:hover {
@@ -1076,7 +1064,6 @@ body {
   > .bslib-card .card-body,
   > .card .card-body {
     padding: 0 !important;
-    
     // 3. Forzamos a que el contenedor interno actúe como Flexbox
     // Esto ayuda a alinear el párrafo invisible que inyecta Markdown
     display: flex !important;
@@ -1115,7 +1102,8 @@ body {
 
   // Título del footer (Clase nativa de Quarto)
   .footer-title {
-    display: block !important; // Fuerza el comportamiento de título
+    display: block !important;
+    // Fuerza el comportamiento de título
     font-family: $ff-display !important;
     font-size: 1.4rem !important;
     font-weight: 700 !important;
@@ -1157,19 +1145,19 @@ body {
     .footer-title { font-size: 2rem !important; }
     
     a {
-      display: block; 
+      display: block;
       margin: 0.8rem 0;
       border-bottom: none;
     }
   }
 }
+
 // ================================================================
 //  §19  BALLENA GRIS — Mapa interactivo de Baja California
 //  Añade este bloque al final de custom.scss
 //  Acento: verde-teal ($cons / $success) para OdL
 //          ámbar ($warning) para San Ignacio
 // ================================================================
-
 
 // ── §19.1  Card de descripción del modelo de ballena ─────────────
 
@@ -1224,9 +1212,9 @@ body {
     tr:last-child td { border-bottom: none; }
 
     // Colorea semánticamente las filas de la tabla
-    tr:nth-child(1) td:first-child { color: $success;  }  // sustentable
-    tr:nth-child(2) td:first-child { color: $warning;  }  // alerta
-    tr:nth-child(3) td:first-child { color: $danger;   }  // riesgo
+    tr:nth-child(1) td:first-child { color: $success; }  // sustentable
+    tr:nth-child(2) td:first-child { color: $warning; }  // alerta
+    tr:nth-child(3) td:first-child { color: $danger; }  // riesgo
   }
 }
 
@@ -1292,7 +1280,6 @@ body {
 // ── §19.4  Fila contenedora de la sección ballena ────────────────
 //  Añade un separador visual superior para distinguir la sección
 //  del mapa de las secciones de modelo Ricker anteriores.
-
 #seccion-ballena {
   border-top: 1px solid rgba(0, 255, 231, 0.14);
   padding-top: 0.5rem;
@@ -1302,7 +1289,6 @@ body {
 // ── §19.5  Valueboxes de parámetros MCMC — ballena ───────────────
 //  Reutiliza .valuebox-param (ya definido en §14.6) pero añade
 //  un acento de color para la sección de ballenas si se necesita.
-
 .valuebox-ballena {
 
   // Valor numérico ligeramente más pequeño (parámetros con decimales)
