@@ -1265,16 +1265,7 @@ def hacer_figura(res):
         hovertemplate='%{x}: %{y:.3f}<extra>Mediana H</extra>',
     ), row=1, col=1)
  
-    # Histórico observado H
-    fig.add_trace(go.Scatter(
-        x=años_o, y=list(H_OBS),
-        mode='markers',
-        marker=dict(color=BIOLUM, size=5, opacity=0.80,
-                    line=dict(color=AX, width=0.8)),
-        name='Observado H',
-        hovertemplate='%{x}: %{y:.3f}<extra>Observado</extra>',
-    ), row=1, col=1)
- 
+
     # ── Panel P ──────────────────────────────────────────────────────────────
  
  
@@ -1287,15 +1278,7 @@ def hacer_figura(res):
         hovertemplate='%{x}: %{y:.3f}<extra>Mediana P</extra>',
     ), row=2, col=1)
  
-    # Histórico observado P
-    fig.add_trace(go.Scatter(
-        x=años_o, y=list(P_OBS),
-        mode='markers',
-        marker=dict(color=FOAM, size=5, opacity=0.80,
-                    line=dict(color=AX, width=0.8)),
-        name='Observado P',
-        hovertemplate='%{x}: %{y:.3f}<extra>Observado</extra>',
-    ), row=2, col=1)
+
  
     # ── Líneas verticales de intervención ────────────────────────────────────
     for row in (1, 2):
