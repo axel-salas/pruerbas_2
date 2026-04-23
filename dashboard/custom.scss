@@ -1082,14 +1082,14 @@ body {
   // ── Tipografía (Tamaño Duplicado) ──
   color: $text-main;
   font-family: $ff-body;
-  font-size: 1.7rem !important;
+  font-size: .85rem !important;
   line-height: 1.6;
 
   // Título del footer (Clase nativa de Quarto)
   .footer-title {
     display: block !important; // Fuerza el comportamiento de título
     font-family: $ff-display !important;
-    font-size: 2.8rem !important;
+    font-size: 1.4rem !important;
     font-weight: 700 !important;
     color: $biolum !important;
     margin-bottom: 1.5rem !important;
