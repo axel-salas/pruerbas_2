@@ -1901,17 +1901,20 @@ def hacer_figura(res):
         plot_bgcolor=AX,
         paper_bgcolor=BG,
         font=dict(color=TX, family='Arial, sans-serif', size=11),
-        height=800, # Aumenté un poco la altura para que quepa el reproductor
-        margin=dict(t=110, b=150, l=70, r=20),
+        height=850, # 1. Un poco más de altura general
+        margin=dict(t=130, b=200, l=70, r=20), # 2. Aumentamos el margen inferior (b) y superior (t)
         hovermode='x unified',
         legend=dict(
-            orientation='h', x=0.0, y=-0.08,
+            orientation='h', 
+            x=0.0, y=1.06, # 3. ¡Leyenda arriba! Para no estorbar al slider
+            yanchor="bottom",
             bgcolor='rgba(26,29,39,0.85)', bordercolor=GR, font=dict(size=10),
         ),
         # Controles de animación
         updatemenus=[dict(
             type="buttons", showactive=False,
-            y=-0.20, x=0.0, xanchor="left", yanchor="top",
+            x=0.0, y=-0.18, # 4. Bajamos los botones por debajo del título del eje X
+            xanchor="left", yanchor="top",
             buttons=[
                 dict(label="▶ Reproducir", method="animate",
                      args=[None, dict(frame=dict(duration=50, redraw=False), 
@@ -1921,27 +1924,22 @@ def hacer_figura(res):
             ]
         )],
         sliders=[dict(
-                    active=0,
-                    yanchor="top",
-                    xanchor="left",
-                    currentvalue=dict(
-                        font=dict(size=14, color=TX), 
-                        prefix="Año: ", 
-                        visible=True, 
-                        xanchor="right"
-                    ),
-                    transition=dict(duration=0),
-                    pad=dict(b=10, t=50), # Más espacio superior para que no choque con la gráfica
-                    len=0.9, 
-                    x=0.05, 
-                    y=0, # Ajustado para que no se salga del lienzo
-                    steps=[dict(
-                        args=[[str(año)], dict(frame=dict(duration=0, redraw=False), mode="immediate", transition=dict(duration=0))],
-                        # ESTO ES LO IMPORTANTE: 
-                        # Solo ponemos el número si es múltiplo de 10, si no, dejamos vacío ""
-                        label=str(año) if año % 10 == 0 else "", 
-                        method="animate"
-                    ) for año in años_l]
+            active=0,
+            yanchor="top", xanchor="left",
+            currentvalue=dict(
+                font=dict(size=14, color=TX), 
+                prefix="Año: ", visible=True, xanchor="right"
+            ),
+            transition=dict(duration=0),
+            pad=dict(b=0, t=0), 
+            len=0.75, # Hacemos el slider ligeramente más corto
+            x=0.25, # Lo empezamos más a la derecha para que no choque con los botones
+            y=-0.18, # 5. Exactamente en la misma línea (y) que los botones
+            steps=[dict(
+                args=[[str(año)], dict(frame=dict(duration=0, redraw=False), mode="immediate", transition=dict(duration=0))],
+                label=str(año) if año % 10 == 0 else "", 
+                method="animate"
+            ) for año in años_l]
         )]
     )
 
