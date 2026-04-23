@@ -11,4 +11,5 @@ dependencies = [
     "pandas>=3.0.2",
     "plotly>=6.7.0",
     "quarto-cli>=1.9.37",
+    "spicy>=0.16.0",
 ]
