@@ -2199,9 +2199,9 @@ El escenario inercial es devastador, pero la posibilidad de cambio tiene tanto r
 ## Row {height="auto" .divider-row}
 
 ::: {.dashboard-footer}
-## Información Adicional y Referencias
+## ⚓ Información Adicional y Créditos
 
-**Dashboard ODS 14: Vida Submarina** Desarrollado con [Quarto](https://quarto.org)
+**Dashboard ODS 14: Vida Submarina** Desarrollado con [Quarto](https://quarto.org) y mucho café.  
 Datos recopilados por el equipo de investigación marina.
 
 [Repositorio de GitHub](#) | [Metodología](#) | [Contacto](#)
