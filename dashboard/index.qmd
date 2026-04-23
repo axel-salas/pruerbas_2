@@ -631,23 +631,26 @@ Gráfica interactiva con sliders — Modelo de Ricker Baja California
 Versión Quarto / GitHub con carga correcta del JSON precomputado.
 Estilo: Tema ODS 14 · Vida Submarina
 """
- 
+
 import os
 import json
 import numpy as np
+import pandas as pd
 import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+from scipy.stats import beta as beta_dist
 import warnings
 warnings.filterwarnings('ignore')
- 
-# ── 1. CARGA DEL CACHÉ ───────────────────────────────────────────────────────
- 
+
+# ── 1. CARGA DEL CACHÉ (Modelo Ricker) ──────────────────────────────────────
+
 PATH_CACHE = '../datos/cache_modelo/cache_escenarios.json'
 if not os.path.exists(PATH_CACHE):
     raise FileNotFoundError(f"No se encontró el archivo de caché en: {PATH_CACHE}")
- 
+
 with open(PATH_CACHE, 'r') as f:
     datos_crudos = json.load(f)
- 
+
 CACHE = {}
 for k, v in datos_crudos.items():
     try:
@@ -656,9 +659,9 @@ for k, v in datos_crudos.items():
         CACHE[key] = v
     except ValueError:
         continue
- 
-# ── 2. DATOS Y CONSTANTES ────────────────────────────────────────────────────
- 
+
+# ── 2. DATOS Y CONSTANTES (Modelo Ricker) ───────────────────────────────────
+
 H_OBS = [
     0.3955, 0.2110, 0.1324, 0.2965, 0.1371, 0.7856, 0.6301, 0.7755,
     0.1915, 0.2478, 0.1508, 0.0019, 0.7141, 1.0000, 0.3317, 0.5094,
@@ -671,37 +674,79 @@ P_OBS = [
     0.1241, 0.1882, 0.3972, 0.6336, 0.5479, 0.6653, 0.5310, 0.7614,
     0.7429, 1.0000,
 ]
- 
-T_PROJ   = 100
-AÑO_INI  = 1999
+
+T_PROJ    = 100
+AÑO_INI   = 1999
 AÑOS_FULL = list(range(AÑO_INI, AÑO_INI + T_PROJ))
 AÑOS_OBS  = list(AÑOS_FULL[:len(H_OBS)])
- 
+
 GRID_A  = [0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00]
 GRID_F  = [0.20, 0.40, 0.60, 0.80, 1.00, 1.20, 1.40, 1.60, 1.80, 2.00]
 GRID_YR = [2025, 2027, 2030, 2032, 2035, 2037, 2040]
- 
+
 # ── 3. PALETA ODS 14 — Vida Submarina ────────────────────────────────────────
- 
+#
+#  FUENTE DE VERDAD de todos los colores usados en Plotly.
+#  Ningún color hexadecimal debe aparecer fuera de este bloque
+#  (excepción: transparencias rgba derivadas con _rgba() abajo).
+#
+#  Tipografías también centralizadas aquí para no repetirlas
+#  en cada dict(font=...) a lo largo del código.
+
 C = {
-    'bg':     '#020b18',               # $abyss
-    'ax':     '#041e35',               # $deep
-    'grid':   'rgba(93,214,240,0.12)', # grilla suave
-    'border': 'rgba(93,214,240,0.22)', # $glass-border
-    'text':   '#cce8f4',               # $text-main
-    'muted':  '#7ab4cc',               # $text-muted-c
-    'biolum': '#00ffe7',               # $biolum
-    'foam':   '#5dd6f0',               # $foam
-    'wave':   '#1278b0',               # $wave
-    'reef':   '#1ba3c6',               # $reef
-    'cons':   '#2a9d8f',               # $success / conservación
-    'cons2':  '#00d4c8',               # $biolum2
-    'iner':   '#f4a261',               # $warning / inercial (contraste)
-    'ann_bg': 'rgba(4,30,53,0.88)',    # fondo anotaciones
+    # Fondos y estructura
+    'bg':      '#020b18',               # $abyss
+    'ax':      '#041e35',               # $deep
+    'mid':     '#063052',               # $midnight  (lagos en el mapa geo)
+    'grid':    'rgba(93,214,240,0.12)', # grilla suave
+    'border':  'rgba(93,214,240,0.22)', # $glass-border
+    'ann_bg':  'rgba(4,30,53,0.88)',    # fondo anotaciones Plotly
+    # Texto
+    'text':    '#cce8f4',               # $text-main
+    'muted':   '#7ab4cc',               # $text-muted-c
+    # Acento principal
+    'biolum':  '#00ffe7',               # $biolum
+    'biolum_t':'rgba(0,255,231,0.35)',  # $biolum translúcido (línea vline)
+    'biolum_s':'rgba(0,255,231,0.28)',  # $biolum muy suave (corte histórico)
+    'foam':    '#5dd6f0',               # $foam
+    # Paleta semántica
+    'wave':    '#1278b0',               # $wave  / $primary
+    'reef':    '#1ba3c6',               # $reef  / $secondary
+    'cons':    '#2a9d8f',               # $success / conservación
+    'cons2':   '#00d4c8',               # $biolum2
+    'iner':    '#f4a261',               # $warning / inercial / San Ignacio
+    'danger':  '#c62828',               # $danger  / presión alta
+    # Colores específicos de Ballena Gris
+    'odl':     '#1DB38A',               # Ojo de Liebre — verde-teal
+    'si':      '#f4a261',               # San Ignacio   — ámbar (≡ $warning)
+    # Geo base (mapa Plotly)
+    'geo_land':  '#041e35',             # $deep
+    'geo_ocean': '#020b18',             # $abyss
+    'geo_lake':  '#063052',             # $midnight
+    'geo_river': '#1278b0',             # $wave
+    'geo_coast': '#5dd6f0',             # $foam
+    'geo_cntry': 'rgba(93,214,240,0.25)',
+    'geo_sub':   'rgba(93,214,240,0.15)',
+    # Tipografías (evitan repetir strings en cada dict font)
+    'ff_body':    'DM Sans, Arial, sans-serif',
+    'ff_display': 'Playfair Display, Georgia, serif',
+    'ff_mono':    'Space Mono, monospace',
 }
- 
-# ── 4. HELPER ────────────────────────────────────────────────────────────────
- 
+
+
+def _rgba(hex_color, alpha):
+    """
+    Convierte un hex '#rrggbb' del diccionario C a 'rgba(r,g,b,alpha)'.
+    Úsalo para generar variantes translúcidas de colores de C sin
+    hardcodear ningún valor numérico fuera de este módulo.
+    """
+    h = hex_color.lstrip('#')
+    r, g, b = int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+    return f'rgba({r},{g},{b},{alpha})'
+
+
+# ── 4. HELPERS MODELO RICKER ─────────────────────────────────────────────────
+
 def ganancia(d, var):
     """Diferencia % entre proyectado y corrida inercial (últimos 10 años)."""
     dk = 'Hc' if var == 'H' else 'Pc'
@@ -715,52 +760,48 @@ def ganancia(d, var):
         f"Inercial: {hi_fin:.3f} &nbsp;|&nbsp; "
         f"Diferencia: <b>{signo}{g:.1f} %</b>"
     )
- 
- 
+
+
 def _get(key):
     """Recupera entrada del caché con manejo seguro."""
     if key not in CACHE:
         raise KeyError(f"Clave no encontrada en caché: {key}")
     return CACHE[key]
- 
- 
-# ── 5. FUNCIÓN PRINCIPAL ──────────────────────────────────────────────────────
- 
+
+
+# ── 5. FUNCIÓN PRINCIPAL MODELO RICKER ───────────────────────────────────────
+
 def construir_figura(variable='H'):
     es_H = variable == 'H'
- 
-    # Colores según variable
+
     col_cons = C['cons']  if es_H else C['cons2']
     col_iner = C['wave']  if es_H else C['reef']
     obs_data = H_OBS      if es_H else P_OBS
     dk = 'Hc' if es_H else 'Pc'
     di = 'Hi' if es_H else 'Pi'
- 
+
     titulo = ('H — Biodiversidad marina (presa)'
               if es_H else 'P — Flota pesquera (depredador)')
     ytit   = 'H normalizado' if es_H else 'P normalizado'
- 
-    # Estado base
-    IDX_BASE = 4                                 # índice del 100 % en GRID_A y GRID_F
-    fa0  = GRID_A[IDX_BASE]                      # 1.00
-    ff0  = GRID_F[IDX_BASE]                      # 1.00
-    yr0  = GRID_YR[2]                            # 2030
+
+    IDX_BASE = 4
+    fa0  = GRID_A[IDX_BASE]
+    ff0  = GRID_F[IDX_BASE]
+    yr0  = GRID_YR[2]
     key0 = (round(fa0, 2), round(ff0, 2), yr0)
     d0   = _get(key0)
- 
-    # ── Figura base ───────────────────────────────────────────────────────────
+
     fig = go.Figure()
- 
-    # Datos observados (marcadores bioluminiscentes)
+
     fig.add_trace(go.Scatter(
         x=AÑOS_OBS, y=obs_data,
         mode='markers',
-        marker=dict(color='rgba(0,0,0,0)',size=0),
+        marker=dict(color=C['biolum'], size=5, opacity=0.80,
+                    line=dict(color=C['ax'], width=0.8)),
         name='Histórico observado',
         hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Observado</extra>',
     ))
- 
-    # Corrida inercial (línea punteada)
+
     fig.add_trace(go.Scatter(
         x=AÑOS_FULL, y=d0[di]['med'],
         mode='lines',
@@ -768,8 +809,7 @@ def construir_figura(variable='H'):
         name='Inercial (100 % presión)',
         hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Inercial</extra>',
     ))
- 
-    # Escenario proyectado (línea sólida)
+
     fig.add_trace(go.Scatter(
         x=AÑOS_FULL, y=d0[dk]['med'],
         mode='lines',
@@ -777,29 +817,25 @@ def construir_figura(variable='H'):
         name='Escenario proyectado',
         hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Proyección</extra>',
     ))
- 
-    # Línea de intervención base
+
     fig.add_vline(
         x=yr0,
-        line=dict(color='rgba(0,255,231,0.35)', width=1.5, dash='dot'),
+        line=dict(color=C['biolum_t'], width=1.5, dash='dot'),
         annotation=dict(
             text='Año de intervención',
-            font=dict(color=C['muted'], size=10,
-                      family='DM Sans, Arial, sans-serif'),
+            font=dict(color=C['muted'], size=10, family=C['ff_body']),
             showarrow=False,
             yref='paper', y=1.03,
             xanchor='left',
         ),
     )
- 
-    # ── Anotación de resultado inicial ───────────────────────────────────────
+
     ann_resultado = dict(
         xref='paper', yref='paper',
         x=0.01, y=0.97,
         xanchor='left', yanchor='top',
         text=f"<b>RESULTADO DEL ESCENARIO:</b><br>{ganancia(d0, variable)}",
-        font=dict(color=C['text'], size=11,
-                  family='DM Sans, Arial, sans-serif'),
+        font=dict(color=C['text'], size=11, family=C['ff_body']),
         showarrow=False,
         bgcolor=C['ann_bg'],
         bordercolor=C['border'],
@@ -811,17 +847,19 @@ def construir_figura(variable='H'):
         xref='paper', yref='paper',
         x=0.99, y=0.98,
         xanchor='right', yanchor='top',
-        text="<span style='color:#7ab4cc;font-size:11px;'>"
+        # El span de color inline es el único mecanismo de Plotly para
+        # colorear texto dentro de un título/anotación SVG; el valor
+        # viene siempre de C, nunca hardcodeado.
+        text=f"<span style='color:{C['muted']};font-size:11px;'>"
              "Trayectorias de posibles futuros</span>",
-        font=dict(color=C['text'], size=11),
+        font=dict(color=C['text'], size=11, family=C['ff_body']),
         showarrow=False,
         bgcolor=C['ann_bg'],
         bordercolor=C['border'],
         borderwidth=1,
         borderpad=7,
     )
- 
-    # ── Frames para sliders ───────────────────────────────────────────────────
+
     frames = []
     for fa in GRID_A:
         for ff in GRID_F:
@@ -841,8 +879,7 @@ def construir_figura(variable='H'):
                         shapes=[dict(
                             type='line', x0=yr, x1=yr, y0=0, y1=1,
                             xref='x', yref='paper',
-                            line=dict(color='rgba(0,255,231,0.35)',
-                                      width=1.5, dash='dot'),
+                            line=dict(color=C['biolum_t'], width=1.5, dash='dot'),
                         )],
                         annotations=[
                             dict(
@@ -852,7 +889,7 @@ def construir_figura(variable='H'):
                                 text=f"<b>RESULTADO DEL ESCENARIO:</b><br>"
                                      f"{ganancia(d, variable)}",
                                 font=dict(color=C['text'], size=11,
-                                          family='DM Sans, Arial, sans-serif'),
+                                          family=C['ff_body']),
                                 showarrow=False,
                                 bgcolor=C['ann_bg'],
                                 bordercolor=C['border'],
@@ -865,11 +902,8 @@ def construir_figura(variable='H'):
                     ),
                 ))
     fig.frames = frames
- 
-    # ── Sliders ───────────────────────────────────────────────────────────────
- 
+
     def _slider(label_prefix, grid, param, active_idx):
-        """Construye un dict de slider para un parámetro dado."""
         steps = []
         for val in grid:
             if param == 'a':
@@ -878,7 +912,7 @@ def construir_figura(variable='H'):
             elif param == 'f':
                 name = f"{GRID_A[IDX_BASE]:.2f}_{val:.2f}_{yr0}"
                 lbl  = f"{int(val * 100)} %"
-            else:  # yr
+            else:
                 name = f"{GRID_A[IDX_BASE]:.2f}_{GRID_F[IDX_BASE]:.2f}_{int(val)}"
                 lbl  = str(int(val))
             steps.append(dict(
@@ -893,8 +927,7 @@ def construir_figura(variable='H'):
             steps=steps,
             currentvalue=dict(
                 prefix=label_prefix,
-                font=dict(color=C['text'], size=11,
-                          family='DM Sans, Arial, sans-serif'),
+                font=dict(color=C['text'], size=11, family=C['ff_body']),
                 xanchor='left',
             ),
             pad=dict(t=12),
@@ -902,33 +935,30 @@ def construir_figura(variable='H'):
             bgcolor=C['ax'],
             bordercolor=C['border'],
             tickcolor=C['muted'],
-            font=dict(color=C['text'], size=10),
+            font=dict(color=C['text'], size=10, family=C['ff_body']),
         )
- 
+
     sliders_cfg = []
     if es_H:
         sliders_cfg.append(_slider('Factor presión pesquera (a): ', GRID_A, 'a', IDX_BASE))
     else:
         sliders_cfg.append(_slider('Factor crec. flota (f): ', GRID_F, 'f', IDX_BASE))
     sliders_cfg.append(_slider('Año de intervención: ', GRID_YR, 'yr', 2))
- 
-    # Posición vertical de cada slider
+
     final_sliders = []
     for i, s in enumerate(sliders_cfg):
         s['y'] = -0.15 - i * 0.20
         final_sliders.append(s)
- 
-    # ── Layout ────────────────────────────────────────────────────────────────
+
     fig.update_layout(
         title=dict(
             text=titulo,
-            font=dict(color=C['foam'], size=16,
-                      family='Playfair Display, Georgia, serif'),
+            font=dict(color=C['foam'], size=16, family=C['ff_display']),
             x=0.5, xanchor='center',
         ),
         plot_bgcolor=C['ax'],
         paper_bgcolor=C['bg'],
-        font=dict(color=C['text'], family='DM Sans, Arial, sans-serif'),
+        font=dict(color=C['text'], family=C['ff_body']),
         xaxis=dict(
             title='Año',
             title_font=dict(color=C['muted'], size=11),
@@ -949,7 +979,7 @@ def construir_figura(variable='H'):
             bgcolor=C['ann_bg'],
             bordercolor=C['border'],
             borderwidth=1,
-            font=dict(color=C['text'], size=11),
+            font=dict(color=C['text'], size=11, family=C['ff_body']),
             orientation='h',
             y=1.09, x=0.0,
         ),
@@ -959,7 +989,511 @@ def construir_figura(variable='H'):
         height=780,
         hovermode='x unified',
     )
- 
+
+    return fig
+
+
+# ── 6. DATOS Y FUNCIONES — MAPA BALLENA GRIS ─────────────────────────────────
+
+# Parámetros del modelo (medianas posteriores MCMC)
+ALPHA1_BASE = 0.03253
+ALPHA2      = 0.01159
+LAMBDA      = 0.04944
+B_NATAL     = 0.42
+P_OdL       = 0.70
+P_SI        = 0.14
+P_MUE_RUTA  = 0.16
+P_12        = 0.45
+PI_LLEGADA  = P_OdL / (P_OdL + P_SI)
+PI_EXP      = PI_LLEGADA * (1 - LAMBDA) + 0.5 * LAMBDA
+
+_data_obs_ballena = {
+    'temporada': list(range(1995, 2024)),
+    'odl': [1237,1569,1461,750,721,714,1198,1175,2011,1960,
+            1931,924,1092,929,573,1482,2721,1321,2107,2305,
+            2211,1573,1681,830,839,1231,948,1246,758],
+    'si':  [758,379,282,237,220,166,256,245,267,235,
+            288,205,248,302,208,376,347,392,312,364,
+            320,278,198,233,130,151,178,272,125],
+}
+df_obs_ballena = pd.DataFrame(_data_obs_ballena)
+N_INIT_BALLENA = int(df_obs_ballena['odl'].iloc[0] + df_obs_ballena['si'].iloc[0])
+
+SITIOS_BALLENA = {
+    'odl': {'lat': 27.80, 'lon': -114.10,
+            'nombre': 'Laguna Ojo de Liebre',
+            'desc': 'Principal área de reproducción'},
+    'si':  {'lat': 26.70, 'lon': -113.20,
+            'nombre': 'Laguna San Ignacio',
+            'desc': 'Área de reproducción'},
+}
+ZONA_CTR_LAT = 26.2
+ZONA_CTR_LON = -113.8
+
+
+def _simular_cadena_ballena(N_init, T_sim, alpha1_proyectado,
+                             alpha1_hist=ALPHA1_BASE, ano_cambio=2030,
+                             anos_inicio=1995, seed=None):
+    if seed is not None:
+        np.random.seed(seed)
+    n_odl    = np.zeros(T_sim)
+    n_si     = np.zeros(T_sim)
+    n_odl[0] = N_init * PI_EXP
+    n_si[0]  = N_init * (1 - PI_EXP)
+    for t in range(T_sim - 1):
+        ano_actual = anos_inicio + t
+        a1_actual  = alpha1_hist if ano_actual < ano_cambio else alpha1_proyectado
+        H_odl, H_si = n_odl[t], n_si[t]
+        N_t    = H_odl + H_si
+        H_odl += B_NATAL * (N_t / 2) * PI_EXP
+        H_si  += B_NATAL * (N_t / 2) * (1 - PI_EXP)
+        H_odl -= H_odl * a1_actual
+        H_si  -= H_si  * a1_actual
+        odl2si = H_odl * P_12
+        si2odl = H_si  * P_12
+        H_odl  = H_odl - odl2si + si2odl
+        H_si   = H_si  - si2odl + odl2si
+        en_ruta  = (H_odl + H_si) * (1 - ALPHA2)
+        regresan = en_ruta * (1 - P_MUE_RUTA)
+        n_odl[t+1] = regresan * PI_EXP
+        n_si[t+1]  = regresan * (1 - PI_EXP)
+    return pd.DataFrame({
+        'temporada': [anos_inicio + t for t in range(T_sim)],
+        'n_odl': n_odl,
+        'n_si':  n_si,
+    })
+
+
+def _ensemble_ballena(alpha1_proy, T_sim=75, N_ens=200, anos_inicio=1995):
+    np.random.seed(42)
+    factor   = alpha1_proy / ALPHA1_BASE
+    a1s_proy = np.clip(beta_dist.rvs(2.5, 74.0, size=N_ens) * factor, 1e-4, 0.98)
+    odls     = np.zeros((N_ens, T_sim))
+    sis      = np.zeros((N_ens, T_sim))
+    for i in range(N_ens):
+        df = _simular_cadena_ballena(N_INIT_BALLENA, T_sim, a1s_proy[i],
+                                     anos_inicio=anos_inicio, seed=i)
+        odls[i] = df['n_odl'].values
+        sis[i]  = df['n_si'].values
+    anos = np.array([anos_inicio + t for t in range(T_sim)])
+    return {
+        'anos':    anos,
+        'odl_med': np.median(odls, axis=0),
+        'odl_q5':  np.percentile(odls,  5, axis=0),
+        'odl_q95': np.percentile(odls, 95, axis=0),
+        'si_med':  np.median(sis,  axis=0),
+        'si_q5':   np.percentile(sis,   5, axis=0),
+        'si_q95':  np.percentile(sis,  95, axis=0),
+    }
+
+
+# ── 6a. PRE-CÓMPUTO DEL CACHÉ DE BALLENAS ────────────────────────────────────
+
+_NIVELES_A1_BALLENA   = [0.0001, 0.005, 0.01, 0.033, 0.06]
+_CACHE_BALLENA        = {round(a1, 4): _ensemble_ballena(a1, T_sim=75, N_ens=200)
+                         for a1 in _NIVELES_A1_BALLENA}
+_ALPHA1_RANGO_BALLENA = np.linspace(0.0001, 0.06, 61)
+
+
+def _interpolar_ballena(alpha1):
+    keys = sorted(_CACHE_BALLENA.keys())
+    if alpha1 <= keys[0]:  return _CACHE_BALLENA[keys[0]]
+    if alpha1 >= keys[-1]: return _CACHE_BALLENA[keys[-1]]
+    for i in range(len(keys) - 1):
+        if keys[i] <= alpha1 <= keys[i + 1]:
+            t  = (alpha1 - keys[i]) / (keys[i + 1] - keys[i])
+            lo, hi = _CACHE_BALLENA[keys[i]], _CACHE_BALLENA[keys[i + 1]]
+            return {k: lo[k] + t * (hi[k] - lo[k]) if isinstance(lo[k], np.ndarray)
+                    else lo[k] for k in lo}
+    return _CACHE_BALLENA[keys[-1]]
+
+
+# ── 6b. COLOR DE PRESIÓN ─────────────────────────────────────────────────────
+#
+#  Interpolación RGB entre los tres colores semánticos de C.
+#  Los valores numéricos se extraen de C con _rgba(); el único
+#  "hardcode" son los umbrales de alpha1 (0.0001, 0.01, 0.06),
+#  que son constantes de dominio del modelo, no de estilo.
+
+def _color_presion(alpha1):
+    """
+    Devuelve un color rgba interpolado entre:
+      C['cons']  (verde-teal, sustentable)  →
+      C['iner']  (ámbar, alerta)            →
+      C['danger'] (rojo, extinción)
+    """
+    def _hex_to_rgb(h):
+        h = h.lstrip('#')
+        return int(h[0:2], 16), int(h[2:4], 16), int(h[4:6], 16)
+
+    r_cons,   g_cons,   b_cons   = _hex_to_rgb(C['cons'])
+    r_iner,   g_iner,   b_iner   = _hex_to_rgb(C['iner'])
+    r_danger, g_danger, b_danger = _hex_to_rgb(C['danger'])
+
+    if alpha1 <= 0.01:
+        t = max(0.0, min(1.0, (alpha1 - 0.0001) / (0.01 - 0.0001)))
+        r = int(r_cons + t * (r_iner - r_cons))
+        g = int(g_cons + t * (g_iner - g_cons))
+        b = int(b_cons + t * (b_iner - b_cons))
+    else:
+        t = max(0.0, min(1.0, (alpha1 - 0.01) / (0.06 - 0.01)))
+        r = int(r_iner + t * (r_danger - r_iner))
+        g = int(g_iner + t * (g_danger - g_iner))
+        b = int(b_iner + t * (b_danger - b_iner))
+
+    pn    = max(0.0, min(1.0, (alpha1 - 0.0001) / (0.06 - 0.0001)))
+    alpha = 0.20 + 0.40 * pn
+    return f'rgba({r},{g},{b},{alpha:.2f})'
+
+
+# ── 6c. CONSTRUCTOR DEL MAPA BALLENA GRIS ────────────────────────────────────
+
+def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
+    """
+    Figura Plotly con mapa geográfico + serie temporal.
+    Todos los colores provienen de C; todos los fonts de C['ff_*'].
+    """
+    pn    = max(0.0, min(1.0, (alpha1 - 0.033) / (0.18 - 0.033)))
+    radio = 1.2 + pn * 2.2
+    theta    = np.linspace(0, 2 * np.pi, 60)
+    circ_lat = ZONA_CTR_LAT + radio * 0.7 * np.sin(theta)
+    circ_lon = ZONA_CTR_LON + radio       * np.cos(theta)
+
+    anos    = datos['anos']
+    idx_obs = anos <= ano_corte
+    idx_fut = anos >= ano_corte
+
+    idx_last = np.searchsorted(anos, ano_corte + 38)
+    odl_last = max(datos['odl_med'][idx_last], 50)
+    si_last  = max(datos['si_med'][idx_last],  50)
+    max_n    = max(odl_last, si_last)
+
+    es_sustentable = alpha1 <= 0.01
+    nivel_lbl      = 'Sustentabilidad' if es_sustentable else 'Extinción'
+    color_etq      = C['cons'] if es_sustentable else C['danger']
+
+    fig = make_subplots(
+        rows=1, cols=2,
+        column_widths=[0.52, 0.48],
+        specs=[[{'type': 'geo'}, {'type': 'xy'}]],
+        subplot_titles=[
+            'Zonas de reproducción — Baja California',
+            'Tendencia poblacional (1995–2068)',
+        ],
+    )
+
+    # ── Mancha de presión pesquera ──
+    fig.add_trace(go.Scattergeo(
+        lat=circ_lat, lon=circ_lon,
+        fill='toself',
+        fillcolor=_color_presion(alpha1),
+        line=dict(width=0),
+        mode='lines',
+        name='Zona de presión pesquera',
+        hovertemplate=(
+            '<b>Zona de presión pesquera</b><br>'
+            f'Nivel: <b>{nivel_lbl}</b><br>'
+            f'α₁ = {alpha1:.4f}'
+            '<extra></extra>'
+        ),
+    ), row=1, col=1)
+
+    # Etiqueta semántica del nivel de presión
+    fig.add_trace(go.Scattergeo(
+        lat=[ZONA_CTR_LAT - radio * 0.7 - 0.6],
+        lon=[ZONA_CTR_LON],
+        mode='text',
+        text=[nivel_lbl],
+        textfont=dict(size=11, color=color_etq, family=C['ff_display']),
+        showlegend=False,
+        hoverinfo='skip',
+    ), row=1, col=1)
+
+    # ── Burbujas de lagunas ──
+    # Las variantes de opacidad se derivan de C['odl'] y C['si'] con _rgba()
+    for key, n_last, col_base in [
+        ('odl', odl_last, C['odl']),
+        ('si',  si_last,  C['si']),
+    ]:
+        s          = SITIOS_BALLENA[key]
+        r_burbuja  = 10 + 28 * (n_last / max_n)
+        fig.add_trace(go.Scattergeo(
+            lat=[s['lat']], lon=[s['lon']],
+            mode='markers+text',
+            marker=dict(
+                size=r_burbuja,
+                color=_rgba(col_base, 0.75),
+                line=dict(color=_rgba(col_base, 1.0), width=2),
+            ),
+            text=[s['nombre']],
+            textposition='bottom center',
+            textfont=dict(size=10, color=C['text'], family=C['ff_body']),
+            name=s['nombre'],
+            hovertemplate=(
+                f"<b>{s['nombre']}</b><br>"
+                f"{s['desc']}<br>"
+                f"Estimado 2068: <b>{int(n_last):,}</b> ballenas"
+                '<extra></extra>'
+            ),
+        ), row=1, col=1)
+
+    # ── Serie temporal — bandas IC + medianas ──
+    for col_base, key_med, key_q5, key_q95, lbl in [
+        (C['odl'], 'odl_med', 'odl_q5', 'odl_q95', 'Ojo de Liebre'),
+        (C['si'],  'si_med',  'si_q5',  'si_q95',  'San Ignacio'),
+    ]:
+        # Banda IC histórica
+        fig.add_trace(go.Scatter(
+            x=np.concatenate([anos[idx_obs], anos[idx_obs][::-1]]),
+            y=np.concatenate([datos[key_q95][idx_obs],
+                               datos[key_q5][idx_obs][::-1]]),
+            fill='toself', fillcolor=_rgba(col_base, 0.13),
+            line=dict(width=0), showlegend=False, hoverinfo='skip',
+        ), row=1, col=2)
+        # Mediana histórica
+        fig.add_trace(go.Scatter(
+            x=anos[idx_obs], y=datos[key_med][idx_obs],
+            mode='lines',
+            line=dict(color=col_base, width=2.5),
+            name=lbl,
+            hovertemplate=f'%{{x}}: <b>%{{y:.0f}}</b><extra>{lbl}</extra>',
+        ), row=1, col=2)
+        # Banda IC proyección
+        fig.add_trace(go.Scatter(
+            x=np.concatenate([anos[idx_fut], anos[idx_fut][::-1]]),
+            y=np.concatenate([datos[key_q95][idx_fut],
+                               datos[key_q5][idx_fut][::-1]]),
+            fill='toself', fillcolor=_rgba(col_base, 0.06),
+            line=dict(width=0), showlegend=False, hoverinfo='skip',
+        ), row=1, col=2)
+        # Mediana proyectada
+        fig.add_trace(go.Scatter(
+            x=anos[idx_fut], y=datos[key_med][idx_fut],
+            mode='lines',
+            line=dict(color=col_base, width=2, dash='dot'),
+            showlegend=False,
+            hovertemplate=f'%{{x}}: <b>%{{y:.0f}}</b> (proy.)<extra>{lbl}</extra>',
+        ), row=1, col=2)
+
+    # Puntos censados
+    for col_base, col_data, lbl_censo in [
+        (C['odl'], df_obs_ballena['odl'], 'OdL (censo)'),
+        (C['si'],  df_obs_ballena['si'],  'SI (censo)'),
+    ]:
+        fig.add_trace(go.Scatter(
+            x=df_obs_ballena['temporada'], y=col_data,
+            mode='markers',
+            marker=dict(size=5, color=col_base,
+                        line=dict(color=C['ax'], width=0.8)),
+            name=lbl_censo,
+            hovertemplate=f'%{{x}}: <b>%{{y:,}}</b> censadas<extra>{lbl_censo}</extra>',
+        ), row=1, col=2)
+
+    # Línea de corte histórico / proyección
+    y_max_est = max(datos['odl_q95'].max(), datos['si_q95'].max()) * 1.08
+    fig.add_trace(go.Scatter(
+        x=[ano_corte, ano_corte], y=[0, y_max_est],
+        mode='lines',
+        line=dict(color=C['biolum_s'], width=1.5, dash='dash'),
+        showlegend=False, hoverinfo='skip',
+    ), row=1, col=2)
+    fig.add_annotation(
+        x=ano_corte + 0.5, y=0.97, yref='paper',
+        text='Proyección →',
+        showarrow=False,
+        font=dict(size=9, color=C['muted'], family=C['ff_body']),
+        xanchor='left',
+    )
+
+    # ── Base geográfica con paleta ODS 14 ──
+    fig.update_geos(
+        fitbounds='locations',
+        projection_scale=5,
+        center=dict(lat=27.5, lon=-114.0),
+        visible=True,
+        resolution=50,
+        showcoastlines=True,   coastlinecolor=C['geo_coast'],
+        showland=True,         landcolor=C['geo_land'],
+        showocean=True,        oceancolor=C['geo_ocean'],
+        showlakes=True,        lakecolor=C['geo_lake'],
+        showrivers=True,       rivercolor=C['geo_river'],
+        showcountries=True,    countrycolor=C['geo_cntry'],
+        showsubunits=True,     subunitcolor=C['geo_sub'],
+    )
+
+    # ── Layout global ──
+    titulo_txt = (
+        f'<b>Ballena Gris — Baja California</b>'
+        f'  |  Mortalidad en lagunas (α₁) = {alpha1:.4f}'
+        # span de color inline: único mecanismo Plotly para texto coloreado
+        # en títulos SVG; el valor de color_etq viene de C.
+        f'  |  Presión: <span style="color:{color_etq}">{nivel_lbl}</span>'
+    )
+    fig.update_layout(
+        title=dict(
+            text=titulo_txt,
+            font=dict(color=C['foam'], size=14, family=C['ff_display']),
+            x=0.01,
+        ),
+        paper_bgcolor=C['bg'],
+        plot_bgcolor=C['ax'],
+        font=dict(color=C['text'], family=C['ff_body']),
+        legend=dict(
+            bgcolor=C['ann_bg'],
+            bordercolor=C['border'],
+            borderwidth=1,
+            font=dict(color=C['text'], size=11, family=C['ff_body']),
+            x=0.53, y=0.99,
+            xanchor='left', yanchor='top',
+        ),
+        height=580,
+        margin=dict(l=10, r=10, t=60, b=220),
+    )
+    fig.update_xaxes(
+        title_text='Temporada',
+        title_font=dict(color=C['muted'], size=11),
+        tickfont=dict(color=C['muted'], size=10),
+        gridcolor=C['grid'],
+        linecolor=C['border'],
+        row=1, col=2,
+    )
+    fig.update_yaxes(
+        title_text='Número de ballenas',
+        title_font=dict(color=C['muted'], size=11),
+        tickfont=dict(color=C['muted'], size=10),
+        gridcolor=C['grid'],
+        linecolor=C['border'],
+        rangemode='nonnegative',
+        row=1, col=2,
+    )
+    # Títulos de subgráficas
+    for ann in fig.layout.annotations:
+        ann.font = dict(color=C['muted'], size=12, family=C['ff_body'])
+
+    return fig
+
+
+# ── 6d. FIGURA INTERACTIVA CON SLIDER (Ballena Gris) ────────────────────────
+
+def construir_figura_ballena():
+    """
+    Figura Plotly completa: slider continuo de α₁ + menú de escenarios.
+    Todos los colores y fonts provienen de C.
+    """
+    ESCENARIOS_BALLENA = [
+        ('Mortalidad mínima (α₁ = 0.0001)', 0.0001),
+        ('Conservación activa (α₁ = 0.005)',  0.005),
+        ('Impacto reducido (α₁ = 0.01)',      0.01),
+        ('Nivel histórico MCMC (α₁ = 0.033)', 0.033),
+        ('Presión alta (α₁ = 0.06)',           0.06),
+    ]
+
+    # Figura base con el primer valor del rango
+    datos_base = _interpolar_ballena(_ALPHA1_RANGO_BALLENA[0])
+    fig        = construir_mapa_ballena(_ALPHA1_RANGO_BALLENA[0], datos_base)
+    num_base   = len(fig.data)
+
+    # Índices de trazas por valor de α₁
+    trace_idx = {round(_ALPHA1_RANGO_BALLENA[0], 4): list(range(num_base))}
+
+    for a1 in _ALPHA1_RANGO_BALLENA[1:]:
+        datos = _interpolar_ballena(a1)
+        fig_t = construir_mapa_ballena(a1, datos)
+        idxs  = []
+        for trace in fig_t.data:
+            fig.add_trace(trace)
+            idxs.append(len(fig.data) - 1)
+        trace_idx[round(a1, 4)] = idxs
+
+    # Visibilidad inicial: solo la figura base
+    for j in range(len(fig.data)):
+        fig.data[j].visible = (j < num_base)
+
+    # ── Steps del slider ──
+    slider_steps = []
+    for a1 in _ALPHA1_RANGO_BALLENA:
+        a1r   = round(a1, 4)
+        vis   = [j in trace_idx.get(a1r, []) for j in range(len(fig.data))]
+        col   = C['cons']   if a1 <= 0.01 else C['danger']
+        lbl   = 'Sustentabilidad' if a1 <= 0.01 else 'Extinción'
+        slider_steps.append(dict(
+            args=[
+                {'visible': vis},
+                {'title.text': (
+                    f'<b>Ballena Gris — Baja California</b>'
+                    f'  |  α₁ = {a1:.4f}'
+                    f'  |  <span style="color:{col}">{lbl}</span>'
+                )},
+            ],
+            label=f'{a1:.4f}',
+            method='update',
+        ))
+
+    # ── Botones de escenarios predefinidos ──
+    buttons = []
+    for nombre, a1v in ESCENARIOS_BALLENA:
+        idx_c = int(np.argmin(np.abs(_ALPHA1_RANGO_BALLENA - a1v)))
+        a1c   = _ALPHA1_RANGO_BALLENA[idx_c]
+        vis   = [j in trace_idx.get(round(a1c, 4), []) for j in range(len(fig.data))]
+        col   = C['cons']   if a1c <= 0.01 else C['danger']
+        lbl   = 'Sustentabilidad' if a1c <= 0.01 else 'Extinción'
+        buttons.append(dict(
+            label=nombre,
+            method='update',
+            args=[
+                {'visible': vis},
+                {
+                    'title.text': (
+                        f'<b>Ballena Gris — Baja California</b>'
+                        f'  |  α₁ = {a1c:.4f}'
+                        f'  |  <span style="color:{col}">{lbl}</span>'
+                    ),
+                    'sliders[0].active': idx_c,
+                },
+            ],
+        ))
+
+    idx_ini = int(np.argmin(np.abs(_ALPHA1_RANGO_BALLENA - ALPHA1_BASE)))
+
+    fig.update_layout(
+        sliders=[dict(
+            active=idx_ini,
+            yanchor='top',
+            y=-0.08,
+            xanchor='left',
+            x=0,
+            currentvalue=dict(
+                prefix='α₁ = ',
+                visible=True,
+                xanchor='center',
+                font=dict(size=12, color=C['cons'], family=C['ff_body']),
+            ),
+            pad=dict(b=10, t=50),
+            len=0.9,
+            steps=slider_steps,
+            bgcolor=C['ax'],
+            bordercolor=C['border'],
+            tickcolor=C['muted'],
+            font=dict(color=C['text'], size=9, family=C['ff_body']),
+        )],
+        updatemenus=[dict(
+            buttons=buttons,
+            direction='down',
+            pad=dict(r=10, t=10),
+            showactive=True,
+            x=0.0,
+            xanchor='left',
+            y=1.16,
+            yanchor='top',
+            bgcolor=C['ax'],
+            bordercolor=C['border'],
+            font=dict(size=10, color=C['text'], family=C['ff_body']),
+            borderwidth=1,
+        )],
+        margin=dict(l=10, r=10, t=85, b=200),
+        height=660,
+    )
+
     return fig
 ```
 
@@ -1038,6 +1572,53 @@ display(construir_figura('H'))
 #| fig-responsive: true
 display(construir_figura('P'))
 ```
+
+## Row {#seccion-ballena height="auto"}
+
+### Column {width="25%"}
+
+::: {.card .card-ballena-desc title="Ballena Gris de Baja California"}
+La **Ballena Gris del Pacífico Oriental** (*Eschrichtius robustus*) realiza anualmente una de las migraciones más largas del reino animal, recorriendo hasta **20 000 km** desde el Ártico hasta las lagunas costeras de Baja California.
+
+**Dos lagunas clave**
+
+- **Ojo de Liebre (OdL):** principal santuario de crianza, con mayor proporción de llegadas históricas.
+- **San Ignacio (SI):** segunda laguna en importancia, con tendencias más vulnerables.
+
+**Parámetro α₁ — Mortalidad en lagunas**
+
+Este parámetro concentra la presión antrópica total en la laguna: actividad pesquera, turismo no regulado, contaminación acústica y degradación del hábitat.
+
+| Rango | Interpretación |
+|-------|---------------|
+| ≤ 0.01 | Población sustentable |
+| 0.01 – 0.033 | Zona de alerta |
+| > 0.033 | Riesgo de declive |
+
+**Modelo calibrado** con datos de censo 1995–2023 mediante inferencia bayesiana (MCMC). Los parámetros poblacionales presentados son las medianas posteriores.
+:::
+
+::: {.card .card-ballena-ctrl title="Cómo usar la gráfica"}
+Utiliza los controles interactivos para explorar el futuro de la Ballena Gris:
+
+- **Menú desplegable:** selecciona un escenario predefinido (desde conservación óptima hasta presión antrópica alta).
+- **Slider α₁:** ajusta continuamente la tasa de mortalidad en las lagunas para observar la respuesta del sistema.
+
+**El panel izquierdo** muestra las zonas de reproducción georreferenciadas en Baja California. El tamaño de cada burbuja refleja el tamaño poblacional proyectado a 2068. El **halo de presión** cambia de color — verde-teal (sustentable) a rojo — conforme aumenta α₁.
+
+**El panel derecho** muestra la serie temporal 1995–2068, con bandas de incertidumbre (IC 90 %) derivadas del ensemble estocástico (N = 200 realizaciones). La línea punteada marca el inicio de la proyección.
+:::
+
+### Column {width="75%"}
+
+::: {.card .card-ballena-grafico}
+
+```{python}
+#| fig-responsive: true
+display(construir_figura_ballena())
+```
+
+:::
 
 ## Row {height="auto" .divider-row}
 
