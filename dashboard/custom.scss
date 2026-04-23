@@ -1058,88 +1058,79 @@ body {
 }
 
 // ================================================================
-//  §18  FOOTER EXPANDIBLE (Callout Minimalista)
+//  §18  FOOTER GLOBAL (Ancho Completo y Tamaño Doble)
 // ================================================================
 
 .dashboard-footer {
-  // Lo empujamos hacia abajo y le damos un fondo abisal muy sutil
-  margin-top: 3rem !important;
-  background: rgba(2, 11, 24, 0.35) !important; // Translúcido para no robar protagonismo
-  border: 1px solid rgba(93, 214, 240, 0.12) !important;
-  border-radius: $border-radius !important;
-  backdrop-filter: blur(8px);
-  box-shadow: none !important;
-  transition: all 0.35s ease;
+  // ── Forzar ancho completo de la pantalla ──
+  width: 100vw !important;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+  max-width: 100vw;
+  box-sizing: border-box;
 
-  // Ocultamos el ícono por defecto del callout de Quarto
-  .callout-icon-container {
-    display: none !important;
+  // ── Contenedor y Fondo ──
+  margin-top: 4rem !important;
+  padding: 3.5rem 2rem !important;
+  background: linear-gradient(180deg, 
+                rgba(2, 11, 24, 0.6) 0%, 
+                rgba(4, 30, 53, 0.95) 100%) !important;
+  border-top: 1px solid $glass-border !important;
+  backdrop-filter: blur(12px);
+  text-align: center;
+
+  // ── Tipografía (Tamaño Duplicado) ──
+  color: $text-main;
+  font-family: $ff-body;
+  font-size: 1.7rem !important; // ¡Tamaño base al doble!
+  line-height: 1.6;
+
+  // Título del footer (H2 dentro del bloque)
+  h2 {
+    font-family: $ff-display !important;
+    font-size: 2.8rem !important; // Aún más grande y llamativo
+    font-weight: 700 !important;
+    color: $biolum !important;
+    margin-bottom: 1.5rem !important;
+    letter-spacing: 0.02em;
   }
 
-  // ── ESTADO COLAPSADO (Cabecera interactiva) ──
-  .callout-header {
-    background: transparent !important;
-    border-bottom: none !important;
-    padding: 0.8rem 1.2rem !important;
-
-    .callout-title-container {
-      font-family: $ff-mono !important;
-      font-size: 0.72rem !important;
-      letter-spacing: 0.16em !important;
-      text-transform: uppercase !important;
-      color: $text-muted-c !important;
-      transition: color 0.25s ease;
-      display: flex;
-      align-items: center;
-      justify-content: center; // Centrado para parecer un footer de verdad
-    }
-
-    // Efecto hover bioluminiscente antes de hacer clic
-    &:hover .callout-title-container {
-      color: $foam !important;
-    }
+  // Separación de párrafos
+  p {
+    margin-bottom: 1.2rem;
+  }
+  p:last-child {
+    margin-bottom: 0;
   }
 
-  // ── ESTADO EXPANDIDO (Atributo [open] inyectado por Quarto) ──
-  &[open] {
-    background: $glass-bg !important;
-    border-color: $glass-border !important;
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+  // Enlaces adaptados a la nueva escala
+  a {
+    color: $foam;
+    text-decoration: none;
+    border-bottom: 2px solid rgba(93, 214, 240, 0.3); // Borde más grueso
+    padding-bottom: 3px;
+    margin: 0 1rem;
+    transition: color 0.25s ease, border-color 0.25s ease;
 
-    .callout-header {
-      border-bottom: 1px solid rgba(93, 214, 240, 0.15) !important;
-      
-      .callout-title-container {
-        color: $biolum !important;
-      }
+    &:hover {
+      color: $biolum;
+      border-bottom-color: $biolum;
     }
   }
+}
 
-  // ── CONTENIDO DEL FOOTER ──
-  .callout-body-container {
-    padding: 1.8rem 1.5rem !important;
-    font-family: $ff-body !important;
-    font-size: 0.85rem !important;
-    color: $text-main !important;
-    text-align: center;
-    line-height: 1.7;
-
-    p { margin-bottom: 0.6rem; }
-    p:last-child { margin-bottom: 0; }
-
-    // Enlaces con estilo de la temática
+// ── Ajuste Responsivo para móviles ──
+@media (max-width: 768px) {
+  .dashboard-footer {
+    font-size: 1.2rem !important;
+    padding: 2.5rem 1.5rem !important;
+    
+    h2 { font-size: 2rem !important; }
+    
     a {
-      color: $foam;
-      text-decoration: none;
-      border-bottom: 1px solid rgba(93, 214, 240, 0.3);
-      padding-bottom: 1px;
-      margin: 0 0.4rem;
-      transition: color 0.2s ease, border-color 0.2s ease;
-
-      &:hover {
-        color: $biolum;
-        border-bottom-color: $biolum;
-      }
+      display: block; // Apila los enlaces en pantallas pequeñas
+      margin: 0.8rem 0;
+      border-bottom: none;
     }
   }
 }
