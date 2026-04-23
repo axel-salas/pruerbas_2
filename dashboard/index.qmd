@@ -52,22 +52,22 @@ poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
 
 ## Row {height="auto"}
 
-::: {.valuebox icon="water" color="primary"}
-**3.1 M km²**
+::: {.valuebox icon="globe" color="primary"}
+**39%**
 
-Mar territorial mexicano
+de mamíferos marinos del mundo pasan aquí
 :::
 
-::: {.valuebox icon="exclamation-triangle-fill" color="danger"}
-**~30 %**
+::: {.valuebox icon="fish" color="danger"}
+**67%**
 
-Especies marinas en riesgo global
+de la pesca nacional en este ecosistema
 :::
 
-::: {.valuebox icon="calendar-check" color="success"}
-**2030**
+::: {.valuebox icon="gauge-high" color="danger"}
+**550 000**
 
-Meta de la Agenda ODS
+toneladas extraidas en 2024 *(maximo historico)*
 :::
 
 ## Row {height="auto"}
@@ -84,9 +84,6 @@ Introducción
 :::
 ::: {.nav-card-desc}
 Contexto general del proyecto y la importancia ecológica y económica del área de estudio en Baja California.
-:::
-[Ir a Introducción →](introduccion.qmd){.nav-enlace}
-:::
 
 
 ### Column {width="20%"}
@@ -101,9 +98,6 @@ Análisis Exploratorio
 :::
 ::: {.nav-card-desc}
 Visualización de patrones históricos de ballenas, pelícanos y producción pesquera a lo largo del tiempo.
-:::
-[Ir a Análisis →](analisis.qmd){.nav-enlace}
-:::
 
 
 ### Column {width="20%"}
@@ -118,9 +112,6 @@ Modelo Predictivo
 :::
 ::: {.nav-card-desc}
 Simulación de escenarios futuros basados en el modelo de Ricker, con parámetros ajustables e interactivos.
-:::
-[Ir a Modelo →](modelo.qmd){.nav-enlace}
-:::
 
 
 ### Column {width="20%"}
@@ -135,9 +126,7 @@ Escenarios a Futuro
 :::
 ::: {.nav-card-desc}
 Análisis de riesgos y recomendaciones estratégicas para la conservación marina sostenible.
-:::
-[Ir a Escenarios →](escenarios.qmd){.nav-enlace}
-:::
+
 
 
 ### Column {width="20%"}
@@ -152,9 +141,7 @@ Conclusiones
 :::
 ::: {.nav-card-desc}
 Conclusiones finales e ideas de desarrollo a futuro
-:::
-[Ir a Conclusiones →](conclusiones.qmd){.nav-enlace}
-:::
+
 
 
 ## Row {height="auto"}
