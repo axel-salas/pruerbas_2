@@ -987,7 +987,7 @@ display(construir_figura('P'))
 ## Row {height="auto" .divider-row}
 
 ::: {.section-divider}
-[ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Catastrofico]{.divider-tag} [Inercial]{.divider-tag} [Conservación]{.divider-tag ]{.divider-tags}
+[ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Catastrofico]{.divider-tag} [Inercial]{.divider-tag} [Conservación]{.divider-tag} ]{.divider-tags}
 :::
 
 ## Row {#seccion-5 .tabset}
