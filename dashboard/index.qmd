@@ -395,6 +395,7 @@ def crear_fig_ballenas(df):
 
     fig.update_layout(
         **_bg,
+        autosize=True,
         shapes=shapes_nino,
         title=dict(
             text="Monitoreo de Ballenas en Baja California\nEl impacto de la temperatura oceánica en la migración",
@@ -404,8 +405,7 @@ def crear_fig_ballenas(df):
         yaxis_title="Individuos Registrados",
         hovermode="x unified",
         legend=dict(orientation="h", y=1.05, yanchor="bottom", x=1, xanchor="right"),
-        margin=dict(l=60, r=30, t=100, b=60),
-        height=420
+        margin=dict(l=60, r=30, t=100, b=60)
     )
     fig.update_xaxes(tickformat=".0f", tickangle=0, dtick=4, showgrid=False,
                      color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
@@ -438,14 +438,14 @@ def crear_fig_pelicanos(df):
 
     fig.update_layout(
         **_bg,
+        autosize=True,
         title=dict(
             text="Dinámica Reproductiva: Pelícano Pardo\nImpacto de la variabilidad oceánica en la anidación",
             y=0.96, x=0.02, xanchor='left', yanchor='top'
         ),
         xaxis_title="Temporada (Año)",
         legend=dict(orientation="h", y=1.05, yanchor="bottom", x=1, xanchor="right"),
-        margin=dict(l=60, r=30, t=100, b=60),
-        height=420
+        margin=dict(l=60, r=30, t=100, b=60)
     )
     fig.update_xaxes(tickangle=0, dtick=3, showgrid=False,
                      color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
@@ -473,12 +473,12 @@ def crear_fig_pesca(df):
 
     fig.update_layout(
         **_bg,
+        autosize=True,
         title=dict(text="Extracción Pesquera en Baja California",
                    y=0.96, x=0.02, xanchor='left', yanchor='top'),
         xaxis_title="Año", yaxis_title="Toneladas",
         hovermode="x unified",
-        margin=dict(l=60, r=30, t=70, b=50),
-        height=320
+        margin=dict(l=60, r=30, t=70, b=50)
     )
     fig.update_xaxes(tickangle=0, dtick=4, showgrid=False,
                      color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
@@ -506,11 +506,11 @@ def crear_fig_embarcaciones(df):
 
     fig.update_layout(
         **_bg,
+        autosize=True,
         title=dict(text="Crecimiento de la Flota Pesquera",
                    y=0.96, x=0.02, xanchor='left', yanchor='top'),
         hovermode="x unified",
-        margin=dict(l=60, r=30, t=70, b=50),
-        height=320
+        margin=dict(l=60, r=30, t=70, b=50)
     )
     fig.update_xaxes(title="Año", tickangle=0, dtick=4, showgrid=False,
                      color="#7ab4cc", linecolor="rgba(93,214,240,0.2)")
@@ -544,9 +544,6 @@ Desplome poblacional al mínimo histórico (2020)
 #### Row {height="80%"}
 
 ```{python}
-#| fig-responsive: false
-#| fig-width: 10
-#| fig-height: 5
 display(crear_fig_ballenas(ballenas))
 ```
 
@@ -573,9 +570,6 @@ Colapso reproductivo sin precedentes (2014–2015)
 #### Row {height="80%"}
 
 ```{python}
-#| fig-responsive: false
-#| fig-width: 10
-#| fig-height: 5
 display(crear_fig_pelicanos(pelicanos))
 ```
 
@@ -601,17 +595,12 @@ Pico de producción en años de crisis biológica
 
 #### Row {height="80%"}
 
-#### Row {height="80%"}
-
-```python
+```{python}
 #| layout-ncol: 2
-#| fig-responsive: false
-#| fig-width: 6
-#| fig-height: 5
-display(crear_fig_produccion(produccion))
-display(crear_fig_embarcaciones(embarcacion))
-```
 
+display(crear_fig_pesca(produccion_pesquera))
+display(crear_fig_embarcaciones(embarcaciones))
+```
 ## Row {height="auto" .divider-row}
 
 ::: {.section-divider}
