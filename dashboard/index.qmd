@@ -27,7 +27,7 @@ format:
         href: "#seccion-6"
 ---
 
-## Row {#seccion-1 height="300px"}}
+## Row {#seccion-1 height="50vh"}}
 
 ::: {.card .card-hero}
 ::: {.card-body}
