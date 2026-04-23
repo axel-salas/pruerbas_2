@@ -933,6 +933,15 @@ body {
   color: rgba(0,255,231,0.18);
 }
 
+.section-divider p {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 !important;
+  gap: 2rem;
+}
+
 // Línea vertical de separación
 .divider-vline {
   width:      2px;
