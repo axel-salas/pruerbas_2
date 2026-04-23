@@ -32,7 +32,7 @@ jobs:
       - name: Render Quarto Project
         # Forzamos el renderizado a la carpeta /docs en la raíz
         run: |
-          uv run quarto render dashboard --output-dir ../docs
+          uv run quarto render dashboard/index.qmd --output-dir ../docs
 
       - name: Prevent Jekyll
         run: touch docs/.nojekyll
