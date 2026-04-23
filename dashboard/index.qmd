@@ -58,7 +58,7 @@ poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
 de mamíferos marinos del mundo pasan aquí
 :::
 
-::: {.valuebox icon="fish" color="danger"}
+::: {.valuebox icon="fish" color="warning"}
 **67%**
 
 de la pesca nacional en este ecosistema
@@ -78,13 +78,16 @@ toneladas extraidas en 2024 *(maximo historico)*
 ::: {.nav-numero}
 01 — Introducción
 :::
-:::
+
 ::: {.nav-card-titulo}
 Introducción
 :::
+
 ::: {.nav-card-desc}
 Contexto general del proyecto y la importancia ecológica y económica del área de estudio en Baja California.
-
+:::
+:::
+:::
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -92,13 +95,16 @@ Contexto general del proyecto y la importancia ecológica y económica del área
 ::: {.nav-numero}
 02 — Análisis
 :::
-:::
+
 ::: {.nav-card-titulo}
 Análisis Exploratorio
 :::
+
 ::: {.nav-card-desc}
 Visualización de patrones históricos de ballenas, pelícanos y producción pesquera a lo largo del tiempo.
-
+:::
+:::
+:::
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -106,13 +112,16 @@ Visualización de patrones históricos de ballenas, pelícanos y producción pes
 ::: {.nav-numero}
 03 — Modelo
 :::
-:::
+
 ::: {.nav-card-titulo}
 Modelo Predictivo
 :::
+
 ::: {.nav-card-desc}
 Simulación de escenarios futuros basados en el modelo de Ricker, con parámetros ajustables e interactivos.
-
+:::
+:::
+:::
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -120,14 +129,16 @@ Simulación de escenarios futuros basados en el modelo de Ricker, con parámetro
 ::: {.nav-numero}
 04 — Escenarios
 :::
-:::
+
 ::: {.nav-card-titulo}
 Escenarios a Futuro
 :::
+
 ::: {.nav-card-desc}
 Análisis de riesgos y recomendaciones estratégicas para la conservación marina sostenible.
-
-
+:::
+:::
+:::
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -135,13 +146,16 @@ Análisis de riesgos y recomendaciones estratégicas para la conservación marin
 ::: {.nav-numero}
 05 — Conclusiones
 :::
-:::
+
 ::: {.nav-card-titulo}
 Conclusiones
 :::
-::: {.nav-card-desc}
-Conclusiones finales e ideas de desarrollo a futuro
 
+::: {.nav-card-desc}
+Conclusiones finales e ideas de desarrollo a futuro.
+:::
+:::
+:::
 
 
 ## Row {height="auto"}
