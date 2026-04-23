@@ -620,8 +620,6 @@ display(crear_fig_embarcaciones(embarcaciones))
 [ [03]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Modelo Predictivo]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Modelo de Rickenoseque]{.divider-tag} [otro modelo]{.divider-tag} ]{.divider-tags}
 :::
 
-## Row {#seccion-2 height="20vh"}
-
 ## Row {#seccion-4 height="auto"}
 
 ```{python}
