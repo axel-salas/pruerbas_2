@@ -1623,7 +1623,7 @@ display(construir_figura_ballena())
 [ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Catastrofico]{.divider-tag} [Inercial]{.divider-tag} [Conservación]{.divider-tag} ]{.divider-tags}
 :::
 
-## Row {height="auto" .tabset}
+## Row {height="950px" .tabset}
 
 ### Escenario 1 — Inercial
 
@@ -1967,7 +1967,7 @@ figs = [hacer_figura(res) for res in resultados]
 ```
 
 ```{python}
-#| fig-responsive: true
+#| out-height: 900px
 display(figs[0])
 ```
 
@@ -1982,7 +1982,7 @@ Este escenario no supone ningún cambio. Los parámetros son exactamente los que
 ### Escenario 2 — Conservación
 
 ```{python}
-#| fig-responsive: true
+#| out-height: 900px
 display(figs[1])
 ```
 
@@ -1997,7 +1997,7 @@ El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad respo
 ### Escenario 3 — Catastrófico
 
 ```{python}
-#| fig-responsive: true
+#| out-height: 900px
 display(figs[2])
 ```
 
