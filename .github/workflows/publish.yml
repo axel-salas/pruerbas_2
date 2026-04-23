@@ -27,7 +27,7 @@ jobs:
 
       - name: Install Python dependencies
         run: |
-          uv pip install jupyter nbformat pandas matplotlib plotly
+          uv pip install jupyter nbformat pandas matplotlib plotly spicy
 
       - name: Render Quarto Project
         # Forzamos el renderizado a la carpeta /docs en la raíz
