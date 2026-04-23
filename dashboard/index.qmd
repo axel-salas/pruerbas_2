@@ -543,8 +543,10 @@ Desplome poblacional al mínimo histórico (2020)
 
 #### Row {height="80%"}
 
-```{python}
-#| fig-responsive: true
+```python
+#| fig-responsive: false
+#| fig-width: 10
+#| fig-height: 5
 display(crear_fig_ballenas(ballenas))
 ```
 
@@ -570,8 +572,10 @@ Colapso reproductivo sin precedentes (2014–2015)
 
 #### Row {height="80%"}
 
-```{python}
-#| fig-responsive: true
+```python
+#| fig-responsive: false
+#| fig-width: 10
+#| fig-height: 5
 display(crear_fig_pelicanos(pelicanos))
 ```
 
@@ -595,18 +599,14 @@ Expansión estructural récord de la flota al 2024
 Pico de producción en años de crisis biológica
 :::
 
-#### Row {height="40%"}
+#### Row {height="80%"}
 
-```{python}
-#| fig-responsive: true
-display(crear_fig_pesca(produccion_pesquera))
-```
-
-#### Row {height="40%"}
-
-```{python}
-#| fig-responsive: true
-display(crear_fig_embarcaciones(embarcaciones))
+```python
+#| fig-responsive: false
+#| fig-width: 10
+#| fig-height: 5
+# Asegúrate de agregar el display de la gráfica aquí, por ejemplo:
+# display(crear_fig_produccion(produccion))
 ```
 
 ## Row {height="auto" .divider-row}
