@@ -519,7 +519,7 @@ def crear_fig_embarcaciones(df):
     return fig
 ```
 
-## Row {.tabset height="auto"}
+## Row {.tabset height="900px"}
 
 ### Ballenas
 
