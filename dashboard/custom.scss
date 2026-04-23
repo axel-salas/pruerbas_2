@@ -870,127 +870,139 @@ body {
 }
 
 // ================================================================
-//  §16  DIVISOR DE SECCIÓN
-//  Separa visualmente bloques en tableros de scroll continuo.
-//  Uso en QMD: ::: {.section-divider} ... :::
+//  §16  DIVISOR DE SECCIÓN — Variante C (Bloque capítulo)
+//  Uso: ::: {.section-divider} ... :::  dentro de .divider-row
 // ================================================================
 
-.section-divider {
-  position:        relative;
-  padding:         3rem 0 2.8rem;
-  display:         flex;
-  flex-direction:  column;
-  align-items:     center;
-
-  // Línea horizontal bioluminiscente a todo ancho
-  &::before {
-    content:    '';
-    position:   absolute;
-    top:        50%;
-    left: 0; right: 0;
-    height:     1px;
-    background: linear-gradient(90deg,
-      transparent                   0%,
-      rgba(93,214,240,0.15)        15%,
-      rgba(93,214,240,0.50)        40%,
-      rgba(0,255,231,0.70)         50%,
-      rgba(93,214,240,0.50)        60%,
-      rgba(93,214,240,0.15)        85%,
-      transparent                  100%);
-    transform: translateY(-50%);
+.divider-row {
+  > .bslib-card,
+  > .card {
+    background:      transparent !important;
+    border:          none        !important;
+    box-shadow:      none        !important;
+    backdrop-filter: none        !important;
+    animation:       none        !important;
+    &::before  { display: none !important; }
+    &:hover    { transform: none !important; box-shadow: none !important; }
   }
+  > .bslib-card .card-body,
+  > .card      .card-body { padding: 0 !important; }
 }
 
-// Píldora central — flota sobre la línea
-.divider-body {
-  position:        relative;
-  z-index:         1;
-  background:      linear-gradient(160deg,
-    rgba(4,30,53,0.96) 0%,
-    rgba(6,48,82,0.90) 100%);
-  border:          1px solid rgba(93,214,240,0.28);
-  border-radius:   100px;
-  padding:         0.65rem 2.4rem 0.65rem 1.6rem;
-  display:         flex;
-  align-items:     center;
-  gap:             1.1rem;
-  backdrop-filter: blur(14px);
-  // El ring exterior separa la línea de la píldora
-  box-shadow:
-    0 0 0 5px rgba(4,30,53,0.96),
-    0 8px 32px rgba(0,0,0,0.45),
-    0 0 24px rgba(0,255,231,0.05);
+.section-divider {
+  // Sangría negativa para romper el padding del dashboard
+  // y alcanzar el ancho completo de la ventana
+  margin:      0 -1.4rem;
+  padding:     1.8rem 3.5rem;
+  background:  linear-gradient(90deg,
+    rgba(2,11,24,0.0)  0%,
+    rgba(2,11,24,0.88) 10%,
+    rgba(2,11,24,0.94) 50%,
+    rgba(2,11,24,0.88) 90%,
+    rgba(2,11,24,0.0)  100%);
+  border-top:    1px solid rgba(0,255,231,0.20);
+  border-bottom: 1px solid rgba(0,255,231,0.20);
+  display:       flex;
+  align-items:   center;
+  justify-content: space-between;
+  gap:           2rem;
 }
 
-// Número de sección (01, 02…)
-.divider-number {
-  font-family:    $ff-mono;
-  font-size:      0.60rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color:          rgba(93,214,240,0.55);
+// ── Lado izquierdo: número + línea + texto ────────────────────────
+
+.divider-left {
+  display:     flex;
+  align-items: center;
+  gap:         1.4rem;
+}
+
+// Número decorativo grande en segundo plano
+.divider-num {
+  font-family:    $ff-display;
+  font-size:      3.8rem;
+  font-weight:    900;
   line-height:    1;
-  white-space:    nowrap;
+  letter-spacing: -0.04em;
+  color:          rgba(0,255,231,0.10);
+  user-select:    none;
+  // Transición suave al hacer hover sobre el divisor
+  transition:     color 0.4s ease;
 }
 
-// Separador vertical interno
-.divider-sep {
-  width:      1px;
-  height:     26px;
+.section-divider:hover .divider-num {
+  color: rgba(0,255,231,0.18);
+}
+
+// Línea vertical de separación
+.divider-vline {
+  width:      2px;
+  height:     46px;
   background: linear-gradient(180deg,
     transparent,
-    rgba(93,214,240,0.35),
+    rgba(0,255,231,0.55),
     transparent);
   flex-shrink: 0;
 }
 
-// Ícono circular (opcional — ponlo entre .divider-sep y .divider-title)
-.divider-icon {
-  width:         30px;
-  height:        30px;
-  border-radius: 50%;
-  background:    rgba(0,255,231,0.07);
-  border:        1px solid rgba(0,255,231,0.20);
-  display:       flex;
-  align-items:   center;
-  justify-content: center;
-  flex-shrink:   0;
-  color:         $biolum;
-  font-size:     0.82rem;
+// Bloque de texto
+.divider-text {
+  display:        flex;
+  flex-direction: column;
+  gap:            0.22rem;
 }
 
-// Título de la sección
+.divider-eyebrow {
+  font-family:    $ff-mono;
+  font-size:      0.58rem;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color:          $biolum;
+  opacity:        0.65;
+  line-height:    1;
+}
+
 .divider-title {
   font-family:    $ff-display;
-  font-size:      1.1rem;
-  font-weight:    700;
+  font-size:      1.4rem;
+  font-weight:    900;
   color:          $pearl;
   line-height:    1.1;
-  letter-spacing: 0.01em;
+  letter-spacing: -0.01em;
   white-space:    nowrap;
 }
 
-// Punto pulsante bioluminiscente
-.divider-dot {
-  width:        6px;
-  height:       6px;
-  border-radius:50%;
-  background:   $biolum;
-  flex-shrink:  0;
-  box-shadow:   0 0 8px rgba(0,255,231,0.60),
-                0 0 16px rgba(0,255,231,0.28);
-  animation:    pulseDivDot 2.4s ease-in-out infinite;
+// ── Lado derecho: tags opcionales ────────────────────────────────
+
+.divider-tags {
+  display:     flex;
+  align-items: center;
+  gap:         0.55rem;
+  flex-shrink: 0;
 }
 
-@keyframes pulseDivDot {
-  0%, 100% {
-    opacity: 1;
-    box-shadow: 0 0 8px rgba(0,255,231,0.60), 0 0 16px rgba(0,255,231,0.28);
-  }
-  50% {
-    opacity: 0.45;
-    box-shadow: 0 0 4px rgba(0,255,231,0.25), 0 0 8px rgba(0,255,231,0.12);
-  }
+.divider-tag {
+  font-family:    $ff-mono;
+  font-size:      0.58rem;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color:          rgba(93,214,240,0.58);
+  border:         1px solid rgba(93,214,240,0.20);
+  border-radius:  100px;
+  padding:        0.24rem 0.75rem;
+  white-space:    nowrap;
+  transition:     color 0.25s ease, border-color 0.25s ease;
+}
+
+.divider-tag:hover {
+  color:        $foam;
+  border-color: rgba(93,214,240,0.42);
+}
+
+@media (max-width: 768px) {
+  .section-divider  { flex-direction: column; align-items: flex-start; padding: 1.4rem 1.5rem; }
+  .divider-tags     { display: none; }
+  .divider-num      { font-size: 2.8rem; }
+  .divider-title    { font-size: 1.15rem; }
 }
 
 // ================================================================
