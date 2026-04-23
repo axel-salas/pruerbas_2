@@ -218,7 +218,7 @@ Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en ton
 :::
 :::
 
-## Row {height="80px" .divider-row}
+## Row {height="120px" .divider-row}
 
 ::: {.section-divider}
 ::: {.divider-body}
