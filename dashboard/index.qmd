@@ -601,12 +601,15 @@ Pico de producción en años de crisis biológica
 
 #### Row {height="80%"}
 
-```{python}
+#### Row {height="80%"}
+
+```python
+#| layout-ncol: 2
 #| fig-responsive: false
-#| fig-width: 10
+#| fig-width: 6
 #| fig-height: 5
-# Asegúrate de agregar el display de la gráfica aquí, por ejemplo:
-# display(crear_fig_produccion(produccion))
+display(crear_fig_produccion(produccion))
+display(crear_fig_embarcaciones(embarcacion))
 ```
 
 ## Row {height="auto" .divider-row}
