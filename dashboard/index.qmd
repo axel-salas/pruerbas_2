@@ -601,6 +601,7 @@ Pico de producción en años de crisis biológica
 display(crear_fig_pesca(produccion_pesquera))
 display(crear_fig_embarcaciones(embarcaciones))
 ```
+
 ## Row {height="auto" .divider-row}
 
 ::: {.section-divider}
