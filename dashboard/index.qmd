@@ -1573,9 +1573,9 @@ display(construir_figura('H'))
 display(construir_figura('P'))
 ```
 
-## Row {#seccion-ballena height="auto"}
+## Column 
 
-### Column {width="25%"}
+### Row {height="25%"}
 
 ::: {.card .card-ballena-desc title="Ballena Gris de Baja California"}
 La **Ballena Gris del Pacífico Oriental** (*Eschrichtius robustus*) realiza anualmente una de las migraciones más largas del reino animal, recorriendo hasta **20 000 km** desde el Ártico hasta las lagunas costeras de Baja California.
@@ -1609,7 +1609,7 @@ Utiliza los controles interactivos para explorar el futuro de la Ballena Gris:
 **El panel derecho** muestra la serie temporal 1995–2068, con bandas de incertidumbre (IC 90 %) derivadas del ensemble estocástico (N = 200 realizaciones). La línea punteada marca el inicio de la proyección.
 :::
 
-### Column {width="75%"}
+### Row {height="75%"}
 
 ::: {.card .card-ballena-grafico}
 
