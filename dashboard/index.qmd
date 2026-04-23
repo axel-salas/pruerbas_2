@@ -11,6 +11,7 @@ format:
   dashboard:
     title: "DERRE - HackODS ODS 14 · Vida Submarina"
     scrolling: true
+    footer: false
     theme: custom.scss
     nav-buttons:
       href: https://github.com/axel-salas/pruerbas_2/
@@ -208,7 +209,7 @@ Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en ton
 :::
 :::
 
-## Row {height="150px" .divider-row}
+## Row {height="auto" .divider-row}
 
 ::: {.section-divider}
 [ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [ODS 14]{.divider-tag} [Baja California]{.divider-tag} ]{.divider-tags}
