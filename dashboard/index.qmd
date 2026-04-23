@@ -570,7 +570,7 @@ Colapso reproductivo sin precedentes (2014–2015)
 
 #### Row {height="80%"}
 
-```python
+```{python}
 #| fig-responsive: true
 display(crear_fig_pelicanos(pelicanos))
 ```
