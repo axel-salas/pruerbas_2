@@ -2160,7 +2160,7 @@ Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
 
 ### Column {width="65%"}
 
-```python
+```{python}
 #| fig-responsive: true
 display(crear_fig_lobos_marinos(lobos_marinos))
 ```
