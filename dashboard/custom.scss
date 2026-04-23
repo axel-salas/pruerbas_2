@@ -869,28 +869,112 @@ body {
   .hero-pregunta { font-size: 1.35rem; }
 }
 
-/* Estilo para el botón de navegación "Siguiente" */
-.navbar {
-  .navbar-nav {
-    // Buscamos el enlace dentro de la navegación
-    .nav-link {
-      &[aria-label="Ir al siguiente tablero"] {
-        border: 1px solid $biolum; // Usamos tu variable cian
-        border-radius: 8px;
-        padding: 5px 15px !important;
-        margin-left: 15px;
-        color: $biolum !important;
-        transition: all 0.3s ease;
-        font-weight: 500;
-        background: rgba($biolum, 0.05);
+// ================================================================
+//  §16  DIVISOR DE SECCIÓN
+//  Separa visualmente bloques en tableros de scroll continuo.
+//  Uso en QMD: ::: {.section-divider} ... :::
+// ================================================================
 
-        &:hover {
-          background: $biolum;
-          color: $abyss !important; // Usa tu variable de fondo oscuro
-          transform: translateY(-2px);
-          box-shadow: 0 4px 15px rgba($biolum, 0.3);
-        }
-      }
-    }
+.section-divider {
+  position:        relative;
+  padding:         3rem 0 2.8rem;
+  display:         flex;
+  flex-direction:  column;
+  align-items:     center;
+
+  // Línea horizontal bioluminiscente a todo ancho
+  &::before {
+    content:    '';
+    position:   absolute;
+    top:        50%;
+    left: 0; right: 0;
+    height:     1px;
+    background: linear-gradient(90deg,
+      transparent                   0%,
+      rgba(93,214,240,0.15)        15%,
+      rgba(93,214,240,0.50)        40%,
+      rgba(0,255,231,0.70)         50%,
+      rgba(93,214,240,0.50)        60%,
+      rgba(93,214,240,0.15)        85%,
+      transparent                  100%);
+    transform: translateY(-50%);
   }
 }
+
+// Píldora central — flota sobre la línea
+.divider-body {
+  position:        relative;
+  z-index:         1;
+  background:      linear-gradient(160deg,
+    rgba(4,30,53,0.96) 0%,
+    rgba(6,48,82,0.90) 100%);
+  border:          1px solid rgba(93,214,240,0.28);
+  border-radius:   100px;
+  padding:         0.65rem 2.4rem 0.65rem 1.6rem;
+  display:         flex;
+  align-items:     center;
+  gap:             1.1rem;
+  backdrop-filter: blur(14px);
+  // El ring exterior separa la línea de la píldora
+  box-shadow:
+    0 0 0 5px rgba(4,30,53,0.96),
+    0 8px 32px rgba(0,0,0,0.45),
+    0 0 24px rgba(0,255,231,0.05);
+}
+
+// Número de sección (01, 02…)
+.divider-number {
+  font-family:    $ff-mono;
+  font-size:      0.60rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color:          rgba(93,214,240,0.55);
+  line-height:    1;
+  white-space:    nowrap;
+}
+
+// Separador vertical interno
+.divider-sep {
+  width:      1px;
+  height:     26px;
+  background: linear-gradient(180deg,
+    transparent,
+    rgba(93,214,240,0.35),
+    transparent);
+  flex-shrink: 0;
+}
+
+// Título de la sección
+.divider-title {
+  font-family:    $ff-display;
+  font-size:      1.1rem;
+  font-weight:    700;
+  color:          $pearl;
+  line-height:    1.1;
+  letter-spacing: 0.01em;
+  white-space:    nowrap;
+}
+
+// Punto pulsante bioluminiscente
+.divider-dot {
+  width:        6px;
+  height:       6px;
+  border-radius:50%;
+  background:   $biolum;
+  flex-shrink:  0;
+  box-shadow:   0 0 8px rgba(0,255,231,0.60),
+                0 0 16px rgba(0,255,231,0.28);
+  animation:    pulseDivDot 2.4s ease-in-out infinite;
+}
+
+@keyframes pulseDivDot {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 8px rgba(0,255,231,0.60), 0 0 16px rgba(0,255,231,0.28);
+  }
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 4px rgba(0,255,231,0.25), 0 0 8px rgba(0,255,231,0.12);
+  }
+}
+
