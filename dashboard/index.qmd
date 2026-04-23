@@ -544,7 +544,7 @@ Desplome poblacional al mínimo histórico (2020)
 #### Row {height="80%"}
 
 ```{python}
-display(crear_fig_ballenas(ballenas))
+crear_fig_ballenas(ballenas).show(config={"responsive": True})
 ```
 
 ### Pelícanos
@@ -570,7 +570,7 @@ Colapso reproductivo sin precedentes (2014–2015)
 #### Row {height="80%"}
 
 ```{python}
-display(crear_fig_pelicanos(pelicanos))
+crear_fig_pelicanos(pelicanos).show(config={"responsive": True})
 ```
 
 ### Producción y Flota
@@ -597,9 +597,10 @@ Pico de producción en años de crisis biológica
 
 ```{python}
 #| layout-ncol: 2
+#| fig-responsive: true
 
-display(crear_fig_pesca(produccion_pesquera))
-display(crear_fig_embarcaciones(embarcaciones))
+crear_fig_pesca(produccion_pesquera).show(config={"responsive": True})
+crear_fig_embarcaciones(embarcaciones).show(config={"responsive": True})
 ```
 ## Row {height="auto" .divider-row}
 
@@ -940,6 +941,8 @@ def construir_figura(variable='H'):
         final_sliders.append(s)
 
     fig.update_layout(
+        **_bg,
+        autosize=True,
         title=dict(
             text=titulo,
             font=dict(color=C['foam'], size=16, family=C['ff_display']),
@@ -975,7 +978,6 @@ def construir_figura(variable='H'):
         margin=dict(t=100, b=300, l=65, r=42),
         sliders=final_sliders,
         annotations=[ann_resultado, ann_futuros],
-        height=780,
         hovermode='x unified',
     )
 
@@ -1319,6 +1321,8 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
         f'  |  Presión: <span style="color:{color_etq}">{nivel_lbl}</span>'
     )
     fig.update_layout(
+        **_bg,
+        autosize=True,
         title=dict(
             text=titulo_txt,
             font=dict(color=C['foam'], size=14, family=C['ff_display']),
@@ -1335,7 +1339,6 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
             x=0.53, y=0.99,
             xanchor='left', yanchor='top',
         ),
-        height=580,
         margin=dict(l=10, r=10, t=60, b=220),
     )
     fig.update_xaxes(
@@ -1445,6 +1448,8 @@ def construir_figura_ballena():
     idx_ini = int(np.argmin(np.abs(_ALPHA1_RANGO_BALLENA - ALPHA1_BASE)))
 
     fig.update_layout(
+        **_bg,
+        autosize=True,
         sliders=[dict(
             active=idx_ini,
             yanchor='top',
@@ -1480,7 +1485,6 @@ def construir_figura_ballena():
             borderwidth=1,
         )],
         margin=dict(l=10, r=10, t=85, b=200),
-        height=660,
     )
 
     return fig
@@ -1552,14 +1556,14 @@ Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodive
 
 ```{python}
 #| fig-responsive: true
-display(construir_figura('H'))
+construir_figura('H').show(config={"responsive": True})
 ```
 
 #### Esfuerzo Pesquero (P)
 
 ```{python}
 #| fig-responsive: true
-display(construir_figura('P'))
+construir_figura('P').show(config={"responsive": True})
 ```
 
 ## Row {height="25%"}
@@ -1602,7 +1606,7 @@ Utiliza los controles interactivos para explorar el futuro de la Ballena Gris:
 
 ```{python}
 #| fig-responsive: true
-display(construir_figura_ballena())
+construir_figura_ballena().show(config={"responsive": True})
 ```
 
 :::
@@ -1880,6 +1884,8 @@ def hacer_figura(res):
 
     # ── 5. LAYOUT, EJES, BOTONES Y SLIDER ────────────────────────────────────
     fig.update_layout(
+        **_bg,
+        autosize=True,  
         title=dict(
             text=(f"<b>{nombre}</b><br><span style='font-size:13px;color:{TX};'>{label}</span>"),
             font=dict(size=17, color=TX), x=0.5, xanchor='center', y=0.97,
@@ -1887,7 +1893,6 @@ def hacer_figura(res):
         plot_bgcolor=AX,
         paper_bgcolor=BG,
         font=dict(color=TX, family='Arial, sans-serif', size=11),
-        height=850, # 1. Un poco más de altura general
         margin=dict(t=130, b=200, l=70, r=20), # 2. Aumentamos el margen inferior (b) y superior (t)
         hovermode='x unified',
         legend=dict(
@@ -1956,8 +1961,8 @@ figs = [hacer_figura(res) for res in resultados]
 ```
 
 ```{python}
-#| out-height: 900px
-display(figs[0])
+#| fig-responsive: true
+figs[0].show(config={"responsive": True})
 ```
 
 ::: {.callout-warning appearance="minimal" icon=false}
@@ -1971,8 +1976,8 @@ Este escenario no supone ningún cambio. Los parámetros son exactamente los que
 ### Escenario 2 — Conservación
 
 ```{python}
-#| out-height: 900px
-display(figs[1])
+#| fig-responsive: true
+figs[1].show(config={"responsive": True})
 ```
 
 ::: {.callout-note appearance="minimal" icon=false}
@@ -1986,8 +1991,8 @@ El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad respo
 ### Escenario 3 — Catastrófico
 
 ```{python}
-#| out-height: 900px
-display(figs[2])
+#| fig-responsive: true
+figs[2].show(config={"responsive": True})
 ```
 
 ::: {.callout-important appearance="minimal" icon=false}
@@ -2086,6 +2091,8 @@ def crear_fig_lobos_marinos(df):
     )
 
     fig.update_layout(
+        **_bg,
+        autosize=True,  
         shapes=shapes,
         title=dict(
             text=(
@@ -2106,7 +2113,6 @@ def crear_fig_lobos_marinos(df):
             font=dict(color=TX_PLOT)
         ),
         margin=dict(l=60, r=30, t=105, b=60),
-        height=480
     )
 
     fig.update_xaxes(
@@ -2151,7 +2157,7 @@ Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
 
 ```{python}
 #| fig-responsive: true
-display(crear_fig_lobos_marinos(lobos_marinos))
+crear_fig_lobos_marinos(lobos_marinos).show(config={"responsive": True})
 ```
 
 ### Column {width="35%"}
