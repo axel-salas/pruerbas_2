@@ -543,7 +543,7 @@ Desplome poblacional al mínimo histórico (2020)
 
 #### Row {height="80%"}
 
-```python
+```{python}
 #| fig-responsive: true
 display(crear_fig_ballenas(ballenas))
 ```
@@ -597,14 +597,14 @@ Pico de producción en años de crisis biológica
 
 #### Row {height="40%"}
 
-```python
+```{python}
 #| fig-responsive: true
 display(crear_fig_pesca(produccion_pesquera))
 ```
 
 #### Row {height="40%"}
 
-```python
+```{python}
 #| fig-responsive: true
 display(crear_fig_embarcaciones(embarcaciones))
 ```
