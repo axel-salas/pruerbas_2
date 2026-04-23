@@ -2196,7 +2196,8 @@ El escenario inercial es devastador, pero la posibilidad de cambio tiene tanto r
 :::
 :::
 
-::: {.divider-row}
+## Row {height="auto" .divider-row}
+
 ::: {.dashboard-footer}
 
 ::: {.footer-title}
@@ -2208,5 +2209,4 @@ Datos recopilados por el equipo de investigación marina.
 
 [Repositorio de GitHub](#) | [Metodología](#) | [Contacto](#)
 
-:::
 :::
