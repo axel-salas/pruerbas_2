@@ -993,3 +993,38 @@ body {
   }
 }
 
+// ================================================================
+//  §17  DIVIDER ROW — elimina el marco bslib de la fila divisora
+// ================================================================
+
+// Quarto genera .dashboard-row > .bslib-card para cada Row.
+// Cuando la row lleva la clase .divider-row, vaciamos la card
+// de todo estilo visible para que el divisor flote libremente.
+
+.divider-row {
+
+  // La card contenedora: sin fondo, sin borde, sin sombra
+  > .bslib-card,
+  > .card {
+    background:   transparent !important;
+    border:       none        !important;
+    box-shadow:   none        !important;
+    backdrop-filter: none     !important;
+
+    // Sin el reflejo de cristal del ::before global
+    &::before { display: none !important; }
+
+    // Sin hover lift
+    &:hover {
+      transform:  none !important;
+      box-shadow: none !important;
+    }
+  }
+
+  // El card-body también sin padding para que el divisor
+  // controle su propio espaciado interno
+  > .bslib-card .card-body,
+  > .card .card-body {
+    padding: 0 !important;
+  }
+}
