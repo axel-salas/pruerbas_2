@@ -1256,18 +1256,6 @@ def hacer_figura(res):
  
     # ── Panel H ──────────────────────────────────────────────────────────────
  
-    # Banda IC 90 %
-    fig.add_trace(go.Scatter(
-        x=bx,
-        y=list(H_st['q95']) + list(H_st['q5'])[::-1],
-        fill='toself',
-        fillcolor=col['H_band'],
-        line=dict(color='rgba(0,0,0,0)'),
-        showlegend=False,
-        hoverinfo='skip',
-        name='IC 90% H',
-    ), row=1, col=1)
- 
     # Mediana H
     fig.add_trace(go.Scatter(
         x=años_l, y=list(H_st['med']),
@@ -1289,17 +1277,6 @@ def hacer_figura(res):
  
     # ── Panel P ──────────────────────────────────────────────────────────────
  
-    # Banda IC 90 %
-    fig.add_trace(go.Scatter(
-        x=bx,
-        y=list(P_st['q95']) + list(P_st['q5'])[::-1],
-        fill='toself',
-        fillcolor=col['P_band'],
-        line=dict(color='rgba(0,0,0,0)'),
-        showlegend=False,
-        hoverinfo='skip',
-        name='IC 90% P',
-    ), row=2, col=1)
  
     # Mediana P
     fig.add_trace(go.Scatter(
