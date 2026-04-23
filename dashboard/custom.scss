@@ -1056,3 +1056,90 @@ body {
     overflow: visible !important;
   }
 }
+
+// ================================================================
+//  §18  FOOTER EXPANDIBLE (Callout Minimalista)
+// ================================================================
+
+.dashboard-footer {
+  // Lo empujamos hacia abajo y le damos un fondo abisal muy sutil
+  margin-top: 3rem !important;
+  background: rgba(2, 11, 24, 0.35) !important; // Translúcido para no robar protagonismo
+  border: 1px solid rgba(93, 214, 240, 0.12) !important;
+  border-radius: $border-radius !important;
+  backdrop-filter: blur(8px);
+  box-shadow: none !important;
+  transition: all 0.35s ease;
+
+  // Ocultamos el ícono por defecto del callout de Quarto
+  .callout-icon-container {
+    display: none !important;
+  }
+
+  // ── ESTADO COLAPSADO (Cabecera interactiva) ──
+  .callout-header {
+    background: transparent !important;
+    border-bottom: none !important;
+    padding: 0.8rem 1.2rem !important;
+
+    .callout-title-container {
+      font-family: $ff-mono !important;
+      font-size: 0.72rem !important;
+      letter-spacing: 0.16em !important;
+      text-transform: uppercase !important;
+      color: $text-muted-c !important;
+      transition: color 0.25s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center; // Centrado para parecer un footer de verdad
+    }
+
+    // Efecto hover bioluminiscente antes de hacer clic
+    &:hover .callout-title-container {
+      color: $foam !important;
+    }
+  }
+
+  // ── ESTADO EXPANDIDO (Atributo [open] inyectado por Quarto) ──
+  &[open] {
+    background: $glass-bg !important;
+    border-color: $glass-border !important;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4) !important;
+
+    .callout-header {
+      border-bottom: 1px solid rgba(93, 214, 240, 0.15) !important;
+      
+      .callout-title-container {
+        color: $biolum !important;
+      }
+    }
+  }
+
+  // ── CONTENIDO DEL FOOTER ──
+  .callout-body-container {
+    padding: 1.8rem 1.5rem !important;
+    font-family: $ff-body !important;
+    font-size: 0.85rem !important;
+    color: $text-main !important;
+    text-align: center;
+    line-height: 1.7;
+
+    p { margin-bottom: 0.6rem; }
+    p:last-child { margin-bottom: 0; }
+
+    // Enlaces con estilo de la temática
+    a {
+      color: $foam;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(93, 214, 240, 0.3);
+      padding-bottom: 1px;
+      margin: 0 0.4rem;
+      transition: color 0.2s ease, border-color 0.2s ease;
+
+      &:hover {
+        color: $biolum;
+        border-bottom-color: $biolum;
+      }
+    }
+  }
+}
