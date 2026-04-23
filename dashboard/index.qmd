@@ -29,37 +29,33 @@ format:
 
 ## Row {#seccion-1 height="auto"}
 
-::: {.column width="15%"}
+::: {.column width="20%"}
 :::
 
-::: {.column .card .card-hero width="70%"}
-::: {.card-body style="text-align: center;"}
+::: {.column .card .card-hero width="60%"}
+::: {.card-body}
 
-::: {.hero-badge style="font-size: 0.9em; font-weight: bold; opacity: 0.8;"}
-DERRE · HackODS 2026 · ODS 14
+::: {.hero-badge}
+**DERRE · HackODS 2026 · ODS 14**
 :::
 
-::: {.hero-eyebrow style="font-size: 1.1em; margin-top: 10px;"}
+::: {.hero-eyebrow}
 Objetivo de Desarrollo Sostenible · 14 · Vida Submarina
 :::
 
-::: {.hero-pregunta style="font-size: 2.2em; font-weight: 800; line-height: 1.2;"}
-¿Puede la *biodiversidad marina* recuperarse\
-del crecimiento pesquero en Baja California?
-:::
+### ¿Puede la *biodiversidad marina* recuperarse del crecimiento pesquero en Baja California?
 
-::: {.hero-desc style="font-size: 1.2em; color: #555;"}
+::: {.hero-desc}
 Un análisis de datos sobre la interacción entre ecosistemas oceánicos,
 poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
 :::
 
-::: {.hero-divisor style="border-top: 3px solid #0077b6; width: 50px; margin: 20px auto;"}
-:::
+---
 
 :::
 :::
 
-::: {.column width="15%"}
+::: {.column width="20%"}
 :::
 
 ## Row {height="auto"}
