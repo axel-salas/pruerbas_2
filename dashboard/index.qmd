@@ -212,7 +212,7 @@ Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en ton
 ## Row {height="auto" .divider-row}
 
 ::: {.section-divider}
-[ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [ODS 14]{.divider-tag} [Baja California]{.divider-tag} ]{.divider-tags}
+[ [01]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Introducción]{.divider-title} ]{.divider-text} ]{.divider-left} [ [ODS 14]{.divider-tag} [Baja California]{.divider-tag} ]{.divider-tags}
 :::
 
 
@@ -269,6 +269,13 @@ Para lograrlo, utilizamos indicadores clave como *proxies* de salud:
 * 🤖 **2. Modelo Predictivo:** Simulación de escenarios matemáticos futuros.
 * 🔮 **3. Escenarios a futuro:** Implicaciones y recomendaciones estratégicas para la sostenibilidad de la Agenda 2030 (ODS 14).
 :::
+
+## Row {height="auto" .divider-row}
+
+::: {.section-divider}
+[ [02]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Analisis Exploratorio]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Ballenas]{.divider-tag} [Pelicanos]{.divider-tag} [Embarcaciones]{.divider-tag} ]{.divider-tags}
+:::
+
 
 ## Row {#seccion-3 height="auto"}
 
@@ -606,6 +613,14 @@ display(crear_fig_pesca(produccion_pesquera))
 #| fig-responsive: true
 display(crear_fig_embarcaciones(embarcaciones))
 ```
+
+## Row {height="auto" .divider-row}
+
+::: {.section-divider}
+[ [03]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Modelo Predictivo]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Modelo de Rickenoseque]{.divider-tag} [otro modelo]{.divider-tag} ]{.divider-tags}
+:::
+
+## Row {#seccion-2 height="20vh"}
 
 ## Row {#seccion-4 height="auto"}
 
@@ -971,6 +986,12 @@ display(construir_figura('H'))
 display(construir_figura('P'))
 ```
 
+## Row {height="auto" .divider-row}
+
+::: {.section-divider}
+[ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Catastrofico]{.divider-tag} [Inercial]{.divider-tag} [Conservación]{.divider-tag ]{.divider-tags}
+:::
+
 ## Row {#seccion-5 .tabset}
 
 ### Escenario 1 — Inercial
@@ -1320,6 +1341,12 @@ display(figs[2])
 Este escenario no es una advertencia abstracta: es la predicción directa de tendencias ya observadas. Si la dinámica actual se intensifica — presión pesquera **+40%** (**a × 1.4 = 2.863**) y flota acelerando al mismo ritmo (**f × 1.4 = 0.0661**) desde hoy — el modelo muestra una biodiversidad marina que cae por debajo del escenario inercial de forma persistente, oscilando en niveles de **0.05–0.08**. A esos niveles, la capacidad reproductiva está tan comprometida que cualquier perturbación adicional —El Niño, una marea roja, una temporada agresiva— puede empujar la población fuera del rango de recuperación.
 
 La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos peces, con una biodiversidad mucho más dañada como costo del crecimiento. El modelo no puede responder cuánto vale hoy un pelícano que no anida o una ballena que no regresa. Sí puede mostrar que el costo de no responderla se acumula, año tras año, en una curva que baja más rápido de lo que cualquier regulación futura podrá revertir.
+:::
+
+## Row {height="auto" .divider-row}
+
+::: {.section-divider}
+[ [05]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Conclusiones]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Soluciones]{.divider-tag} [Lobo Marino]{.divider-tag} ]{.divider-tags}
 :::
 
 ## Row {#seccion-6}
