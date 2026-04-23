@@ -128,8 +128,6 @@ body {
 //  Quarto Dashboard genera: .quarto-dashboard > navbar + content
 // ================================================================
 
-// ── §5.1  Navbar principal ───────────────────────────────────────
-
 .quarto-dashboard .navbar,
 .quarto-dashboard nav.navbar {
   background:    $abyss !important;
@@ -137,7 +135,6 @@ body {
   box-shadow:    0 2px 24px rgba(0, 0, 0, 0.55);
   padding:       0.4rem 1.5rem;
 
-  // Brand / título del dashboard
   .navbar-brand,
   .navbar-title {
     font-family:    $ff-display !important;
@@ -147,7 +144,6 @@ body {
     letter-spacing: 0.01em;
   }
 
-  // Pestañas de página (# Portada, # Análisis …)
   .navbar-nav .nav-link {
     font-family:    $ff-mono;
     font-size:      0.70rem;
@@ -170,7 +166,6 @@ body {
     }
   }
 
-  // Botones de nav (house, github…)
   .nav-item .btn,
   .navbar-nav .btn {
     color:  $foam;
@@ -183,16 +178,12 @@ body {
   }
 }
 
-// ── §5.2  Área de contenido ──────────────────────────────────────
-
 .quarto-dashboard .quarto-dashboard-content,
 .quarto-dashboard .tab-content,
 .quarto-dashboard #quarto-content {
   background: transparent;
   padding:    1.2rem 1.4rem 2.5rem;
 }
-
-// ── §5.3  Filas y gaps ───────────────────────────────────────────
 
 .quarto-dashboard .bslib-grid,
 .quarto-dashboard .bslib-gap-spacing,
@@ -220,7 +211,6 @@ body {
   position: relative;
   overflow: hidden;
 
-  // Reflejo de borde superior (efecto cristal mojado)
   &::before {
     content:    '';
     position:   absolute;
@@ -241,7 +231,6 @@ body {
     border-color: rgba(93, 214, 240, 0.42) !important;
   }
 
-  // Encabezado de tarjeta
   .card-header,
   .bslib-card-header {
     background:    rgba(4, 30, 53, 0.65) !important;
@@ -261,27 +250,48 @@ body {
   }
 }
 
-// ── §6.5  Plotly dentro de card-body — contención de altura ────────
-//
-//  Problema: .plotly-graph-div se desborda y rompe el layout.
-//  Solución: Hacemos que card-body sea un contenedor flex puro y
-//  dejamos que Plotly ocupe el espacio disponible sin asfixiar al SVG.
+// ================================================================
+//  §6.5  CONTENCIÓN ESTRICTA DE PLOTLY (Cards y Tabsets)
+//  ¡LA SOLUCIÓN A LAS GRÁFICAS GIGANTES!
+// ================================================================
 
+// 1. Convertir los contenedores padre (.card-body) en Flexboxes estrictos
 .bslib-card > .card-body,
 .card > .card-body {
-  display: flex;
-  flex-direction: column;
-  min-height: 0;          // Permite que el flex item se comprima
-  overflow: hidden;       // Corta cualquier desbordamiento residual
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
+  min-height: 0 !important; // CRÍTICO: Permite que el contenedor colapse
+  overflow: hidden !important; 
 }
 
-// Plotly hereda el espacio flex en lugar de usar 100% estricto
-.card-body .plotly-graph-div,
-.bslib-card-body .plotly-graph-div {
-  flex: 1 1 auto;
-  width: 100% !important;
+// 2. Controlar las capas intermedias que inyecta Quarto/Python
+.cell-output-display,
+.html-widget-container {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
   min-height: 0 !important;
-  position: relative;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+// 3. Forzar al div de Plotly a respetar la cadena flex
+.card-body .plotly-graph-div,
+.bslib-card-body .plotly-graph-div,
+.tab-pane .plotly-graph-div {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: 100% !important;
+  position: relative !important;
+  
+  // Limitar el tamaño interno del SVG
+  svg.main-svg {
+    max-height: 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 
@@ -299,7 +309,6 @@ body {
   position:        relative;
   transition:      transform 0.28s ease, box-shadow 0.28s ease;
 
-  // Línea de cristal superior
   &::before {
     content:    '';
     position:   absolute;
@@ -314,7 +323,6 @@ body {
                 0  0  28px rgba(0,255,231,0.08) !important;
   }
 
-  // Valor principal
   .value-box-value,
   .valuebox-value {
     font-family: $ff-display !important;
@@ -324,7 +332,6 @@ body {
     color:       $pearl !important;
   }
 
-  // Etiqueta descriptiva
   .value-box-title,
   .valuebox-title {
     font-family:    $ff-mono !important;
@@ -335,73 +342,47 @@ body {
     line-height:    1.45;
   }
 
-  // Ícono showcase
   .value-box-showcase,
   .valuebox-icon {
     opacity:   0.88;
     font-size: 1.7rem !important;
   }
 
-  // Gradientes por color semántico (Quarto añade .text-bg-* o bg-*)
-  &.bg-primary,   &.text-bg-primary   {
-    background: linear-gradient(140deg, rgba(18,120,176,0.82), rgba(4,30,53,0.90)) !important;
-  }
-  &.bg-success,   &.text-bg-success   {
-    background: linear-gradient(140deg, rgba(42,157,143,0.82), rgba(4,30,53,0.90)) !important;
-  }
-  &.bg-danger,    &.text-bg-danger    {
-    background: linear-gradient(140deg, rgba(198,40,40,0.78),  rgba(4,30,53,0.90)) !important;
-  }
-  &.bg-warning,   &.text-bg-warning   {
-    background: linear-gradient(140deg, rgba(244,162,97,0.78), rgba(4,30,53,0.90)) !important;
-  }
-  &.bg-info,      &.text-bg-info      {
-    background: linear-gradient(140deg, rgba(93,214,240,0.65), rgba(4,30,53,0.90)) !important;
-  }
-  &.bg-secondary, &.text-bg-secondary {
-    background: linear-gradient(140deg, rgba(27,163,198,0.75), rgba(4,30,53,0.90)) !important;
-  }
-  // Soporte para color hexadecimal directo en el atributo color=""
-  // bslib añade style="background-color: …" — lo dejamos pasar pero
-  // garantizamos que el texto siempre sea legible
+  &.bg-primary,   &.text-bg-primary   { background: linear-gradient(140deg, rgba(18,120,176,0.82), rgba(4,30,53,0.90)) !important; }
+  &.bg-success,   &.text-bg-success   { background: linear-gradient(140deg, rgba(42,157,143,0.82), rgba(4,30,53,0.90)) !important; }
+  &.bg-danger,    &.text-bg-danger    { background: linear-gradient(140deg, rgba(198,40,40,0.78),  rgba(4,30,53,0.90)) !important; }
+  &.bg-warning,   &.text-bg-warning   { background: linear-gradient(140deg, rgba(244,162,97,0.78), rgba(4,30,53,0.90)) !important; }
+  &.bg-info,      &.text-bg-info      { background: linear-gradient(140deg, rgba(93,214,240,0.65), rgba(4,30,53,0.90)) !important; }
+  &.bg-secondary, &.text-bg-secondary { background: linear-gradient(140deg, rgba(27,163,198,0.75), rgba(4,30,53,0.90)) !important; }
+  
   color: $pearl !important;
 }
 
 
 // ================================================================
 //  §8  PORTADA — clases específicas del index.qmd (dashboard)
-//  Estas son las que usamos en el QMD con `::: {.clase}`
 // ================================================================
 
-// ── §8.1  Hero (card especial, sin hover lift) ───────────────────
-
 .card-hero {
-  // Sobreescribe el hover de .bslib-card
   &:hover { transform: none !important; }
-
-  // Fondo con gradiente más profundo
   background: linear-gradient(160deg,
     rgba(2,11,24,0.88)  0%,
     rgba(6,48,82,0.72)  60%,
     rgba(0,255,231,0.04) 100%) !important;
 
-  // Acento luminoso bioluminiscente en el fondo
   &::after {
     content:  '';
     position: absolute;
     top: -80px;
     right: -80px;
     width:  320px; height: 320px;
-    background: radial-gradient(circle,
-      rgba(0,255,231,0.07) 0%,
-      transparent 70%);
+    background: radial-gradient(circle, rgba(0,255,231,0.07) 0%, transparent 70%);
     pointer-events: none;
   }
 
   .card-body { text-align: center; padding: 3.5rem 2rem 3rem; }
 }
 
-// Insignia DERRE / HackODS
 .hero-badge {
   display:        inline-block;
   font-family:    $ff-mono;
@@ -417,7 +398,6 @@ body {
   backdrop-filter: blur(8px);
 }
 
-// Etiqueta ODS
 .hero-eyebrow {
   font-family:    $ff-mono;
   font-size:      0.68rem;
@@ -427,7 +407,6 @@ body {
   margin-bottom:  0.8rem;
 }
 
-// Pregunta principal
 .hero-pregunta {
   font-family:   $ff-display;
   font-size:     clamp(1.6rem, 3.5vw, 2.9rem);
@@ -436,7 +415,6 @@ body {
   color:         $pearl;
   margin-bottom: 1.2rem;
 
-  // El *texto* en itálica recibe gradiente bioluminiscente
   em {
     font-style:  italic;
     background:  linear-gradient(128deg, $foam, $biolum);
@@ -446,7 +424,6 @@ body {
   }
 }
 
-// Subtítulo descriptivo
 .hero-desc {
   font-size:   1rem;
   font-weight: 300;
@@ -456,7 +433,6 @@ body {
   line-height: 1.72;
 }
 
-// Línea decorativa divisora
 .hero-divisor {
   width:      70px;
   height:     2px;
@@ -464,17 +440,11 @@ body {
   margin:     1.8rem auto 0;
 }
 
-// ── §8.2  Tarjetas de métricas (row de valueboxes) ───────────────
-//  Se usan valuebox nativos; el estilo viene de §7.
-
-// ── §8.3  Tarjetas de navegación ─────────────────────────────────
-
 .card-nav {
   cursor: pointer;
   .card-body { padding: 1.6rem 1.5rem; }
 }
 
-// Número de sección decorativo
 .nav-numero {
   font-family:    $ff-mono;
   font-size:      0.62rem;
@@ -484,7 +454,6 @@ body {
   text-transform: uppercase;
 }
 
-// Barra de color lateral (accent)
 .nav-accent {
   width:         3px;
   height:        36px;
@@ -497,7 +466,6 @@ body {
 .nav-accent-cian   { background: linear-gradient(180deg, $biolum, $reef);  }
 .nav-accent-espuma { background: linear-gradient(180deg, $foam,   $biolum2); }
 
-// Título dentro de la tarjeta nav
 .nav-card-titulo {
   font-family:   $ff-display;
   font-size:     1.05rem;
@@ -507,7 +475,6 @@ body {
   line-height:   1.25;
 }
 
-// Descripción dentro de la tarjeta nav
 .nav-card-desc {
   font-size:     0.86rem;
   color:         $text-muted-c;
@@ -515,7 +482,6 @@ body {
   margin-bottom: 1.1rem;
 }
 
-// Enlace "Ir a …" en tarjetas nav
 .nav-enlace,
 .card-nav a {
   display:         inline-block;
@@ -535,14 +501,8 @@ body {
   }
 }
 
-// ── §8.4  Callout insight ─────────────────────────────────────────
-
-// Quarto Dashboard renderiza el callout dentro de un .bslib-card;
-// apuntamos a las clases del callout tal como las genera Quarto.
 .callout-important {
-  background:    linear-gradient(135deg,
-    rgba(0,255,231,0.05) 0%,
-    rgba(6,40,72,0.60)   100%) !important;
+  background:    linear-gradient(135deg, rgba(0,255,231,0.05) 0%, rgba(6,40,72,0.60) 100%) !important;
   border:        1px solid rgba(0,255,231,0.24) !important;
   border-left:   3px solid $biolum !important;
   border-radius: 16px !important;
@@ -568,8 +528,6 @@ body {
   }
 }
 
-// ── §8.5  Separador de sección (dentro de .card) ─────────────────
-
 .seccion-label {
   font-family:    $ff-mono;
   font-size:      0.64rem;
@@ -592,7 +550,6 @@ body {
   color:       $text-muted-c;
   line-height: 1.62;
 }
-
 
 // ================================================================
 //  §9  SIDEBAR
@@ -638,14 +595,12 @@ body {
   }
 }
 
-
 // ================================================================
-//  §10  TABSET PANELS
+//  §10  TABSET PANELS (Pestañas) — Arreglo estructural Flexbox
 // ================================================================
 
 .nav-tabs {
   border-bottom: 1px solid $glass-border;
-
   .nav-link {
     font-family:    $ff-mono;
     font-size:      0.68rem;
@@ -668,6 +623,28 @@ body {
       border-bottom: 2px solid $biolum !important;
     }
   }
+}
+
+// ARREGLO CRÍTICO: Configurar el contenedor de pestañas para que no colapse Plotly
+.tab-content {
+  display: flex !important;
+  flex: 1 1 auto !important;
+  flex-direction: column !important;
+  min-height: 0 !important;
+  width: 100%;
+}
+
+// Cuando la pestaña está oculta no rompe el CSS, cuando está activa se comporta como columna flex
+.tab-pane {
+  min-height: 0 !important;
+  height: 100% !important;
+  width: 100% !important;
+}
+
+.tab-pane.active {
+  display: flex !important;
+  flex-direction: column !important;
+  flex: 1 1 auto !important;
 }
 
 
@@ -697,16 +674,14 @@ body {
 
 @keyframes pulseGlow {
   0%, 100% { box-shadow: 0 0 16px rgba(0,255,231,0.12); }
-  50%      { box-shadow: 0 0 34px rgba(0,255,231,0.28); }
+  50%       { box-shadow: 0 0 34px rgba(0,255,231,0.28); }
 }
 
-// Entrada suave para las cards del dashboard
 .bslib-card,
 .card {
   animation: fadeSlideDown 0.55s ease both;
 }
 
-// Escalonar las primeras 6 tarjetas visibles
 .bslib-card:nth-child(1), .card:nth-child(1) { animation-delay: 0.05s; }
 .bslib-card:nth-child(2), .card:nth-child(2) { animation-delay: 0.12s; }
 .bslib-card:nth-child(3), .card:nth-child(3) { animation-delay: 0.19s; }
@@ -716,38 +691,17 @@ body {
 
 
 // ================================================================
-//  §14  MODELO PREDICTIVO — Sliders Plotly + card-modelo
-//  Los sliders de Plotly son SVG nativo del gráfico (no JS externo).
-//  Sus clases se pueden interceptar con CSS para alinearlos al tema.
+//  §14  MODELO PREDICTIVO
 // ================================================================
 
-// ── §14.1  Contenedor del gráfico interactivo ────────────────────
-//  Plotly añade margen inferior para los sliders (margin.b=280).
-//  Damos al card suficiente espacio vertical para que no se corte.
-
 .card-modelo-grafico {
-  // Fondo más oscuro que el glass estándar para que el área
-  // de plot tenga contraste con los ejes semi-transparentes
   background: rgba(4, 22, 48, 0.70) !important;
   .card-body { padding: 0.6rem 0.8rem; }
 }
 
-// ── §14.2  Sliders de Plotly ─────────────────────────────────────
-//  Plotly renderiza los sliders como SVG dentro del div del gráfico.
-//  No podemos cambiar su fill directamente con CSS de forma fiable,
-//  pero sí podemos ajustar el contenedor y el texto circundante.
-//  Barra de track del slider (rect con clase "bg")
-//  Plotly escucha style inline — lo mejor es setear los colores
-//  directamente en Python (COLORES dict). Ver modelo.qmd §COLORES.
-
-// ── §14.3  Card de descripción del modelo ───────────────────────
-
 .card-modelo-desc {
-  .card-body {
-    padding: 1.4rem 1.5rem;
-  }
+  .card-body { padding: 1.4rem 1.5rem; }
 
-  // Ecuaciones LaTeX (MathJax)
   .math, mjx-container {
     color:       $foam !important;
     font-size:   0.95rem !important;
@@ -755,7 +709,6 @@ body {
     overflow-x:  auto;
   }
 
-  // Títulos dentro de la card de descripción
   p strong:first-child {
     display:        block;
     font-family:    $ff-display;
@@ -768,32 +721,23 @@ body {
     border-top:     1px solid $glass-border;
   }
 
-  // Listas de parámetros
   ul {
     padding-left: 1.2rem;
     margin-bottom: 0.5rem;
-
     li {
       font-size:     0.88rem;
       color:         $text-muted-c;
       line-height:   1.6;
       margin-bottom: 0.3rem;
-
       strong { color: $foam; }
     }
   }
 }
 
-// ── §14.4  Card de interacción / controles ───────────────────────
-
 .card-modelo-ctrl {
-  background: linear-gradient(160deg,
-    rgba(0,255,231,0.04) 0%,
-    rgba(6,40,72,0.62)   100%) !important;
+  background: linear-gradient(160deg, rgba(0,255,231,0.04) 0%, rgba(6,40,72,0.62) 100%) !important;
   border-color: rgba(0,255,231,0.20) !important;
-
   .card-body { padding: 1.3rem 1.4rem; }
-
   ul {
     padding-left: 1.1rem;
     li {
@@ -806,20 +750,11 @@ body {
   }
 }
 
-// ── §14.5  Tabset del modelo (pestañas H / P) ────────────────────
-//  Quarto genera .nav-tabs dentro de la column con .tabset.
-//  Añadimos un acento extra para distinguirlas de tabsets genéricos.
-
 .column-tabset .nav-tabs .nav-link.active {
-  // Subrayado bioluminiscente más grueso para el modelo
   border-bottom-width: 3px !important;
   border-bottom-color: $biolum !important;
   font-weight: 600;
 }
-
-// ── §14.6  Pill de parámetros (valueboxes de parámetros MCMC) ────
-//  Los valueboxes de parámetros del modelo tienen valores compactos.
-//  Reducimos ligeramente el tamaño del valor para que quepan bien.
 
 .valuebox-param .value-box-value,
 .valuebox-param .valuebox-value {
@@ -829,19 +764,11 @@ body {
 
 // ================================================================
 //  §15  LOBOS MARINOS — Grupo Control
-//  Acento verde-esmeralda para distinguir visualmente esta sección
-//  de las secciones de ballenas (azul) y pelícanos (teal).
 // ================================================================
 
-// Valuebox color personalizado para "Grupo Control" (#1B5E20).
-// bslib no tiene una variable semántica verde-oscuro, así que
-// apuntamos al atributo style que genera Quarto cuando color=""
-// lleva un hex directo. Forzamos contraste de texto legible.
 .bslib-value-box[style*="1B5E20"],
 .bslib-value-box[style*="1b5e20"] {
-  background: linear-gradient(140deg,
-    rgba(27, 94, 32, 0.80),
-    rgba(4, 30, 53, 0.90)) !important;
+  background: linear-gradient(140deg, rgba(27, 94, 32, 0.80), rgba(4, 30, 53, 0.90)) !important;
   border-color: rgba(76, 175, 80, 0.35) !important;
 
   .value-box-value,
@@ -851,24 +778,14 @@ body {
   .valuebox-title { color: rgba(200, 245, 200, 0.82) !important; }
 }
 
-// Callouts de la sección lobos: ajuste de borde izquierdo al verde
-// .callout-note y .callout-important ya están estilizados globalmente;
-// aquí solo añadimos la clase auxiliar .callout-control para que la
-// card de texto tenga un borde izquierdo verde esmeralda si se desea.
-
 .callout-control {
   border-left-color: #4CAF50 !important;
 }
 
-// Card de análisis del grupo control (layout derecho)
 .card-control {
   .card-body { padding: 1.3rem 1.5rem; }
-
-  // Separador visual entre los dos callouts
   .callout + .callout { margin-top: 1.2rem; }
 }
-
-
 
 // ================================================================
 //  §13  RESPONSIVE
@@ -877,10 +794,8 @@ body {
 @media (max-width: 768px) {
   .hero-pregunta  { font-size: 1.55rem; }
   .card-hero .card-body { padding: 2.5rem 1.2rem 2rem; }
-
   .bslib-value-box .value-box-value,
   .bslib-value-box .valuebox-value { font-size: 1.5rem !important; }
-
   .card-modelo-grafico .card-body { padding: 0.3rem; }
 }
 
@@ -889,11 +804,12 @@ body {
 }
 
 // ================================================================
-//  §16  DIVISOR DE SECCIÓN — Variante C (Bloque capítulo)
-//  Uso: ::: {.section-divider} ... :::  dentro de .divider-row
+//  §16  DIVISOR DE SECCIÓN
 // ================================================================
 
 .divider-row {
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
   > .bslib-card,
   > .card {
     background:      transparent !important;
@@ -901,27 +817,27 @@ body {
     box-shadow:      none        !important;
     backdrop-filter: none        !important;
     animation:       none        !important;
+    overflow:        visible     !important;
     &::before  { display: none !important; }
     &:hover    { transform: none !important; box-shadow: none !important; }
   }
   > .bslib-card .card-body,
-  > .card      .card-body { padding: 0 !important; }
+  > .card      .card-body { 
+    padding: 0 !important; 
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
+  }
 }
 
 .section-divider {
-
   width: 100vw !important;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
   box-sizing: border-box;
   padding:       1.8rem 3.5rem; 
-  background:    linear-gradient(90deg,
-                   rgba(2,11,24,0.0)  0%,
-                   rgba(2,11,24,0.88) 10%,
-                   rgba(2,11,24,0.94) 50%,
-                   rgba(2,11,24,0.88) 90%,
-                   rgba(2,11,24,0.0)  100%);
+  background:    linear-gradient(90deg, rgba(2,11,24,0.0) 0%, rgba(2,11,24,0.88) 10%, rgba(2,11,24,0.94) 50%, rgba(2,11,24,0.88) 90%, rgba(2,11,24,0.0) 100%);
   border-top:    1px solid rgba(0,255,231,0.20);
   border-bottom: 1px solid rgba(0,255,231,0.20);
   display:       flex;
@@ -930,15 +846,8 @@ body {
   gap:           2rem;
 }
 
-// ── Lado izquierdo: número + línea + texto ────────────────────────
+.divider-left { display: flex; align-items: center; gap: 1.4rem; }
 
-.divider-left {
-  display:     flex;
-  align-items: center;
-  gap:         1.4rem;
-}
-
-// Número decorativo grande en segundo plano
 .divider-num {
   font-family:    $ff-display;
   font-size:      5rem;
@@ -947,87 +856,30 @@ body {
   letter-spacing: -0.04em;
   color:          rgba(0,255,231,0.10);
   user-select:    none;
-  // Transición suave al hacer hover sobre el divisor
   transition:     color 0.4s ease;
 }
 
-.section-divider:hover .divider-num {
-  color: rgba(0,255,231,0.18);
-}
+.section-divider:hover .divider-num { color: rgba(0,255,231,0.18); }
 
-.section-divider p {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0 !important;
-  gap: 2rem;
-}
+.section-divider p { display: flex; align-items: center; justify-content: space-between; width: 100%; margin: 0 !important; gap: 2rem; }
 
-// Línea vertical de separación
-.divider-vline {
-  width:      4px;
-  height:     60px;
-  background: linear-gradient(180deg,
-    transparent,
-    rgba(0,255,231,0.55),
-    transparent);
-  flex-shrink: 0;
-}
+.divider-vline { width: 4px; height: 60px; background: linear-gradient(180deg, transparent, rgba(0,255,231,0.55), transparent); flex-shrink: 0; }
 
-// Bloque de texto
-.divider-text {
-  display:        flex;
-  flex-direction: column;
-  gap:            0.22rem;
-}
+.divider-text { display: flex; flex-direction: column; gap: 0.22rem; }
 
-.divider-eyebrow {
-  font-family:    $ff-mono;
-  font-size:      1rem;
-  letter-spacing: 0.20em;
-  text-transform: uppercase;
-  color:          $biolum;
-  opacity:        0.65;
-  line-height:    1;
-}
+.divider-eyebrow { font-family: $ff-mono; font-size: 1rem; letter-spacing: 0.20em; text-transform: uppercase; color: $biolum; opacity: 0.65; line-height: 1; }
 
-.divider-title {
-  font-family:    $ff-display;
-  font-size:      2.5rem;
-  font-weight:    900;
-  color:          $pearl;
-  line-height:    1.1;
-  letter-spacing: -0.01em;
-  white-space:    nowrap;
-}
+.divider-title { font-family: $ff-display; font-size: 2.5rem; font-weight: 900; color: $pearl; line-height: 1.1; letter-spacing: -0.01em; white-space: nowrap; }
 
-// ── Lado derecho: tags opcionales ────────────────────────────────
-
-.divider-tags {
-  display:     flex;
-  align-items: center;
-  gap:         0.55rem;
-  flex-shrink: 0;
-}
+.divider-tags { display: flex; align-items: center; gap: 0.55rem; flex-shrink: 0; }
 
 .divider-tag {
-  font-family:    $ff-mono;
-  font-size:      1rem;
-  letter-spacing: 0.10em;
-  text-transform: uppercase;
-  color:          rgba(93,214,240,0.58);
-  border:         1px solid rgba(93,214,240,0.20);
-  border-radius:  100px;
-  padding:        0.24rem 0.75rem;
-  white-space:    nowrap;
-  transition:     color 0.25s ease, border-color 0.25s ease;
+  font-family: $ff-mono; font-size: 1rem; letter-spacing: 0.10em; text-transform: uppercase;
+  color: rgba(93,214,240,0.58); border: 1px solid rgba(93,214,240,0.20); border-radius: 100px;
+  padding: 0.24rem 0.75rem; white-space: nowrap; transition: color 0.25s ease, border-color 0.25s ease;
 }
 
-.divider-tag:hover {
-  color:        $foam;
-  border-color: rgba(93,214,240,0.42);
-}
+.divider-tag:hover { color: $foam; border-color: rgba(93,214,240,0.42); }
 
 @media (max-width: 768px) {
   .section-divider  { flex-direction: column; align-items: flex-start; padding: 1.4rem 1.5rem; }
@@ -1037,73 +889,28 @@ body {
 }
 
 // ================================================================
-//  §17  DIVIDER ROW — elimina el marco bslib de la fila divisora
-// ================================================================
-
-.divider-row {
-  // 1. Damos un respiro vertical para que el divisor no se pierda entre el texto
-  margin-top: 1.5rem !important;
-  margin-bottom: 1.5rem !important;
-
-  > .bslib-card,
-  > .card {
-    background:       transparent !important;
-    border:           none        !important;
-    box-shadow:       none        !important;
-    backdrop-filter:  none        !important;
-    // 2. ESTO ELIMINA LA BARRA INFERIOR: Evita que Quarto genere scrollbars
-    overflow:         visible     !important;
-    &::before { display: none !important; }
-
-    &:hover {
-      transform:  none !important;
-      box-shadow: none !important;
-    }
-  }
-
-  > .bslib-card .card-body,
-  > .card .card-body {
-    padding: 0 !important;
-    // 3. Forzamos a que el contenedor interno actúe como Flexbox
-    // Esto ayuda a alinear el párrafo invisible que inyecta Markdown
-    display: flex !important;
-    align-items: center !important;
-    overflow: visible !important;
-  }
-}
-
-// ================================================================
-//  §18  FOOTER GLOBAL (Ancho Completo, Tamaño Doble, Cero HTML)
+//  §18  FOOTER GLOBAL
 // ================================================================
 
 .dashboard-footer {
-  // ── Forzar ancho completo de la pantalla ──
   width: 100vw !important;
   margin-left: calc(50% - 50vw) !important;
   margin-right: calc(50% - 50vw) !important;
   max-width: 100vw;
   box-sizing: border-box;
-
-  // ── Contenedor y Fondo ──
   margin-top: 2rem !important;
   padding: 3.5rem 2rem !important;
-  background: linear-gradient(180deg, 
-                rgba(2, 11, 24, 0.6) 0%, 
-                rgba(4, 30, 53, 0.95) 100%) !important;
+  background: linear-gradient(180deg, rgba(2, 11, 24, 0.6) 0%, rgba(4, 30, 53, 0.95) 100%) !important;
   border-top: 1px solid $glass-border !important;
   backdrop-filter: blur(12px);
   text-align: center;
-
-  // ── Tipografía (Tamaño Duplicado) ──
   color: $text-main;
   font-family: $ff-body;
   font-size: .85rem !important;
   line-height: 1.6;
 
-  // Título del footer (Clase nativa de Quarto)
   .footer-title {
     display: block !important;
-    // Fuerza el comportamiento de título
     font-family: $ff-display !important;
     font-size: 1.4rem !important;
     font-weight: 700 !important;
@@ -1112,195 +919,68 @@ body {
     letter-spacing: 0.02em;
   }
 
-  // Separación de párrafos
-  p {
-    margin-bottom: 1.2rem;
-  }
-  p:last-child {
-    margin-bottom: 0;
-  }
+  p { margin-bottom: 1.2rem; }
+  p:last-child { margin-bottom: 0; }
 
-  // Enlaces adaptados a la nueva escala
   a {
-    color: $foam;
-    text-decoration: none;
-    border-bottom: 2px solid rgba(93, 214, 240, 0.3);
-    padding-bottom: 3px;
-    margin: 0 1rem;
-    transition: color 0.25s ease, border-color 0.25s ease;
-
-    &:hover {
-      color: $biolum;
-      border-bottom-color: $biolum;
-    }
+    color: $foam; text-decoration: none; border-bottom: 2px solid rgba(93, 214, 240, 0.3);
+    padding-bottom: 3px; margin: 0 1rem; transition: color 0.25s ease, border-color 0.25s ease;
+    &:hover { color: $biolum; border-bottom-color: $biolum; }
   }
 }
 
-// ── Ajuste Responsivo para móviles ──
 @media (max-width: 768px) {
   .dashboard-footer {
-    font-size: 1.2rem !important;
-    padding: 2.5rem 1.5rem !important;
-    
+    font-size: 1.2rem !important; padding: 2.5rem 1.5rem !important;
     .footer-title { font-size: 2rem !important; }
-    
-    a {
-      display: block;
-      margin: 0.8rem 0;
-      border-bottom: none;
-    }
+    a { display: block; margin: 0.8rem 0; border-bottom: none; }
   }
 }
 
 // ================================================================
-//  §19  BALLENA GRIS — Mapa interactivo de Baja California
-//  Añade este bloque al final de custom.scss
-//  Acento: verde-teal ($cons / $success) para OdL
-//          ámbar ($warning) para San Ignacio
+//  §19  BALLENA GRIS
 // ================================================================
-
-// ── §19.1  Card de descripción del modelo de ballena ─────────────
 
 .card-ballena-desc {
-
-  // Borde izquierdo bioluminiscente como indicador visual de sección
   border-left: 3px solid rgba(0, 255, 231, 0.45) !important;
-
-  .card-body {
-    padding: 1.3rem 1.5rem;
-    font-size: 0.875rem;
-    line-height: 1.70;
-  }
-
-  // Títulos de parámetros en negrita con acento teal
+  .card-body { padding: 1.3rem 1.5rem; font-size: 0.875rem; line-height: 1.70; }
   strong { color: $biolum2; }
-
-  // Tabla de rangos α₁ integrada dentro de la card
   table {
-    width:           100%;
-    border-collapse: separate;
-    border-spacing:  0;
-    margin-top:      0.8rem;
-    font-size:       0.82rem;
-
-    thead tr {
-      background: rgba(0, 255, 231, 0.07);
-    }
-
-    th {
-      color:         $foam;
-      font-family:   $ff-mono;
-      font-size:     0.75rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding:       0.45rem 0.7rem;
-      border-bottom: 1px solid $glass-border;
-    }
-
+    width: 100%; border-collapse: separate; border-spacing: 0; margin-top: 0.8rem; font-size: 0.82rem;
+    thead tr { background: rgba(0, 255, 231, 0.07); }
+    th { color: $foam; font-family: $ff-mono; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.45rem 0.7rem; border-bottom: 1px solid $glass-border; }
     td {
-      padding:       0.38rem 0.7rem;
-      color:         $text-muted-c;
-      border-bottom: 1px solid rgba(93, 214, 240, 0.08);
-
-      &:first-child {
-        font-family: $ff-mono;
-        color:       $foam;
-        white-space: nowrap;
-      }
+      padding: 0.38rem 0.7rem; color: $text-muted-c; border-bottom: 1px solid rgba(93, 214, 240, 0.08);
+      &:first-child { font-family: $ff-mono; color: $foam; white-space: nowrap; }
     }
-
     tr:last-child td { border-bottom: none; }
-
-    // Colorea semánticamente las filas de la tabla
-    tr:nth-child(1) td:first-child { color: $success; }  // sustentable
-    tr:nth-child(2) td:first-child { color: $warning; }  // alerta
-    tr:nth-child(3) td:first-child { color: $danger; }  // riesgo
+    tr:nth-child(1) td:first-child { color: $success; } 
+    tr:nth-child(2) td:first-child { color: $warning; } 
+    tr:nth-child(3) td:first-child { color: $danger; } 
   }
 }
 
-
-// ── §19.2  Card de controles / instrucciones ─────────────────────
-
 .card-ballena-ctrl {
-
-  .card-body {
-    padding: 1.3rem 1.5rem;
-    font-size: 0.875rem;
-    line-height: 1.70;
-  }
-
+  .card-body { padding: 1.3rem 1.5rem; font-size: 0.875rem; line-height: 1.70; }
   strong { color: $foam; }
-
-  // Listas de instrucciones con bullet bioluminiscente
   ul {
-    padding-left: 0;
-    list-style:   none;
-    margin-top:   0.6rem;
-
+    padding-left: 0; list-style: none; margin-top: 0.6rem;
     li {
-      position:      relative;
-      padding-left:  1.2rem;
-      margin-bottom: 0.5rem;
-      color:         $text-muted-c;
-
-      // Bullet personalizado
-      &::before {
-        content:    '›';
-        position:   absolute;
-        left:       0;
-        color:      $biolum;
-        font-size:  1.05rem;
-        line-height: 1.5;
-      }
-
+      position: relative; padding-left: 1.2rem; margin-bottom: 0.5rem; color: $text-muted-c;
+      &::before { content: '›'; position: absolute; left: 0; color: $biolum; font-size: 1.05rem; line-height: 1.5; }
       strong { color: $biolum2; }
     }
   }
 }
 
-
-// ── §19.3  Card contenedora de la figura Plotly ──────────────────
-
 .card-ballena-grafico {
-
-  // Sin padding interno: la figura Plotly ya maneja sus márgenes
-  .card-body {
-    padding: 0.2rem !important;
-  }
-
-  // La figura ocupa todo el ancho de la card
-  .plotly-graph-div,
-  iframe {
-    width:  100% !important;
-    border: none;
-  }
+  .card-body { padding: 0.2rem !important; }
+  .plotly-graph-div, iframe { width: 100% !important; border: none; }
 }
 
+#seccion-ballena { border-top: 1px solid rgba(0, 255, 231, 0.14); padding-top: 0.5rem; }
 
-// ── §19.4  Fila contenedora de la sección ballena ────────────────
-//  Añade un separador visual superior para distinguir la sección
-//  del mapa de las secciones de modelo Ricker anteriores.
-#seccion-ballena {
-  border-top: 1px solid rgba(0, 255, 231, 0.14);
-  padding-top: 0.5rem;
-}
-
-
-// ── §19.5  Valueboxes de parámetros MCMC — ballena ───────────────
-//  Reutiliza .valuebox-param (ya definido en §14.6) pero añade
-//  un acento de color para la sección de ballenas si se necesita.
 .valuebox-ballena {
-
-  // Valor numérico ligeramente más pequeño (parámetros con decimales)
-  .value-box-value,
-  .valuebox-value {
-    font-size: clamp(1.1rem, 1.9vw, 1.6rem) !important;
-    font-family: $ff-mono !important;
-  }
-
-  .value-box-title,
-  .valuebox-title {
-    font-size: 0.72rem !important;
-    letter-spacing: 0.04em;
-  }
+  .value-box-value, .valuebox-value { font-size: clamp(1.1rem, 1.9vw, 1.6rem) !important; font-family: $ff-mono !important; }
+  .value-box-title, .valuebox-title { font-size: 0.72rem !important; letter-spacing: 0.04em; }
 }
