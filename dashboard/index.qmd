@@ -96,7 +96,7 @@ Contexto general del proyecto y la importancia ecológica y económica del área
 :::
 [Ir a Introducción →](introduccion.qmd){.nav-enlace}
 :::
-:::
+
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -113,7 +113,7 @@ Visualización de patrones históricos de ballenas, pelícanos y producción pes
 :::
 [Ir a Análisis →](analisis.qmd){.nav-enlace}
 :::
-:::
+
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -130,7 +130,7 @@ Simulación de escenarios futuros basados en el modelo de Ricker, con parámetro
 :::
 [Ir a Modelo →](modelo.qmd){.nav-enlace}
 :::
-:::
+
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -147,7 +147,7 @@ Análisis de riesgos y recomendaciones estratégicas para la conservación marin
 :::
 [Ir a Escenarios →](escenarios.qmd){.nav-enlace}
 :::
-:::
+
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -164,7 +164,7 @@ Conclusiones finales e ideas de desarrollo a futuro
 :::
 [Ir a Conclusiones →](conclusiones.qmd){.nav-enlace}
 :::
-:::
+
 
 ## Row {height="auto"}
 
@@ -217,6 +217,8 @@ Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en ton
 
 :::
 :::
+
+## Row {height="auto"}
 
 ::: {.section-divider}
 ::: {.divider-body}
