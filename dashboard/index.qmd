@@ -1053,40 +1053,27 @@ display(construir_figura('P'))
 ```{python}
 #| label: setup3
 #| include: false
-"""
-Tres escenarios estáticos — Modelo de Ricker Baja California
-=============================================================
-Genera 3 figuras Plotly estáticas para Quarto desde GitHub.
- 
-Estilo: Tema ODS 14 · Vida Submarina
-"""
- 
-import os
-import json
 import numpy as np
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
- 
-# ── 1. CARGA DEL CACHÉ ───────────────────────────────────────────────────────
- 
-PATH_CACHE = '../datos/cache_modelo/cache_escenarios.json'
-if not os.path.exists(PATH_CACHE):
-    raise FileNotFoundError(f"No se encontró el archivo de caché en: {PATH_CACHE}")
- 
-with open(PATH_CACHE, 'r') as f:
-    datos_crudos = json.load(f)
- 
-CACHE = {}
-for k, v in datos_crudos.items():
-    try:
-        fa, ff, yr = k.split('_')
-        key = (round(float(fa), 2), round(float(ff), 2), int(yr))
-        CACHE[key] = v
-    except ValueError:
-        continue
- 
-# ── 2. DATOS OBSERVADOS Y PARÁMETROS BASE ────────────────────────────────────
- 
+"""
+Tres escenarios estáticos — Modelo de Ricker Baja California
+=============================================================
+Genera 3 figuras Plotly estáticas (HTML exportables):
+  · Escenario 1 — Inercial:      parámetros actuales, intervención 2025
+  · Escenario 2 — Conservación:  a×0.5, f×0.5,        intervención 2030
+  · Escenario 3 — Catastrófico:  a×1.4, f×1.4,        intervención 2025
+
+Cada figura muestra H (biodiversidad) y P (flota) en subplots,
+con un recuadro de parámetros explicativos.
+"""
+
+import numpy as np
+import plotly.graph_objects as go
+from plotly.subplots import make_subplots
+
+# ── 1. DATOS Y PARÁMETROS BASE ───────────────────────────────────────────────
+
 H_OBS = np.array([
     0.3955, 0.2110, 0.1324, 0.2965, 0.1371, 0.7856, 0.6301, 0.7755,
     0.1915, 0.2478, 0.1508, 0.0019, 0.7141, 1.0000, 0.3317, 0.5094,
@@ -1099,7 +1086,7 @@ P_OBS = np.array([
     0.1241, 0.1882, 0.3972, 0.6336, 0.5479, 0.6653, 0.5310, 0.7614,
     0.7429, 1.0000
 ])
- 
+
 # Medianas MCMC
 R_M  = 1.1564
 A_M  = 2.045
@@ -1107,16 +1094,14 @@ F_M  = 0.0472
 SH_M = 0.2643
 SP_M = 0.197
 K = C = 1.0
- 
-T        = 100
-AÑO_INI  = 1999
-AÑOS     = np.arange(AÑO_INI, AÑO_INI + T)
+
+T       = 100
+AÑO_INI = 1999
+AÑOS    = np.arange(AÑO_INI, AÑO_INI + T)
 AÑOS_OBS = AÑOS[:len(H_OBS)]
-N_SIMS   = 300
- 
-# ── 3. PALETA ODS 14 — Vida Submarina ────────────────────────────────────────
- 
-# Fondos y grillas
+N_SIMS  = 300
+
+# Paleta
 BG    = '#020b18'               # $abyss
 AX    = '#041e35'               # $deep
 GR    = 'rgba(93,214,240,0.12)' # $glass-border suave para grid
@@ -1149,9 +1134,10 @@ ESCENARIOS = {
         'acento': '#f4a261',
     },
 }
- 
-# ── 4. SIMULACIÓN (fallback si no hay datos en caché para ese escenario) ─────
- 
+
+
+# ── 2. SIMULACIÓN ────────────────────────────────────────────────────────────
+
 def simular(ruido_hist_H, ruido_hist_P, ruido_fut_H, ruido_fut_P,
             año_interv, factor_a, factor_f):
     H = np.zeros(T)
@@ -1159,70 +1145,74 @@ def simular(ruido_hist_H, ruido_hist_P, ruido_fut_H, ruido_fut_P,
     H[0], P[0] = H_OBS[0], P_OBS[0]
     fi = 0
     for t in range(T - 1):
-        futuro = AÑOS[t] >= año_interv
-        a_act  = A_M * factor_a if futuro else A_M
-        f_act  = F_M * factor_f if futuro else F_M
+        futuro  = AÑOS[t] >= año_interv
+        a_act   = A_M * factor_a if futuro else A_M
+        f_act   = F_M * factor_f if futuro else F_M
         rH = ruido_fut_H[fi] if futuro else ruido_hist_H[t]
         rP = ruido_fut_P[fi] if futuro else ruido_hist_P[t]
         if futuro:
             fi += 1
-        H[t+1] = np.clip(H[t] * np.exp(R_M * (1 - H[t]/K) - a_act * P[t]) + rH, 0.001, 5.0)
-        P[t+1] = np.clip(P[t] * np.exp(f_act * (1 - P[t]/C)) + rP, 0.001, 5.0)
+        H[t+1] = np.clip(
+            H[t] * np.exp(R_M * (1 - H[t]/K) - a_act * P[t]) + rH,
+            0.001, 5.0)
+        P[t+1] = np.clip(
+            P[t] * np.exp(f_act * (1 - P[t]/C)) + rP,
+            0.001, 5.0)
     return H, P
- 
- 
+
+
 def monte_carlo(año_interv, factor_a, factor_f, seed=42):
-    """Intenta leer del caché; si no existe, simula en tiempo real."""
-    key = (round(float(factor_a), 2), round(float(factor_f), 2), int(año_interv))
-    if key in CACHE:
-        d = CACHE[key]
-        H_st = {k: np.array(v) for k, v in d['Hc'].items()}
-        P_st = {k: np.array(v) for k, v in d['Pc'].items()}
-        return H_st, P_st
- 
-    # Fallback: simulación directa
     rng = np.random.default_rng(seed)
     H_arr = np.zeros((N_SIMS, T))
     P_arr = np.zeros((N_SIMS, T))
     for i in range(N_SIMS):
-        H_arr[i], P_arr[i] = simular(
-            rng.normal(0, SH_M, T), rng.normal(0, SP_M, T),
-            rng.normal(0, SH_M, T), rng.normal(0, SP_M, T),
-            año_interv, factor_a, factor_f,
-        )
+        rH_h = rng.normal(0, SH_M, T)
+        rP_h = rng.normal(0, SP_M, T)
+        rH_f = rng.normal(0, SH_M, T)
+        rP_f = rng.normal(0, SP_M, T)
+        H_arr[i], P_arr[i] = simular(rH_h, rP_h, rH_f, rP_f,
+                                      año_interv, factor_a, factor_f)
     def st(mat):
-        return dict(med=np.median(mat, 0), q5=np.percentile(mat, 5, 0), q95=np.percentile(mat, 95, 0))
+        return dict(
+            med=np.median(mat, axis=0),
+            q5 =np.percentile(mat, 5,  axis=0),
+            q95=np.percentile(mat, 95, axis=0),
+        )
     return st(H_arr), st(P_arr)
- 
- 
-# ── 5. PRE-CÓMPUTO ───────────────────────────────────────────────────────────
- 
+
+
+# ── 3. PRE-CÓMPUTO ───────────────────────────────────────────────────────────
+
 print("Calculando los 3 escenarios...")
- 
-CFG = [
+
+cfg = [
+    # (nombre, label, factor_a, factor_f, año_interv, tipo_escenario)
     ('Escenario 1 — Inercial',
-     'Parámetros actuales sin cambio de política',
+     'Parámetros actuales sin intervención',
      1.0, 1.0, 2025, 'inercial'),
     ('Escenario 2 — Conservación',
-     'Regulación pesquera: −50 % presión · −50 % crecimiento de flota',
+     'Regulación pesquera: −50% presión y −50% crecimiento de flota',
      0.5, 0.5, 2030, 'conservacion'),
     ('Escenario 3 — Catastrófico',
-     'Expansión no regulada: +40 % presión · +40 % crecimiento de flota',
+     'Expansión no regulada: +40% presión y +40% crecimiento de flota',
      1.4, 1.4, 2025, 'catastrofico'),
 ]
- 
+
 resultados = []
-for nombre, label, fa, ff, yr, tipo in CFG:
-    print(f"  {nombre}…")
+for nombre, label, fa, ff, yr, tipo in cfg:
+    print(f"  {nombre}...")
     H_st, P_st = monte_carlo(yr, fa, ff)
-    resultados.append(dict(nombre=nombre, label=label, fa=fa, ff=ff,
-                           yr=yr, tipo=tipo, H=H_st, P=P_st))
+    resultados.append(dict(
+        nombre=nombre, label=label, fa=fa, ff=ff, yr=yr,
+        tipo=tipo, H=H_st, P=P_st
+    ))
 print("Listo.\n")
- 
- 
-# ── 6. CONSTRUCCIÓN DE FIGURA ─────────────────────────────────────────────────
- 
+
 def hacer_figura(res):
+    """
+    Figura animada con dos subplots (H arriba, P abajo) donde las líneas
+    se dibujan a lo largo del tiempo.
+    """
     tipo   = res['tipo']
     col    = ESCENARIOS[tipo]
     H_st   = res['H']
@@ -1232,7 +1222,7 @@ def hacer_figura(res):
     yr     = res['yr']
     nombre = res['nombre']
     label  = res['label']
- 
+
     años_l = list(AÑOS)
     años_o = list(AÑOS_OBS)
     bx     = años_l + años_l[::-1]   # para bandas fill-toself
@@ -1240,194 +1230,147 @@ def hacer_figura(res):
     # Métricas comparadas con inercial
     H_iner = resultados[0]['H']
     P_iner = resultados[0]['P']
-    h_fin_iner = float(np.mean(H_iner['med'][-10:]))
-    p_fin_iner = float(np.mean(P_iner['med'][-10:]))
+    h_fin_iner = float(np.mean(resultados[0]['H']['med'][-10:]))
     h_fin_este = float(np.mean(H_st['med'][-10:]))
+    p_fin_iner = float(np.mean(resultados[0]['P']['med'][-10:]))
     p_fin_este = float(np.mean(P_st['med'][-10:]))
     delta_H = (h_fin_este - h_fin_iner) / max(h_fin_iner, 0.001) * 100
     delta_P = (p_fin_este - p_fin_iner) / max(p_fin_iner, 0.001) * 100
- 
+
     fig = make_subplots(
         rows=2, cols=1,
         shared_xaxes=True,
-        vertical_spacing=0.10,
+        vertical_spacing=0.08,
         subplot_titles=[
             'H — Biodiversidad marina (presa)',
             'P — Flota pesquera (depredador)',
         ],
     )
- 
-    # ── Panel H ──────────────────────────────────────────────────────────────
- 
-    # Mediana H
+
+    # ── 1. TRAZOS INICIALES (Solo el primer dato para empezar) ───────────────
+    
     fig.add_trace(go.Scatter(
-        x=años_l, y=list(H_st['med']),
+        x=[años_l[0]], y=[list(H_st['med'])[0]],
         mode='lines',
-        line=dict(color=col['H'], width=2.5),
+        line=dict(color=col['H'], width=2.8),
         name='Mediana H',
         hovertemplate='%{x}: %{y:.3f}<extra>Mediana H</extra>',
     ), row=1, col=1)
- 
 
-    # ── Panel P ──────────────────────────────────────────────────────────────
- 
- 
-    # Mediana P
     fig.add_trace(go.Scatter(
-        x=años_l, y=list(P_st['med']),
+        x=[años_l[0]], y=[list(P_st['med'])[0]],
         mode='lines',
-        line=dict(color=col['P'], width=2.5),
+        line=dict(color=col['P'], width=2.8),
         name='Mediana P',
         hovertemplate='%{x}: %{y:.3f}<extra>Mediana P</extra>',
     ), row=2, col=1)
- 
 
- 
-    # ── Líneas verticales de intervención ────────────────────────────────────
+    # ── 2. LÍNEAS VERTICALES DE INTERVENCIÓN ─────────────────────────────────
     for row in (1, 2):
         fig.add_vline(
             x=yr,
-            line=dict(color='rgba(0,255,231,0.35)', width=1.5, dash='dot'),
-            row=row, col=1,
+            line=dict(color='rgba(210,215,230,0.5)', width=1.5, dash='dot'),
+            row=row, col=1
         )
- 
-    # ── Anotaciones de métricas ───────────────────────────────────────────────
-    emoji_H = '▲' if delta_H >= 0 else '▼'
-    emoji_P = '▲' if delta_P >= 0 else '▼'
- 
+
+    # ── 3. ANOTACIONES (Métricas Finales) ────────────────────────────────────
+    emoji_delta_H = '▲' if delta_H >= 0 else '▼'
+    emoji_delta_P = '▲' if delta_P >= 0 else '▼'
+
     fig.add_annotation(
         xref='paper', yref='y',
-        x=0.01, y=float(H_st['med'][-1]) + 0.04,
+        x=0.01, y=float(H_st['med'][-1]) + 0.05,
         xanchor='left', yanchor='bottom',
-        text=(
-            f"H final (media últ. 10 a.): <b>{h_fin_este:.3f}</b><br>"
-            f"vs. inercial: {h_fin_iner:.3f} "
-            f"<b>({emoji_H} {abs(delta_H):.1f} %)</b>"
-        ),
-        showarrow=False,
-        font=dict(size=10, color=TX, family='DM Sans, Arial, sans-serif'),
-        bgcolor='rgba(4,30,53,0.88)',
-        bordercolor='rgba(93,214,240,0.28)',
-        borderwidth=1,
-        borderpad=7,
-        align='left',
+        text=(f"H final (2089-2098): <b>{h_fin_este:.3f}</b><br>"
+              f"vs. inercial: <b>{h_fin_iner:.3f}</b> "
+              f"<b>({emoji_delta_H} {abs(delta_H):.1f}%)</b>"),
+        showarrow=False, font=dict(size=10, color=TX),
+        bgcolor='rgba(26,29,39,0.85)', bordercolor=GR, borderwidth=1, borderpad=6, align='left',
     )
- 
+
     fig.add_annotation(
         xref='paper', yref='y2',
-        x=0.01, y=float(P_st['med'][-1]) + 0.04,
+        x=0.01, y=float(P_st['med'][-1]) + 0.05,
         xanchor='left', yanchor='bottom',
-        text=(
-            f"P final (media últ. 10 a.): <b>{p_fin_este:.3f}</b><br>"
-            f"vs. inercial: {p_fin_iner:.3f} "
-            f"<b>({emoji_P} {abs(delta_P):.1f} %)</b>"
-        ),
-        showarrow=False,
-        font=dict(size=10, color=TX, family='DM Sans, Arial, sans-serif'),
-        bgcolor='rgba(4,30,53,0.88)',
-        bordercolor='rgba(93,214,240,0.28)',
-        borderwidth=1,
-        borderpad=7,
-        align='left',
+        text=(f"P final (2089-2098): <b>{p_fin_este:.3f}</b><br>"
+              f"vs. inercial: <b>{p_fin_iner:.3f}</b> "
+              f"<b>({emoji_delta_P} {abs(delta_P):.1f}%)</b>"),
+        showarrow=False, font=dict(size=10, color=TX),
+        bgcolor='rgba(26,29,39,0.85)', bordercolor=GR, borderwidth=1, borderpad=6, align='left',
     )
- 
-    # ── Recuadro de parámetros ────────────────────────────────────────────────
-    fig.add_annotation(
-        xref='paper', yref='paper',
-        x=0.99, y=0.99,
-        xanchor='right', yanchor='top',
-        text=(
-            f"<b>Parámetros del escenario</b><br>"
-            f"r = {R_M} &nbsp;·&nbsp; K = C = {K}<br>"
-            f"a = {A_M * fa:.4f} &nbsp;(×{fa:.0%} base)<br>"
-            f"f = {F_M * ff:.5f} &nbsp;(×{ff:.0%} base)<br>"
-            f"Año intervención: <b>{yr}</b><br>"
-            f"σ_H={SH_M} · σ_P={SP_M} · N={N_SIMS}"
-        ),
-        showarrow=False,
-        font=dict(size=9.5, color=TX2, family='Space Mono, monospace'),
-        bgcolor='rgba(4,30,53,0.90)',
-        bordercolor='rgba(93,214,240,0.25)',
-        borderwidth=1,
-        borderpad=9,
-        align='left',
-    )
- 
-    # ── Layout ───────────────────────────────────────────────────────────────
+
+    # ── 4. CREACIÓN DE FRAMES (La animación cuadro por cuadro) ───────────────
+    frames = []
+    for i in range(1, len(años_l) + 1):
+        frames.append(go.Frame(
+            name=str(años_l[i-1]),
+            data=[
+                go.Scatter(x=años_l[:i], y=list(H_st['med'])[:i]),
+                go.Scatter(x=años_l[:i], y=list(P_st['med'])[:i])
+            ],
+            traces=[0, 1] # Le indica a Plotly que actualice los dos trazos (H y P)
+        ))
+    fig.frames = frames
+
+    # ── 5. LAYOUT, EJES, BOTONES Y SLIDER ────────────────────────────────────
     fig.update_layout(
         title=dict(
-            text=(
-                f"<b style='color:{col['acento']}'>{nombre}</b><br>"
-                f"<span style='font-size:12px;color:{TX2};'>{label}</span>"
-            ),
-            font=dict(size=16, color=TX, family='Playfair Display, Georgia, serif'),
-            x=0.5, xanchor='center',
-            y=0.97,
+            text=(f"<b>{nombre}</b><br><span style='font-size:13px;color:{TX};'>{label}</span>"),
+            font=dict(size=17, color=TX), x=0.5, xanchor='center', y=0.97,
         ),
         plot_bgcolor=AX,
         paper_bgcolor=BG,
-        font=dict(color=TX, family='DM Sans, Arial, sans-serif', size=11),
-        height=700,
-        margin=dict(t=110, b=55, l=72, r=22),
+        font=dict(color=TX, family='Arial, sans-serif', size=11),
+        height=800, # Aumenté un poco la altura para que quepa el reproductor
+        margin=dict(t=110, b=120, l=70, r=20),
         hovermode='x unified',
         legend=dict(
-            orientation='h',
-            x=0.0, y=-0.07,
-            bgcolor='rgba(4,30,53,0.88)',
-            bordercolor='rgba(93,214,240,0.22)',
-            borderwidth=1,
-            font=dict(size=10, color=TX),
+            orientation='h', x=0.0, y=-0.08,
+            bgcolor='rgba(26,29,39,0.85)', bordercolor=GR, font=dict(size=10),
         ),
+        # Controles de animación
+        updatemenus=[dict(
+            type="buttons", showactive=False,
+            y=-0.20, x=0.0, xanchor="left", yanchor="top",
+            buttons=[
+                dict(label="▶ Reproducir", method="animate",
+                     args=[None, dict(frame=dict(duration=50, redraw=False), 
+                                      transition=dict(duration=0), fromcurrent=True, mode="immediate")]),
+                dict(label="⏸ Pausa", method="animate",
+                     args=[[None], dict(frame=dict(duration=0, redraw=False), mode="immediate", transition=dict(duration=0))])
+            ]
+        )],
+        sliders=[dict(
+            active=0, yanchor="top", xanchor="left",
+            currentvalue=dict(font=dict(size=14, color=TX), prefix="Año actual: ", visible=True, xanchor="right"),
+            transition=dict(duration=0), pad=dict(b=10, t=0), len=0.8, x=0.2, y=-0.20,
+            # Se crean los pasos del slider para CADA año
+            steps=[dict(
+                args=[[str(año)], dict(frame=dict(duration=0, redraw=False), mode="immediate", transition=dict(duration=0))],
+                label=str(año), method="animate"
+            ) for año in años_l]
+        )]
     )
- 
-    # Ejes X
+
+    # Configuración de Ejes
     for row in (1, 2):
         fig.update_xaxes(
-            gridcolor=GR,
-            linecolor='rgba(93,214,240,0.18)',
-            tickfont=dict(color=TX2, size=10),
+            gridcolor=GR, linecolor=GR, tickfont=dict(color=TX, size=10),
             range=[AÑO_INI - 1, AÑO_INI + T + 1],
+            tickmode='linear', dtick=10, # El eje X muestra marcas cada 10 años para no amontonarse
             row=row, col=1,
         )
- 
-    # Eje Y — H
-    fig.update_yaxes(
-        title_text='H normalizado',
-        gridcolor=GR,
-        linecolor='rgba(93,214,240,0.18)',
-        tickfont=dict(color=TX2, size=10),
-        title_font=dict(color=TX2, size=11),
-        rangemode='nonnegative',
-        row=1, col=1,
-    )
- 
-    # Eje Y — P
-    fig.update_yaxes(
-        title_text='P normalizado',
-        gridcolor=GR,
-        linecolor='rgba(93,214,240,0.18)',
-        tickfont=dict(color=TX2, size=10),
-        title_font=dict(color=TX2, size=11),
-        rangemode='nonnegative',
-        row=2, col=1,
-    )
- 
-    fig.update_xaxes(
-        title_text='Año',
-        title_font=dict(color=TX2, size=11),
-        row=2, col=1,
-    )
- 
-    # Subtítulos de subplots
+    
+    fig.update_yaxes(title_text='H normalizado', gridcolor=GR, linecolor=GR, tickfont=dict(color=TX, size=10), rangemode='nonnegative', row=1, col=1)
+    fig.update_yaxes(title_text='P normalizado', gridcolor=GR, linecolor=GR, tickfont=dict(color=TX, size=10), rangemode='nonnegative', row=2, col=1)
+    fig.update_xaxes(title_text='Año', row=2, col=1)
+
+    # Subtítulos
     for ann in fig.layout.annotations:
-        if ann.text in (
-            'H — Biodiversidad marina (presa)',
-            'P — Flota pesquera (depredador)',
-        ):
-            ann.font.color  = FOAM
-            ann.font.size   = 12
-            ann.font.family = 'DM Sans, Arial, sans-serif'
- 
+        if ann.text in ('H — Biodiversidad marina (presa)', 'P — Flota pesquera (depredador)'):
+            ann.font.color = TX
+            ann.font.size  = 13
+
     return fig
  
 
