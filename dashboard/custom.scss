@@ -1058,7 +1058,7 @@ body {
 }
 
 // ================================================================
-//  §18  FOOTER GLOBAL (Ancho Completo y Tamaño Doble)
+//  §18  FOOTER GLOBAL (Ancho Completo, Tamaño Doble, Cero HTML)
 // ================================================================
 
 .dashboard-footer {
@@ -1070,7 +1070,7 @@ body {
   box-sizing: border-box;
 
   // ── Contenedor y Fondo ──
-  margin-top: 4rem !important;
+  margin-top: 2rem !important;
   padding: 3.5rem 2rem !important;
   background: linear-gradient(180deg, 
                 rgba(2, 11, 24, 0.6) 0%, 
@@ -1082,13 +1082,14 @@ body {
   // ── Tipografía (Tamaño Duplicado) ──
   color: $text-main;
   font-family: $ff-body;
-  font-size: 1.7rem !important; // ¡Tamaño base al doble!
+  font-size: 1.7rem !important;
   line-height: 1.6;
 
-  // Título del footer (H2 dentro del bloque)
-  h2 {
+  // Título del footer (Clase nativa de Quarto)
+  .footer-title {
+    display: block !important; // Fuerza el comportamiento de título
     font-family: $ff-display !important;
-    font-size: 2.8rem !important; // Aún más grande y llamativo
+    font-size: 2.8rem !important;
     font-weight: 700 !important;
     color: $biolum !important;
     margin-bottom: 1.5rem !important;
@@ -1107,7 +1108,7 @@ body {
   a {
     color: $foam;
     text-decoration: none;
-    border-bottom: 2px solid rgba(93, 214, 240, 0.3); // Borde más grueso
+    border-bottom: 2px solid rgba(93, 214, 240, 0.3);
     padding-bottom: 3px;
     margin: 0 1rem;
     transition: color 0.25s ease, border-color 0.25s ease;
@@ -1125,16 +1126,15 @@ body {
     font-size: 1.2rem !important;
     padding: 2.5rem 1.5rem !important;
     
-    h2 { font-size: 2rem !important; }
+    .footer-title { font-size: 2rem !important; }
     
     a {
-      display: block; // Apila los enlaces en pantallas pequeñas
+      display: block; 
       margin: 0.8rem 0;
       border-bottom: none;
     }
   }
 }
-
 // ================================================================
 //  §19  BALLENA GRIS — Mapa interactivo de Baja California
 //  Añade este bloque al final de custom.scss
