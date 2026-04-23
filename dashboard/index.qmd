@@ -525,10 +525,8 @@ def crear_fig_embarcaciones(df):
 
 #### Row {height="20%"}
 
-::: {.valuebox icon="water" color="#0077B6"}
-**20,000 km**
-
-Ruta migratoria anual (Ártico — Baja California)
+::: {.card title="Contexto Ecológico"}
+Las ballenas grises recorren aproximadamente 20,000 km desde el Ártico hasta Baja California. *[Escribe aquí tu análisis o descripción detallada sobre la migración y el estado actual de la especie]*
 :::
 
 ::: {.valuebox icon="graph-up-arrow" color="#2A9D8F"}
@@ -545,7 +543,7 @@ Desplome poblacional al mínimo histórico (2020)
 
 #### Row {height="80%"}
 
-```{python}
+```python
 #| fig-responsive: true
 display(crear_fig_ballenas(ballenas))
 ```
@@ -554,10 +552,8 @@ display(crear_fig_ballenas(ballenas))
 
 #### Row {height="20%"}
 
-::: {.valuebox icon="tsunami" color="#0077B6"}
-**Indicador Costero**
-
-Compite por alimento con flotas pesqueras
+::: {.card title="Especie Centinela"}
+El pelícano pardo actúa como un indicador clave de la salud costera, compitiendo directamente por alimento con las flotas pesqueras locales. *[Añade aquí más notas sobre el impacto ecológico]*
 :::
 
 ::: {.valuebox icon="graph-up-arrow" color="#2A9D8F"}
@@ -574,7 +570,7 @@ Colapso reproductivo sin precedentes (2014–2015)
 
 #### Row {height="80%"}
 
-```{python}
+```python
 #| fig-responsive: true
 display(crear_fig_pelicanos(pelicanos))
 ```
@@ -583,10 +579,8 @@ display(crear_fig_pelicanos(pelicanos))
 
 #### Row {height="20%"}
 
-::: {.valuebox icon="droplet" color="#0077B6"}
-**La Paradoja**
-
-A mayor extracción, menor biodiversidad
+::: {.card title="La Paradoja Pesquera"}
+Se observa una tendencia donde el aumento en la extracción y expansión estructural pesquera coincide con periodos de crisis de la biodiversidad. *[Describe aquí las implicaciones de esta correlación]*
 :::
 
 ::: {.valuebox icon="ship" color="#E65100"}
@@ -603,14 +597,14 @@ Pico de producción en años de crisis biológica
 
 #### Row {height="40%"}
 
-```{python}
+```python
 #| fig-responsive: true
 display(crear_fig_pesca(produccion_pesquera))
 ```
 
 #### Row {height="40%"}
 
-```{python}
+```python
 #| fig-responsive: true
 display(crear_fig_embarcaciones(embarcaciones))
 ```
