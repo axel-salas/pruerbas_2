@@ -543,7 +543,7 @@ Desplome poblacional al mínimo histórico (2020)
 
 #### Row {height="80%"}
 
-```python
+```{python}
 #| fig-responsive: false
 #| fig-width: 10
 #| fig-height: 5
@@ -572,7 +572,7 @@ Colapso reproductivo sin precedentes (2014–2015)
 
 #### Row {height="80%"}
 
-```python
+```{python}
 #| fig-responsive: false
 #| fig-width: 10
 #| fig-height: 5
@@ -601,7 +601,7 @@ Pico de producción en años de crisis biológica
 
 #### Row {height="80%"}
 
-```python
+```{python}
 #| fig-responsive: false
 #| fig-width: 10
 #| fig-height: 5
