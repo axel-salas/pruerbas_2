@@ -2207,6 +2207,6 @@ Información Adicional y Créditos
 **Dashboard ODS 14: Vida Submarina** Desarrollado con [Quarto](https://quarto.org)
 Datos recopilados por el equipo DERRE
 
-[Repositorio de GitHub]( github.com/axel-salas/DERRE_hackods) | [Metodología](#) | [Contacto](github.com/axel-salas/DERRE_hackods/blob/main/README.md)
+[Repositorio de GitHub](https://github.com/axel-salas/DERRE_hackods) | [Metodología](#) | [Contacto](https://github.com/axel-salas/DERRE_hackods/blob/main/README.md)
 
 :::
