@@ -13,18 +13,8 @@ format:
     scrolling: true
     theme: custom.scss
     nav-buttons:
-      - text: "Inicio"
-        href: "#seccion-1"
-      - text: "Introducción"
-        href: "#seccion-2"
-      - text: "Análisis Exploratorio"
-        href: "#seccion-3"
-      - text: "Modelo Predictivo"
-        href: "#seccion-4"
-      - text: "Escenarios a futuro"
-        href: "#seccion-5"
-      - text: "Conclusiones"
-        href: "#seccion-6"
+      href: https://github.com/axel-salas/pruerbas_2/
+      icon: "github"   
 ---
 
 ## Row {#seccion-1 height="425px"}
