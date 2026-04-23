@@ -263,6 +263,34 @@ body {
   }
 }
 
+// ── §6.5  Plotly dentro de card-body — contención de altura ────────
+//
+//  Problema: .plotly-graph-div tiene height inline fijada por Plotly.
+//  Solución SCSS: Forzar que el card-body sea un flex-column que ceda
+//  espacio al gráfico sin desbordarse. El truco clave es min-height:0
+//  en el flex item (el card-body) para que pueda comprimirse.
+
+.bslib-card > .card-body,
+.card > .card-body {
+  min-height: 0;          // Permite que el flex item se comprima
+  overflow:   hidden;     // Corta cualquier desbordamiento residual
+}
+
+// El div raíz de Plotly debe seguir el 100% del ancho/alto disponible
+.card-body .plotly-graph-div,
+.bslib-card-body .plotly-graph-div {
+  width:      100% !important;
+  height:     100% !important;
+  min-height: 0   !important;
+  max-height: 100% !important;
+
+  // El SVG interno también debe ceder
+  svg.main-svg {
+    width:  100% !important;
+    height: 100% !important;
+  }
+}
+
 
 // ================================================================
 //  §7  VALUE BOXES
