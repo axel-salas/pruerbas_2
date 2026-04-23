@@ -919,7 +919,7 @@ body {
 // Número decorativo grande en segundo plano
 .divider-num {
   font-family:    $ff-display;
-  font-size:      3.8rem;
+  font-size:      5rem;
   font-weight:    900;
   line-height:    1;
   letter-spacing: -0.04em;
@@ -944,8 +944,8 @@ body {
 
 // Línea vertical de separación
 .divider-vline {
-  width:      2px;
-  height:     46px;
+  width:      4px;
+  height:     60px;
   background: linear-gradient(180deg,
     transparent,
     rgba(0,255,231,0.55),
@@ -962,7 +962,7 @@ body {
 
 .divider-eyebrow {
   font-family:    $ff-mono;
-  font-size:      0.58rem;
+  font-size:      1rem;
   letter-spacing: 0.20em;
   text-transform: uppercase;
   color:          $biolum;
@@ -972,7 +972,7 @@ body {
 
 .divider-title {
   font-family:    $ff-display;
-  font-size:      1.4rem;
+  font-size:      2.5rem;
   font-weight:    900;
   color:          $pearl;
   line-height:    1.1;
@@ -991,7 +991,7 @@ body {
 
 .divider-tag {
   font-family:    $ff-mono;
-  font-size:      0.58rem;
+  font-size:      2.5rem;
   letter-spacing: 0.10em;
   text-transform: uppercase;
   color:          rgba(93,214,240,0.58);
