@@ -18,7 +18,7 @@ format:
       icon: "github"   
 ---
 
-## Row {#seccion-1 height="425px"}
+## Row {#seccion-1 height="auto"}
 
 ::: {.card .card-hero}
 ::: {.card-body}
@@ -396,6 +396,7 @@ def crear_fig_ballenas(df):
     fig.update_layout(
         **_bg,
         autosize=True,
+        height=400,
         shapes=shapes_nino,
         title=dict(
             text="Monitoreo de Ballenas en Baja California\nEl impacto de la temperatura oceánica en la migración",
@@ -439,6 +440,7 @@ def crear_fig_pelicanos(df):
     fig.update_layout(
         **_bg,
         autosize=True,
+        height=400,
         title=dict(
             text="Dinámica Reproductiva: Pelícano Pardo\nImpacto de la variabilidad oceánica en la anidación",
             y=0.96, x=0.02, xanchor='left', yanchor='top'
@@ -474,6 +476,7 @@ def crear_fig_pesca(df):
     fig.update_layout(
         **_bg,
         autosize=True,
+        height=400,
         title=dict(text="Extracción Pesquera en Baja California",
                    y=0.96, x=0.02, xanchor='left', yanchor='top'),
         xaxis_title="Año", yaxis_title="Toneladas",
@@ -519,11 +522,11 @@ def crear_fig_embarcaciones(df):
     return fig
 ```
 
-## Row {.tabset height="900px"}
+## Row {.tabset height="550px"}
 
 ### Ballenas
 
-#### Row {height="20%"}
+#### Row {height="auto"}
 
 ::: {.card title="Contexto Ecológico"}
 Las ballenas grises recorren aproximadamente 20,000 km desde el Ártico hasta Baja California. *[Escribe aquí tu análisis o descripción detallada sobre la migración y el estado actual de la especie]*
@@ -541,7 +544,7 @@ Máximo histórico registrado (2012)
 Desplome poblacional al mínimo histórico (2020)
 :::
 
-#### Row {height="80%"}
+#### Row {height="430px"}
 
 ```{python}
 display(crear_fig_ballenas(ballenas))
@@ -549,7 +552,7 @@ display(crear_fig_ballenas(ballenas))
 
 ### Pelícanos
 
-#### Row {height="20%"}
+#### Row {height="auto"}
 
 ::: {.card title="Especie Centinela"}
 El pelícano pardo actúa como un indicador clave de la salud costera, compitiendo directamente por alimento con las flotas pesqueras locales. *[Añade aquí más notas sobre el impacto ecológico]*
@@ -567,7 +570,7 @@ Máximo histórico registrado (2011)
 Colapso reproductivo sin precedentes (2014–2015)
 :::
 
-#### Row {height="80%"}
+#### Row {height="430px"}
 
 ```{python}
 display(crear_fig_pelicanos(pelicanos))
@@ -575,7 +578,7 @@ display(crear_fig_pelicanos(pelicanos))
 
 ### Producción y Flota
 
-#### Row {height="20%"}
+#### Row {height="auto"}
 
 ::: {.card title="La Paradoja Pesquera"}
 Se observa una tendencia donde el aumento en la extracción y expansión estructural pesquera coincide con periodos de crisis de la biodiversidad. *[Describe aquí las implicaciones de esta correlación]*
@@ -593,7 +596,7 @@ Expansión estructural récord de la flota al 2024
 Pico de producción en años de crisis biológica
 :::
 
-#### Row {height="80%"}
+#### Row {height="430px"}
 
 ```{python}
 #| layout-ncol: 2
@@ -972,10 +975,10 @@ def construir_figura(variable='H'):
             orientation='h',
             y=1.09, x=0.0,
         ),
-        margin=dict(t=100, b=300, l=65, r=42),
+        margin=dict(t=100, b=260, l=65, r=42),
         sliders=final_sliders,
         annotations=[ann_resultado, ann_futuros],
-        height=780,
+        height=680,
         hovermode='x unified',
     )
 
@@ -1612,7 +1615,7 @@ display(construir_figura_ballena())
 [ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Catastrofico]{.divider-tag} [Inercial]{.divider-tag} [Conservación]{.divider-tag} ]{.divider-tags}
 :::
 
-## Row {height="950px" .tabset}
+## Row {height="780px" .tabset}
 
 ### Escenario 1 — Inercial
 
@@ -1981,7 +1984,7 @@ figs = [hacer_figura(res) for res in resultados]
 ```
 
 ```{python}
-#| out-height: 900px
+#| padding: 0
 display(figs[0])
 ```
 
@@ -1996,7 +1999,7 @@ Este escenario no supone ningún cambio. Los parámetros son exactamente los que
 ### Escenario 2 — Conservación
 
 ```{python}
-#| out-height: 900px
+#| padding: 0
 display(figs[1])
 ```
 
@@ -2011,7 +2014,7 @@ El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad respo
 ### Escenario 3 — Catastrófico
 
 ```{python}
-#| out-height: 900px
+#| padding:0
 display(figs[2])
 ```
 
@@ -2131,7 +2134,8 @@ def crear_fig_lobos_marinos(df):
             font=dict(color=TX_PLOT)
         ),
         margin=dict(l=60, r=30, t=105, b=60),
-        height=480
+        height=None
+        autosize
     )
 
     fig.update_xaxes(
@@ -2170,12 +2174,13 @@ Máximo histórico · Temporada 2022 – 2023
 Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
 :::
 
-## Row {height="80%"}
+## Row {height="500px%"}
 
 ### Column {width="65%"}
 
 ```{python}
-#| fig-responsive: true
+#| padding: 0
+#| fill: true
 display(crear_fig_lobos_marinos(lobos_marinos))
 ```
 
