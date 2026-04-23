@@ -208,7 +208,7 @@ Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en ton
 :::
 :::
 
-## Row {height="110px" .divider-row}
+## Row {height="150px" .divider-row}
 
 ::: {.section-divider}
 [ [04]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Escenarios a Futuro]{.divider-title} ]{.divider-text} ]{.divider-left} [ [ODS 14]{.divider-tag} [Baja California]{.divider-tag} ]{.divider-tags}
