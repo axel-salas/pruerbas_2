@@ -1018,34 +1018,37 @@ body {
 //  §17  DIVIDER ROW — elimina el marco bslib de la fila divisora
 // ================================================================
 
-// Quarto genera .dashboard-row > .bslib-card para cada Row.
-// Cuando la row lleva la clase .divider-row, vaciamos la card
-// de todo estilo visible para que el divisor flote libremente.
-
 .divider-row {
+  // 1. Damos un respiro vertical para que el divisor no se pierda entre el texto
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
 
-  // La card contenedora: sin fondo, sin borde, sin sombra
   > .bslib-card,
   > .card {
-    background:   transparent !important;
-    border:       none        !important;
-    box-shadow:   none        !important;
-    backdrop-filter: none     !important;
+    background:       transparent !important;
+    border:           none        !important;
+    box-shadow:       none        !important;
+    backdrop-filter:  none        !important;
+    
+    // 2. ESTO ELIMINA LA BARRA INFERIOR: Evita que Quarto genere scrollbars
+    overflow:         visible     !important; 
 
-    // Sin el reflejo de cristal del ::before global
     &::before { display: none !important; }
 
-    // Sin hover lift
     &:hover {
       transform:  none !important;
       box-shadow: none !important;
     }
   }
 
-  // El card-body también sin padding para que el divisor
-  // controle su propio espaciado interno
   > .bslib-card .card-body,
   > .card .card-body {
     padding: 0 !important;
+    
+    // 3. Forzamos a que el contenedor interno actúe como Flexbox
+    // Esto ayuda a alinear el párrafo invisible que inyecta Markdown
+    display: flex !important;
+    align-items: center !important;
+    overflow: visible !important;
   }
 }
