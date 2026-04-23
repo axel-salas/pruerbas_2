@@ -1611,7 +1611,7 @@ Utiliza los controles interactivos para explorar el futuro de la Ballena Gris:
 
 ::: {.card .card-ballena-grafico}
 
-```python
+```{python}
 #| fig-responsive: true
 display(construir_figura_ballena())
 ```
