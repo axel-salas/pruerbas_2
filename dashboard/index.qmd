@@ -2014,7 +2014,7 @@ El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad respo
 ### Escenario 3 — Catastrófico
 
 ```{python}
-#| padding:0
+#| padding: 0
 display(figs[2])
 ```
 
