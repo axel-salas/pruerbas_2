@@ -58,13 +58,13 @@ poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
 de mamíferos marinos del mundo pasan aquí
 :::
 
-::: {.valuebox icon="fish" color="warning"}
+::: {.valuebox icon="activity" color="warning"}
 **67%**
 
 de la pesca nacional en este ecosistema
 :::
 
-::: {.valuebox icon="gauge-high" color="danger"}
+::: {.valuebox icon="exclamation-triangle" color="danger"}
 **550 000**
 
 toneladas extraidas en 2024 *(maximo historico)*
