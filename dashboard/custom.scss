@@ -944,6 +944,21 @@ body {
   flex-shrink: 0;
 }
 
+// Ícono circular (opcional — ponlo entre .divider-sep y .divider-title)
+.divider-icon {
+  width:         30px;
+  height:        30px;
+  border-radius: 50%;
+  background:    rgba(0,255,231,0.07);
+  border:        1px solid rgba(0,255,231,0.20);
+  display:       flex;
+  align-items:   center;
+  justify-content: center;
+  flex-shrink:   0;
+  color:         $biolum;
+  font-size:     0.82rem;
+}
+
 // Título de la sección
 .divider-title {
   font-family:    $ff-display;
