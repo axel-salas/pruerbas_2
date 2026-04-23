@@ -1143,3 +1143,159 @@ body {
     }
   }
 }
+
+// ================================================================
+//  §19  BALLENA GRIS — Mapa interactivo de Baja California
+//  Añade este bloque al final de custom.scss
+//  Acento: verde-teal ($cons / $success) para OdL
+//          ámbar ($warning) para San Ignacio
+// ================================================================
+
+
+// ── §19.1  Card de descripción del modelo de ballena ─────────────
+
+.card-ballena-desc {
+
+  // Borde izquierdo bioluminiscente como indicador visual de sección
+  border-left: 3px solid rgba(0, 255, 231, 0.45) !important;
+
+  .card-body {
+    padding: 1.3rem 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.70;
+  }
+
+  // Títulos de parámetros en negrita con acento teal
+  strong { color: $biolum2; }
+
+  // Tabla de rangos α₁ integrada dentro de la card
+  table {
+    width:           100%;
+    border-collapse: separate;
+    border-spacing:  0;
+    margin-top:      0.8rem;
+    font-size:       0.82rem;
+
+    thead tr {
+      background: rgba(0, 255, 231, 0.07);
+    }
+
+    th {
+      color:         $foam;
+      font-family:   $ff-mono;
+      font-size:     0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding:       0.45rem 0.7rem;
+      border-bottom: 1px solid $glass-border;
+    }
+
+    td {
+      padding:       0.38rem 0.7rem;
+      color:         $text-muted-c;
+      border-bottom: 1px solid rgba(93, 214, 240, 0.08);
+
+      &:first-child {
+        font-family: $ff-mono;
+        color:       $foam;
+        white-space: nowrap;
+      }
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    // Colorea semánticamente las filas de la tabla
+    tr:nth-child(1) td:first-child { color: $success;  }  // sustentable
+    tr:nth-child(2) td:first-child { color: $warning;  }  // alerta
+    tr:nth-child(3) td:first-child { color: $danger;   }  // riesgo
+  }
+}
+
+
+// ── §19.2  Card de controles / instrucciones ─────────────────────
+
+.card-ballena-ctrl {
+
+  .card-body {
+    padding: 1.3rem 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.70;
+  }
+
+  strong { color: $foam; }
+
+  // Listas de instrucciones con bullet bioluminiscente
+  ul {
+    padding-left: 0;
+    list-style:   none;
+    margin-top:   0.6rem;
+
+    li {
+      position:      relative;
+      padding-left:  1.2rem;
+      margin-bottom: 0.5rem;
+      color:         $text-muted-c;
+
+      // Bullet personalizado
+      &::before {
+        content:    '›';
+        position:   absolute;
+        left:       0;
+        color:      $biolum;
+        font-size:  1.05rem;
+        line-height: 1.5;
+      }
+
+      strong { color: $biolum2; }
+    }
+  }
+}
+
+
+// ── §19.3  Card contenedora de la figura Plotly ──────────────────
+
+.card-ballena-grafico {
+
+  // Sin padding interno: la figura Plotly ya maneja sus márgenes
+  .card-body {
+    padding: 0.2rem !important;
+  }
+
+  // La figura ocupa todo el ancho de la card
+  .plotly-graph-div,
+  iframe {
+    width:  100% !important;
+    border: none;
+  }
+}
+
+
+// ── §19.4  Fila contenedora de la sección ballena ────────────────
+//  Añade un separador visual superior para distinguir la sección
+//  del mapa de las secciones de modelo Ricker anteriores.
+
+#seccion-ballena {
+  border-top: 1px solid rgba(0, 255, 231, 0.14);
+  padding-top: 0.5rem;
+}
+
+
+// ── §19.5  Valueboxes de parámetros MCMC — ballena ───────────────
+//  Reutiliza .valuebox-param (ya definido en §14.6) pero añade
+//  un acento de color para la sección de ballenas si se necesita.
+
+.valuebox-ballena {
+
+  // Valor numérico ligeramente más pequeño (parámetros con decimales)
+  .value-box-value,
+  .valuebox-value {
+    font-size: clamp(1.1rem, 1.9vw, 1.6rem) !important;
+    font-family: $ff-mono !important;
+  }
+
+  .value-box-title,
+  .valuebox-title {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em;
+  }
+}
