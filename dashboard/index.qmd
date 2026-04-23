@@ -27,7 +27,7 @@ format:
         href: "#seccion-6"
 ---
 
-## Row {#seccion-1 height="42vh"}
+## Row {#seccion-1}
 
 ::: {.card .card-hero}
 ::: {.card-body}
@@ -56,7 +56,7 @@ poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
 :::
 :::
 
-## Row {height="17vh"}
+## Row 
 
 ::: {.valuebox icon="water" color="primary"}
 **3.1 M km²**
@@ -76,7 +76,7 @@ Especies marinas en riesgo global
 Meta de la Agenda ODS
 :::
 
-## Row {height="25vh"}
+## Row 
 
 ### Column {width="20%"}
 ::: {.card .card-nav}
@@ -84,7 +84,6 @@ Meta de la Agenda ODS
 ::: {.nav-numero}
 01 — Introducción
 :::
-::: {.nav-accent .nav-accent-azul}
 :::
 ::: {.nav-card-titulo}
 Introducción
@@ -102,7 +101,6 @@ Contexto general del proyecto y la importancia ecológica y económica del área
 ::: {.nav-numero}
 02 — Análisis
 :::
-::: {.nav-accent .nav-accent-wave}
 :::
 ::: {.nav-card-titulo}
 Análisis Exploratorio
@@ -120,7 +118,6 @@ Visualización de patrones históricos de ballenas, pelícanos y producción pes
 ::: {.nav-numero}
 03 — Modelo
 :::
-::: {.nav-accent .nav-accent-cian}
 :::
 ::: {.nav-card-titulo}
 Modelo Predictivo
@@ -138,7 +135,6 @@ Simulación de escenarios futuros basados en el modelo de Ricker, con parámetro
 ::: {.nav-numero}
 04 — Escenarios
 :::
-::: {.nav-accent .nav-accent-espuma}
 :::
 ::: {.nav-card-titulo}
 Escenarios a Futuro
@@ -156,7 +152,6 @@ Análisis de riesgos y recomendaciones estratégicas para la conservación marin
 ::: {.nav-numero}
 05 — Conclusiones
 :::
-::: {.nav-accent .nav-accent-espuma}
 :::
 ::: {.nav-card-titulo}
 Conclusiones
