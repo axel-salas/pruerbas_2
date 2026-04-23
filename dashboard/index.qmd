@@ -1446,7 +1446,6 @@ def crear_fig_lobos_marinos(df):
     return fig
 ```
 
-# Lobos Marinos
 
 ## Row {height="20%"}
 
