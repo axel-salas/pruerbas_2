@@ -34,7 +34,7 @@ Objetivo de Desarrollo Sostenible · 14 · Vida Submarina
 :::
 ::: {.hero-pregunta}
 
-¿Si pudiéramos ver el futuro de nuestros mares, aún tendríamos tiempo para *salvarlos*?
+¿Si pudiéramos ver el *futuro* de nuestros mares, aún tendríamos tiempo para *salvarlos*?
 :::
 ::: {.hero-desc}
 
@@ -177,12 +177,8 @@ Metodología
 :::
 ::: {.card-body}
 
-::: {.seccion-label}
-Modelo utilizado
-:::
-
 ::: {.seccion-titulo}
-**Modelo de Ricker**
+**Modelos predictivos**
 :::
 
 ::: {.seccion-desc}
