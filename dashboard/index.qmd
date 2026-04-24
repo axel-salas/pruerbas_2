@@ -267,7 +267,6 @@ Para poder buscar una solución a nuestro problema, seguiremos una narrativa de 
 **Datos utilizados**
 :::
 ::: {.card-body}
-::: {.callout-note title="El sistema responde..."}
 Para construir nuestros modelos y responder nuestra pregunta inicial, utilizaremos los datos de población de ballena gris, nidos activos del pelícano pardo, número total de embarcaciones pesqueras y producción pesquera por litoral, informacion recabada de la región de Baja California.
 :::
 :::
