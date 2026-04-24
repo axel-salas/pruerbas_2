@@ -1481,7 +1481,7 @@ El modelo te permite explorar **escenarios de política pesquera** ajustando tre
 
 ¡Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodiversidad marina frente al escenario inercial de referencia!
 
-Debajo de este bloque se presentan los parámetros del modelo recuperados mediante métodos MCMC, es decir, los parámetros que dictan el comportamiento del modelo para tendencia actual.
+Debajo de este bloque se presentan los parámetros del modelo recuperados mediante métodos MCMC, es decir, los parámetros que dictan el comportamiento del modelo para la tendencia actual.
 :::
 
 
@@ -1967,9 +1967,9 @@ figs = [hacer_figura(res) for res in resultados]
 ::: {.callout-important appearance="minimal" icon=false}
 ## 01 — El mar que seguimos ignorando
 
-El Golfo de California no colapsó de golpe. Lo hicimos lentamente, temporada tras temporada, con cada embarcación adicional que salió al agua y cada tonelada extra que subió a cubierta. Los datos muestran que entre 1999 y 2024 ya ocurrió lo más difícil de revertir: la biodiversidad marina pasó de niveles moderados a oscilar peligrosamente cerca de cero, mientras la flota pesquera creció de forma casi ininterrumpida.
+El Golfo de California no colapsó de golpe. Lo hicimos lentamente, temporada tras temporada, con cada embarcación adicional no regulada que salió al agua y cada tonelada extra que subió a cubierta. Los datos muestran que entre 1999 y 2024 ya ocurrió lo más difícil de revertir: la biodiversidad marina pasó de niveles moderados a oscilar peligrosamente cerca de cero, mientras la flota pesquera creció de forma casi ininterrumpida.
 
-Este escenario no supone ningún cambio. Los parámetros son exactamente los que el modelo recuperó de los datos reales: una tasa de depredación **a = 2.045** que supera la capacidad de recuperación natural de las presas, y una flota que sigue expandiéndose con **f = 0.0472** año tras año. Lo que proyecta el modelo es sobrio: H se estabiliza en torno a 0.10–0.15, una fracción de sus máximos históricos. No hay colapso abrupto, pero tampoco recuperación. El sistema queda atrapado en un equilibrio degradado del que es muy difícil salir sin intervención externa. En ecología marina, una población crónicamente baja es vulnerable a cualquier perturbación adicional que sí podría empujarla al colapso definitivo.
+Este escenario no supone ningún cambio. Los parámetros son exactamente los que el modelo recuperó de los datos reales: una tasa de depredación que supera la capacidad de recuperación natural de las presas, y una flota que sigue expandiéndose año tras año. Lo que proyecta el modelo es sobrio: H se estabiliza en torno a 0.10–0.15, una fracción de sus máximos históricos, de hecho una fracción que es muy baja. No hay colapso abrupto, pero tampoco recuperación, hay un colapso progresivo. El sistema queda atrapado en un equilibrio degradado del que es muy difícil salir sin intervención externa. 
 :::
 
 ```{python}
@@ -1982,9 +1982,9 @@ display(figs[0])
 ::: {.callout-important appearance="minimal" icon=false}
 ## 02 — La ventana que todavía existe
 
-En 2030, tras cinco años de debate y negociación, el gobierno de México implementa un acuerdo regional de manejo pesquero. Las vedas se amplían, las licencias de nuevas embarcaciones se congelan, y el esfuerzo pesquero total se reduce a la mitad: una reducción del 50% en la presión sobre el ecosistema (**a × 0.5 = 1.0225**) y un freno equivalente al crecimiento de la flota (**f × 0.5 = 0.0236**).
+En 2030, tras cinco años de debate y negociación, el gobierno de México implementa un acuerdo regional de manejo pesquero. El esfuerzo pesquero total se reduce a la mitad: una reducción del 50% en la presión sobre el ecosistema y un freno equivalente al crecimiento de la flota.
 
-El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad responde. No de forma espectacular ni inmediata, pero sí de forma sostenida. A partir de 2032, la trayectoria mediana de H se separa visiblemente del escenario inercial. La diferencia al final del período ronda el **+70% respecto al escenario inercial**: una política de conservación implementada hoy aproximadamente duplica el nivel de biodiversidad que tendremos a finales de siglo. Este escenario no promete un regreso al máximo histórico de 2012 — promete algo más valioso: una trayectoria estable y ascendente en lugar de una meseta de deterioro.
+El modelo muestra algo que vale la pena leer con cuidado: la biodiversidad responde. No de forma espectacular ni inmediata, pero sí de forma sostenida. A partir de 2032, la trayectoria mediana de H se separa visiblemente del escenario inercial. La diferencia al final del período ronda el **+70% respecto al escenario inercial**: una política de conservación implementada hoy aproximadamente duplica el nivel de biodiversidad que tendremos a finales de siglo. Este escenario no promete un regreso a los máximos históricos, promete algo más valioso: una trayectoria estable y ascendente en lugar de una meseta de deterioro.
 :::
 
 ```{python}
@@ -1997,9 +1997,9 @@ display(figs[1])
 ::: {.callout-important appearance="minimal" icon=false}
 ## 03 — Lo que pasa si seguimos acelerando
 
-Este escenario no es una advertencia abstracta: es la predicción directa de tendencias ya observadas. Si la dinámica actual se intensifica — presión pesquera **+40%** (**a × 1.4 = 2.863**) y flota acelerando al mismo ritmo (**f × 1.4 = 0.0661**) desde hoy — el modelo muestra una biodiversidad marina que cae por debajo del escenario inercial de forma persistente, oscilando en niveles de **0.05–0.08**. A esos niveles, la capacidad reproductiva está tan comprometida que cualquier perturbación adicional —El Niño, una marea roja, una temporada agresiva— puede empujar la población fuera del rango de recuperación.
+Este escenario no es una advertencia abstracta: es la predicción directa de tendencias ya observadas. Si la dinámica actual se intensifica el modelo muestra una biodiversidad marina que cae por debajo del escenario inercial de forma persistente, oscilando en niveles de **0.05–0.08**. A esos niveles, la capacidad reproductiva está tan comprometida que cualquier perturbación adicional puede empujar la población fuera del rango de recuperación si no es que ya estamos dentro de ese rango.
 
-La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos peces, con una biodiversidad mucho más dañada como costo del crecimiento. El modelo no puede responder cuánto vale hoy un pelícano que no anida o una ballena que no regresa. Sí puede mostrar que el costo de no responderla se acumula, año tras año, en una curva que baja más rápido de lo que cualquier regulación futura podrá revertir.
+Llegar aquí sería producto de malas políticas ecológicas y una indiferencia absoluta a la problemática ambiental que ya está sucediendo hoy en todo México. Como ciudadana o ciudadano es complicado tener una acción de alto impacto, pero podemos exigir a nuestros políticos por cambios y manifestar nuestra preocupación y la importancia de la problemática. 
 :::
 
 ```{python}
