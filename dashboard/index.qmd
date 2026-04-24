@@ -1562,7 +1562,7 @@ Este parámetro concentra la presión antrópica total en la laguna: actividad p
 | 0.01 – 0.033 | Zona de alerta |
 | > 0.033 | Riesgo de declive |
 
-**Modelo calibrado** con datos de censo 1995–2023 mediante inferencia bayesiana (MCMC). El parámetro recuperado fue $alpha_1 = 0.033$. El escenario inercial de la siguiente figura es el proyectado para los datos actuales y las condiciones de conservación actuales.
+**Modelo calibrado** con datos de censo 1995–2023 mediante inferencia bayesiana (MCMC). El parámetro recuperado fue $\alpha_1 = 0.033$. El escenario inercial de la siguiente figura es el proyectado para los datos actuales y las condiciones de conservación actuales.
 :::
 
 ::: {.card .card-ballena-ctrl title="Cómo usar la gráfica"}
