@@ -2163,7 +2163,7 @@ Mientras las ballenas y pelícanos sufren colapsos, los lobos marinos muestran u
 
 ::: {.callout-important appearance="minimal" icon=false}
 
-## Row
+## Row {height="auto" .divider-row}
 
 ## Conclusiones Críticas 
 
