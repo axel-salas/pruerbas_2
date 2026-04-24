@@ -2149,7 +2149,7 @@ def crear_fig_lobos_marinos(df):
 
     return fig
 ```
-## Row {height="20%"}
+## Row {height="200px"}
 
 ::: {.valuebox icon="shield-check" color="success"}
 **Grupo Control**
