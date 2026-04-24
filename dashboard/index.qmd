@@ -2032,7 +2032,7 @@ La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos 
 [ [05]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Conclusiones]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Soluciones]{.divider-tag} [Lobo Marino]{.divider-tag} ]{.divider-tags}
 :::
 
-## Row {#seccion-6 }
+## Row {#seccion-6 height="auto"}
 
 ```{python}
 #| label: setup-lobos
@@ -2153,26 +2153,6 @@ def crear_fig_lobos_marinos(df):
     return fig
 ```
 
-
-## Row {height="auto"}
-
-::: {.valuebox icon="shield-check" color="success"}
-**Grupo Control**
-
-Sin impacto de pesca directa ni redes incidentales
-:::
-
-::: {.valuebox icon="graph-up-arrow" color="primary"}
-**7,500+ individuos**
-
-Máximo histórico · Temporada 2022 – 2023
-:::
-
-::: {.valuebox icon="info-circle" color="secondary"}
-**Protección Federal**
-
-Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
-:::
 
 ## Row {height="500px"}
 
