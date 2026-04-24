@@ -1464,6 +1464,8 @@ El modelo te permite explorar **escenarios de política pesquera** ajustando tre
 - **Año de intervención:** Define el momento en que entran en vigor las políticas de regulación.
 
 ¡Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodiversidad marina frente al escenario inercial de referencia!
+
+Debajo de este bloque se presentan los parámetros del modelo recuperados mediante métodos MCMC, es decir, los parámetros que dictan el comportamiento del modelo para tendencia actual.
 :::
 
 
@@ -1472,31 +1474,31 @@ El modelo te permite explorar **escenarios de política pesquera** ajustando tre
 ::: {.valuebox icon="graph-up-arrow" color="primary"}
 **1.15**
 
-r — Tasa de crecimiento natural (Biodiversidad)
+$r$ — Tasa de crecimiento natural (Biodiversidad)
 :::
 
 ::: {.valuebox icon="exclamation-triangle" color="danger"}
 **2.04**
 
-a — Tasa de depredación (Impacto pesquero)
+$a$ — Tasa de depredación (Impacto pesquero)
 :::
 
 ::: {.valuebox icon="bar-chart" color="warning"}
 **0.04**
 
-f — Expansión y crecimiento de flota
+$f$ — Expansión y crecimiento de flota
 :::
 
 ::: {.valuebox icon="cloud" color="success"}
 **± 0.26**
 
-ε_H — Variabilidad ambiental (Clima)
+$ε_H$ — Variabilidad ambiental (Clima)
 :::
 
 ::: {.valuebox icon="people" color="secondary"}
 **± 0.19**
 
-ε_P — Anomalías humanas (Esfuerzo)
+$ε_P$ — Anomalías humanas (Esfuerzo)
 :::
 
 ## Row {height="auto" .divider-row}
