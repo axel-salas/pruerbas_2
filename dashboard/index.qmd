@@ -2174,7 +2174,7 @@ Máximo histórico · Temporada 2022 – 2023
 Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
 :::
 
-## Row {height="500px%"}
+## Row {height="500px"}
 
 ### Column {width="65%"}
 
