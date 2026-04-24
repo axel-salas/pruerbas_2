@@ -1345,12 +1345,17 @@ def construir_figura_ballena():
         fig.data[j].visible = (j < num_base)
 
     # ── Steps del slider ──
+    # ── Steps del slider ──
     slider_steps = []
-    for a1 in _ALPHA1_RANGO_BALLENA:
+    frecuencia_etiquetas = 10  # <-- Mantenemos la frecuencia (cámbiala si necesitas más o menos espacio)
+    
+    # <-- OJO: Añadimos 'enumerate' para tener el índice 'i'
+    for i, a1 in enumerate(_ALPHA1_RANGO_BALLENA): 
         a1r   = round(a1, 4)
         vis   = [j in trace_idx.get(a1r, []) for j in range(len(fig.data))]
         col   = C['cons']   if a1 <= 0.01 else C['danger']
         lbl   = 'Sustentabilidad' if a1 <= 0.01 else 'Extinción'
+        
         slider_steps.append(dict(
             args=[
                 {'visible': vis},
@@ -1360,7 +1365,8 @@ def construir_figura_ballena():
                     f'  |  <span style="color:{col}">{lbl}</span>'
                 )},
             ],
-            label=f'{a1:.4f}',
+            # <-- Aplicamos la lógica: texto si es múltiplo de la frecuencia, si no, espacio en blanco
+            label=f'{a1:.4f}' if i % frecuencia_etiquetas == 0 else " ",
             method='update',
         ))
 
