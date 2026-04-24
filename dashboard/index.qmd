@@ -197,7 +197,7 @@ Datos fuente
 :::
 
 ::: {.seccion-desc}
-Para acceder a los metadatos y los archivos originales [acceder a:](github.com/axel-salas/DERRE_hackods/tree/main/datos)
+Para acceder a los metadatos y los archivos originales [acceder a:](https://github.com/axel-salas/DERRE_hackods/tree/main/datos)
 :::
 
 :::
