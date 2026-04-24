@@ -2032,7 +2032,7 @@ La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos 
 [ [05]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Conclusiones]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Soluciones]{.divider-tag} [Lobo Marino]{.divider-tag} ]{.divider-tags}
 :::
 
-## Row {#seccion-6 height="670px"}
+## Row {#seccion-6 }
 
 ```{python}
 #| label: setup-lobos
@@ -2154,7 +2154,7 @@ def crear_fig_lobos_marinos(df):
 ```
 
 
-## Row {height="150px"}
+## Row {height="auto"}
 
 ::: {.valuebox icon="shield-check" color="success"}
 **Grupo Control**
