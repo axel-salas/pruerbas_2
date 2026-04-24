@@ -1347,26 +1347,36 @@ def construir_figura_ballena():
     # ── Steps del slider ──
     # ── Steps del slider ──
     slider_steps = []
-    frecuencia_etiquetas = 10  # <-- Mantenemos la frecuencia (cámbiala si necesitas más o menos espacio)
+    frecuencia_etiquetas = 10 
     
-    # <-- OJO: Añadimos 'enumerate' para tener el índice 'i'
     for i, a1 in enumerate(_ALPHA1_RANGO_BALLENA): 
         a1r   = round(a1, 4)
         vis   = [j in trace_idx.get(a1r, []) for j in range(len(fig.data))]
         col   = C['cons']   if a1 <= 0.01 else C['danger']
         lbl   = 'Sustentabilidad' if a1 <= 0.01 else 'Extinción'
         
+        # 1. Determinamos si este paso muestra número en el eje (abajo)
+        es_visible = (i % frecuencia_etiquetas == 0)
+        
+        # 2. Ajustamos el prefijo dinámicamente:
+        # Si abajo es un espacio " ", el prefijo llevará el valor (ej: "α₁ = 0.0345")
+        # Si abajo sí hay número, el prefijo vuelve a ser el normal ("α₁ = ") para no duplicar
+        prefijo_dinamico = f'α₁ = {a1:.4f}' if not es_visible else 'α₁ = '
+    
         slider_steps.append(dict(
             args=[
                 {'visible': vis},
-                {'title.text': (
-                    f'<b>Ballena Gris — Baja California</b>'
-                    f'  |  α₁ = {a1:.4f}'
-                    f'  |  <span style="color:{col}">{lbl}</span>'
-                )},
+                {
+                    'title.text': (
+                        f'<b>Ballena Gris — Baja California</b>'
+                        f'  |  α₁ = {a1:.4f}'
+                        f'  |  <span style="color:{col}">{lbl}</span>'
+                    ),
+                    # Actualizamos el prefijo del slider en cada movimiento
+                    'sliders[0].currentvalue.prefix': prefijo_dinamico
+                },
             ],
-            # <-- Aplicamos la lógica: texto si es múltiplo de la frecuencia, si no, espacio en blanco
-            label=f'{a1:.4f}' if i % frecuencia_etiquetas == 0 else " ",
+            label=f'{a1:.4f}' if es_visible else " ",
             method='update',
         ))
 
