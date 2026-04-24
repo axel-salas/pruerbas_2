@@ -268,11 +268,11 @@ Para poder buscar una solución a nuestro problema, seguiremos una narrativa de 
 
 ::: {.card}
 ::: {.card-header}
-**💡 Insight del Sistema**
+**Datos utilizados**
 :::
 ::: {.card-body}
 ::: {.callout-note title="El sistema responde..."}
-Aquí va el texto de tu análisis. Al pasar el título como atributo y envolver el callout dentro del `.card-body`, Quarto respetará los márgenes correctamente (padding) y no intentará crear filas invisibles que rompan la tarjeta.
+Para construir nuestros modelos y responder nuestra pregunta inicial, utilizaremos los datos de población de ballena gris, nidos activos del pelícano pardo, número total de embarcaciones pesqueras y producción pesquera por litoral, informacion recabada de la región de Baja California.
 :::
 :::
 :::
@@ -385,7 +385,7 @@ def crear_fig_ballenas(df):
         height=400,
         shapes=shapes_nino,
         title=dict(
-            text="Monitoreo de Ballenas en Baja California\nEl impacto de la temperatura oceánica en la migración",
+            text="Monitoreo de Ballenas en Baja California",
             y=0.96, x=0.02, xanchor='left', yanchor='top'
         ),
         xaxis_title="Temporada (Año)",
@@ -403,6 +403,12 @@ def crear_fig_ballenas(df):
 
 def crear_fig_pelicanos(df):
     fig = go.Figure()
+
+    fig.add_trace(go.Scatter(
+        x=[None], y=[None], mode='markers',
+        marker=dict(symbol="square", size=15, color="rgba(244,162,97,0.3)"),
+        name='Fenómeno de El Niño (Calentamiento)', showlegend=True
+    ))
 
     fig.add_trace(go.Scatter(
         x=[None], y=[None], mode='markers',
@@ -428,7 +434,7 @@ def crear_fig_pelicanos(df):
         autosize=True,
         height=400,
         title=dict(
-            text="Dinámica Reproductiva: Pelícano Pardo\nImpacto de la variabilidad oceánica en la anidación",
+            text="Nidos activos de Pelícanos pardos",
             y=0.96, x=0.02, xanchor='left', yanchor='top'
         ),
         xaxis_title="Temporada (Año)",
@@ -444,6 +450,12 @@ def crear_fig_pelicanos(df):
 
 def crear_fig_pesca(df):
     fig = go.Figure()
+
+    fig.add_trace(go.Scatter(
+        x=[None], y=[None], mode='markers',
+        marker=dict(symbol="square", size=15, color="rgba(244,162,97,0.3)"),
+        name='Fenómeno de El Niño (Calentamiento)', showlegend=True
+    ))
     fig.add_trace(go.Scatter(
         x=df['año'], y=df['toneladas_pescadas'],
         mode='lines+markers', name='Producción (Ton)',
@@ -478,6 +490,13 @@ def crear_fig_pesca(df):
 
 def crear_fig_embarcaciones(df):
     fig = go.Figure()
+
+    fig.add_trace(go.Scatter(
+        x=[None], y=[None], mode='markers',
+        marker=dict(symbol="square", size=15, color="rgba(244,162,97,0.3)"),
+        name='Fenómeno de El Niño (Calentamiento)', showlegend=True
+    ))
+
     fig.add_trace(go.Scatter(
         x=df['año'], y=df['total_embarcaciones'],
         mode='lines+markers', name='Total Embarcaciones',
@@ -513,8 +532,8 @@ def crear_fig_embarcaciones(df):
 ### Ballenas
 
 ::: {.callout-important appearance="minimal" icon=false}
-## Contexto Ecologico
-Las ballenas grises recorren aproximadamente 20,000 km desde el Ártico hasta Baja California. *[Escribe aquí tu análisis o descripción detallada sobre la migración y el estado actual de la especie]*
+## Importancia de los datos
+Las ballenas grises son un indicador clave porque requieren enormes cantidades de biomasa para sobrevivir y completar su migración. Su presencia en el litoral bajacaliforniano confirma que la base de la cadena alimenticia está sana y puede sostener a grandes depredadores. Sin embargo, esta región es particularmente sensible a la variabilidad climática, como el fenómeno de El Niño. Al combinarse esta caída natural de alimento con la intensa extracción pesquera, ruido submarino por tráfico marítimo y pérdida de zonas de descanso costero el ecosistema pierde su capacidad de soporte y las ballenas se ven forzadas a alterar sus rutas para evitar la hambruna.
 :::
 
 
@@ -527,8 +546,8 @@ display(crear_fig_ballenas(ballenas))
 
 
 ::: {.callout-important appearance="minimal" icon=false}
-## Especie Sentinela
-El pelícano pardo actúa como un indicador clave de la salud costera, compitiendo directamente por alimento con las flotas pesqueras locales. *[Añade aquí más notas sobre el impacto ecológico]*
+## Importancia de los datos
+El pelícano pardo actúa como un indicador clave de la salud costera, compitiendo directamente por alimento con las flotas pesqueras locales. Para que estas aves logren anidar y reproducirse con éxito, necesitan una gran estabilidad y abundancia de peces pequeños cerca de la costa. Durante el fenómeno de El Niño, el calentamiento del océano desplaza a estos peces y corta de tajo la disponibilidad de nutrientes. Esta escasez repentina, sumada a la presión humana, provoca que los pelícanos abandonen sus nidos, haciendo que sus caídas poblacionales sean el reflejo de la salud del ecosistema.
 :::
 
 ```{python}
@@ -539,8 +558,8 @@ display(crear_fig_pelicanos(pelicanos))
 ### Producción y Flota
 
 ::: {.callout-important appearance="minimal" icon=false}
-## La paradoja pesquera
-Se observa una tendencia donde el aumento en la extracción y expansión estructural pesquera coincide con periodos de crisis de la biodiversidad. *[Describe aquí las implicaciones de esta correlación]*
+## Explicación de los datos
+La expansión de la industria pesquera creció de 4,700 a cerca de 7,000 embarcaciones, llevando el volumen de extracción a un pico histórico de 550,000 toneladas. La implicación de esta correlación es un déficit biológico directo. Al maximizar nuestra capacidad de captura, el ritmo de extracción supera la tasa de regeneración natural del ecosistema. Provocando la crisis alimentaria y el desplazamiento de las especies centinelas. 
 :::
 
 ```{python}
