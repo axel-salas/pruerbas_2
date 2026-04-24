@@ -231,9 +231,7 @@ Aportación de Baja California al total pesquero de México.
 ### Column {width="55%"}
 
 ::: {.callout-important title="Un mar que se está vaciando" appearance="simple"}
-Hay un momento en que los números dejan de ser estadísticas y se convierten en una advertencia. **En Baja California, ese momento ya llegó.**
-
-La pregunta ya no es si el ecosistema está bajo presión. La pregunta es si todavía es capaz de recuperarse. Para responderla, no basta con mirar las redes: tenemos que evaluar el ecosistema completo.
+En Baja California se ha llegado a un límite. La flota pesquera creció un 48% en cuatro décadasy tan solo en 2024 se rompieron récords de captura. Sin embargo, el verdadero impacto de esta crisis no se mide en las toneladas de pesca, sino en lo que dejamos atrás. Estamos alterando el equilibrio ecológico a una escala tan grande que se ven efectadas especies con las que la industria no interactua directamente . La pregunta ya no es si el ecosistema está bajo presión, sino cuándo colapsará.
 :::
 
 ::: {.callout-note title="El Tesoro Biológico bajo amenaza" appearance="simple"}
