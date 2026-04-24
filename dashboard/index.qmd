@@ -34,12 +34,11 @@ Objetivo de Desarrollo Sostenible · 14 · Vida Submarina
 :::
 ::: {.hero-pregunta}
 
-¿Si pudiéramos ver nuestro *futuro*, que haríamos para cambiar nuestro *presente*?
+¿Si pudiéramos ver el futuro de nuestros mares, aún tendríamos tiempo para *salvarlos*?
 :::
 ::: {.hero-desc}
 
-Un análisis de datos sobre la interacción entre ecosistemas oceánicos,
-poblaciones de fauna y presión pesquera en el litoral bajacaliforniano.
+El futuro del océano aún no está escrito. Y con la ayuda de modelos matemáticos y acciones reales, buscaremos salvar la biodiversidad marina de Baja California.
 
 :::
 ::: {.hero-divisor}
@@ -62,9 +61,9 @@ de la pesca nacional en este ecosistema
 :::
 
 ::: {.valuebox icon="exclamation-triangle" color="danger"}
-**550 000**
+**2030**
 
-toneladas extraidas en 2024 *(maximo historico)*
+año objetivo para evitar colapso ecológico
 :::
 
 ## Row {height="auto"}
@@ -164,7 +163,7 @@ Insight central del estudio
 ::: {.card-body}
 
 ::: {.callout-important title="El sistema responde a dos presiones simultáneas" appearance="minimal" icon=false}
-*"El sistema marino responde simultáneamente a presiones climáticas y humanas. Entender esta interacción es clave para diseñar estrategias verdaderamente sostenibles."*
+El ecosistema y la industria pesquera operan bajo una delicada dinámica de depredador-presa. Nuestras simulaciones demuestran que una intervención oportuna en el tamaño de la flota puede evitar el colapso ecológico sin detener la actividad económica.
 :::
 
 :::
@@ -187,7 +186,7 @@ Modelo utilizado
 :::
 
 ::: {.seccion-desc}
-Modelo clásico de dinámica poblacional adaptado para capturar la interacción depredador-presa entre la flota pesquera y la biodiversidad marina de Baja California. Los parámetros fueron estimados via MCMC con 300 simulaciones Monte Carlo.
+Se construyó un modelo de comportamiento (dinámica) poblacional para simular un sistema depredador-presa (industria pesquera vs. biodiversidad marina en nuestro caso), donde se proyectará el comportamiento a futuro de los indicadores ecológicos en las costas de Baja California. También se hizo otro modelo que utiliza Cadenas de Markov para simular específicamente el comportamiento que la ballena gris tiene en su temporada de reproducción donde se alberga en lagunas de Baja California. Como método matemático  para atacar el problema se usó Métodos de Montecarlo basados en cadenas de Markov para ajustar los dos modelos formulados.
 :::
 
 ---
@@ -197,11 +196,11 @@ Datos fuente
 :::
 
 ::: {.seccion-titulo}
-**Series históricas 1999 – 2024**
+**Datos recuperados de la pagina ofical de SEMARNAT**
 :::
 
 ::: {.seccion-desc}
-Avistamientos de ballenas, nidos de pelícano pardo, producción pesquera en toneladas y registro de embarcaciones activas por temporada en el litoral bajacaliforniano.
+Para acceder a los metadatos y los archivos originales acceder a:
 :::
 
 :::
