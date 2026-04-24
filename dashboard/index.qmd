@@ -230,35 +230,24 @@ Aportación de Baja California al total pesquero de México.
 
 ### Column {width="55%"}
 
-::: {.callout-important title="Un mar que se está vaciando" appearance="simple"}
+::: {.callout-important title="Problema principal" appearance="simple"}
 En Baja California se ha llegado a un límite. La flota pesquera creció un 48% en cuatro décadasy tan solo en 2024 se rompieron récords de captura. Sin embargo, el verdadero impacto de esta crisis no se mide en las toneladas de pesca, sino en lo que dejamos atrás. Estamos alterando el equilibrio ecológico a una escala tan grande que se ven efectadas especies con las que la industria no interactua directamente . La pregunta ya no es si el ecosistema está bajo presión, sino cuándo colapsará.
 :::
 
-::: {.callout-note title="El Tesoro Biológico bajo amenaza" appearance="simple"}
-Esta región es de una relevancia ecológica mundial. Alberga:
-
-* 🐟 **900 especies de peces** (90% endémicas).
-* 🐋 **39%** de los mamíferos marinos del mundo.
-* 🦀 **4,500** especies de invertebrados marinos.
-* 🦅 **181** especies de aves marinas.
-
-Esta zona es particularmente sensible a la variabilidad climática (como el **fenómeno de El Niño**), que afecta la disponibilidad de nutrientes y choca directamente con la intensa presión de la actividad pesquera.
+::: {.callout-note title="Causas y consecuencias" appearance="simple"}
+Extraer recursos más rápido de lo que el mar puede regenerarlos trae consecuencias a futuro. Un ejemplo de las especies que se han visto afectadas de manera indirecta son las ballenas grises y los pelícanos pardos, ya que la falta de alimento (provocada directamente por el exceso de embarcaciones) obliga a los mamíferos marinos a abandonar el litoral bajacaliforniano o provoca la disminución de nidos activos.
 :::
 
 ### Column {width="45%"}
 
-::: {.card title="🎯 ¿Qué hace este Dashboard?"}
+::: {.card title=" ¿Qué hace este Dashboard?"}
 El objetivo principal es **analizar la relación entre la biodiversidad marina y la actividad pesquera**, detectando momentos clave asociados al clima y entendiendo el impacto de la presión humana.
 
-Para lograrlo, utilizamos indicadores clave como *proxies* de salud:
-1. **Avistamientos de ballenas:** Biodiversidad pelágica.
-2. **Nidos de pelícanos:** Biodiversidad costera.
-3. **Producción y flota:** Esfuerzo de explotación antrópica.
+Para poder buscar una solución a nuestro problema, seguiremos una narrativa de tres pasos:
+-El diagnóstico: analizaremos los datos históricos para observar tendencias, como la disminución del ecosistema marino a través de los años y el aumento de la industria pesquera.
+-La reacción: simularemos matemáticamente cómo el exceso de presión humana rompe el ecosistema y afecta a las especies migratorias.
+-La solución: usaremos los simuladores para ajustar regulaciones, frenar flotas y descubrir posibles escenarios para conocer cuál es nuestra verdadera ventana de tiempo antes del punto de no retorno.
 
-**Ruta de Análisis del Proyecto:**
-* 📊 **1. Análisis Exploratorio:** Evolución histórica y crisis poblacionales.
-* 🤖 **2. Modelo Predictivo:** Simulación de escenarios matemáticos futuros.
-* 🔮 **3. Escenarios a futuro:** Implicaciones y recomendaciones estratégicas para la sostenibilidad de la Agenda 2030 (ODS 14).
 :::
 
 ## Row {height="auto" .divider-row}
@@ -763,7 +752,7 @@ def construir_figura(variable='H'):
     dk = 'Hc' if es_H else 'Pc'
     di = 'Hi' if es_H else 'Pi'
 
-    titulo = ('H — Biodiversidad marina (presa)'
+    titulo = ('H — Bienestar Ecológico (presa)'
               if es_H else 'P — Flota pesquera (depredador)')
     ytit   = 'H normalizado' if es_H else 'P normalizado'
 
