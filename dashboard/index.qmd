@@ -2032,7 +2032,7 @@ La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos 
 [ [05]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Conclusiones]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Soluciones]{.divider-tag} [Lobo Marino]{.divider-tag} ]{.divider-tags}
 :::
 
-## Row {#seccion-6 height="auto"}
+## Row {#seccion-6 height="670px"}
 
 ```{python}
 #| label: setup-lobos
