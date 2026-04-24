@@ -2184,27 +2184,42 @@ Mientras las ballenas y pelícanos sufren colapsos, los lobos marinos muestran u
 
 ### Column
 
-::: {.callout-important appearance="minimal" icon=false}
-## Conclusiones Críticas
+## Conclusiones Críticas {width=100%}
 
+::: {.conclusiones-wrapper}
+
+::: {.concl-evidencia}
 ### 📊 Evidencia del Modelo
+
 La ciencia respalda la necesidad de una intervención inmediata bajo dos pilares:
 
-1. **Matemática:** Reducir el impacto pesquero al **50% para 2030** estabilizaría el ecosistema. En zonas críticas como Laguna Ojo de Liebre, una reducción del **30%** es vital para la ballena gris.
-2. **Empírica:** El éxito de los lobos marinos en el *Golfo de California* (año 2000) demuestra que **las políticas de conservación sí funcionan**.
+1.  **Matemática:** Reducir el impacto pesquero al **50% para 2030** estabilizaría el ecosistema. En zonas críticas como Laguna Ojo de Liebre, una reducción del **30%** es vital para la ballena gris.
+2.  **Empírica:** El éxito de los lobos marinos en el *Golfo de California* (año 2000) demuestra que **las políticas de conservación sí funcionan**.
+:::
 
+::: {.concl-desafio}
 ### El Desafío: Especies Migratorias
+
 Aunque las Áreas Naturales Protegidas son efectivas para especies residentes, las **especies migratorias como la ballena gris** requieren una protección dinámica. No basta con proteger su destino; es crucial blindar sus rutas frente a la pesca intensiva mediante técnicas de bajo impacto.
 
 > **Advertencia:** La ecología de Baja California está en una tendencia alarmante. Se requieren reducciones de presión antrópica de entre el 30% y 50% solo para **conservar lo que aún queda**.
+:::
 
+::: {.concl-hoja-ruta}
 ### 🌱 Hoja de Ruta para el 2030
+
 * **Expansión:** Implementación de nuevas Áreas Nacionales Protegidas.
 * **Regulación:** Aplicación estricta de técnicas de pesca de bajo impacto.
 * **Blindaje:** Protección efectiva de rutas migratorias críticas.
 * **Urgencia:** Cambio progresivo pero inmediato para alcanzar las metas del 2030.
+:::
 
+::: {.concl-divider}
+:::
+
+::: {.concl-resumen}
 ### 📌 Resumen Ejecutivo
+
 * **Meta Crítica:** Es necesario reducir el impacto humano un **30-50%** para evitar el colapso.
 * **Prueba de Éxito:** La recuperación del lobo marino confirma que la gestión ambiental genera resultados reales.
 * **Protección Dinámica:** Las ballenas necesitan leyes que las sigan en su ruta, no solo en sus santuarios.
