@@ -270,7 +270,7 @@ Para poder buscar una solución a nuestro problema, seguiremos una narrativa de 
 Para construir nuestros modelos y responder nuestra pregunta inicial, utilizaremos los datos de población de ballena gris, nidos activos del pelícano pardo, número total de embarcaciones pesqueras y producción pesquera por litoral, informacion recabada de la región de Baja California.
 :::
 :::
-:::
+
 
 ```{python}
 #| label: setup1
@@ -567,7 +567,7 @@ display(crear_fig_embarcaciones(embarcaciones))
 ## Row {height="auto" .divider-row}
 
 ::: {.section-divider}
-[ [03]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Modelo Predictivo]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Modelo de Rickenoseque]{.divider-tag} [otro modelo]{.divider-tag} ]{.divider-tags}
+[ [03]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Modelo Predictivo]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Modelo de Depredador vs. Presa]{.divider-tag} [Modelo Migratorio]{.divider-tag} ]{.divider-tags}
 :::
 
 ## Row {#seccion-4 height="auto"}
@@ -2175,11 +2175,12 @@ Mientras las ballenas y pelícanos sufren colapsos, los lobos marinos muestran u
 :::
 :::
 
-## Row
+### Column {width="100%"}
 
-### Column
+::: {.card}
+::: {.card-body}
 
-## Conclusiones Críticas {width=100%}
+## Conclusiones Críticas 
 
 ::: {.conclusiones-wrapper}
 
@@ -2234,6 +2235,6 @@ Información Adicional y Créditos
 **Dashboard ODS 14: Vida Submarina** Desarrollado con [Quarto](https://quarto.org)
 Datos recopilados por el equipo DERRE
 
-[Repositorio de GitHub](https://github.com/axel-salas/DERRE_hackods) | [Metodología](#) | [Contacto](https://github.com/axel-salas/DERRE_hackods/blob/main/README.md)
+[Repositorio de GitHub](https://github.com/axel-salas/DERRE_hackods) | [Metodología](https://github.com/axel-salas/DERRE_hackods/tree/main/scripts) | [Contacto](https://github.com/axel-salas/DERRE_hackods/blob/main/README.md)
 
 :::
