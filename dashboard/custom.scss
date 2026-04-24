@@ -1391,3 +1391,265 @@ body {
     border-radius: 2px;
   }
 }
+
+// ================================================================
+//  §20  CONCLUSIONES CRÍTICAS — Diseño de Tarjetas de Alto Impacto
+// ================================================================
+
+// ── §20.1  Contenedor principal de la sección ───────────────────
+
+.conclusiones-wrapper {
+  display:        flex;
+  flex-direction: column;
+  gap:            1.6rem;
+  padding:        0.5rem 0 2rem;
+}
+
+// ── §20.2  Tarjeta base reutilizable ────────────────────────────
+
+.concl-card {
+  position:                relative;
+  background:              rgba(4, 22, 45, 0.70);
+  border:                  1px solid $glass-border;
+  border-radius:           $border-radius-lg;
+  backdrop-filter:         blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow:              0 6px 32px rgba(0, 0, 0, 0.45);
+  padding:                 1.6rem 1.8rem;
+  color:                   $text-main;
+  overflow:                hidden;
+
+  // Reflejo de cristal en borde superior
+  &::before {
+    content:    '';
+    position:   absolute;
+    top:  0; left: 0; right: 0;
+    height:     1px;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(93, 214, 240, 0.45),
+      transparent);
+    pointer-events: none;
+  }
+
+  h3 {
+    font-family:    $ff-display;
+    font-size:      1.08rem;
+    font-weight:    700;
+    color:          $pearl;
+    margin-top:     0;
+    margin-bottom:  0.85rem;
+    letter-spacing: 0.01em;
+  }
+
+  p, li { line-height: 1.72; color: $text-main; }
+
+  strong { color: $biolum2; }
+  em     { color: $foam; font-style: italic; }
+}
+
+// ── §20.3  Tarjeta "Evidencia" — acento info/teal ────────────────
+
+.concl-evidencia {
+  @extend .concl-card;
+  border-left:  4px solid $reef;
+  padding-left: 1.6rem;
+
+  // Chip de encabezado de sección
+  &::after {
+    content:          'EVIDENCIA DEL MODELO';
+    position:         absolute;
+    top:              1.2rem;
+    right:            1.4rem;
+    font-family:      $ff-mono;
+    font-size:        0.62rem;
+    letter-spacing:   0.12em;
+    color:            $reef;
+    opacity:          0.70;
+    text-transform:   uppercase;
+  }
+
+  // Numeración de puntos matemáticos / empíricos
+  ol {
+    padding-left: 1.3rem;
+    margin:       0.6rem 0 0;
+
+    li {
+      margin-bottom:  0.6rem;
+      padding-left:   0.3rem;
+      color:          $text-main;
+
+      &::marker {
+        color:       $reef;
+        font-family: $ff-mono;
+        font-weight: 700;
+      }
+    }
+  }
+}
+
+// ── §20.4  Tarjeta "Desafío" — acento warning/ámbar ──────────────
+
+.concl-desafio {
+  @extend .concl-card;
+  border-left: 4px solid $warning;
+
+  h3 { color: lighten($warning, 12%); }
+
+  // Bloque de advertencia embebido (blockquote dentro)
+  blockquote {
+    margin:        1rem 0 0;
+    padding:       0.8rem 1rem 0.8rem 1.1rem;
+    background:    rgba($warning, 0.08);
+    border-left:   3px solid $warning;
+    border-radius: 0 10px 10px 0;
+    color:         lighten($warning, 18%);
+    font-size:     0.92rem;
+
+    strong { color: lighten($warning, 22%); }
+
+    // Ícono de advertencia vía pseudo-elemento
+    &::before {
+      content:      '⚠';
+      display:      block;
+      font-size:    1.1rem;
+      margin-bottom: 0.35rem;
+      opacity:      0.85;
+    }
+  }
+}
+
+// ── §20.5  Tarjeta "Hoja de Ruta" — acento success/verde ─────────
+
+.concl-hoja-ruta {
+  @extend .concl-card;
+  border-left:       4px solid $success;
+  background:        rgba(4, 30, 30, 0.65);
+
+  h3 { color: lighten($success, 18%); }
+
+  // Lista con bullets bioluminiscentes personalizados
+  ul {
+    padding-left: 0;
+    list-style:   none;
+    margin:       0.6rem 0 0;
+
+    li {
+      position:      relative;
+      padding-left:  1.6rem;
+      margin-bottom: 0.6rem;
+      color:         $text-main;
+
+      // Bullet "›" en verde éxito
+      &::before {
+        content:     '›';
+        position:    absolute;
+        left:        0;
+        color:       $success;
+        font-size:   1.15rem;
+        line-height: 1.5;
+        font-weight: 700;
+      }
+
+      strong { color: lighten($success, 20%); }
+    }
+  }
+}
+
+// ── §20.6  Separador temático ────────────────────────────────────
+
+.concl-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    $glass-border 30%,
+    rgba(0, 255, 231, 0.25) 50%,
+    $glass-border 70%,
+    transparent);
+  margin: 0.5rem 0;
+}
+
+// ── §20.7  Tarjeta "Resumen Ejecutivo" — gradiente abyss/biolum ──
+
+.concl-resumen {
+  @extend .concl-card;
+  background: linear-gradient(135deg,
+    rgba(2, 11, 24, 0.82)  0%,
+    rgba(6, 48, 82, 0.70) 100%);
+  border-color: rgba(0, 255, 231, 0.28);
+  box-shadow:
+    0 6px 32px rgba(0, 0, 0, 0.50),
+    0  0  28px rgba(0, 255, 231, 0.05);
+
+  h3 {
+    font-family:    $ff-mono;
+    font-size:      0.72rem;
+    font-weight:    700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color:          $biolum;
+    margin-bottom:  1rem;
+
+    // Línea decorativa debajo del título del resumen
+    &::after {
+      content:    '';
+      display:    block;
+      width:      48px;
+      height:     2px;
+      background: $biolum;
+      box-shadow: 0 0 6px rgba(0, 255, 231, 0.5);
+      margin-top: 0.5rem;
+      border-radius: 2px;
+    }
+  }
+
+  // Grid 2×2 para los cuatro puntos del resumen
+  ul {
+    display:               grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap:                   0.9rem 1.4rem;
+    padding-left:          0;
+    list-style:            none;
+    margin:                0;
+
+    li {
+      background:    rgba(6, 48, 82, 0.45);
+      border:        1px solid $glass-border;
+      border-radius: 12px;
+      padding:       0.8rem 1rem;
+      color:         $text-main;
+      font-size:     0.9rem;
+
+      // Punto decorativo bioluminiscente
+      &::before {
+        content:       '◆';
+        display:       block;
+        color:         $biolum;
+        font-size:     0.55rem;
+        margin-bottom: 0.35rem;
+        opacity:       0.80;
+      }
+
+      strong { color: $biolum2; }
+    }
+  }
+}
+
+// ── §20.8  Responsive ────────────────────────────────────────────
+
+@media (max-width: 768px) {
+  .concl-card,
+  .concl-evidencia,
+  .concl-desafio,
+  .concl-hoja-ruta,
+  .concl-resumen {
+    padding: 1.2rem 1.2rem 1.2rem 1.1rem;
+
+    &::after { display: none; }
+  }
+
+  .concl-resumen ul {
+    grid-template-columns: 1fr;
+  }
+}
