@@ -2135,7 +2135,7 @@ def crear_fig_lobos_marinos(df):
         ),
         margin=dict(l=60, r=30, t=105, b=60),
         height=None,
-        autosize
+        autosize=True
     )
 
     fig.update_xaxes(
