@@ -2032,9 +2032,9 @@ La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos 
 [ [05]{.divider-num} []{.divider-vline} [ [Siguiente sección]{.divider-eyebrow} [Conclusiones]{.divider-title} ]{.divider-text} ]{.divider-left} [ [Soluciones]{.divider-tag} [Lobo Marino]{.divider-tag} ]{.divider-tags}
 :::
 
-## Row {#seccion-6 height="auto"}
+## Row {#seccion-6}
 
-```{python}
+```python
 #| label: setup-lobos
 #| include: false
 
@@ -2116,10 +2116,7 @@ def crear_fig_lobos_marinos(df):
     fig.update_layout(
         shapes=shapes,
         title=dict(
-            text=(
-                'Población de Lobos Marinos: El Grupo Control\n'
-                'Especie protegida sin presión pesquera directa'
-            ),
+            text='Población de Lobos Marinos: El Grupo Control (Especie protegida sin presión pesquera)',
             y=0.95, x=0.02, xanchor='left', yanchor='top'
         ),
         # Fondos transparentes — el glass-card del tema es el fondo visible
@@ -2153,12 +2150,31 @@ def crear_fig_lobos_marinos(df):
     return fig
 ```
 
+## Row {height="20%"}
+
+::: {.valuebox icon="shield-check" color="success"}
+**Grupo Control**
+
+Sin impacto de pesca directa ni redes incidentales
+:::
+
+::: {.valuebox icon="graph-up-arrow" color="primary"}
+**7,500+ individuos**
+
+Máximo histórico · Temporada 2022 – 2023
+:::
+
+::: {.valuebox icon="info-circle" color="secondary"}
+**Protección Federal**
+
+Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
+:::
 
 ## Row {height="500px"}
 
 ### Column {width="65%"}
 
-```{python}
+```python
 #| padding: 0
 #| fill: true
 display(crear_fig_lobos_marinos(lobos_marinos))
