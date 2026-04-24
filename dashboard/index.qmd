@@ -1566,14 +1566,14 @@ Este parámetro concentra la presión antrópica total en la laguna: actividad p
 :::
 
 ::: {.card .card-ballena-ctrl title="Cómo usar la gráfica"}
-Utiliza los controles interactivos para explorar el futuro de la Ballena Gris:
+Utiliza los controles interactivos para explorar el futuro de la Ballena Gris y los posibles escenarios con un cambio en la política ecológica a partir del año 2030:
 
 - **Menú desplegable:** selecciona un escenario predefinido (desde conservación óptima hasta presión antrópica alta).
-- **Slider $\alpha_1$ :** ajusta continuamente la tasa de mortalidad en las lagunas para observar la respuesta del sistema.
+- **Slider $\alpha_1$ :** ajusta continuamente la tasa de mortalidad en las lagunas para observar la respuesta del sistema a partir del año 2030.
 
 **El panel izquierdo** muestra las zonas de reproducción georreferenciadas en Baja California. Cada burbuja indica el tamaño poblacional proyectado a 2068. El **halo de presión** cambia de color de verde (régimen sustentable) a rojo (régimen de extinción) conforme aumenta $\alpha_1$.
 
-**El panel derecho** muestra la serie temporal 1995–2068 de la simulación de la población de las ballenas, con bandas de incertidumbre (IC 90 %) derivadas del ensemble estocástico (N = 200 realizaciones). La línea punteada marca el inicio de la proyección.
+**El panel derecho** muestra la serie temporal 1995–2068 de la simulación de la población de las ballenas, con bandas de incertidumbre (IC 90 %). La línea punteada, colocada en el año 2030, al igual que en el modelo anterior representa el cambio en la política ecológica en el 2030 con un impacto medido por $\alpha_1$.
 :::
 
 ## Row {height="600px"}
