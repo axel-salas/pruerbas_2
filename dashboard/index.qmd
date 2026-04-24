@@ -245,13 +245,15 @@ Extraer recursos más rápido de lo que el mar puede regenerarlos trae consecuen
 
 ### Column {width="45%"}
 
-::: {.card title=" ¿Qué hace este Dashboard?"}
+::: {.card title="¿Qué hace este Dashboard?"}
+
 El objetivo principal es **analizar la relación entre la biodiversidad marina y la actividad pesquera**, detectando momentos clave asociados al clima y entendiendo el impacto de la presión humana.
 
 Para poder buscar una solución a nuestro problema, seguiremos una narrativa de tres pasos:
--El diagnóstico: analizaremos los datos históricos para observar tendencias, como la disminución del ecosistema marino a través de los años y el aumento de la industria pesquera.
--La reacción: simularemos matemáticamente cómo el exceso de presión humana rompe el ecosistema y afecta a las especies migratorias.
--La solución: usaremos los simuladores para ajustar regulaciones, frenar flotas y descubrir posibles escenarios para conocer cuál es nuestra verdadera ventana de tiempo antes del punto de no retorno.
+
+* **El diagnóstico:** analizaremos los datos históricos para observar tendencias, como la disminución del ecosistema marino a través de los años y el aumento de la industria pesquera.
+* **La reacción:** simularemos matemáticamente cómo el exceso de presión humana rompe el ecosistema y afecta a las especies migratorias.
+* **La solución:** usaremos los simuladores para ajustar regulaciones, frenar flotas y descubrir posibles escenarios para conocer cuál es nuestra verdadera ventana de tiempo antes del punto de no retorno.
 
 :::
 
@@ -2161,18 +2163,50 @@ Mientras las ballenas y pelícanos sufren colapsos, los lobos marinos muestran u
 
 ::: {.callout-important appearance="minimal" icon=false}
 
-## Conclusión crítica
+## Row
 
-La evidencia es doble:
+## Conclusiones Críticas 
 
-1. **Matemática:** El modelo predice que reducir el impacto de la flota al 50% estabilizaría las poblaciones.
-2. **Empírica:** El éxito de los lobos marinos tras la creación del Área de Protección *Islas del Golfo de California* en el año 2000 confirma que las políticas de conservación **sí funcionan en la vida real**.
+::: {.conclusiones-wrapper}
 
-El escenario inercial es devastador, pero la posibilidad de cambio tiene tanto respaldo científico como evidencia en campo.
+::: {.concl-evidencia}
+### 📊 Evidencia del Modelo
 
+La ciencia respalda la necesidad de una intervención inmediata bajo dos pilares:
+
+1.  **Matemática:** Reducir el impacto pesquero al **50% para 2030** estabilizaría el ecosistema. En zonas críticas como Laguna Ojo de Liebre, una reducción del **30%** es vital para la ballena gris.
+2.  **Empírica:** El éxito de los lobos marinos en el *Golfo de California* (año 2000) demuestra que **las políticas de conservación sí funcionan**.
 :::
 
+::: {.concl-desafio}
+### El Desafío: Especies Migratorias
+
+Aunque las Áreas Naturales Protegidas son efectivas para especies residentes, las **especies migratorias como la ballena gris** requieren una protección dinámica. No basta con proteger su destino; es crucial blindar sus rutas frente a la pesca intensiva mediante técnicas de bajo impacto.
+
+> **Advertencia:** La ecología de Baja California está en una tendencia alarmante. Se requieren reducciones de presión antrópica de entre el 30% y 50% solo para **conservar lo que aún queda**.
 :::
+
+::: {.concl-hoja-ruta}
+### 🌱 Hoja de Ruta para el 2030
+
+* **Expansión:** Implementación de nuevas Áreas Nacionales Protegidas.
+* **Regulación:** Aplicación estricta de técnicas de pesca de bajo impacto.
+* **Blindaje:** Protección efectiva de rutas migratorias críticas.
+* **Urgencia:** Cambio progresivo pero inmediato para alcanzar las metas del 2030.
+:::
+
+::: {.concl-divider}
+:::
+
+::: {.concl-resumen}
+### 📌 Resumen Ejecutivo
+
+* **Meta Crítica:** Es necesario reducir el impacto humano un **30-50%** para evitar el colapso.
+* **Prueba de Éxito:** La recuperación del lobo marino confirma que la gestión ambiental genera resultados reales.
+* **Protección Dinámica:** Las ballenas necesitan leyes que las sigan en su ruta, no solo en sus santuarios.
+* **Acción Inmediata:** La solución técnica existe; el reto es su implementación política y social antes de 2030.
+:::
+
 :::
 
 ## Row {height="auto" .divider-row}
