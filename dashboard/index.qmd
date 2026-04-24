@@ -110,7 +110,7 @@ Visualización de patrones históricos de ballenas, pelícanos y producción pes
 :::
 
 ::: {.nav-card-titulo}
-Modelo Predictivo
+Modelos Predictivos
 :::
 
 ::: {.nav-card-desc}
@@ -1549,17 +1549,12 @@ display(construir_figura('P'))
 
 ## Row {height="500px"}
 
-::: {.card .card-ballena-desc title="Ballena Gris de Baja California"}
-La **Ballena Gris del Pacífico Oriental** (*Eschrichtius robustus*) realiza anualmente una de las migraciones más largas del reino animal, recorriendo hasta **20 000 km** desde el Ártico hasta las lagunas costeras de Baja California.
+::: {.card .card-ballena-desc title="Comportamiento de la ballena gris alrededor de las costas de Baja California"}
+La ballena gris pasa su temporada reproductiva, que es en invierno, en las lagunas costeras Ojo de Liebre y de San Ignacio. (Rogers, et al., 2023). Las ballenas además transicionan de una isla a otra frecuentemente durante su etapa reproductiva (IUCN - MMPATF, 2023). ¿Cómo se distribuyen las ballenas entre ambas islas y más importantemente qué pasa con las ballenas durante este movimiento y mientras se hospedan en la costa mexicana? Este modelo, formulado con cadenas de Markov, pretende responder a esa pregunta.
 
-**Dos lagunas clave**
+**Parámetro $\alpha_1$ — Mortalidad en lagunas**
 
-- **Ojo de Liebre (OdL):** principal santuario de crianza, con mayor proporción de llegadas históricas.
-- **San Ignacio (SI):** segunda laguna en importancia, con tendencias más vulnerables.
-
-**Parámetro α₁ — Mortalidad en lagunas**
-
-Este parámetro concentra la presión antrópica total en la laguna: actividad pesquera, turismo no regulado, contaminación acústica y degradación del hábitat.
+Este parámetro concentra la presión antrópica total en la laguna: actividad pesquera, turismo no regulado, contaminación acústica y degradación del hábitat. A diferencia del modelo anterior, este parámetro no representa la industria pesquera específicamente, es más general y representa un impacto ambiental así. A través de 
 
 | Rango | Interpretación |
 |-------|---------------|
@@ -1567,18 +1562,18 @@ Este parámetro concentra la presión antrópica total en la laguna: actividad p
 | 0.01 – 0.033 | Zona de alerta |
 | > 0.033 | Riesgo de declive |
 
-**Modelo calibrado** con datos de censo 1995–2023 mediante inferencia bayesiana (MCMC). Los parámetros poblacionales presentados son las medianas posteriores.
+**Modelo calibrado** con datos de censo 1995–2023 mediante inferencia bayesiana (MCMC). El parámetro recuperado fue $alpha_1 = 0.033$. El escenario inercial de la siguiente figura es el proyectado para los datos actuales y las condiciones de conservación actuales.
 :::
 
 ::: {.card .card-ballena-ctrl title="Cómo usar la gráfica"}
 Utiliza los controles interactivos para explorar el futuro de la Ballena Gris:
 
 - **Menú desplegable:** selecciona un escenario predefinido (desde conservación óptima hasta presión antrópica alta).
-- **Slider α₁:** ajusta continuamente la tasa de mortalidad en las lagunas para observar la respuesta del sistema.
+- **Slider $\alpha_1$ :** ajusta continuamente la tasa de mortalidad en las lagunas para observar la respuesta del sistema.
 
-**El panel izquierdo** muestra las zonas de reproducción georreferenciadas en Baja California. El tamaño de cada burbuja refleja el tamaño poblacional proyectado a 2068. El **halo de presión** cambia de color — verde-teal (sustentable) a rojo — conforme aumenta α₁.
+**El panel izquierdo** muestra las zonas de reproducción georreferenciadas en Baja California. Cada burbuja indica el tamaño poblacional proyectado a 2068. El **halo de presión** cambia de color de verde (régimen sustentable) a rojo (régimen de extinción) conforme aumenta $\alpha_1$.
 
-**El panel derecho** muestra la serie temporal 1995–2068, con bandas de incertidumbre (IC 90 %) derivadas del ensemble estocástico (N = 200 realizaciones). La línea punteada marca el inicio de la proyección.
+**El panel derecho** muestra la serie temporal 1995–2068 de la simulación de la población de las ballenas, con bandas de incertidumbre (IC 90 %) derivadas del ensemble estocástico (N = 200 realizaciones). La línea punteada marca el inicio de la proyección.
 :::
 
 ## Row {height="600px"}
