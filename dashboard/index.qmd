@@ -710,7 +710,7 @@ def ganancia(d, var):
     return (
         f"Proyectado: {hc_fin:.3f} &nbsp;|&nbsp; "
         f"Inercial: {hi_fin:.3f} &nbsp;|&nbsp; "
-        f"Diferencia: <b>{signo}{g:.1f} %</b>"
+        f"Diferencia: {signo}{g:.1f} %"
     )
 
 
@@ -750,7 +750,7 @@ def construir_figura(variable='H'):
         mode='markers',
         marker=dict(color='rgba(0,0,0,0)', size=0),
         name='Histórico observado',
-        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Observado</extra>',
+        hovertemplate='Año: %{x}\n%{y:.3f}<extra>Observado</extra>',
     ))
 
     fig.add_trace(go.Scatter(
@@ -758,7 +758,7 @@ def construir_figura(variable='H'):
         mode='lines',
         line=dict(color=col_iner, width=2, dash='dash'),
         name='Inercial (100 % presión)',
-        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Inercial</extra>',
+        hovertemplate='Año: %{x}\n%{y:.3f}<extra>Inercial</extra>',
     ))
 
     fig.add_trace(go.Scatter(
@@ -766,7 +766,7 @@ def construir_figura(variable='H'):
         mode='lines',
         line=dict(color=col_cons, width=2.8),
         name='Escenario proyectado',
-        hovertemplate='Año: %{x}<br>%{y:.3f}<extra>Proyección</extra>',
+        hovertemplate='Año: %{x}\n%{y:.3f}<extra>Proyección</extra>',
     ))
 
     fig.add_vline(
@@ -785,7 +785,7 @@ def construir_figura(variable='H'):
         xref='paper', yref='paper',
         x=0.01, y=0.97,
         xanchor='left', yanchor='top',
-        text=f"<b>RESULTADO DEL ESCENARIO:</b><br>{ganancia(d0, variable)}",
+        text=f"RESULTADO DEL ESCENARIO: {ganancia(d0, variable)}",
         font=dict(color=C['text'], size=11, family=C['ff_body']),
         showarrow=False,
         bgcolor=C['ann_bg'],
@@ -798,12 +798,8 @@ def construir_figura(variable='H'):
         xref='paper', yref='paper',
         x=0.99, y=0.98,
         xanchor='right', yanchor='top',
-        # El span de color inline es el único mecanismo de Plotly para
-        # colorear texto dentro de un título/anotación SVG; el valor
-        # viene siempre de C, nunca hardcodeado.
-        text=f"<span style='color:{C['muted']};font-size:11px;'>"
-             "Trayectorias de posibles futuros</span>",
-        font=dict(color=C['text'], size=11, family=C['ff_body']),
+        text="Trayectorias de posibles futuros",
+        font=dict(color=C['muted'], size=11, family=C['ff_body']),
         showarrow=False,
         bgcolor=C['ann_bg'],
         bordercolor=C['border'],
@@ -837,7 +833,7 @@ def construir_figura(variable='H'):
                                 xref='paper', yref='paper',
                                 x=0.01, y=0.97,
                                 xanchor='left', yanchor='top',
-                                text=f"<b>RESULTADO DEL ESCENARIO:</b><br>"
+                                text=f"RESULTADO DEL ESCENARIO: "
                                      f"{ganancia(d, variable)}",
                                 font=dict(color=C['text'], size=11,
                                           family=C['ff_body']),
@@ -1142,8 +1138,8 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
         mode='lines',
         name='Zona de presión pesquera',
         hovertemplate=(
-            '<b>Zona de presión pesquera</b><br>'
-            f'Nivel: <b>{nivel_lbl}</b><br>'
+            f'Zona de presión pesquera\n'
+            f'Nivel: {nivel_lbl}\n'
             f'α₁ = {alpha1:.4f}'
             '<extra></extra>'
         ),
@@ -1181,9 +1177,9 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
             textfont=dict(size=10, color=C['text'], family=C['ff_body']),
             name=s['nombre'],
             hovertemplate=(
-                f"<b>{s['nombre']}</b><br>"
-                f"{s['desc']}<br>"
-                f"Estimado 2068: <b>{int(n_last):,}</b> ballenas"
+                f"{s['nombre']}\n"
+                f"{s['desc']}\n"
+                f"Estimado 2068: {int(n_last):,} ballenas"
                 '<extra></extra>'
             ),
         ), row=1, col=1)
@@ -1207,7 +1203,7 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
             mode='lines',
             line=dict(color=col_base, width=2.5),
             name=lbl,
-            hovertemplate=f'%{{x}}: <b>%{{y:.0f}}</b><extra>{lbl}</extra>',
+            hovertemplate=f'%{{x}}: %{{y:.0f}}<extra>{lbl}</extra>',
         ), row=1, col=2)
         # Banda IC proyección
         fig.add_trace(go.Scatter(
@@ -1223,7 +1219,7 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
             mode='lines',
             line=dict(color=col_base, width=2, dash='dot'),
             showlegend=False,
-            hovertemplate=f'%{{x}}: <b>%{{y:.0f}}</b> (proy.)<extra>{lbl}</extra>',
+            hovertemplate=f'%{{x}}: %{{y:.0f}} (proy.)<extra>{lbl}</extra>',
         ), row=1, col=2)
 
     # Puntos censados
@@ -1237,7 +1233,7 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
             marker=dict(size=5, color=col_base,
                         line=dict(color=C['ax'], width=0.8)),
             name=lbl_censo,
-            hovertemplate=f'%{{x}}: <b>%{{y:,}}</b> censadas<extra>{lbl_censo}</extra>',
+            hovertemplate=f'%{{x}}: %{{y:,}} censadas<extra>{lbl_censo}</extra>',
         ), row=1, col=2)
 
     # Línea de corte histórico / proyección
@@ -1274,11 +1270,9 @@ def construir_mapa_ballena(alpha1, datos, ano_corte=2030):
 
     # ── Layout global ──
     titulo_txt = (
-        f'<b>Ballena Gris — Baja California</b>'
+        f'Ballena Gris — Baja California'
         f'  |  Mortalidad en lagunas (α₁) = {alpha1:.4f}'
-        # span de color inline: único mecanismo Plotly para texto coloreado
-        # en títulos SVG; el valor de color_etq viene de C.
-        f'  |  Presión: <span style="color:{color_etq}">{nivel_lbl}</span>'
+        f'  |  Presión: {nivel_lbl}'
     )
     fig.update_layout(
         title=dict(
@@ -1384,9 +1378,9 @@ def construir_figura_ballena():
                 {'visible': vis},
                 {
                     'title.text': (
-                        f'<b>Ballena Gris — Baja California</b>'
+                        f'Ballena Gris — Baja California'
                         f'  |  α₁ = {a1:.4f}'
-                        f'  |  <span style="color:{col}">{lbl}</span>'
+                        f'  |  {lbl}'
                     ),
                     # Actualizamos el prefijo del slider en cada movimiento
                     'sliders[0].currentvalue.prefix': prefijo_dinamico
@@ -1411,9 +1405,9 @@ def construir_figura_ballena():
                 {'visible': vis},
                 {
                     'title.text': (
-                        f'<b>Ballena Gris — Baja California</b>'
+                        f'Ballena Gris — Baja California'
                         f'  |  α₁ = {a1c:.4f}'
-                        f'  |  <span style="color:{col}">{lbl}</span>'
+                        f'  |  {lbl}'
                     ),
                     'sliders[0].active': idx_c,
                 },
@@ -1827,9 +1821,9 @@ def hacer_figura(res):
         x=0.01, y=float(H_st['med'][-1]) + 0.04,
         xanchor='left', yanchor='bottom',
         text=(
-            f"H final (media últ. 10 a.): <b>{h_fin_este:.3f}</b><br>"
+            f"H final (media últ. 10 a.): {h_fin_este:.3f}\n"
             f"vs. inercial: {h_fin_iner:.3f} "
-            f"<b>({emoji_H} {abs(delta_H):.1f} %)</b>"
+            f"({emoji_H} {abs(delta_H):.1f} %)"
         ),
         showarrow=False,
         font=dict(size=10, color=TX, family='DM Sans, Arial, sans-serif'),
@@ -1845,9 +1839,9 @@ def hacer_figura(res):
         x=0.01, y=float(P_st['med'][-1]) + 0.04,
         xanchor='left', yanchor='bottom',
         text=(
-            f"P final (media últ. 10 a.): <b>{p_fin_este:.3f}</b><br>"
+            f"P final (media últ. 10 a.): {p_fin_este:.3f}\n"
             f"vs. inercial: {p_fin_iner:.3f} "
-            f"<b>({emoji_P} {abs(delta_P):.1f} %)</b>"
+            f"({emoji_P} {abs(delta_P):.1f} %)"
         ),
         showarrow=False,
         font=dict(size=10, color=TX, family='DM Sans, Arial, sans-serif'),
@@ -1876,8 +1870,8 @@ def hacer_figura(res):
     fig.update_layout(
         title=dict(
             text=(
-                f"<b style='color:{col['acento']}'>{nombre}</b><br>"
-                f"<span style='font-size:12px;color:{TX2};'>{label}</span>"
+                f"{nombre}<br>"
+                f"{label}"
             ),
             font=dict(size=16, color=TX, family='Playfair Display, Georgia, serif'),
             x=0.5, xanchor='center',
