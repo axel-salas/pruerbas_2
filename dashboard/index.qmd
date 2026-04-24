@@ -1523,27 +1523,19 @@ f — Expansión y crecimiento de flota
 ### Column {width="30%"}
 
 ::: {.card .card-modelo-desc title="Dinámica del modelo"}
-Para comprender la capacidad de resistencia del ecosistema, utilizamos un **modelo dinámico basado en Lotka-Volterra y Ricker**, adaptado a un sistema depredador-presa marino.
+Para comprender la capacidad de resistencia del ecosistema a la industria pesquera, utilizamos un modelo dinámico basado en modelos Lotka-Volterra y Ricker, adaptado a un sistema depredador-presa marino y el contexto de las costas de Baja California. El modelo captura el crecimiento (o decrecimiento) del bienestar ecológico de las costas de Baja California y el crecimiento de la industria/flota pesquera.
 
-**La dinámica**
-
-La biodiversidad disminuye conforme aumenta la presión pesquera, mientras que la flota crece de forma casi independiente. El modelo añade ruido estadístico para simular el clima y factores humanos impredecibles.
-
-**Fórmulas del modelo**
-
-$$H_{t+1} = H_t \exp\left(r \left(1 - {H_t}\right) - a P_t\right) + \varepsilon_H$$
-
-$$P_{t+1} = P_t \exp\left(f \left(1 - {P_t}\right)\right) + \varepsilon_P$$
+Entonces, la variable $H$ representa el bienestar ecológico por año y la variable $P$ el esfuerzo pesquero o crecimiento de la industria pesquera por año. Es importante entender que tanto la variable $H$ como la variable $P$ no tienen un significado concreto inmediato, son una variable creada a partir de un procesamiento de los datos recopilados (usando un PCA) que fueron presentados anteriormente en este dashboard. 
 :::
 
 ::: {.card .card-modelo-ctrl title="Controles de intervención"}
 El modelo te permite explorar **escenarios de política pesquera** ajustando tres parámetros con los sliders integrados en cada gráfico:
 
-- **Factor de presión (a):** Simula la intensidad de las cuotas de captura y la presión sobre el ecosistema.
-- **Factor crecimiento (f):** Controla los límites a la expansión de la flota pesquera.
+- **Factor de presión ($a$):** Simula la intensidad de las cuotas de captura y la presión sobre el ecosistema.
+- **Factor crecimiento ($f$):** Controla los límites a la expansión de la flota pesquera.
 - **Año de intervención:** Define el momento en que entran en vigor las políticas de regulación.
 
-Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodiversidad marina frente al escenario inercial de referencia.
+¡Observa cómo cada parámetro afecta la trayectoria de largo plazo de la biodiversidad marina frente al escenario inercial de referencia!
 :::
 
 ### Column {width="70%" .tabset}
