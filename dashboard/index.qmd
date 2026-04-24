@@ -1554,7 +1554,7 @@ La ballena gris pasa su temporada reproductiva, que es en invierno, en las lagun
 
 **Parámetro $\alpha_1$ — Mortalidad en lagunas**
 
-Este parámetro concentra la presión antrópica total en la laguna: actividad pesquera, turismo no regulado, contaminación acústica y degradación del hábitat. A diferencia del modelo anterior, este parámetro no representa la industria pesquera específicamente, es más general y representa un impacto ambiental así. A través de 
+Este parámetro concentra la presión antrópica total en la laguna: actividad pesquera, turismo no regulado, contaminación acústica y degradación del hábitat. A diferencia del modelo anterior, este parámetro no representa la industria pesquera específicamente, es más general y representa un impacto ambiental así. A través de la siguiente tabla se puede interpretar el valor de $\alpha_1$
 
 | Rango | Interpretación |
 |-------|---------------|
