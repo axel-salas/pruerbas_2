@@ -2034,7 +2034,7 @@ La flota, paradójicamente, tampoco gana: más embarcaciones persiguiendo menos 
 
 ## Row {#seccion-6}
 
-```python
+```{python}
 #| label: setup-lobos
 #| include: false
 
@@ -2174,7 +2174,7 @@ Hábitat bajo resguardo estricto desde 2000 (SEMARNAT)
 
 ### Column {width="65%"}
 
-```python
+```{python}
 #| padding: 0
 #| fill: true
 display(crear_fig_lobos_marinos(lobos_marinos))
